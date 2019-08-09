@@ -22,9 +22,6 @@ const {
 const themePath = path.join(process.cwd(), 'src/theme/theme.js')
 const componentsPath = path.join(process.cwd(), 'src/theme/components.js')
 const outputPath = path.join(process.cwd(), 'src/theme/theme.css')
-// const internalStylesPath = path.join(process.cwd(), 'src/react-ui/styles.js')
-//
-// const internalStyles = require(internalStylesPath)
 
 function run() {
   let theme = {}
@@ -65,13 +62,10 @@ function run() {
 
   /** Components */
 
-  const componentNames = uniq([
-    ...Object.keys(theme.components)
-    // ...Object.keys(internalStyles)
-  ])
+  const componentNames = Object.keys(theme.components)
 
   componentNames.forEach(function(name) {
-    const className = '.av-' + kebabCase(name)
+    const className = '.' + name //'.av-' + kebabCase(name)
     const stylesArray = flattenNestedStyles(
       // system.merge(
       // internalStyles[name], // in-built styles

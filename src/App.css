@@ -1,6 +1,6 @@
-.av-danger-zone h4 {
+.DangerZone .Heading {
   margin-bottom: var(--space-3);
 }
-.av-danger-zone p {
+.DangerZone .Paragraph {
   margin-bottom: var(--space-2);
 }

@@ -22,7 +22,7 @@
 --fontSizes-7: 64px; 
 --fontSizes-8: 72px; 
  } 
-.av-button { 
+.Button { 
   background-color: #f6f791;
     border-color: #92b73a;
     color: #821919;
@@ -33,44 +33,44 @@
     padding-bottom: 4px;
     z-index: 1px; 
  } 
-.av-button:hover { 
+.Button:hover { 
   background-color: #92b73a; 
  } 
-.av-button-group { 
+.ButtonGroup { 
   display: flex; 
  } 
-.av-button-group > button:focus { 
+.ButtonGroup > button:focus { 
   position: relative;
     z-index: 2px; 
  } 
-.av-button-group > button:first-of-type { 
+.ButtonGroup > button:first-of-type { 
   border-top-right-radius: 0;
     border-bottom-right-radius: 0; 
  } 
-.av-button-group > button:not(:first-of-type):not(:last-of-type) { 
+.ButtonGroup > button:not(:first-of-type):not(:last-of-type) { 
   border-radius: 0;
     border-left-width: 0; 
  } 
-.av-button-group > button:last-of-type { 
+.ButtonGroup > button:last-of-type { 
   border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-left-width: 0; 
  } 
-.av-danger-zone { 
+.DangerZone { 
   background-color: pink;
     padding: 8px; 
  } 
-.av-form { 
+.Form { 
    
  } 
-.av-form.inline input { 
+.Form.inline input { 
   width: 80px; 
  } 
-.av-heading { 
+.Heading { 
   color: #821919;
     margin: 0; 
  } 
-.av-input { 
+.Input { 
   border-width: 1px;
     border-radius: 2px;
     border: 1px solid;
@@ -81,29 +81,29 @@
     padding-top: 4px;
     padding-bottom: 4px; 
  } 
-.av-input:focus { 
+.Input:focus { 
   border-color: #92b73a; 
  } 
-.av-input-group { 
+.InputGroup { 
   display: flex; 
  } 
-.av-input-group > *:focus { 
+.InputGroup > *:focus { 
   position: relative;
     z-index: 2px; 
  } 
-.av-input-group > *:first-child { 
+.InputGroup > *:first-child { 
   border-top-right-radius: 0;
     border-bottom-right-radius: 0; 
  } 
-.av-input-group > *:not(:first-child):not(:last-child) { 
+.InputGroup > *:not(:first-child):not(:last-child) { 
   border-radius: 0;
     border-left-width: 0; 
  } 
-.av-input-group > *:last-child { 
+.InputGroup > *:last-child { 
   border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-left-width: 0; 
  } 
-.av-paragraph { 
+.Paragraph { 
   margin: 0; 
  } 

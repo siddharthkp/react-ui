@@ -54,7 +54,7 @@ const theme = {
       '#197741',
       '#145239'
     ],
-    avocado: ['#E3FCEC', '#f6f791', '#92b73a'],
+    avocado: ['#E3FCEC', '#f6f791', '#92b73a', '#821919'],
     grays: [
       '#f5faff',
       '#E1E7EC',

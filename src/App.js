@@ -19,7 +19,7 @@ import './App.css'
 
 function App() {
   return (
-    <div className="av-App">
+    <div className="App">
       <span role="img" aria-label="avocado">
         🥑
       </span>
@@ -62,36 +62,34 @@ function App() {
         🥑
       </span>
       <br />
-      <button className="av-button">Clickity</button>
+      <button className="Button">Clickity</button>
       <br />
       <br />
-      <div className="av-button-group">
-        <button className="av-button">Clickity</button>
-        <button className="av-button">Clickity</button>
-        <button className="av-button">Clickity</button>
+      <div className="ButtonGroup">
+        <button className="Button">Clickity</button>
+        <button className="Button">Clickity</button>
+        <button className="Button">Clickity</button>
       </div>
       <br />
-      <section className="av-danger-zone">
-        <h4 className="av-heading">Delete This Repo?</h4>
-        <p className="av-paragraph">
-          Are you sure you want to delete this repo?
-        </p>
-        <div className="av-input-group">
-          <input type="text" className="av-input" placeholder="Enter name" />
-          <button className="av-button">Clickity</button>
+      <section className="DangerZone">
+        <h4 className="Heading">Delete This Repo?</h4>
+        <p className="Paragraph">Are you sure you want to delete this repo?</p>
+        <div className="InputGroup">
+          <input type="text" className="Input" placeholder="Enter name" />
+          <button className="Button">Clickity</button>
         </div>
       </section>
       <br />
 
-      <form className="av-form inline">
-        <div className="av-input-group">
+      <form className="Form inline">
+        <div className="InputGroup">
           <input
             css={{ width: '80px' }}
-            className="av-input"
+            className="Input"
             placeholder="username"
           />
-          <input className="av-input" placeholder="password" />
-          <button className="av-button">Submit</button>
+          <input className="Input" placeholder="password" />
+          <button className="Button">Submit</button>
         </div>
       </form>
     </div>

@@ -2,7 +2,7 @@ const components = {
   Button: {
     backgroundColor: 'avocado.1',
     borderColor: 'avocado.2',
-    color: 'reds.7',
+    color: 'avocado.3',
     borderRadius: 1,
     paddingX: 2,
     paddingY: 1,
@@ -25,7 +25,7 @@ const components = {
   },
 
   Heading: {
-    color: 'reds.7'
+    color: 'avocado.3'
   },
 
   Input: {

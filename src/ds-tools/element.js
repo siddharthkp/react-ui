@@ -18,6 +18,9 @@ function Element({ css: styles, internalStyles, component, theme, ...props }) {
     styles || {} // prop styles
   )
 
+  // Better classNames for debugging
+  merged.label = component
+
   return <BaseElement css={css(merged)} {...props} />
 }
 
