@@ -1,0 +1,109 @@
+:root { 
+ --radii-0: 0px; 
+--radii-1: 2px; 
+--radii-2: 5px; 
+--radii-3: 10px; 
+--space-0: 0px; 
+--space-1: 4px; 
+--space-2: 8px; 
+--space-3: 16px; 
+--space-4: 32px; 
+--space-5: 64px; 
+--space-6: 128px; 
+--space-7: 256px; 
+--space-8: 512px; 
+--fontSizes-0: 12px; 
+--fontSizes-1: 14px; 
+--fontSizes-2: 16px; 
+--fontSizes-3: 20px; 
+--fontSizes-4: 24px; 
+--fontSizes-5: 32px; 
+--fontSizes-6: 48px; 
+--fontSizes-7: 64px; 
+--fontSizes-8: 72px; 
+ } 
+.av-button { 
+  background-color: #f6f791;
+    border-color: #92b73a;
+    color: #821919;
+    border-radius: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    z-index: 1px; 
+ } 
+.av-button:hover { 
+  background-color: #92b73a; 
+ } 
+.av-button-group { 
+  display: flex; 
+ } 
+.av-button-group > button:focus { 
+  position: relative;
+    z-index: 2px; 
+ } 
+.av-button-group > button:first-of-type { 
+  border-top-right-radius: 0;
+    border-bottom-right-radius: 0; 
+ } 
+.av-button-group > button:not(:first-of-type):not(:last-of-type) { 
+  border-radius: 0;
+    border-left-width: 0; 
+ } 
+.av-button-group > button:last-of-type { 
+  border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left-width: 0; 
+ } 
+.av-danger-zone { 
+  background-color: pink;
+    padding: 8px; 
+ } 
+.av-form { 
+   
+ } 
+.av-form.inline input { 
+  width: 80px; 
+ } 
+.av-heading { 
+  color: #821919;
+    margin: 0; 
+ } 
+.av-input { 
+  border-width: 1px;
+    border-radius: 2px;
+    border: 1px solid;
+    border-color: #92b73a;
+    shadow: none;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px; 
+ } 
+.av-input:focus { 
+  border-color: #92b73a; 
+ } 
+.av-input-group { 
+  display: flex; 
+ } 
+.av-input-group > *:focus { 
+  position: relative;
+    z-index: 2px; 
+ } 
+.av-input-group > *:first-child { 
+  border-top-right-radius: 0;
+    border-bottom-right-radius: 0; 
+ } 
+.av-input-group > *:not(:first-child):not(:last-child) { 
+  border-radius: 0;
+    border-left-width: 0; 
+ } 
+.av-input-group > *:last-child { 
+  border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left-width: 0; 
+ } 
+.av-paragraph { 
+  margin: 0; 
+ } 
