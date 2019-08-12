@@ -1,7 +1,6 @@
-const base = require('react-ui/theme')
-const { merge } = require('react-ui/helpers')
-
-const components = require('./components')
+import { merge } from 'react-ui/helpers'
+import base from 'react-ui/theme'
+import components from './components'
 
 const theme = {
   components,
@@ -69,5 +68,4 @@ const theme = {
   }
 }
 
-module.exports = merge(theme, base)
-// export default theme
+export default merge(theme, base)

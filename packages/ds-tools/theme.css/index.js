@@ -15,10 +15,9 @@ const {
   objectToCss
 } = require('./cli-utils')
 
-// require('@babel/register')({
-//   ignore: /node_modules/,
-//   presets: [['@babel/es2015', { modules: false }], '@babel/react']
-// })
+require('@babel/register')({
+  presets: ['@babel/preset-env']
+})
 
 const themePath = path.join(process.cwd(), 'src/theme/theme.js')
 const componentsPath = path.join(process.cwd(), 'src/theme/components.js')
@@ -32,6 +31,9 @@ function run() {
     console.log(error)
     return
   }
+
+  // interop nonsense
+  if (theme.default) theme = theme.default
 
   let styleSheet = ``
 

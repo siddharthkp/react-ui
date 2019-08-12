@@ -44,5 +44,4 @@ const components = {
   InputGroup: {}
 }
 
-// export default components
-module.exports = components
+export default components

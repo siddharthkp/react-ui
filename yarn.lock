@@ -834,6 +834,18 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-transform-typescript" "^7.3.2"
 
+"@babel/register@^7.5.5":
+  version "7.5.5"
+  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.5.5.tgz#40fe0d474c8c8587b28d6ae18a03eddad3dac3c1"
+  integrity sha512-pdd5nNR+g2qDkXZlW1yRCWFlNrAn2PPdnZUB72zjX4l1Vv4fMRRLwyf+n/idFCLI1UgVGboUU8oVziwTBiyNKQ==
+  dependencies:
+    core-js "^3.0.0"
+    find-cache-dir "^2.0.0"
+    lodash "^4.17.13"
+    mkdirp "^0.5.1"
+    pirates "^4.0.0"
+    source-map-support "^0.5.9"
+
 "@babel/runtime@7.5.5", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.3", "@babel/runtime@^7.4.5":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.5.5.tgz#74fba56d35efbeca444091c7850ccd494fd2f132"
@@ -3053,6 +3065,11 @@ core-js@^2.4.0:
   version "2.6.5"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
   integrity sha512-klh/kDpwX8hryYL14M9w/xei6vrv6sE8gTHDG7/T/+SEovB/G4ejwcfE/CBzO6Edsu+OETZMZ3wcX/EjUkrl5A==
+
+core-js@^3.0.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.2.0.tgz#0a835fdf6aa677fff83a823a7b5276c9e7cebb76"
+  integrity sha512-gybgLzmr7SQRSF6UzGYXducx4eE10ONQlyEnQoqiGPbmbn7zLkb73tPfc4YbZN0lvcTQwoLNPjq4RuCaCumGyQ==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -7450,7 +7467,7 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-pirates@^4.0.1:
+pirates@^4.0.0, pirates@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.1.tgz#643a92caf894566f91b2b986d2c66950a8e2fb87"
   integrity sha512-WuNqLTbMI3tmfef2TKxlQmAiLHKtFhlsCZnPIpuv2Ow0RDVO8lfy1Opf4NUzlMXLjPl+Men7AuVdX6TA+s+uGA==
@@ -9306,7 +9323,7 @@ source-map-support@^0.5.6:
     buffer-from "^1.0.0"
     source-map "^0.6.0"
 
-source-map-support@~0.5.12:
+source-map-support@^0.5.9, source-map-support@~0.5.12:
   version "0.5.13"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.13.tgz#31b24a9c2e73c2de85066c0feb7d44767ed52932"
   integrity sha512-SHSKFHadjVA5oR4PPqhtAVdcBWwRYVd6g6cAXnIbRiIwc2EhPrTuKUBdSLvlEKyIP3GCf89fltvcZiP9MMFA1w==

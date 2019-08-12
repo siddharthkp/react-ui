@@ -8,6 +8,7 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
+    "@babel/register": "^7.5.5",
     "@styled-system/core": "^5.0.21",
     "@styled-system/css": "^5.0.22",
     "caller-path": "^2.0.0",
