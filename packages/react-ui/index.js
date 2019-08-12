@@ -1,5 +1,4 @@
-import React from 'react'
-import { Element as BaseElement, ThemeProvider } from '@ds-tools/primitives'
+import { ThemeProvider } from '@ds-tools/primitives'
 import { create } from './helpers'
 
 export const Element = create('button', 'Element')

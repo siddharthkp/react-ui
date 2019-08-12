@@ -9,9 +9,3 @@ export const Text = () => (
     <Button>Hello</Button>
   </Example>
 )
-
-export const Emoji = () => (
-  <Example>
-    <Button>😀😎👍💯</Button>
-  </Example>
-)
