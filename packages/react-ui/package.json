@@ -1,15 +1,21 @@
 {
   "name": "react-ui",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "storybook": "storybook start",
+    "build-storybook": "storybook start build"
+  },
   "keywords": [],
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
     "@ds-tools/primitives": "0.0.1",
     "deepmerge": "4.0.0"
+  },
+  "devDependencies": {
+    "@ds-tools/storybook": "0.0.1"
   },
   "peerDependencies": {
     "react": "^16.8.6"

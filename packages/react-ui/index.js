@@ -1,24 +1,14 @@
 import React from 'react'
 import { Element as BaseElement, ThemeProvider } from '@ds-tools/primitives'
-
-function create(element, Name) {
-  const Component = function(props) {
-    return React.createElement(BaseElement, {
-      as: element,
-      component: Name,
-      ...props
-    })
-  }
-  Component.displayName = Name
-  return Component
-}
+import { create } from './helpers'
+import Button from './components/button'
 
 export const Element = create('button', 'Element')
-export const Button = create('button', 'Button')
 export const ButtonGroup = create('div', 'ButtonGroup')
 export const Form = create('form', 'Form')
 export const Heading = create('h1', 'Heading')
 export const Input = create('input', 'Input')
 export const InputGroup = create('div', 'InputGroup')
 export const Paragraph = create('p', 'Paragraph')
-export { ThemeProvider }
+
+export { Button, ThemeProvider }
