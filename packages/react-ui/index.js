@@ -1,5 +1,5 @@
 import React from 'react'
-import { Element as BaseElement, ThemeProvider } from '@ds-tools/components'
+import { Element as BaseElement, ThemeProvider } from '@ds-tools/primitives'
 
 function create(element, Name) {
   const Component = function(props) {

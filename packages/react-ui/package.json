@@ -8,7 +8,7 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "@ds-tools/components": "0.0.1",
+    "@ds-tools/primitives": "0.0.1",
     "deepmerge": "4.0.0"
   },
   "peerDependencies": {
