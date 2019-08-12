@@ -6,7 +6,6 @@ import { merge } from '@styled-system/core'
 
 const BaseElement = styled('div')()
 
-/** @jsx jsx */
 function Element({ css: styles, internalStyles, component, theme, ...props }) {
   theme.components = theme.components || {}
 
@@ -21,7 +20,8 @@ function Element({ css: styles, internalStyles, component, theme, ...props }) {
   // Better classNames for debugging
   merged.label = component
 
-  return <BaseElement css={css(merged)} {...props} />
+  // instead of React.createElement
+  return jsx(BaseElement, { css: css(merged), ...props })
 }
 
 export default withTheme(Element)

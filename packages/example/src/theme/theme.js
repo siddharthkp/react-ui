@@ -1,5 +1,5 @@
-const base = require('../react-ui/theme')
-const { merge } = require('../react-ui/helpers')
+const base = require('react-ui/theme')
+const { merge } = require('react-ui/helpers')
 
 const components = require('./components')
 

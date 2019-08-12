@@ -1,0 +1,17 @@
+{
+  "name": "react-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "siddharthkp",
+  "license": "MIT",
+  "dependencies": {
+    "ds-tools": "0.0.1",
+    "deepmerge": "4.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
+  }
+}

@@ -1,9 +1,13 @@
 import React from 'react'
-import { Element as BaseElement, ThemeProvider } from '../ds-tools'
+import { Element as BaseElement, ThemeProvider } from 'ds-tools'
 
 function create(element, Name) {
   const Component = function(props) {
-    return <BaseElement as={element} component={Name} {...props} />
+    return React.createElement(BaseElement, {
+      as: element,
+      component: Name,
+      ...props
+    })
   }
   Component.displayName = Name
   return Component
