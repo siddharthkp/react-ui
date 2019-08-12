@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs')
 const path = require('path')
+const prettier = require('prettier')
 const chokidar = require('chokidar')
 const kebabCase = require('lodash/kebabCase')
 const uniq = require('lodash/uniq')
@@ -82,7 +83,7 @@ function run() {
     })
   })
 
-  fs.writeFileSync(outputPath, styleSheet, 'utf8')
+  fs.writeFileSync(outputPath, prettier.format(styleSheet, { parser: 'css' }))
 }
 
 if (argv.w)

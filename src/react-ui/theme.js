@@ -32,7 +32,7 @@ const theme = {
         position: 'relative',
         zIndex: 2
       },
-      '& > *:first-child': {
+      '& > :first-child': {
         borderTopRightRadius: 0,
         borderBottomRightRadius: 0
       },
