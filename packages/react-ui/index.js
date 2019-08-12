@@ -1,7 +1,6 @@
 import React from 'react'
 import { Element as BaseElement, ThemeProvider } from '@ds-tools/primitives'
 import { create } from './helpers'
-import Button from './components/button'
 
 export const Element = create('button', 'Element')
 export const ButtonGroup = create('div', 'ButtonGroup')
@@ -11,4 +10,6 @@ export const Input = create('input', 'Input')
 export const InputGroup = create('div', 'InputGroup')
 export const Paragraph = create('p', 'Paragraph')
 
-export { Button, ThemeProvider }
+export * from './src/button'
+
+export { ThemeProvider }

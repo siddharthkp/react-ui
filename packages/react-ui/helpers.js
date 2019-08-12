@@ -17,7 +17,10 @@ function create(element, Name) {
 }
 
 function Example(props) {
-  return <ThemeProvider theme={theme} {...props} />
+  return React.createElement(ThemeProvider, {
+    theme: theme,
+    ...props
+  })
 }
 
 export { create, Example, merge }

@@ -7,4 +7,4 @@ Button.propTypes = {}
 
 Button.defaultProps = {}
 
-export default Button
+export { Button }
