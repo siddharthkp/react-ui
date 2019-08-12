@@ -13,7 +13,7 @@ import {
 } from 'react-ui'
 
 import theme from './theme/theme.js'
-// import './theme/theme.css'
+import './theme/theme.css'
 
 import './App.css'
 

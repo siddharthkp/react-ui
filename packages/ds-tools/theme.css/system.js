@@ -1,4 +1,4 @@
-const uniq = require('lodash/uniq')
+const uniq = require('lodash.uniq')
 const styledSystem = require('styled-system')
 const { css } = require('@styled-system/css')
 const { merge } = require('@styled-system/core')

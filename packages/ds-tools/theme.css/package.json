@@ -1,0 +1,22 @@
+{
+  "name": "@ds-tools/theme.css",
+  "version": "0.0.1",
+  "description": "",
+  "bin": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "siddharthkp",
+  "license": "MIT",
+  "dependencies": {
+    "@styled-system/core": "^5.0.21",
+    "@styled-system/css": "^5.0.22",
+    "caller-path": "^2.0.0",
+    "chokidar": "^3.0.2",
+    "lodash.kebabcase": "^4.1.1",
+    "lodash.uniq": "^4.5.0",
+    "prettier": "^1.18.2",
+    "resolve-from": "^5.0.0",
+    "styled-system": "^5.0.21",
+    "yargs-parser": "^13.1.1"
+  }
+}

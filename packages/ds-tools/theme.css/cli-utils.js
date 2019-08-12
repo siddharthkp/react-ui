@@ -1,4 +1,4 @@
-const kebabCase = require('lodash/kebabCase')
+const kebabCase = require('lodash.kebabcase')
 
 function flattenNestedStyles(styles, className) {
   const stylesArray = []
