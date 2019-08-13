@@ -9,6 +9,6 @@ export const Input = create('input', 'Input')
 export const InputGroup = create('div', 'InputGroup')
 export const Paragraph = create('p', 'Paragraph')
 
-export * from './src/button'
+export * from './components/button'
 
 export { ThemeProvider }

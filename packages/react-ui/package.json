@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "storybook": "storybook start",
+    "docs": "gatsby develop",
+    "storybook": "storybook start -p 6006",
+    "--------": "-------",
+    "docs-build": "gatsby build",
     "build-storybook": "storybook start build"
   },
   "keywords": [],
@@ -15,7 +18,13 @@
     "deepmerge": "4.0.0"
   },
   "devDependencies": {
-    "@ds-tools/storybook": "0.0.1"
+    "@ds-tools/storybook": "0.0.1",
+    "@mdx-js/mdx": "^1.2.2",
+    "@mdx-js/react": "^1.2.2",
+    "gatsby": "^2.13.58",
+    "gatsby-plugin-mdx": "^1.0.23",
+    "gatsby-source-filesystem": "^2.1.9",
+    "gatsby-transformer-remark": "^2.6.13"
   },
   "peerDependencies": {
     "react": "^16.8.6"
