@@ -1,8 +1,8 @@
 {
   "name": "gatsby-theme-dsx",
   "version": "0.0.1",
-  "description": "",
   "main": "index.js",
+  "description": "",
   "scripts": {},
   "keywords": [],
   "author": "siddharthkp",

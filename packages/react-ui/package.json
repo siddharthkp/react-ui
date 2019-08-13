@@ -24,7 +24,8 @@
     "gatsby": "^2.13.58",
     "gatsby-plugin-mdx": "^1.0.23",
     "gatsby-source-filesystem": "^2.1.9",
-    "gatsby-transformer-remark": "^2.6.13"
+    "gatsby-transformer-remark": "^2.6.13",
+    "gatsby-theme-dsx": "0.0.1"
   },
   "peerDependencies": {
     "react": "^16.8.6"

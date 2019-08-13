@@ -4,5 +4,5 @@
 
 next steps
 
-- move dsx to gatsby theme
-- add to react-ui the lib
+- create default home page for gatsby-theme by sourcing
+  a page from within the theme

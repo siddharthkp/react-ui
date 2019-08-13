@@ -16,6 +16,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
+
   const result = await graphql(`
     {
       allMdx {
@@ -23,6 +24,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           node {
             fields {
               slug
+            }
+            frontmatter {
+              home
             }
           }
         }
@@ -39,10 +43,39 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/page.js`),
-      context: {
-        slug: node.fields.slug
-      }
+      component: require.resolve(`./src/templates/page.js`),
+      context: { slug: node.fields.slug }
     })
+  })
+
+  /** default pages */
+
+  /** configure the home page */
+  const homePages = result.data.allMdx.edges.filter(({ node }) => {
+    return node.frontmatter.home
+  })
+
+  let homePage
+  if (homePages.length === 1) {
+    homePage = homePages[0]
+  } else {
+    homePage = homePages.find(
+      page => page.node.fields.slug !== '/home-fallback/'
+    )
+  }
+
+  createPage({
+    path: '/',
+    component: require.resolve(`./src/templates/page.js`),
+    context: { slug: homePage.node.fields.slug }
+  })
+
+  createPage({
+    path: '/404',
+    component: require.resolve(`./src/pages/404`)
+  })
+  createPage({
+    path: '/my-files',
+    component: require.resolve(`./src/pages/my-files`)
   })
 }
