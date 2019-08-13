@@ -1,3 +1,3 @@
 module.exports = {
-  plugins: [`gatsby-theme-dsx`]
+  plugins: ['@ds-tools/gatsby-theme-docs']
 }

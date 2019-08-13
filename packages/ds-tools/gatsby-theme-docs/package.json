@@ -1,0 +1,22 @@
+{
+  "name": "@ds-tools/gatsby-theme-docs",
+  "version": "0.0.1",
+  "main": "index.js",
+  "description": "",
+  "scripts": {},
+  "keywords": [],
+  "author": "siddharthkp",
+  "license": "MIT",
+  "dependencies": {
+    "@mdx-js/mdx": "^1.2.2",
+    "@mdx-js/react": "^1.2.2",
+    "gatsby-plugin-mdx": "^1.0.23",
+    "gatsby-source-filesystem": "^2.1.9",
+    "gatsby-transformer-remark": "^2.6.13"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.13.58",
+    "react": "^16.8.9",
+    "react-dom": "^16.8.9"
+  }
+}

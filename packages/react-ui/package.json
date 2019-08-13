@@ -19,13 +19,8 @@
   },
   "devDependencies": {
     "@ds-tools/storybook": "0.0.1",
-    "@mdx-js/mdx": "^1.2.2",
-    "@mdx-js/react": "^1.2.2",
-    "gatsby": "^2.13.58",
-    "gatsby-plugin-mdx": "^1.0.23",
-    "gatsby-source-filesystem": "^2.1.9",
-    "gatsby-transformer-remark": "^2.6.13",
-    "gatsby-theme-dsx": "0.0.1"
+    "@ds-tools/gatsby-theme-docs": "0.0.1",
+    "gatsby": "^2.13.58"
   },
   "peerDependencies": {
     "react": "^16.8.6"
