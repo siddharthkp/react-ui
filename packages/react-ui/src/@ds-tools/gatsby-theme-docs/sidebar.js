@@ -5,6 +5,6 @@ export default [
   },
   {
     title: 'Components',
-    slugs: ['/components/button/button/']
+    slugs: ['/components/button/button/', '/components/input/input/']
   }
 ]

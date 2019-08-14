@@ -1,5 +1,6 @@
 import React from 'react'
 import Navigation from '../components/navigation'
+import { Element } from 'react-ui'
 
 export default ({
   Layout,
@@ -11,13 +12,11 @@ export default ({
   ...props
 }) => (
   <Layout>
-    <Header css={{ fontFamily: 'monospace', letterSpacing: 4 }}>DOCS</Header>
     <Main>
-      <Sidebar>
+      <Element as={Sidebar} component="Sidebar">
         <Navigation />
-      </Sidebar>
+      </Element>
       <Content>{props.children}</Content>
     </Main>
-    <Footer>fin</Footer>
   </Layout>
 )

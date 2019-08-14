@@ -1,5 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
+import { Element } from 'react-ui'
 
 import sidebar from '../sidebar'
 
@@ -26,16 +27,18 @@ function Navigation() {
 
         return (
           <div key={index}>
-            {category}
-            <ul>
+            <Element as="h4" component="CategoryHeader">
+              {category}
+            </Element>
+            <Element as="ul" component="List">
               {slugs.map((slug, index) => {
                 const post = posts.find(post => post.slug === slug)
 
                 if (post) {
                   return (
-                    <li key={index}>
+                    <Element as="li" component="ListItem">
                       <Link to={post.slug}>{post.title}</Link>
-                    </li>
+                    </Element>
                   )
                 } else {
                   console.log(
@@ -47,7 +50,7 @@ function Navigation() {
                   return <li key={index}>Missing {slug}</li>
                 }
               })}
-            </ul>
+            </Element>
           </div>
         )
       })}

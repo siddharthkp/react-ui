@@ -17,10 +17,14 @@ function create(element, Name) {
 }
 
 function Example(props) {
-  return React.createElement(ThemeProvider, {
-    theme: theme,
-    ...props
-  })
+  return React.createElement(
+    ThemeProvider,
+    {
+      theme: theme,
+      ...props
+    },
+    React.createElement('div', { className: 'example' }, props.children)
+  )
 }
 
 export { create, Example, merge }

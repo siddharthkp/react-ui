@@ -1,8 +1,10 @@
 const theme = {
   components: {
     Button: {
-      zIndex: 1
+      zIndex: 1,
+      fontSize: 2
     },
+
     ButtonGroup: {
       display: 'flex',
       '& > button:focus': {
@@ -25,6 +27,9 @@ const theme = {
     },
     Heading: {
       margin: 0
+    },
+    Input: {
+      fontSize: 2
     },
     InputGroup: {
       display: 'flex',
