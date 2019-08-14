@@ -3,6 +3,8 @@ module.exports = {
     title: `Documentation`
   },
   plugins: [
+    'gatsby-theme-sidebar',
+    'gatsby-plugin-theme-ui',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -27,7 +29,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.mdx`, `.md`]
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
+          'gatsby-remark-autolink-headers'
+        ]
       }
     }
   ]

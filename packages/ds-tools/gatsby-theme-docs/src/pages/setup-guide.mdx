@@ -1,0 +1,36 @@
+---
+title: Setup guide
+home: true
+---
+
+Create your first mdx page and tag it add `home: true` in the frontmatter for the first page you'd like to render
+
+Example:
+
+```md
+---
+title: Getting started
+home: true
+---
+```
+
+To customise the sidebar, create a file at this path in your repository:
+
+```md
+src/gatsby-theme-docs/sidebar.js
+```
+
+with the categories and slugs for the sidebar
+
+```js
+export default [
+  {
+    title: 'Guides',
+    slugs: ['/guides/getting-started', '/guides/next-steps']
+  },
+  {
+    title: 'Components',
+    slugs: ['components/alert', '/components/button']
+  }
+]
+```

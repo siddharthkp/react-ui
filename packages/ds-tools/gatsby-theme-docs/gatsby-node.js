@@ -59,9 +59,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (homePages.length === 1) {
     homePage = homePages[0]
   } else {
-    homePage = homePages.find(
-      page => page.node.fields.slug !== '/home-fallback/'
-    )
+    homePage = homePages.find(page => page.node.fields.slug !== '/setup-guide/')
   }
 
   createPage({
