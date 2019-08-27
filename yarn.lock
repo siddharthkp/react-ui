@@ -4103,6 +4103,11 @@ caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000980, caniuse-lite@^1.0.300009
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000989.tgz#b9193e293ccf7e4426c5245134b8f2a56c0ac4b9"
   integrity sha512-vrMcvSuMz16YY6GSVZ0dWDTJP8jqk3iFQ/Aq5iqblPwxSVVZI+zxDyTX0VPqtQsDnfdrBDcsmhgTEOh5R8Lbpw==
 
+capitalize@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/capitalize/-/capitalize-2.0.0.tgz#61859dd952aba244f03541b23e11470ada097f4b"
+  integrity sha512-HwGrAbSn44Tm5Nz+m02oQHf+9y771rmb/cTbXFcoADy29LFRCj4PhWBT54qxfY2HJBWBplwx17Pd4ek6OFbr/Q==
+
 capture-exit@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/capture-exit/-/capture-exit-2.0.0.tgz#fb953bfaebeb781f62898239dabb426d08a509a4"
@@ -4355,7 +4360,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -10281,6 +10286,11 @@ lodash.foreach@^4.3.0, lodash.foreach@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.foreach/-/lodash.foreach-4.5.0.tgz#1a6a35eace401280c7f06dddec35165ab27e3e53"
   integrity sha1-Gmo16s5AEoDH8G3d7DUWWrJ+PlM=
 
+lodash.get@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+  integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
+
 lodash.isplainobject@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
@@ -10295,6 +10305,11 @@ lodash.kebabcase@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.kebabcase/-/lodash.kebabcase-4.1.1.tgz#8489b1cb0d29ff88195cceca448ff6d6cc295c36"
   integrity sha1-hImxyw0p/4gZXM7KRI/21swpXDY=
+
+lodash.keyby@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.keyby/-/lodash.keyby-4.6.0.tgz#7f6a1abda93fd24e22728a4d361ed8bcba5a4354"
+  integrity sha1-f2oavak/0k4icopNNh7YvLpaQ1Q=
 
 lodash.map@^4.4.0, lodash.map@^4.6.0:
   version "4.6.0"
@@ -13343,6 +13358,16 @@ react-docgen-displayname-handler@^2.1.1:
   dependencies:
     ast-types "0.11.5"
 
+react-docgen-props-table@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-docgen-props-table/-/react-docgen-props-table-1.0.3.tgz#ceab0c190fccc73717dad6fc0c08b6544d89818e"
+  integrity sha512-R6HGBaZL4KafHtyuCOtAaPvplx4NR+lxpxRDA+F3GcF+7IYo3wQkosRLpqXGCgZ1PBHOTBxLHBieQD283TOMhA==
+  dependencies:
+    capitalize "^2.0.0"
+    classnames "^2.2.6"
+    lodash.get "^4.4.2"
+    react-tooltip "^3.10.0"
+
 react-docgen@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/react-docgen/-/react-docgen-4.1.1.tgz#8fef0212dbf14733e09edecef1de6b224d87219e"
@@ -13610,6 +13635,14 @@ react-textarea-autosize@^7.1.0:
   integrity sha512-c2FlR/fP0qbxmlrW96SdrbgP/v0XZMTupqB90zybvmDVDutytUgPl7beU35klwcTeMepUIQEpQUn3P3bdshGPg==
   dependencies:
     "@babel/runtime" "^7.1.2"
+    prop-types "^15.6.0"
+
+react-tooltip@^3.10.0:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-3.10.0.tgz#268b5ef519fd8a1369288d1f086f42c90d5da7ef"
+  integrity sha512-GGdxJvM1zSFztkTP7gCQbLTstWr1OOoMpJ5WZUGhimj0nhRY+MPz+92MpEnKmj0cftJ9Pd/M6FfSl0sfzmZWkg==
+  dependencies:
+    classnames "^2.2.5"
     prop-types "^15.6.0"
 
 react-transition-group@^2.2.1:

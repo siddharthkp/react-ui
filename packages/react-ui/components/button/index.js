@@ -13,7 +13,7 @@ function Button(props) {
 
 Button.propTypes = {
   /** Description of an button prop */
-  type: PropTypes.string
+  type: PropTypes.oneOf(['submit', 'button', 'reset'])
 }
 
 Button.defaultProps = {

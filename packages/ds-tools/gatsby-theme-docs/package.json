@@ -20,7 +20,9 @@
     "gatsby-theme-sidebar": "^0.0.2",
     "gatsby-transformer-react-docgen": "^5.0.5",
     "gatsby-transformer-remark": "^2.6.14",
+    "lodash.keyby": "^4.6.0",
     "lodash.uniq": "^4.5.0",
+    "react-docgen-props-table": "^1.0.3",
     "theme-ui": "^0.2.33"
   },
   "peerDependencies": {
