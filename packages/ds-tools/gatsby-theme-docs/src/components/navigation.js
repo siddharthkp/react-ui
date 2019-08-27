@@ -36,7 +36,7 @@ function Navigation() {
 
                 if (post) {
                   return (
-                    <Element as="li" component="ListItem">
+                    <Element key={index} as="li" component="ListItem">
                       <Link to={post.slug}>{post.title}</Link>
                     </Element>
                   )

@@ -10,7 +10,7 @@ module.exports = {
       options: {
         name: `src`,
         path: `./`,
-        extensions: [`.mdx`, `.md`],
+        extensions: [`.mdx`, `.md`, '.js', '.jsx'],
         ignore: [
           `**/public/**/*`,
           `**/.cache/**/*`,
@@ -19,13 +19,14 @@ module.exports = {
         ]
       }
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `src`,
-        path: `${__dirname}/src/pages`
-      }
-    },
+    'gatsby-transformer-react-docgen',
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `pages`,
+    //     path: `${__dirname}/src/pages`
+    //   }
+    // },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {

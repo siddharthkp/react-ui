@@ -18,6 +18,7 @@
     "gatsby-remark-smartypants": "^2.1.2",
     "gatsby-source-filesystem": "^2.1.9",
     "gatsby-theme-sidebar": "^0.0.2",
+    "gatsby-transformer-react-docgen": "^5.0.5",
     "gatsby-transformer-remark": "^2.6.14",
     "lodash.uniq": "^4.5.0",
     "theme-ui": "^0.2.33"

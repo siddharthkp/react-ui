@@ -5,11 +5,12 @@ export default ({ data }) => {
   return (
     <div>
       <h1>My Site's Files</h1>
+
       <h4>{data.allMdx.totalCount} Posts</h4>
       {data.allMdx.edges.map(({ node }) => (
         <div key={node.id}>
           <Link to={node.fields.slug}>
-            <h3>{node.frontmatter.title}</h3>
+            <h3>{node.frontmatter.title || 'unknown'}</h3>
           </Link>
           <p>{node.excerpt}</p>
         </div>
