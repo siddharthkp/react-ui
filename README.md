@@ -4,4 +4,4 @@
 
 next steps
 
-- pretify docs
+- react-docgen into this
