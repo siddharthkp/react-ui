@@ -1,7 +1,7 @@
 export default [
   {
     title: 'Guides',
-    slugs: ['/guides/getting-started/']
+    slugs: ['/docs/getting-started/', '/docs/next-steps/']
   },
   {
     title: 'Components',

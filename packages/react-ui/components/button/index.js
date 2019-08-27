@@ -1,10 +1,23 @@
-import { create } from 'react-ui/helpers'
+import React from 'react'
+import { Element } from '@ds-tools/primitives'
+import PropTypes from 'prop-types'
 
 /** Description of a button */
-const Button = create('button', 'Button')
+function Button(props) {
+  return React.createElement(Element, {
+    as: 'button',
+    component: 'Button',
+    ...props
+  })
+}
 
-Button.propTypes = {}
+Button.propTypes = {
+  /** Description of an button prop */
+  type: PropTypes.string
+}
 
-Button.defaultProps = {}
+Button.defaultProps = {
+  type: 'submit'
+}
 
 export { Button }

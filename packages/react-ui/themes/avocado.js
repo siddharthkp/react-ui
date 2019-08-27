@@ -7,8 +7,9 @@ const components = {
     borderColor: 'avocado.2',
     color: 'avocado.3',
     borderRadius: 1,
+    fontSize: 3,
     paddingX: 2,
-    paddingY: 1,
+    paddingY: 3,
     '&:hover': {
       backgroundColor: 'avocado.2'
     }
@@ -32,16 +33,14 @@ const components = {
   },
 
   Input: {
-    borderWidth: 1,
-    borderRadius: 1,
-    border: '1px solid',
+    border: '2px solid',
     borderColor: 'avocado.2',
-    shadow: 'none',
-    paddingX: 1,
-    paddingY: 1,
-    '&:focus': {
-      borderColor: 'avocado.2'
-    }
+    borderRadius: 2,
+    fontSize: 3,
+    paddingX: 2,
+    paddingY: 3,
+    width: '400px',
+    '&:focus': {}
   },
 
   InputGroup: {}
