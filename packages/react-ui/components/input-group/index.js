@@ -4,11 +4,18 @@ import { Element } from '@ds-tools/primitives'
 
 /** Description of an input group */
 function InputGroup(props) {
-  return <Element as="div" component="InputGroup" {...props} />
+  return React.createElement(Element, {
+    as: 'div',
+    component: 'InputGroup',
+    ...props
+  })
 }
 
 InputGroup.Text = function(props) {
-  return <Element as="span" {...props} />
+  return React.createElement(Element, {
+    as: 'span',
+    ...props
+  })
 }
 
 InputGroup.propTypes = {}

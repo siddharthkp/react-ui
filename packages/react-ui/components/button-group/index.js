@@ -5,7 +5,11 @@ import { Element } from '@ds-tools/primitives'
 
 /** Description of a button group */
 function ButtonGroup(props) {
-  return <Element as="div" component="ButtonGroup" {...props} />
+  return React.createElement(Element, {
+    as: 'div',
+    component: 'ButtonGroup',
+    ...props
+  })
 }
 
 ButtonGroup.propTypes = {}
