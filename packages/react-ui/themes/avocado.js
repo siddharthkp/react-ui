@@ -3,15 +3,21 @@ import base from 'react-ui/theme'
 
 const components = {
   Button: {
+    color: 'avocado.3',
+    border: '2px solid',
     backgroundColor: 'avocado.1',
     borderColor: 'avocado.2',
-    color: 'avocado.3',
-    borderRadius: 1,
-    fontSize: 3,
-    paddingX: 2,
+    borderRadius: 2,
+    fontSize: 2,
+    paddingX: 3,
     paddingY: 3,
     '&:hover': {
-      backgroundColor: 'avocado.2'
+      backgroundColor: 'avocado.2',
+      cursor: 'pointer'
+    },
+    '&:focus': {
+      backgroundColor: 'avocado.2',
+      cursor: 'pointer'
     }
   },
 
@@ -36,14 +42,24 @@ const components = {
     border: '2px solid',
     borderColor: 'avocado.2',
     borderRadius: 2,
-    fontSize: 3,
-    paddingX: 2,
+    fontSize: 2,
+    paddingX: 3,
     paddingY: 3,
-    width: '400px',
-    '&:focus': {}
+    width: '400px'
   },
 
-  InputGroup: {}
+  InputGroup: {
+    '> span': {
+      color: 'avocado.4',
+      border: '2px solid',
+      backgroundColor: 'avocado.0',
+      borderColor: 'avocado.2',
+      borderRadius: 2,
+      fontSize: 2,
+      paddingX: 3,
+      paddingY: 3
+    }
+  }
 }
 
 const theme = {
@@ -97,7 +113,7 @@ const theme = {
       '#197741',
       '#145239'
     ],
-    avocado: ['#E3FCEC', '#f6f791', '#92b73a', '#821919'],
+    avocado: ['#E3FCEC', '#f6f791', '#92b73a', '#821919', '#197741'],
     grays: [
       '#f5faff',
       '#E1E7EC',
@@ -112,4 +128,4 @@ const theme = {
   }
 }
 
-export default merge(theme, base)
+export default merge(base, theme)

@@ -4,4 +4,5 @@
 
 next steps
 
-- react-docgen into this
+- show extra pages in dev mode
+- build one component with react-ui

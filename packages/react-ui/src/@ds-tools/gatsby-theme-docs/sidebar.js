@@ -5,6 +5,11 @@ export default [
   },
   {
     title: 'Components',
-    slugs: ['/components/button/button/', '/components/input/input/']
+    slugs: [
+      '/components/button/button/',
+      '/components/input/input/',
+      '/components/button-group/button-group/',
+      '/components/input-group/input-group/'
+    ]
   }
 ]
