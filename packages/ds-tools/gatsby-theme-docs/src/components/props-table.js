@@ -12,13 +12,19 @@ function PropsTable(props) {
     return edge.node.displayName === componentName
   })
 
+  let componentProps = []
+
   if (matchingEdge) {
-    const componentProps = convertArrayToObject(matchingEdge.node.props)
+    componentProps = convertArrayToObject(matchingEdge.node.props)
+
+    if (!matchingEdge.node.props.length) {
+      // add warning as first row of table
+    }
 
     return <Table props={componentProps} />
-  } else {
-    return <div>props not found!</div>
   }
+
+  return null
 }
 
 export default PropsTable
