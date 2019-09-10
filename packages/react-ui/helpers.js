@@ -1,5 +1,6 @@
 import React from 'react'
 import merge from 'deepmerge'
+import get from 'lodash.get'
 import { Element as BaseElement } from '@ds-tools/primitives'
 import { ThemeProvider } from 'react-ui'
 import theme from 'react-ui/themes/avocado'
@@ -27,4 +28,10 @@ function Example(props) {
   )
 }
 
-export { create, Example, merge }
+function concat(...args) {
+  return theme => {
+    return args.map(token => get(theme, token) || token).join('')
+  }
+}
+
+export { create, Example, merge, concat }
