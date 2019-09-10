@@ -57,5 +57,4 @@ const theme = {
   }
 }
 
-// node friendly export
-module.exports = theme
+export default theme

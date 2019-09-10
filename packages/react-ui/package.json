@@ -2,11 +2,15 @@
   "name": "react-ui",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "source": "index.js",
+  "main": "dist/index.js",
+  "unpkg": "dist/index.umd.js",
   "scripts": {
-    "docs": "gatsby develop",
+    "dev": "microbundle watch",
     "storybook": "storybook start -p 6006",
+    "docs": "gatsby develop",
     "--------": "-------",
+    "build": "microbundle",
     "docs-build": "gatsby build",
     "build-storybook": "storybook start build"
   },
@@ -18,9 +22,10 @@
     "deepmerge": "4.0.0"
   },
   "devDependencies": {
-    "@ds-tools/storybook": "0.0.1",
     "@ds-tools/gatsby-theme-docs": "0.0.1",
-    "gatsby": "^2.13.58"
+    "@ds-tools/storybook": "0.0.1",
+    "gatsby": "^2.13.58",
+    "microbundle": "^0.11.0"
   },
   "peerDependencies": {
     "react": "^16.8.6"
