@@ -12,7 +12,8 @@
     "--------": "-------",
     "build": "microbundle",
     "docs-build": "gatsby build",
-    "build-storybook": "storybook start build"
+    "build-storybook": "storybook start build",
+    "release": "npm publish --tag beta"
   },
   "keywords": [],
   "author": "siddharthkp",
