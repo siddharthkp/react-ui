@@ -12,6 +12,8 @@ import {
   ThemeProvider
 } from 'react-ui'
 
+// import {Element, ThemeProvider} from 'react-ui/primitives'
+
 import theme from './theme/theme.js'
 import './theme/theme.css'
 
