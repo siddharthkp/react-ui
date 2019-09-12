@@ -1,0 +1,28 @@
+@import url('https://rsms.me/inter/inter.css');
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 20px;
+  width: 500px;
+  color: #0c1e29;
+}
+.App {
+  height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+blockquote {
+  font-style: italic;
+  color: rgb(23, 115, 190);
+}
+
+img {
+  max-width: 90%;
+  max-height: 400px;
+}
+footer {
+  color: steelblue;
+}
+footer span {
+  margin-right: 50px;
+}

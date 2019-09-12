@@ -1,7 +1,4 @@
-import components from './components'
-
 const theme = {
-  components,
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   radii: [0, 2, 5, 10],
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
