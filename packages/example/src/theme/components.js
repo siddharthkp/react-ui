@@ -1,15 +1,13 @@
-import { concat } from 'react-ui/helpers'
-
 const components = {
   Button: {
-    backgroundColor: 'avocado.1',
-    borderColor: 'avocado.2',
-    color: 'avocado.3',
+    backgroundColor: 'avocado.300',
+    borderColor: 'avocado.500',
+    color: 'avocado.400',
     borderRadius: 1,
     paddingX: 2,
     paddingY: 1,
     '&:hover': {
-      backgroundColor: 'avocado.2'
+      backgroundColor: 'avocado.500'
     }
   },
 
@@ -27,16 +25,17 @@ const components = {
   },
 
   Heading: {
-    color: 'avocado.3'
+    color: 'avocado.800'
   },
 
   Input: {
     borderRadius: 1,
-    border: concat('1px solid ', 'colors.avocado.2'),
+    border: '1px solid',
+    borderColor: 'avocado.500',
     shadow: 'none',
     padding: 1,
     '&:focus': {
-      borderColor: 'avocado.2'
+      borderColor: 'avocado.500'
     }
   },
 

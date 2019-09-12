@@ -25,36 +25,17 @@
 .Button {
   background-color: #f6f791;
   border-color: #92b73a;
-  color: #821919;
+  color: avocado.400;
   border-radius: 2px;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
   padding-bottom: 4px;
-  z-index: 1px;
 }
 .Button:hover {
   background-color: #92b73a;
 }
 .ButtonGroup {
-  display: flex;
-}
-.ButtonGroup > button:focus {
-  position: relative;
-  z-index: 2px;
-}
-.ButtonGroup > button:first-of-type {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.ButtonGroup > button:not(:first-of-type):not(:last-of-type) {
-  border-radius: 0;
-  border-left-width: 0;
-}
-.ButtonGroup > button:last-of-type {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-left-width: 0;
 }
 .DangerZone {
   background-color: pink;
@@ -67,42 +48,16 @@
 }
 .Heading {
   color: #821919;
-  margin: 0;
 }
 .Input {
-  border-width: 1px;
   border-radius: 2px;
   border: 1px solid;
   border-color: #92b73a;
   shadow: none;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding: 4px;
 }
 .Input:focus {
   border-color: #92b73a;
 }
 .InputGroup {
-  display: flex;
-}
-.InputGroup > *:focus {
-  position: relative;
-  z-index: 2px;
-}
-.InputGroup > :first-child {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.InputGroup > *:not(:first-child):not(:last-child) {
-  border-radius: 0;
-  border-left-width: 0;
-}
-.InputGroup > *:last-child {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-left-width: 0;
-}
-.Paragraph {
-  margin: 0;
 }
