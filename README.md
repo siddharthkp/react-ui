@@ -1,8 +1,10 @@
+packages
+
 - react-ui: component library w/ theme
-- dsx: docs + design
-- ds-tools: element + css
+- ds-tools: design systems tools to abstract functionality
+- example: playground for testing out components
 
 next steps
 
-- show extra pages in dev mode
-- build one component with react-ui
+- gatsby docs theme: show extra pages in dev mode
+- theme.css: build collocation support
