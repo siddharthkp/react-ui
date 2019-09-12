@@ -1,6 +1,6 @@
 {
   "name": "@ds-tools/theme.css",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "bin": "index.js",
   "scripts": {},
@@ -8,6 +8,9 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.5.5",
     "@styled-system/core": "^5.0.21",
     "@styled-system/css": "^5.0.22",
