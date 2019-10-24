@@ -4,7 +4,6 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "packages/ds-tools/*",
-    "packages/react-ui/*"
+    "packages/ds-tools/*"
   ]
 }

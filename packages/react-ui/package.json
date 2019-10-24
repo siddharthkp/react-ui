@@ -1,9 +1,9 @@
 {
   "name": "react-ui",
-  "version": "1.0.0-beta.4",
+  "version": "100.0.0",
   "description": "",
   "source": "index.js",
-  "main": "dist/index.js",
+  "main": "index.js",
   "unpkg": "dist/index.umd.js",
   "scripts": {
     "dev": "microbundle watch",

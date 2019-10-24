@@ -1,12 +1,11 @@
 import React from 'react'
-import { Element } from '@ds-tools/primitives'
+// import { Element } from '@ds-tools/primitives'
 import PropTypes from 'prop-types'
+import { Element } from './button.styles'
 
 /** Description of a button */
 function Button(props) {
   return React.createElement(Element, {
-    as: 'button',
-    component: 'Button',
     ...props
   })
 }

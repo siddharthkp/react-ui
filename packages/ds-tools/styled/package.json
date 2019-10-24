@@ -1,5 +1,5 @@
 {
-  "name": "@ds-tools/primitives",
+  "name": "@ds-tools/styled",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -10,9 +10,6 @@
   "dependencies": {
     "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.15",
-    "@styled-system/core": "^5.0.21",
-    "@styled-system/css": "^5.0.22",
-    "emotion-theming": "^10.0.14",
-    "@ds-tools/styled": "0.0.1"
+    "@styled-system/css": "^5.0.22"
   }
 }
