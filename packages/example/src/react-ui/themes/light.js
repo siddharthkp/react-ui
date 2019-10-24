@@ -69,56 +69,6 @@ const theme = {
       800: '#404B5A',
       900: '#202833'
     }
-  },
-  components: {
-    Form: {
-      background: 'white',
-      width: 400,
-      margin: 'auto',
-      boxShadow: 'small',
-      paddingY: 4,
-      borderRadius: 1
-    },
-    FormField: {
-      border: 'none',
-      padding: 'none',
-      paddingX: 4,
-      '&:not(:last-child)': {
-        marginBottom: 3
-      }
-    },
-    FormLabel: {
-      color: 'grays.800',
-      display: 'block',
-      fontSize: 2,
-      lineHeight: 'default',
-      marginBottom: 1
-    },
-    FormHeader: {
-      fontSize: 5,
-      fontWeight: 'normal',
-      marginX: 4,
-      marginTop: 0,
-      marginBottom: 4
-    },
-    Input: {
-      padding: 2,
-      lineHeight: 'default',
-      fontSize: 3,
-      border: '2px solid',
-      borderColor: 'grays.400',
-      backgroundColor: 'grays.100',
-      borderRadius: 2,
-      width: '100%',
-      ':hover': {
-        borderColor: 'blues.300'
-      },
-      ':focus': {
-        outline: 'none',
-        borderColor: 'blues.500',
-        backgroundColor: 'blues.100'
-      }
-    }
   }
 }
 

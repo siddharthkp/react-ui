@@ -1,5 +1,5 @@
-import { merge } from 'react-ui/helpers'
-import base from 'react-ui/theme'
+// import { merge } from 'react-ui/helpers'
+// import base from 'react-ui/theme'
 
 const components = {
   Button: {
@@ -128,4 +128,5 @@ const theme = {
   }
 }
 
-export default merge(base, theme)
+export default theme
+// export default merge(base, theme)

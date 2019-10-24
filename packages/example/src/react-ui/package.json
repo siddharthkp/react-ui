@@ -6,11 +6,11 @@
   "main": "index.js",
   "unpkg": "dist/index.umd.js",
   "scripts": {
-    "dev": "microbundle watch",
+    "dev": "microbundle  --jsx watch",
     "storybook": "storybook start -p 6006",
     "docs": "gatsby develop",
     "--------": "-------",
-    "build": "microbundle",
+    "build": "microbundle --jsx",
     "docs-build": "gatsby build",
     "build-storybook": "storybook start build"
   },

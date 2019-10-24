@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Form, Input, Button, ThemeProvider } from 'react-ui'
+import { Form, Input, Button, ThemeProvider } from './react-ui'
 import './style.css'
 
 // import theme from './theme/theme.js'
@@ -12,16 +12,13 @@ function App() {
       <Form style={{ marginTop: 100 }}>
         <Form.Header as="h2">Create an account</Form.Header>
 
-        <Form.Field>
-          <Form.Label>Full name</Form.Label>
+        <Form.Field label="Full name">
           <Input placeholder="Enter your username" />
         </Form.Field>
-        <Form.Field>
-          <Form.Label>Email</Form.Label>
+        <Form.Field label="Email">
           <Input placeholder="Enter your email" />
         </Form.Field>
-        <Form.Field>
-          <Form.Label>Create a password</Form.Label>
+        <Form.Field label="Create a password">
           <Input placeholder="Enter a password" />
         </Form.Field>
         <Form.Field>

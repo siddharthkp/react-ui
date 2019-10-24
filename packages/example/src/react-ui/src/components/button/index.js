@@ -5,9 +5,7 @@ import { Element } from './button.styles'
 
 /** Description of a button */
 function Button(props) {
-  return React.createElement(Element, {
-    ...props
-  })
+  return React.createElement(Element, props)
 }
 
 Button.propTypes = {
