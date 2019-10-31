@@ -14,8 +14,7 @@
     "react": "^16.8.9",
     "react-dom": "^16.8.9",
     "react-feather": "^2.0.3",
-    "react-scripts": "3.1.1",
-    "react-ui": "100.0.0"
+    "react-scripts": "3.1.1"
   },
   "author": "siddharthkp",
   "license": "MIT",

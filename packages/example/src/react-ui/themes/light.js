@@ -7,11 +7,6 @@ const theme = {
     default: '1.6',
     cosy: '2'
   },
-  shadows: {
-    // this part is ugly, this can be improved.
-    // bonus: these are terrible names
-    small: `0 5px 15px hsla(0, 0%, 0%, 0.1)`
-  },
   colors: {
     white: '#fff',
     reds: {

@@ -2,7 +2,6 @@ import styled from '@ds-tools/styled'
 
 export const styles = {
   paddingY: 2,
-  border: 'none',
   width: '100%',
   backgroundColor: 'greens.700',
   color: 'white',

@@ -7,19 +7,16 @@ function Form(props) {
   return <Element {...props} />
 }
 
+Form.Header = FormHeader
+Form.Label = FormLabel
+
 Form.Field = function({ label, children, ...props }) {
-  return React.createElement(FormField, props, [
-    React.createElement(Form.Label, null, label),
-    ...React.Children.toArray(children)
-  ])
-}
-
-Form.Label = function(props) {
-  return React.createElement(FormLabel, props)
-}
-
-Form.Header = function(props) {
-  return React.createElement(FormHeader, props)
+  return (
+    <FormField {...props}>
+      <Form.Label>{label}</Form.Label>
+      {children}
+    </FormField>
+  )
 }
 
 Form.propTypes = {}

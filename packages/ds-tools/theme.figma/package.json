@@ -1,0 +1,22 @@
+{
+  "name": "@ds-tools/theme.figma",
+  "version": "0.0.1",
+  "description": "",
+  "bin": "index.js",
+  "scripts": {
+    "test": "node index --file cNjsABO9tkKDt6EXxzEtGw6R"
+  },
+  "keywords": [],
+  "author": "siddharthkp",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "figma-js": "^1.8.5",
+    "figma-transformer": "^1.0.0",
+    "just-safe-set": "^2.1.0",
+    "lodash.uniq": "^4.5.0",
+    "prettier": "^1.18.2",
+    "rgb-hex": "^3.0.0",
+    "yargs-parser": "^16.0.0"
+  }
+}
