@@ -1,7 +1,7 @@
 const theme = {
-  fontSizes: [],
-  fontWeights: [],
-  lineHeights: [],
+  fontSizes: [0, 12, 14, 16, 20, 30],
+  fontWeights: [0, 400, 500, 700],
+  lineHeights: [0, 16.8],
   colors: {
     blue: {
       "100": "eff8ff",

@@ -12,13 +12,25 @@ const argv = require('yargs-parser')(process.argv.slice(2))
 const file = argv.file
 const token = process.env.FIGMA_TOKEN
 
+if (!file) {
+  console.log(
+    'file not given, please use the --file flag to pass a figma file id'
+  )
+  process.exit(1)
+}
+
+if (!token) {
+  console.log('FIGMA_TOKEN not found in .env file')
+  process.exit(1)
+}
+
 const client = Figma.Client({ personalAccessToken: token })
 
 const outputPath = 'theme.js'
 const theme = {
-  fontSizes: [],
-  fontWeights: [],
-  lineHeights: [],
+  fontSizes: [0],
+  fontWeights: [0],
+  lineHeights: [0],
   colors: {}
 }
 
@@ -76,7 +88,9 @@ function getKey(name) {
 function postProcess() {
   theme.fontSizes = uniq(theme.fontSizes).sort((a, b) => a - b)
   theme.fontWeights = uniq(theme.fontWeights).sort((a, b) => a - b)
-  theme.lineHeights = uniq(theme.lineHeights).sort((a, b) => a - b)
+  theme.lineHeights = uniq(theme.lineHeights)
+    .sort((a, b) => a - b)
+    .map(l => Math.round(l * 100) / 100)
 }
 
 getTokens()
