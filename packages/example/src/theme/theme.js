@@ -1,7 +1,8 @@
-import components from './components'
+// import components from './components'
+import { styles as Form } from '../react-ui/src/components/form/form.styles.js'
 
 const theme = {
-  components
+  components: { Form }
 }
 
 export default theme
