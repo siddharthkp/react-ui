@@ -4,7 +4,7 @@
   "description": "",
   "bin": "index.js",
   "scripts": {
-    "test": "node index --file cNjsABO9tkKDt6EXxzEtGw6R"
+    "test": "cd examples && node ../index --file cNjsABO9tkKDt6EXxzEtGw6R"
   },
   "keywords": [],
   "author": "siddharthkp",
@@ -15,6 +15,7 @@
     "figma-transformer": "^1.0.0",
     "just-safe-set": "^2.1.0",
     "lodash.uniq": "^4.5.0",
+    "pluralize": "^8.0.0",
     "prettier": "^1.18.2",
     "rgb-hex": "^3.0.0",
     "yargs-parser": "^16.0.0"

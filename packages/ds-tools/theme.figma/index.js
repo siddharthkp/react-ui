@@ -2,8 +2,9 @@ const fs = require('fs')
 const uniq = require('lodash.uniq')
 const prettier = require('prettier')
 const set = require('just-safe-set')
-
+const pluralize = require('pluralize')
 require('dotenv').config()
+
 const Figma = require('figma-js')
 const rgbHex = require('rgb-hex')
 const { processFile } = require('figma-transformer')
@@ -42,7 +43,7 @@ async function getTokens() {
 
   postProcess(theme)
 
-  const result = `const theme = ${JSON.stringify(theme, null, 2)}`
+  const result = getFileContents(theme)
   fs.writeFileSync(outputPath, prettier.format(result, { parser: 'babel' }))
 }
 
@@ -57,7 +58,7 @@ function setColors(data) {
     if (!styles[0]) return
 
     const { r, g, b } = styles[0].color
-    const hex = rgbHex(r * 255, g * 255, b * 255)
+    const hex = '#' + rgbHex(r * 255, g * 255, b * 255)
 
     const key = getKey(name)
     set(theme.colors, key, hex)
@@ -91,6 +92,35 @@ function postProcess() {
   theme.lineHeights = uniq(theme.lineHeights)
     .sort((a, b) => a - b)
     .map(l => Math.round(l * 100) / 100)
+
+  const colorNames = Object.keys(theme.colors)
+  const stringColorNames = colorNames.filter(
+    name => typeof theme.colors[name] === 'string'
+  )
+  const objectColorNames = colorNames.filter(
+    name => typeof theme.colors[name] !== 'string'
+  )
+  const colors = {}
+
+  stringColorNames.sort().forEach(name => {
+    colors[name] = theme.colors[name]
+  })
+
+  objectColorNames.sort().forEach(name => {
+    const colorObject = theme.colors[name]
+    colors[pluralize(name)] = colorObject
+  })
+
+  // TODO: convert color keys to numbers
+
+  theme.colors = colors
+}
+
+function getFileContents(theme) {
+  return `const theme = ${JSON.stringify(theme, null, 2)}
+
+export default theme
+`
 }
 
 getTokens()
