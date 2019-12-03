@@ -4,7 +4,7 @@ import { Element } from './input.styles'
 
 /** Description of an input */
 function Input(props) {
-  return React.createElement(Element, props)
+  return <Element {...props} />
 }
 
 Input.propTypes = {

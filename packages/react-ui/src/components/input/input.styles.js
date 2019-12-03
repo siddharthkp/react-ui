@@ -8,6 +8,7 @@ export const styles = {
   borderColor: 'grays.400',
   backgroundColor: 'grays.100',
   borderRadius: 2,
+  boxSizing: 'border-box',
   width: '100%',
   ':hover': {
     borderColor: 'blues.300'

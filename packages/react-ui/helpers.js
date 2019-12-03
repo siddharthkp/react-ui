@@ -3,7 +3,7 @@ import merge from 'deepmerge'
 import get from 'lodash.get'
 import { Element as BaseElement } from '@ds-tools/primitives'
 import { ThemeProvider } from 'react-ui'
-import theme from 'react-ui/themes/avocado'
+import theme from 'react-ui/themes/light'
 
 function create(element, Name) {
   const Component = function(props) {

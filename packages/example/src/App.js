@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Form, Input, Button, ThemeProvider } from './react-ui'
+import { Form, Input, Button, ThemeProvider } from 'react-ui'
 import './style.css'
 
 // import theme from './theme/theme.js'
