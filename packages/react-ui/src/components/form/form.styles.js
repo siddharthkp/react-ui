@@ -1,13 +1,12 @@
-import styled from '@ds-tools/styled'
-
 export const styles = {
-  background: 'white',
-  width: 400,
-  margin: 'auto',
-  boxShadow: 'small',
-  paddingY: 4,
-  borderRadius: 1,
-
+  Form: {
+    background: 'white',
+    width: 400,
+    margin: 'auto',
+    boxShadow: 'small',
+    paddingY: 4,
+    borderRadius: 1
+  },
   FormField: {
     border: 'none',
     padding: 'none',
@@ -31,8 +30,3 @@ export const styles = {
     marginBottom: 4
   }
 }
-
-export const Element = styled.form(styles)
-export const FormField = styled.fieldset(styles.FormField)
-export const FormLabel = styled.label(styles.FormLabel)
-export const FormHeader = styled.div(styles.FormHeader)

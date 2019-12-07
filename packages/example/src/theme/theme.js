@@ -1,8 +1,13 @@
+import base from 'react-ui/themes/light'
 // import components from './components'
-import { styles as Form } from '../react-ui/src/components/form/form.styles.js'
 
 const theme = {
-  components: { Form }
+  ...base,
+  components: {
+    FormLabel: {
+      textTransform: 'uppercase'
+    }
+  }
 }
 
 export default theme

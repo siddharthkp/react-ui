@@ -1,5 +1,3 @@
-import styled from '@ds-tools/styled'
-
 export const styles = {
   padding: 2,
   lineHeight: 'default',
@@ -19,5 +17,3 @@ export const styles = {
     backgroundColor: 'blues.100'
   }
 }
-
-export const Element = styled.input(styles)

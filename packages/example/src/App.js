@@ -3,13 +3,13 @@ import React from 'react'
 import { Form, Input, Button, ThemeProvider } from 'react-ui'
 import './style.css'
 
-// import theme from './theme/theme.js'
+import theme from './theme/theme.js'
 // import './theme/theme.css'
 
 function App() {
   return (
-    <ThemeProvider>
-      <Form style={{ marginTop: 100 }}>
+    <ThemeProvider theme={theme}>
+      <Form marginTop={10}>
         <Form.Header as="h2">Create an account</Form.Header>
 
         <Form.Field label="Full name">

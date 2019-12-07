@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Element } from './input.styles'
+import { Element } from '@ds-tools/primitives'
+import { styles } from './input.styles'
 
 /** Description of an input */
 function Input(props) {
-  return <Element {...props} />
+  return <Element as="input" component="Input" baseStyles={styles} {...props} />
 }
 
 Input.propTypes = {

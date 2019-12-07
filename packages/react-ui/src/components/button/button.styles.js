@@ -11,6 +11,7 @@ export const styles = {
   lineHeight: 'default',
   borderRadius: 2,
   cursor: 'pointer',
+  transition: 'all 150ms',
 
   ':hover': {
     backgroundColor: 'greens.600',

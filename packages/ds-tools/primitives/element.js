@@ -6,15 +6,30 @@ import { merge } from '@styled-system/core'
 
 const BaseElement = styled('div')()
 
-function Element({ css: styles, internalStyles, component, theme, ...props }) {
+const marginProps = [
+  'margin',
+  'marginX',
+  'marginY',
+  'marginTop',
+  'marginBottom',
+  'marginLeft',
+  'marginRight'
+]
+
+function Element({ css: styles, baseStyles, component, theme, ...props }) {
   theme.components = theme.components || {}
 
-  const merged = merge(
-    merge(
-      internalStyles || {}, // internal styles
-      theme.components[component] || {} // theme styles
-    ),
-    styles || {} // prop styles
+  const margins = {}
+  Object.keys(props).forEach(prop => {
+    if (marginProps.includes(prop)) margins[prop] = props[prop]
+  })
+
+  // deep merge with overriding
+  const merged = mergeAll(
+    baseStyles || {},
+    theme.components[component] || {},
+    styles || {},
+    margins || {}
   )
 
   // Better classNames for debugging
@@ -22,6 +37,10 @@ function Element({ css: styles, internalStyles, component, theme, ...props }) {
 
   // instead of React.createElement
   return jsx(BaseElement, { css: css(merged), ...props })
+}
+
+function mergeAll(a, b, c, d) {
+  return merge(merge(merge(a, b), c), d)
 }
 
 export default withTheme(Element)
