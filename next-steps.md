@@ -1,14 +1,13 @@
-two possible paths
+## Done
 
-1. depth first
+- docs: make gatsby docs work again
+- rollup build
+- margin utility for all elements
+- docs: goals and scope
+- docs: tokens
 
-   - build the website
-   - add docs for 1 component
-   - write about philosophy
-   - write about constraints
-   - write a few recipes - theming, creating components
+## Next steps
 
-2. breadth first
-   - build 10 components
-   - build a few screens with those components
-   - add more in-built themes
+- docs: usage
+- docs: custom component recipes
+- docs: debug why form prop types aren't working

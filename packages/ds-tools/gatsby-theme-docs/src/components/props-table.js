@@ -7,7 +7,6 @@ function PropsTable(props) {
   const componentName = props.htmlFor
 
   const { allComponentMetadata } = useStaticQuery(query)
-
   const matchingEdge = allComponentMetadata.edges.find(edge => {
     return edge.node.displayName === componentName
   })

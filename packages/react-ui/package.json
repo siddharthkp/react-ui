@@ -20,7 +20,8 @@
     "@ds-tools/primitives": "0.0.1",
     "@ds-tools/styled": "0.0.1",
     "deepmerge": "4.0.0",
-    "lodash.get": "^4.4.2"
+    "lodash.get": "^4.4.2",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.7.4",

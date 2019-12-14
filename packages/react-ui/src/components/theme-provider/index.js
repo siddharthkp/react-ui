@@ -4,8 +4,13 @@ import light from '../../../themes/light'
 
 const Provider = SC.ThemeProvider
 
-function ThemeProvider(props) {
-  return React.createElement(Provider, { theme: light, ...props })
+function ThemeProvider({ theme = light, components = {}, ...props }) {
+  // initialise
+  theme.components = theme.components || {}
+  // should be deepmerged?
+  theme.components = { ...theme.components, ...components }
+
+  return React.createElement(Provider, { theme, ...props })
 }
 
 export { ThemeProvider }

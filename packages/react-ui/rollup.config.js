@@ -15,6 +15,10 @@ export default [
       }),
       resolve(),
       babel({
+        presets: [
+          ['@babel/preset-env', { modules: false }],
+          '@babel/preset-react'
+        ],
         exclude: 'node_modules/**'
       }),
       commonjs()

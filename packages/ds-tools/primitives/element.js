@@ -34,6 +34,7 @@ function Element({ css: styles, baseStyles, component, theme, ...props }) {
 
   // Better classNames for debugging
   merged.label = component
+  props['data-component'] = component
 
   // instead of React.createElement
   return jsx(BaseElement, { css: css(merged), ...props })

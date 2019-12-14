@@ -3,6 +3,8 @@ export * from './src/components/button-group'
 export * from './src/components/input'
 export * from './src/components/input-group'
 export * from './src/components/form'
+export * from './src/components/text'
+export * from './src/components/heading'
 
 export * from './src/components/theme-provider'
 

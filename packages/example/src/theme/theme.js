@@ -5,7 +5,7 @@ const theme = {
   ...base,
   components: {
     FormLabel: {
-      textTransform: 'uppercase'
+      textTransform: 'lowercase'
     }
   }
 }

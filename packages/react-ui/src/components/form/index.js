@@ -1,20 +1,36 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 import { styles } from './form.styles'
-import styled from '@ds-tools/styled'
 import { Element } from '@ds-tools/primitives'
 
-// const Element = styled.form(styles.Form)
-const FormField = styled.fieldset(styles.FormField)
-const FormHeader = styled.div(styles.FormHeader)
-
 /** Description of an input */
-function Form(props) {
-  return <Element as="form" css={styles.Form} {...props} />
+const Form = props => {
+  return <Element as="form" component="Form" css={styles.Form} {...props} />
 }
 
-Form.Header = FormHeader
+Form.propTypes = {
+  /** Description of an button prop */
+  children: PropTypes.element
+}
+
+Form.Header = props => (
+  <Element
+    as="h1"
+    component="FormHeader"
+    baseStyles={styles.FormHeader}
+    {...props}
+  />
+)
+
+Form.Header.propTypes = {
+  /** Description of an button prop */
+  as: PropTypes.string
+}
+
+Form.Header.defaultProps = {
+  as: 'h1'
+}
 
 Form.Label = props => (
   <Element

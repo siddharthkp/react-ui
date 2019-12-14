@@ -1,0 +1,37 @@
+---
+title: Creating components
+---
+
+- use primitive: Element, this adds margin props.
+
+```jsx
+import { Element } from 'react-ui'
+
+const List = props => <Element as="ul" {...props} />
+```
+
+- you can pass baseStyles to it and you're kind of done, this allows folks to add more styles later.
+
+use object styles, use theme token.
+
+```jsx
+const styles = {
+  backgroundColor: 'pink'
+}
+
+const List = props => <Element as="ul" baseStyles={styles} {...props} />
+```
+
+- if you want folks to be able to customise it throught the themeprovider, then add as baseStyles and add component key.
+
+```jsx
+const styles = {
+  backgroundColor: 'pink'
+}
+
+const List = props => (
+  <Element as="ul" component="List" baseStyles={styles} {...props} />
+)
+```
+
+this is how the component is identified in theme components. make sure names are unique though.

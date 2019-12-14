@@ -1,0 +1,232 @@
+---
+title: Usage
+---
+
+import { Element, Form, Input, Heading, Button, Text, ThemeProvider } from 'react-ui'
+
+skip to
+
+- [Built in components](#built-in-components)
+- [Customisation](#customisation)
+- [Theming](#theming)
+- [Creating new components](#creating-new-components)
+
+<br />
+
+### Installation
+
+`react-ui` is published as a single package which can be installed via the npm registry.
+
+```bash
+npm install react-ui --save
+
+# or if you prefer yarn
+
+yarn add react-ui
+```
+
+<br />
+
+### Built in components
+
+`react-ui` comes with a set of in-built components to get you started. These components come with a default theme that is fully customisable.
+
+<br />
+
+<div className="example code-first">
+
+```jsx
+import { Form, Input, Button, ThemeProvider } from 'react-ui'
+
+function App() {
+  return (
+    <ThemeProvider>
+      <Form marginTop={10}>
+        <Form.Header as="h2">Create an account</Form.Header>
+        <Form.Field label="Full name">
+          <Input placeholder="Enter your username" />
+        </Form.Field>
+        <Form.Field label="Email">
+          <Input placeholder="Enter your email" />
+        </Form.Field>
+        <Form.Field label="Create a password">
+          <Input placeholder="Enter a password" />
+        </Form.Field>
+        <Form.Field>
+          <Button>Sign up</Button>
+        </Form.Field>
+      </Form>
+    </ThemeProvider>
+  )
+}
+```
+
+<ThemeProvider>
+  <Form marginTop={10}>
+    <Form.Header as="h2">Create an account</Form.Header>
+    <Form.Field label="Full name">
+      <Input placeholder="Enter your username" />
+    </Form.Field>
+    <Form.Field label="Email">
+      <Input placeholder="Enter your email" />
+    </Form.Field>
+    <Form.Field label="Create a password">
+      <Input placeholder="Enter a password" />
+    </Form.Field>
+    <Form.Field>
+      <Button>Sign up</Button>
+    </Form.Field>
+  </Form>
+</ThemeProvider>
+
+</div>
+
+<br />
+
+
+For a full list of components, jump to [Components](/docs/components).
+
+<br />
+
+### Customisation
+
+`react-ui` offers different levels of fine grained control over the look and feel of your components
+
+
+skip to: 
+
+- [Customising the theme](#customising-the-theme)
+- [Customising in built components](#customising-in-built-components)
+- [Customising the layout](#customising-the-layout)
+- [One off customisations](#one-off-use-cases)
+
+<br/>
+
+#### Customising the theme
+  
+The theme lets you control the overall design of your project with colors, fonts, sizes and spacing grid.
+
+You can create a new theme from scratch or customise an existing one.
+
+```js
+import light from 'react-ui/themes/light' 
+
+const theme = {
+  ...light,
+  fonts: {
+    body: 'Inter, sans-serif',
+    code: 'Dank Mono, monospace'
+  }
+}
+```
+
+Read more: [Theme specification](/docs/theming)
+
+<br/>
+
+#### Customising built-in components
+
+You can change the design of any component from `react-ui` without overwriting styles in your application.
+
+```js
+const components = {
+  FormHeader: {
+    textAlign: 'center'
+  }
+}
+
+<ThemeProvider components={components}>
+  <App/>
+</ThemeProvider>
+```
+
+
+`react-ui` uses object styles that are hooked up to the theme, so you can use tokens from the theme.
+
+```js
+components = {
+  FormHeader: {
+    textAlign: 'center',
+    color: 'greens.2'
+  }
+}
+```
+
+To find the reference key of a component, you can reference the [Components Index](docs/components/) or check the attached `data-component` on the element in development mode. (the data element is stripped out in production mode to keep sizes low, but your styles stay attached)
+
+![data attribute](/docs/data-attr.png)
+
+Read more: [Recipes: Advanced customisation](/docs/recipes/advanced-customisation)
+
+<br/>
+
+#### Customising the layout
+
+When it comes to layout, `react-ui` has a few layout components to help you.
+
+The responsibility of _laying_ out the elements falls on the container based on the context. That's why ocmponents from `react-ui` don't have any margin on them.
+
+Instead, each component accepts [margin props](/docs/utilities/margins) that can be set at the point where they are used.
+
+For example:
+
+<div className="example code-first">
+
+```jsx
+<Element marginX={4} marginY={8}>
+  <Heading marginBottom={4}>Secure your account</Heading>
+  <Input placeholder="Enter a password" marginBottom={1} type="password" />
+  <Text size={2} color="grays.700">
+    Your password should contain 8 characters
+  </Text>
+</Element>
+```
+
+<ThemeProvider>
+  <Element marginX={4} marginY={8}>
+    <Heading marginBottom={4}>Secure your account</Heading>
+    <Input placeholder="Enter a password" marginBottom={1} type="password" />
+    <Text size={2} color="grays.700">Your password should contain 8 characters</Text>
+  </Element>
+</ThemeProvider>
+
+</div>
+
+The values of margins props are taken from the `space` scale in your theme.
+
+<br/>
+
+#### One off use cases
+
+There are some occasions when you want to change a component but only for a single use case. You can compare this to adding inline styles.
+
+You can utilise the `css` prop for this.
+
+<div className="example code-first">
+
+```jsx
+<Element css={{ backgroundColor: 'reds.300', padding: 4, color: 'white'}}>
+  <Heading marginBottom={4}>This action can not be undone.</Heading>
+  <Input placeholder="Enter a password" marginBottom={1} type="password" />
+  <Text size={2}>Please enter your password to confirm this action</Text>
+</Element>
+```
+
+<ThemeProvider>
+  <Element css={{ backgroundColor: 'reds.300', color: 'white', padding: 4 }}>
+    <Heading marginBottom={4}>This action can not be undone.</Heading>
+    <Input placeholder="Enter a password" marginBottom={1} type="password" />
+    <Text size={2}>Please enter your password to confirm this action</Text>
+  </Element>
+</ThemeProvider>
+
+</div>
+  
+<br />
+
+
+### Creating new components
+
+jump to [creating new components](/docs/recipes/creating-components/)
+
+<br />
