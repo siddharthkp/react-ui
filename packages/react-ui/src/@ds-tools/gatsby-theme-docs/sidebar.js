@@ -6,7 +6,6 @@ export default [
       '/docs/goals/',
       '/docs/tokens/',
       '/docs/usage/',
-      '/docs/utilities/margins',
       '/docs/credits/'
     ]
   },
@@ -21,6 +20,7 @@ export default [
     title: 'Components',
     slugs: [
       '/docs/components/',
+      '/docs/components/theme-provider/',
       '/docs/layout/',
       '/src/components/button/button/',
       '/src/components/input/input/',
@@ -28,5 +28,9 @@ export default [
       '/src/components/input-group/input-group/',
       '/src/components/form/form/'
     ]
+  },
+  {
+    title: 'Utilities',
+    slugs: ['/docs/utilities/as/', '/docs/utilities/margins']
   }
 ]

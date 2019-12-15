@@ -8,12 +8,11 @@ skip to
 
 - [Built in components](#built-in-components)
 - [Customisation](#customisation)
-- [Theming](#theming)
 - [Creating new components](#creating-new-components)
 
 <br />
 
-### Installation
+## Installation
 
 `react-ui` is published as a single package which can be installed via the npm registry.
 
@@ -62,7 +61,7 @@ function App() {
 ```
 
 <ThemeProvider>
-  <Form marginTop={10}>
+  <Form hi marginTop={10}>
     <Form.Header as="h2">Create an account</Form.Header>
     <Form.Field label="Full name">
       <Input placeholder="Enter your username" />
@@ -88,21 +87,21 @@ For a full list of components, jump to [Components](/docs/components).
 
 <br />
 
-### Customisation
+## Customisation
 
 `react-ui` offers different levels of fine grained control over the look and feel of your components
 
 
 skip to: 
 
-- [Customising the theme](#customising-the-theme)
-- [Customising in built components](#customising-in-built-components)
-- [Customising the layout](#customising-the-layout)
-- [One off customisations](#one-off-use-cases)
+- [1. Customising the theme](#customising-the-theme)
+- [2. Customising built-in components](#customising-built-in-components)
+- [3. Customising the layout](#customising-the-layout)
+- [4. One off customisations](#one-off-use-cases)
 
 <br/>
 
-#### Customising the theme
+### Customising the theme
   
 The theme lets you control the overall design of your project with colors, fonts, sizes and spacing grid.
 
@@ -124,9 +123,11 @@ Read more: [Theme specification](/docs/theming)
 
 <br/>
 
-#### Customising built-in components
+### Customising built-in components
 
-You can change the design of any component from `react-ui` without overwriting styles in your application.
+#### Approach 1:
+
+You can change the design of any component from `react-ui` without overwriting styles in your application. You can do by passing a `components` prop the the `ThemeProvider` that looks like this:
 
 ```js
 const components = {
@@ -147,24 +148,52 @@ const components = {
 components = {
   FormHeader: {
     textAlign: 'center',
-    color: 'greens.2'
+    color: 'greens.700'
   }
 }
 ```
 
-To find the reference key of a component, you can reference the [Components Index](docs/components/) or check the attached `data-component` on the element in development mode. (the data element is stripped out in production mode to keep sizes low, but your styles stay attached)
+To find the reference key of a component, you can check the attached `data-component` on the element or find it in the [components index](docs/components/).
 
 ![data attribute](/docs/data-attr.png)
 
-Read more: [Recipes: Advanced customisation](/docs/recipes/advanced-customisation)
+<br/>
+
+#### Approach 2:
+
+If you prefer to hide the implementation detail from approach 1, you can create a wrapper around a `react-ui` component that adds your styles to it. These styles are merged into the base styles.
+
+```js
+import React from 'react'
+import { Form } from 'react-ui'
+
+const extraStyles = {
+  FormHeader: {
+    textAlign: 'center',
+    color: 'greens.700'
+  }
+}
+
+const MyForm = props => {
+  return (
+    <Form css={extraStyles} {...props} />
+  )
+}
+
+export default Form
+```
 
 <br/>
 
-#### Customising the layout
+Read more: [Recipes: Advanced customisation](/docs/recipes/advanced-customisation)
+
+<br/><br/>
+
+### Customising the layout
 
 When it comes to layout, `react-ui` has a few layout components to help you.
 
-The responsibility of _laying_ out the elements falls on the container based on the context. That's why ocmponents from `react-ui` don't have any margin on them.
+The responsibility of _laying_ out the elements falls on the container based on the context. That's why components from `react-ui` don't have any margin on them.
 
 Instead, each component accepts [margin props](/docs/utilities/margins) that can be set at the point where they are used.
 
@@ -196,34 +225,39 @@ The values of margins props are taken from the `space` scale in your theme.
 
 <br/>
 
-#### One off use cases
+### One off use cases
 
-There are some occasions when you want to change a component but only for a single use case. You can compare this to adding inline styles.
+There are rare occasions when you want to change a component but only for a single use case. Inline styles are the recommended way of doing so.
 
-You can utilise the `css` prop for this.
+Components built with `react-ui` tap into the `style` prop and let you use theme tokens even in inline styles. 
+
+Example: (You can inspect in developer tools to see the applied styles)
 
 <div className="example code-first">
 
 ```jsx
-<Element css={{ backgroundColor: 'reds.300', padding: 4, color: 'white'}}>
-  <Heading marginBottom={4}>This action can not be undone.</Heading>
+<Element style={{backgroundColor: 'reds.300', padding: 4}}>
+  <Heading marginBottom={4}>Secure your account</Heading>
   <Input placeholder="Enter a password" marginBottom={1} type="password" />
-  <Text size={2}>Please enter your password to confirm this action</Text>
+  <Text size={2}>
+    Your password should contain 8 characters
+  </Text>
 </Element>
 ```
 
 <ThemeProvider>
-  <Element css={{ backgroundColor: 'reds.300', color: 'white', padding: 4 }}>
-    <Heading marginBottom={4}>This action can not be undone.</Heading>
+  <Element style={{backgroundColor: 'reds.300', padding: 4}}>
+    <Heading marginBottom={4}>Secure your account</Heading>
     <Input placeholder="Enter a password" marginBottom={1} type="password" />
-    <Text size={2}>Please enter your password to confirm this action</Text>
+    <Text size={2}>
+      Your password should contain 8 characters
+    </Text>
   </Element>
 </ThemeProvider>
 
 </div>
   
-<br />
-
+<br /><br />
 
 ### Creating new components
 

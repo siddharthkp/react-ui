@@ -1,8 +1,6 @@
 export const styles = {
   Form: {
     background: 'white',
-    width: 400,
-    margin: 'auto',
     boxShadow: 'small',
     paddingY: 4,
     borderRadius: 1
@@ -10,7 +8,7 @@ export const styles = {
   FormField: {
     border: 'none',
     padding: 'none',
-    paddingX: 4,
+    paddingX: 6,
     '&:not(:last-child)': {
       marginBottom: 3
     }

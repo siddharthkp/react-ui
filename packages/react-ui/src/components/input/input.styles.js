@@ -1,5 +1,6 @@
 export const styles = {
-  padding: 2,
+  paddingX: 2,
+  height: 'Input',
   lineHeight: 'default',
   fontSize: 3,
   border: '2px solid',

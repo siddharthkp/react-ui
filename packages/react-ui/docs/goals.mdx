@@ -2,56 +2,65 @@
 title: Goals and Scope
 ---
 
+Fast protyping with long term maintenance
+
 ### Goals
 
 - Look good out of the box
-    
-    Someone looking for a set of reusable components for prototyping should not have to spend time styling the components.
+
+  Someone looking for a set of reusable components for prototyping should not have to spend time styling the components.
 
 - Customisation as a first class citizen
 
-    There should be a straightforward path to making the library feel like part of your application.
+  There should be a straightforward path to making the library feel like part of your application.
 
 - Library components should be _high quality_
 
-    All components should look good, be composable, accessibile and responsive.
-    
+  All components should look good, be composable, accessibile and responsive.
+
 - Opinionated way of extending the library
 
-    New components created by the developers using the library should feel part of the _system_ of components.
+  New components created by the developers using the library should feel part of the _system_ of components.
 
 #### Stretch goals
 
 - Feel approachable for both developers and designers
 
-    The library should make design more approachable to developers and code more approachable to designers.
+  The library should make design more approachable to developers and code more approachable to designers.
 
 - Promote an ecosystem of high quality components
 
-    Larget superset of _contributed_ components that are reviwed for the above _quality_ goals (react-ui extension pack?)
+  Larget superset of _contributed_ components that are reviwed for the above _quality_ goals (react-ui extension pack?)
 
-<br/><br/>
+<br />
+<br />
 
 Enabling the above goals would be easier if there are some constraints but in place first.
 
-<br/><br/>
+<br />
+<br />
 
 ### Scope/Constraints:
 
 - constraints based design
 
-    This is a concept _stolen_ from the world of design systems. Baking decisions in a file leads to consistent and predictable UI by giving a common language to designers and developers. [Read more](/docs/constraints).
+  This is a concept _stolen_ from the world of design systems. Baking decisions in a file leads to consistent and predictable UI by giving a common language to designers and developers. [Read more](/docs/constraints).
 
 - css-in-js first, css in css later
 
-    It would be very important to have both React components and readable class names for HTML. Custom properties (css variables) are a great fit for constraint based design. But in the short term, focusing on just one method would get this further.
+  It would be very important to have both React components and readable class names for HTML. Custom properties (css variables) are a great fit for constraint based design. But in the short term, focusing on just one method would get this further.
+
+- javascript first, typescript later
+
+  I'm not an expert on typescript and would like to create an API that works everywhere without getting biased by what works well with typescript today.
 
 - web first, native later
 
-    Same story as above, I'm not an expert on React Native and it would be a distraction to try to do too many things at once. Never say never though.
+  Same story as above, I'm not an expert on React Native and it would be a distraction to try to do too many things at once. Never say never though.
 
-<br/>
+<br />
 
 The above constraints do exclude some developers/teams and I'd hope to iterate over and increase the scope of the project to welcome more people.
 
-<br/><br/>
+<br />
+<br />

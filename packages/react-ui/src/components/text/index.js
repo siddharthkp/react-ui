@@ -4,12 +4,12 @@ import { Element } from '@ds-tools/primitives'
 import { styles } from './text.styles'
 
 /** Description of an input */
-function Text({ size, color, ...props }) {
+function Text({ size, align, color, ...props }) {
   return (
     <Element
       as="span"
       component="Text"
-      baseStyles={{ ...styles, color, fontSize: size }}
+      baseStyles={{ ...styles, color, fontSize: size, textAlign: align }}
       {...props}
     />
   )
@@ -21,7 +21,7 @@ Text.propTypes = {
 }
 
 Text.defaultProps = {
-  size: 2
+  size: 4
 }
 
 export { Text }

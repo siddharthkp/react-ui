@@ -2,6 +2,16 @@ const theme = {
   space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
   radii: [0, 2, 5, 10],
   fontSizes: [0, 11, 12, 14, 16, 20, 24, 32, 48, 64, 72],
+  fontWeights: {
+    thin: 100,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
+    black: 900
+  },
   lineHeights: {
     compact: '1.2',
     default: '1.6',
@@ -65,6 +75,11 @@ const theme = {
       900: '#202833'
     }
   }
+}
+
+theme.sizes = {
+  ...theme.space,
+  Input: theme.space[10]
 }
 
 export default theme
