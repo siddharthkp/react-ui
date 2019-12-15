@@ -4,6 +4,7 @@ import { Element } from '@ds-tools/primitives'
 export const Link = props => (
   <Element
     as="a"
+    component="Link"
     {...props}
     baseStyles={{
       color: props.href ? 'blues.500' : 'grays.800',

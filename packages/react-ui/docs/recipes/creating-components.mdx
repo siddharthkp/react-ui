@@ -1,13 +1,13 @@
 ---
-title: Creating components
+title: Creating new components
 ---
 
 import { ThemeProvider, Element, Text, Link, Input } from 'react-ui'
 
 Jump to
 
-- new building block
-- new composite component
+- [Creating a new building block](#creating-a-new-building-block)
+- [Creating a composite component](#creating-a-composite-component)
 
 <br/>
 
@@ -338,7 +338,7 @@ If you'd like to utilise the customisation method mentioned in [Customising buil
     render(
       <>
         <Label marginRight={2}>Private</Label>
-        <Label css={{color: 'reds.500'}}>Private</Label>
+        <Label css={{color: 'reds.500'}}>Deleted</Label>
       </>
     )
     ```
@@ -371,7 +371,7 @@ If you'd like to utilise the customisation method mentioned in [Customising buil
           borderRadius: 2,
           color: 'reds.500',
         }} >
-          Private
+          Deleted
         </Element>
       </div>
     </ThemeProvider>
@@ -381,32 +381,110 @@ If you'd like to utilise the customisation method mentioned in [Customising buil
 
 ---
 
-<div style={{ marginBottom: 400 }} />
+### Creating a composite component
 
----
+More often than creating new building blocks, you'll find yourself creating new components composed of built-in components from `react-ui`.
 
-- you can pass baseStyles to it and you're kind of done, this allows folks to add more styles later.
+As an example, let's build a `Breadcrumbs` component.
 
-use object styles, use theme token.
+(This guide assumes you have read the first part about [creating new building blocks](docs/recipes/creating-components/#creating-a-new-building-block))
+
+<br/>
+
+This is what we would like our breadcrumbs component to look like:
+
+<div className="example preview-first preview-margin">
+
+<ThemeProvider>
+  <Element
+    as="div"
+    aria-label="breadcrumb"
+    css={{
+      fontSize: 3,
+      Link: {
+        ':after': {
+          content: "'/'",
+          color: 'grays.700',
+          paddingX: 2
+        }
+      }
+    }}
+  >
+    <Link href="/home">Home</Link>
+    <Link href="/settings">Settings</Link>
+    <span aria-current>Update profile details</span>
+  </Element>
+</ThemeProvider>
 
 ```jsx
-const styles = {
-  backgroundColor: 'pink'
-}
-
-const List = props => <Element as="ul" baseStyles={styles} {...props} />
+<Breadcrumbs>
+  <Link href="/home">Home</Link>
+  <Link href="/settings">Settings</Link>
+  <span aria-current>Update profile details</span>
+</Breadcrumbs>
 ```
 
-- if you want folks to be able to customise it throught the themeprovider, then add as baseStyles and add component key.
+</div>
+
+Our component needs to set the font size of it's component and add a separator(`/`) after each link.
+
+<br/>
+
+**Step 1: Breadcrumb styles**
+
+To begin, let's create a new component like we did earlier on this page with the `Element` primitive.
+
+We have added the font size we want our breadcrumb to have.
 
 ```jsx
+import React from 'react'
+import { Element } from 'react-ui'
+
 const styles = {
-  backgroundColor: 'pink'
+  fontSize: 3
 }
 
-const List = props => (
-  <Element as="ul" component="List" baseStyles={styles} {...props} />
+const Breadcrumbs = props => (
+  <Element as="div" css={styles} {...props}>
+    {props.children}
+  </Element>
 )
 ```
 
-this is how the component is identified in theme components. make sure names are unique though.
+Note: this guide does not show you how to create an accessible breadcrumb. To see the full implementation, see the [Breadcrumbs component](/docs/components/breadcrumbs) from `react-ui`
+
+<br/>
+
+**Step 2: Add additional styles to Link**
+
+The styles we provide to a component build with the `Element` primitive supports nesting.
+
+We can customise what styles are added to the `Link` component when it is present inside the `Breadcrumbs` component like this:
+
+```jsx
+import React from 'react'
+import { Element } from 'react-ui'
+
+const styles = {
+  fontSize: 3,
+  // we can target the Link component by its data-component
+  Link: { 
+    ':after': {
+      content: "'/'",
+      color: 'grays.700',
+      paddingX: 2
+    }
+  }
+}
+
+const Breadcrumbs = props => (
+  <Element as="div" css={styles} {...props}>
+    {props.children}
+  </Element>
+)
+```
+
+If you'd like to use this method for components you build yourself, refer to the documentation for [making components customisable](/docs/recipes/creating-components/#step-3-optional-make-the-component-customisable)
+
+
+---

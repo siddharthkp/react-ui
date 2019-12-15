@@ -4,7 +4,8 @@ import css from '@styled-system/css'
 import { withTheme } from 'emotion-theming'
 import { merge } from '@styled-system/core'
 
-const BaseElement = styled('div')()
+/** Base element (name is prefixed to the component) */
+const rui = styled('div')()
 
 const marginProps = [
   'margin',
@@ -16,7 +17,14 @@ const marginProps = [
   'marginRight'
 ]
 
-function Element({ css: styles, baseStyles, component, theme, ...props }) {
+function Element({
+  css: styles,
+  baseStyles,
+  style: inlineStyles,
+  component,
+  theme,
+  ...props
+}) {
   theme.components = theme.components || {}
 
   const margins = {}
@@ -32,16 +40,39 @@ function Element({ css: styles, baseStyles, component, theme, ...props }) {
     margins || {}
   )
 
+  /** Allow nested component keys */
+  walk(merged, node => {
+    const keys = Object.keys(node)
+    // capitalized = component name
+    const capitalisedKeys = keys.filter(key => /^[A-Z]/.test(key))
+    capitalisedKeys.forEach(key => {
+      const transformedKey = `[data-component=${key}]`
+      node[transformedKey] = node[key]
+      delete node[key]
+    })
+  })
+
   // Better classNames for debugging
-  merged.label = component
+  merged.label = component || props.as
   props['data-component'] = component
 
   // instead of React.createElement
-  return jsx(BaseElement, { css: css(merged), ...props })
+  return jsx(rui, {
+    css: css(merged),
+    style: css(inlineStyles)(theme),
+    ...props
+  })
 }
 
 function mergeAll(a, b, c, d) {
   return merge(merge(merge(a, b), c), d)
+}
+
+function walk(obj, callback) {
+  if (typeof obj === 'object') {
+    callback(obj)
+    Object.values(obj).map(node => walk(node, callback))
+  }
 }
 
 export default withTheme(Element)

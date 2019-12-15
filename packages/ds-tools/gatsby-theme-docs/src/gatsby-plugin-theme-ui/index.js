@@ -64,6 +64,14 @@ const nightOwl = {
   }
 }
 
+const code = {
+  backgroundColor: '#1b1f230d',
+  color: '#347992',
+  padding: '3px 6px',
+  fontSize: '90%',
+  borderRadius: '3px'
+}
+
 export default {
   ...theme,
   styles: {
@@ -71,13 +79,14 @@ export default {
       '&.example': {
         border: '1px solid #eee',
         borderRadius: '5px',
-        marginY: '1em',
+        marginTop: '1em',
+        marginBottom: '2em',
         overflow: 'hidden',
 
         pre: {
           margin: 0,
           borderRadius: 0,
-          overflow: 'auto'
+          border: 'none'
         },
         p: {
           margin: 0,
@@ -89,18 +98,19 @@ export default {
           pre: {
             borderBottom: '1px solid #eee'
           }
+        },
+        '&.preview-first': {
+          pre: {
+            borderTop: '1px solid #eee'
+          }
+        },
+        '&.preview-margin > :not(pre)': {
+          margin: '16px'
         }
       }
     },
-    p: {
-      code: {
-        backgroundColor: '#1b1f230d',
-        color: '#347992',
-        padding: '3px 6px',
-        fontSize: '90%',
-        borderRadius: '3px'
-      }
-    },
+    p: { code },
+    li: { code },
     img: {
       width: '100%',
       border: '1px solid #eee',
@@ -112,11 +122,20 @@ export default {
     pre: {
       ...nightOwl,
       padding: '1em',
-      borderRadius: 2
+      border: '1px solid #eee',
+      borderRadius: 2,
+      overflow: 'auto'
     },
     hr: {
       border: '1px solid #22222220',
       marginY: '64px'
+    },
+    blockquote: {
+      marginLeft: 0,
+      paddingLeft: '1em',
+      borderLeft: '2px solid #eee',
+      fontStyle: 'italic',
+      color: '#6e7a8a'
     }
   }
 }
