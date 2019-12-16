@@ -7,6 +7,8 @@ export * from './src/components/text'
 export * from './src/components/heading'
 export * from './src/components/link'
 
+export * from './src/components/grid'
+
 export * from './src/components/theme-provider'
 
 export { Element } from './primitives'

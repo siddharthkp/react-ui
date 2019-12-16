@@ -5,9 +5,7 @@ export const Sidebar = props => (
   <Element
     as="aside"
     baseStyles={{
-      position: 'fixed', // remove after Grid
       top: 0,
-      width: 200,
       height: '100vh',
       background: 'white',
       borderRight: '1px solid',
