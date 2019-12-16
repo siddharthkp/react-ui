@@ -2,6 +2,7 @@ export const styles = {
   Button: {
     paddingY: 2,
     width: '100%',
+    // remove in favor of variants
     backgroundColor: 'greens.700',
     color: 'white',
     border: '2px solid',

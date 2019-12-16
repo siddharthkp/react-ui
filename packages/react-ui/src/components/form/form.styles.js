@@ -14,7 +14,7 @@ export const styles = {
     }
   },
   FormLabel: {
-    color: 'grays.800',
+    color: 'text.body',
     display: 'block',
     fontSize: 2,
     lineHeight: 'default',

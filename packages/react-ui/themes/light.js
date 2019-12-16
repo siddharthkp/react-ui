@@ -82,4 +82,11 @@ theme.sizes = {
   Input: theme.space[10]
 }
 
+theme.colors.text = {
+  subtle: theme.colors.grays[700],
+  body: theme.colors.grays[800],
+  link: theme.colors.blues[500],
+  linkHover: theme.colors.blues[600]
+}
+
 export default theme

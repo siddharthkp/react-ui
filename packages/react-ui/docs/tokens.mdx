@@ -55,12 +55,20 @@ The second layer is to encode design decisions in your theme. These decisions ar
 
 
 ```js
-theme.colors.link = 'blues.500'
+// variables
+const theme = { ... }
 
+// decisions
+theme.colors.text = {
+  subtle: theme.colors.grays[700],
+  body: theme.colors.grays[800],
+  link: theme.colors.blues[500],
+  linkHover: theme.colors.blues[600]
+}
 theme.colors.error = {
-  background: 'reds.100',
-  border: 'reds.300',
-  text: 'reds.800'
+  background: theme.colors.reds[100],
+  border: theme.colors.reds[300],
+  text: theme.colors.reds[800]
 }
 ```
 
@@ -90,7 +98,11 @@ In your project, these decisions can span to multiple components.
 ```
 </div>
 
-This practice of encoding decisions and then using them in components leads to a user interface that feels more consistent.
+This practice of encoding decisions and then using them in components leads to a user interface that feels more consistent. The benefits of encoding design decisions are more visible in teams as these decisions get used not only across pages but across people.
+
+Bonus: If your application/blog has multiple themes, you would be able to create them by writing variations of the decision layer for colors while keeping the variables layer fixed.
+
+
 
 
 <br/>
