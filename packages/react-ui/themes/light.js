@@ -89,4 +89,10 @@ theme.colors.text = {
   linkHover: theme.colors.blues[600]
 }
 
+theme.colors.error = {
+  background: theme.colors.reds[100],
+  border: theme.colors.reds[300],
+  text: theme.colors.reds[700]
+}
+
 export default theme
