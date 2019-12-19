@@ -1,0 +1,157 @@
+---
+title: Props based styles
+---
+
+import { ThemeProvider, Element, Link } from 'react-ui'
+
+<br />
+
+The `Link` component from `react-ui` is a good example of a component that changes styles based on the `props` it receives.
+
+<div className="example code-first preview-margin">
+
+```jsx
+<Link href="https://github.com/siddharthkp/react-ui">react-ui</Link>
+<br />
+<Link>no href given</Link>
+```
+
+<ThemeProvider>
+  <div>
+    <Link href="https://github.com/siddharthkp/react-ui">react-ui</Link>
+    <br />
+    <Link>no href given</Link>
+  </div>
+</ThemeProvider>
+
+</div>
+
+<br />
+
+Step 1: Creating a new component
+
+<div className="example code-first preview-margin">
+
+```jsx
+import React from 'react'
+import { Element } from '@ds-tools/primitives'
+
+export const Link = props => <Element as="a" {...props} />
+```
+
+<ThemeProvider>
+  <div>
+    <Element as="a" href="https://github.com/siddharthkp/react-ui">
+      react-ui
+    </Element>
+    <br />
+    <Element as="a">no href given</Element>
+  </div>
+</ThemeProvider>
+
+</div>
+
+Step 2: Adding static styles
+
+<div className="example code-first preview-margin">
+
+```jsx
+import React from 'react'
+import { Element } from '@ds-tools/primitives'
+
+const styles = {
+  textDecoration: 'none',
+  color: 'text.link'
+}
+
+export const Link = props => <Element as="a" baseStyles={styles} {...props} />
+```
+
+<ThemeProvider>
+  <div>
+    <Element
+      as="a"
+      href="https://github.com/siddharthkp/react-ui"
+      css={{
+        textDecoration: 'none',
+        color: 'text.link',
+        ':hover': {
+          color: 'text.linkHover'
+        }
+      }}
+    >
+      react-ui
+    </Element>
+    <br />
+    <Element as="a" css={{ textDecoration: 'none' }}>
+      no href given
+    </Element>
+  </div>
+</ThemeProvider>
+
+</div>
+
+Step 3: Replace style object with a function
+
+<div className="example code-first preview-margin">
+
+```jsx
+import React from 'react'
+import { Element } from '@ds-tools/primitives'
+
+const styles = props => ({
+  textDecoration: 'none',
+  color: props.href ? 'text.link' : 'text.body'
+})
+
+export const Link = props => (
+  <Element as="a" component="Link" css={styles} {...props} />
+)
+```
+
+<ThemeProvider theme={{ colors: { text: { body: 'red' } } }}>
+  <div>
+    <Element
+      as="a"
+      href="https://github.com/siddharthkp/react-ui"
+      css={props => ({
+        textDecoration: 'none',
+        color: props.href ? 'text.link' : 'text.body'
+      })}
+    >
+      react-ui
+    </Element>
+    <br />
+    <Element
+      as="a"
+      css={props => ({
+        textDecoration: 'none',
+        color: props.href ? 'text.link' : 'text.body'
+      })}
+    >
+      no href given
+    </Element>
+  </div>
+</ThemeProvider>
+
+</div>
+
+<Element as="a" />
+
+---
+
+```jsx
+import React from 'react'
+import { Element } from '@ds-tools/primitives'
+
+const styles = props => ({
+  textDecoration: 'none',
+  ':hover': {
+    color: 'text.linkHover'
+  }
+})
+
+export const Link = props => (
+  <Element as="a" component="Link" css={styles} {...props} />
+)
+```

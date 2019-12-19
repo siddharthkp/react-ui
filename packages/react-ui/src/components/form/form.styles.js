@@ -7,11 +7,8 @@ export const styles = {
   },
   FormField: {
     border: 'none',
-    padding: 'none',
     paddingX: 6,
-    '&:not(:last-child)': {
-      marginBottom: 3
-    }
+    paddingY: 0
   },
   FormLabel: {
     color: 'text.body',
@@ -23,7 +20,7 @@ export const styles = {
   FormHeader: {
     fontSize: 5,
     fontWeight: 'normal',
-    marginX: 4,
+    marginLeft: 6,
     marginTop: 0,
     marginBottom: 4
   }

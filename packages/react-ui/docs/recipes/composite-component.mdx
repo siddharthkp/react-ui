@@ -1,0 +1,112 @@
+---
+title: Creating new composite component
+---
+
+import { ThemeProvider, Element, Text, Link, Input } from 'react-ui'
+
+<br />
+
+More often than creating new building blocks, you'll find yourself creating new components composed of built-in components from `react-ui`.
+
+As an example, let's build a `Breadcrumbs` component.
+
+(This guide assumes you have read the first part about [creating new building blocks](/docs/recipes/building-block))
+
+<br />
+
+This is what we would like our breadcrumbs component to look like:
+
+<div className="example preview-first preview-margin">
+
+<ThemeProvider>
+  <Element
+    as="div"
+    aria-label="breadcrumb"
+    css={{
+      fontSize: 3,
+      Link: {
+        ':after': {
+          content: "'/'",
+          color: 'text.subtle',
+          paddingX: 2
+        }
+      }
+    }}
+  >
+    <Link href="/home">Home</Link>
+    <Link href="/settings">Settings</Link>
+    <span aria-current>Update profile details</span>
+  </Element>
+</ThemeProvider>
+
+```jsx
+<Breadcrumbs>
+  <Link href="/home">Home</Link>
+  <Link href="/settings">Settings</Link>
+  <span aria-current>Update profile details</span>
+</Breadcrumbs>
+```
+
+</div>
+
+Our component needs to set the font size of it's component and add a separator(`/`) after each link.
+
+<br />
+
+**Step 1: Breadcrumb styles**
+
+To begin, let's create a new component like we did earlier on this page with the `Element` primitive.
+
+We have added the font size we want our breadcrumb to have.
+
+```jsx
+import React from 'react'
+import { Element } from 'react-ui'
+
+const styles = {
+  fontSize: 3
+}
+
+const Breadcrumbs = props => (
+  <Element as="div" css={styles} {...props}>
+    {props.children}
+  </Element>
+)
+```
+
+Note: this guide does not show you how to create an accessible breadcrumb. To see the full implementation, see the [Breadcrumbs component](/docs/components/breadcrumbs) from `react-ui`
+
+<br />
+
+**Step 2: Add additional styles to Link**
+
+The styles we provide to a component build with the `Element` primitive supports nesting.
+
+We can customise what styles are added to the `Link` component when it is present inside the `Breadcrumbs` component like this:
+
+```jsx
+import React from 'react'
+import { Element } from 'react-ui'
+
+const styles = {
+  fontSize: 3,
+  // we can target the Link component by its data-component
+  Link: {
+    ':after': {
+      content: "'/'",
+      color: 'text.subtle',
+      paddingX: 2
+    }
+  }
+}
+
+const Breadcrumbs = props => (
+  <Element as="div" css={styles} {...props}>
+    {props.children}
+  </Element>
+)
+```
+
+If you'd like to use this method for components you build yourself, refer to the documentation for [making components customisable](/docs/recipes/creating-components/#step-3-optional-make-the-component-customisable)
+
+---

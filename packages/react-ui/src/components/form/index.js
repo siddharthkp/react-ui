@@ -3,10 +3,16 @@ import PropTypes from 'prop-types'
 
 import { styles } from './form.styles'
 import { Element } from '@ds-tools/primitives'
+import { Stack } from '../Stack'
 
-/** Description of an input */
 const Form = props => {
-  return <Element as="form" component="Form" css={styles.Form} {...props} />
+  return (
+    <Element as="form" component="Form" css={styles.Form} {...props}>
+      <Stack component="FormStack" direction="vertical" gap={6}>
+        {props.children}
+      </Stack>
+    </Element>
+  )
 }
 
 Form.propTypes = {

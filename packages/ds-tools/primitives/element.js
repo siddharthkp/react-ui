@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { jsx } from '@emotion/core'
-import css from '@styled-system/css'
+import interpolate from '@styled-system/css'
 import { withTheme } from 'emotion-theming'
 import { merge } from '@styled-system/core'
 
@@ -18,7 +18,7 @@ const marginProps = [
 ]
 
 function Element({
-  css: styles,
+  css,
   baseStyles,
   style: inlineStyles,
   component,
@@ -26,11 +26,14 @@ function Element({
   ...props
 }) {
   theme.components = theme.components || {}
-
   const margins = {}
   Object.keys(props).forEach(prop => {
     if (marginProps.includes(prop)) margins[prop] = props[prop]
   })
+
+  let styles
+  if (typeof css === 'function') styles = css(props)
+  else styles = css
 
   // deep merge with overriding
   const merged = mergeAll(
@@ -58,8 +61,8 @@ function Element({
 
   // instead of React.createElement
   return jsx(rui, {
-    css: css(merged),
-    style: css(inlineStyles)(theme),
+    css: interpolate(merged),
+    style: interpolate(inlineStyles)(theme),
     ...props
   })
 }

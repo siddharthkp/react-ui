@@ -17,6 +17,8 @@ const theme = {
     default: '1.6',
     cosy: '2'
   },
+  // transition speeds in ms
+  speeds: [0, '75ms', '100ms', '150ms', '200ms', '300ms', '500ms'],
   colors: {
     white: '#fff',
     reds: {

@@ -12,7 +12,9 @@ export default [
   {
     title: 'Recipes',
     slugs: [
-      '/docs/recipes/creating-components/',
+      '/docs/recipes/building-block/',
+      '/docs/recipes/composite-component/',
+      // '/docs/recipes/props-based-styles/',
       '/docs/recipes/advanced-customisation/'
     ]
   },

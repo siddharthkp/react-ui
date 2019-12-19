@@ -8,12 +8,15 @@
 - docs: usage
 - docs: custom component recipes
 - docs: creating new components
+- build a switch component
+- build text area
+- build breadcrumbs
 
 ## Next steps
 
-- recipe: styles based on props
+- build more components
 - recipe: create variants
-- build more components?
+- recipe: styles based on props (maybe not)
 - docs: margin utilities
 - docs: theme spec + opinions
 - refactor base styles to merged css
@@ -24,15 +27,15 @@
 - x form
 - x input
 - x label
+- x switch
+- x textarea
 - select
-- textarea
-- switch
 - x heading
 - button
 - icons
 - image
 - paragraph
-- breadcrumbs
+- x breadcrumbs
 - x grid
 - stack
 - x link

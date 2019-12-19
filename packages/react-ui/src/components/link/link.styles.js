@@ -1,7 +1,7 @@
 export const styles = {
-  color: props.href ? 'text.link' : 'text.body',
   textDecoration: 'none',
+  color: 'text.link',
   ':hover': {
-    color: props.href ? 'text.linkHover' : 'text.body'
+    color: 'text.linkHover'
   }
 }

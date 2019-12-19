@@ -2,13 +2,21 @@
 title: Usage
 ---
 
-import { Element, Form, Input, Heading, Button, Text, ThemeProvider } from 'react-ui'
+import {
+  Element,
+  Form,
+  Input,
+  Heading,
+  Button,
+  Text,
+  ThemeProvider
+} from 'react-ui'
 
 skip to
 
 - [Built in components](#built-in-components)
 - [Customisation](#customisation)
-- [Creating new components](#creating-new-components)
+- [Creating new components](/docs/recipes/creating-components/)
 
 <br />
 
@@ -82,7 +90,6 @@ function App() {
 
 <br />
 
-
 For a full list of components, jump to [Components](/docs/components).
 
 <br />
@@ -91,24 +98,23 @@ For a full list of components, jump to [Components](/docs/components).
 
 `react-ui` offers different levels of fine grained control over the look and feel of your components
 
-
-skip to: 
+skip to:
 
 - [1. Customising the theme](#customising-the-theme)
 - [2. Customising built-in components](#customising-built-in-components)
 - [3. Customising the layout](#customising-the-layout)
 - [4. One off customisations](#one-off-use-cases)
 
-<br/>
+<br />
 
 ### Customising the theme
-  
+
 The theme lets you control the overall design of your project with colors, fonts, sizes and spacing grid.
 
 You can create a new theme from scratch or customise an existing one.
 
 ```js
-import light from 'react-ui/themes/light' 
+import light from 'react-ui/themes/light'
 
 const theme = {
   ...light,
@@ -121,7 +127,7 @@ const theme = {
 
 Read more: [Theme specification](/docs/theming)
 
-<br/>
+<br />
 
 ### Customising built-in components
 
@@ -141,7 +147,6 @@ const components = {
 </ThemeProvider>
 ```
 
-
 `react-ui` uses object styles that are hooked up to the theme, so you can use tokens from the theme.
 
 ```js
@@ -157,7 +162,7 @@ To find the reference key of a component, you can check the attached `data-compo
 
 ![data attribute](/docs/data-attr.png)
 
-<br/>
+<br />
 
 #### Approach 2:
 
@@ -175,15 +180,13 @@ const extraStyles = {
 }
 
 const MyForm = props => {
-  return (
-    <Form css={extraStyles} {...props} />
-  )
+  return <Form css={extraStyles} {...props} />
 }
 
 export default Form
 ```
 
-<br/>
+<br />
 
 Read more: [Recipes: Advanced customisation](/docs/recipes/advanced-customisation)
 
@@ -215,7 +218,9 @@ For example:
   <Element marginX={4} marginY={8}>
     <Heading marginBottom={4}>Secure your account</Heading>
     <Input placeholder="Enter a password" marginBottom={1} type="password" />
-    <Text size={2} color="grays.700">Your password should contain 8 characters</Text>
+    <Text size={2} color="grays.700">
+      Your password should contain 8 characters
+    </Text>
   </Element>
 </ThemeProvider>
 
@@ -223,44 +228,34 @@ For example:
 
 The values of margins props are taken from the `space` scale in your theme.
 
-<br/>
+<br />
 
 ### One off use cases
 
 There are rare occasions when you want to change a component but only for a single use case. Inline styles are the recommended way of doing so.
 
-Components built with `react-ui` tap into the `style` prop and let you use theme tokens even in inline styles. 
+Components built with `react-ui` tap into the `style` prop and let you use theme tokens even in inline styles.
 
 Example: (You can inspect in developer tools to see the applied styles)
 
 <div className="example code-first">
 
 ```jsx
-<Element style={{backgroundColor: 'error.background', padding: 4}}>
+<Element style={{ backgroundColor: 'error.background', padding: 4 }}>
   <Heading marginBottom={4}>You need to change your password</Heading>
   <Input placeholder="Enter a password" marginBottom={1} type="password" />
-  <Text size={2}>
-    Your password should contain 8 characters
-  </Text>
+  <Text size={2}>Your password should contain 8 characters</Text>
 </Element>
 ```
 
 <ThemeProvider>
-  <Element style={{backgroundColor: 'error.background', padding: 4}}>
+  <Element style={{ backgroundColor: 'error.background', padding: 4 }}>
     <Heading marginBottom={4}>You need to change your password</Heading>
     <Input placeholder="Enter a password" marginBottom={1} type="password" />
-    <Text size={2}>
-      Your password should contain 8 characters
-    </Text>
+    <Text size={2}>Your password should contain 8 characters</Text>
   </Element>
 </ThemeProvider>
 
 </div>
   
 <br /><br />
-
-### Creating new components
-
-jump to [creating new components](/docs/recipes/creating-components/)
-
-<br />

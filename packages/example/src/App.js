@@ -3,13 +3,15 @@ import React from 'react'
 import {
   Form,
   Input,
+  Textarea,
   Link,
+  Switch,
   Button,
   Grid,
   Column,
   ThemeProvider
 } from 'react-ui'
-import { Breadcrumbs } from './breadcrumbs'
+import { Breadcrumb } from 'react-ui'
 import { Sidebar, Badge } from './sidebar'
 import './style.css'
 
@@ -23,16 +25,16 @@ function App() {
         <Column span={2}>
           <Sidebar>
             <Sidebar.Item href="/inbox">
-              Inbox <Badge css={{ cursor: 'pointer' }}>1</Badge>
+              <span>Inbox</span> <Badge css={{ cursor: 'pointer' }}>1</Badge>
             </Sidebar.Item>
             <Sidebar.Item href="/starred">
-              Starred <Badge variant="starred">5</Badge>
+              <span>Starred</span> <Badge variant="starred">5</Badge>
             </Sidebar.Item>
             <Sidebar.Item href="/sent">
-              Sent <Badge variant="sent">50</Badge>
+              <span>Sent</span> <Badge variant="sent">50</Badge>
             </Sidebar.Item>
             <Sidebar.Item href="/spam">
-              Spam <Badge variant="spam">200</Badge>
+              <span>Spam</span> <Badge variant="spam">200</Badge>
             </Sidebar.Item>
           </Sidebar>
         </Column>
@@ -45,15 +47,14 @@ function App() {
               marginTop: 40
             }}
           >
-            <Breadcrumbs marginBottom={3}>
+            <Breadcrumb marginBottom={3}>
               <Link href="/home">Home</Link>
               <Link href="/settings">Settings</Link>
-              <span aria-current>Update profile details</span>
-            </Breadcrumbs>
+              <span>Update profile details</span>
+            </Breadcrumb>
 
             <Form>
               <Form.Header as="h2">Update profile details</Form.Header>
-
               <Form.Field label="Full name">
                 <Input placeholder="Enter your username" />
               </Form.Field>
@@ -62,6 +63,12 @@ function App() {
               </Form.Field>
               <Form.Field label="Change password">
                 <Input placeholder="Enter a password" />
+              </Form.Field>
+              <Form.Field label="Change password">
+                <Textarea placeholder="Enter a password" />
+              </Form.Field>
+              <Form.Field label="Remember me">
+                <Switch defaultOn />
               </Form.Field>
               <Form.Field>
                 <Button>Update profile</Button>

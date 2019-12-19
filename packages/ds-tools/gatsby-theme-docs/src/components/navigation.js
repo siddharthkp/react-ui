@@ -47,7 +47,7 @@ function Navigation() {
                       .filter(post => !demoSlugs.includes(post.slug))
                       .join('\n')}`
                   )
-                  return <li key={index}>Missing {slug}</li>
+                  return <li key={index}>Missing path: {slug}</li>
                 }
               })}
             </Element>
