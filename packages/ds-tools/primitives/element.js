@@ -1,8 +1,9 @@
-import styled from '@emotion/styled'
+import merge from 'deepmerge'
+import { forwardRef } from 'react'
 import { jsx } from '@emotion/core'
-import interpolate from '@styled-system/css'
+import styled from '@emotion/styled'
 import { withTheme } from 'emotion-theming'
-import { merge } from '@styled-system/core'
+import interpolate from '@styled-system/css'
 
 /** Base element (name is prefixed to the component) */
 const rui = styled('div')()
@@ -17,29 +18,37 @@ const marginProps = [
   'marginRight'
 ]
 
-function Element({
-  css,
-  baseStyles,
-  style: inlineStyles,
-  component,
-  theme,
-  ...props
-}) {
+function Element(
+  {
+    css: cssProp,
+    baseStyles: baseProp,
+    style: inlineStyles,
+    component,
+    theme,
+
+    ...props
+  },
+  ref
+) {
   theme.components = theme.components || {}
   const margins = {}
   Object.keys(props).forEach(prop => {
     if (marginProps.includes(prop)) margins[prop] = props[prop]
   })
 
-  let styles
-  if (typeof css === 'function') styles = css(props)
-  else styles = css
+  let css
+  if (typeof cssProp === 'function') css = cssProp(props)
+  else css = cssProp
+
+  let baseStyles
+  if (typeof baseProp === 'function') baseStyles = baseProp(props)
+  else baseStyles = baseProp
 
   // deep merge with overriding
   const merged = mergeAll(
     baseStyles || {},
     theme.components[component] || {},
-    styles || {},
+    css || {},
     margins || {}
   )
 
@@ -56,13 +65,21 @@ function Element({
   })
 
   // Better classNames for debugging
-  merged.label = component || props.as
   props['data-component'] = component
+
+  if (component) merged.label = component
+  else if (typeof props.as === 'string') merged.label = props.as
+  else if (props.as && typeof props.as.displayName === 'string') {
+    merged.label = props.as.displayName
+  } else {
+    // give up
+  }
 
   // instead of React.createElement
   return jsx(rui, {
     css: interpolate(merged),
     style: interpolate(inlineStyles)(theme),
+    ref,
     ...props
   })
 }
@@ -78,4 +95,4 @@ function walk(obj, callback) {
   }
 }
 
-export default withTheme(Element)
+export default withTheme(forwardRef(Element))

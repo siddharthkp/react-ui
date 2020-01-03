@@ -11,12 +11,26 @@
 - build a switch component
 - build text area
 - build breadcrumbs
+- build stack
+- add id to form labels
+- fix switch component
+- add required to form labels
+- add placeholder state for select
+- move menu component to core
+- build button component
 
 ## Next steps
 
 - build more components
-- recipe: create variants
+- build loader component
+- build icon component
+
+- recipe: create variants https://theme-ui.com/components/variants
 - recipe: styles based on props (maybe not)
+- recipe: usage with reach-ui
+- recipe: usage with react router
+
+- docs: document components
 - docs: margin utilities
 - docs: theme spec + opinions
 - refactor base styles to merged css
@@ -24,19 +38,31 @@
 
 ### First 10 components
 
+building blocks
+
 - x form
 - x input
 - x label
 - x switch
 - x textarea
-- select
-- x heading
+- x select
+- x breadcrumbs
+- x link
+- menu
+- radio
 - button
 - icons
-- image
-- paragraph
-- x breadcrumbs
-- x grid
-- stack
-- x link
 - loader
+- image
+- alert
+- avatar
+
+typography
+
+- x heading
+- paragraph
+
+layout
+
+- x grid
+- x stack

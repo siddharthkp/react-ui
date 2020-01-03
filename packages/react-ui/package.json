@@ -19,6 +19,8 @@
   "dependencies": {
     "@ds-tools/primitives": "0.0.1",
     "@ds-tools/styled": "0.0.1",
+    "@reach/auto-id": "^0.7.0",
+    "@reach/menu-button": "^0.7.0",
     "deepmerge": "4.0.0",
     "lodash.get": "^4.4.2",
     "prop-types": "^15.7.2"

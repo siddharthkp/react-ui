@@ -3,7 +3,10 @@ export const styles = {
     background: 'white',
     boxShadow: 'small',
     paddingY: 4,
-    borderRadius: 1
+    borderRadius: 1,
+    Button: {
+      width: '100%'
+    }
   },
   FormField: {
     border: 'none',

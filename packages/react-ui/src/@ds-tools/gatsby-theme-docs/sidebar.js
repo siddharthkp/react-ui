@@ -28,7 +28,8 @@ export default [
       '/src/components/input/input/',
       '/src/components/button-group/button-group/',
       '/src/components/input-group/input-group/',
-      '/src/components/form/form/'
+      '/src/components/form/form/',
+      '/src/components/heading/heading/'
     ]
   },
   {

@@ -1,19 +1,21 @@
 import React from 'react'
-import { Element, Link } from 'react-ui'
+import { Element, Stack, Link } from 'react-ui'
 
 export const Sidebar = props => (
   <Element
     as="aside"
     baseStyles={{
       top: 0,
-      height: '100vh',
+      height: ['auto', '100vh'],
       background: 'white',
       borderRight: '1px solid',
       borderColor: 'grays.200',
-      paddingTop: 10,
+      paddingY: [5, 10],
+      fontSize: 3,
       ul: {
         paddingLeft: 0,
-        listStyle: 'none'
+        listStyle: 'none',
+        marginY: 0
       }
     }}
     {...props}
@@ -23,22 +25,29 @@ export const Sidebar = props => (
 )
 
 Sidebar.Item = props => (
-  <li>
-    <Link
+  <Element as="li">
+    <Stack
+      as={Link}
+      justify="space-between"
       css={{
-        display: 'flex',
-        justifyContent: 'space-between',
+        display: ['none', 'flex'],
         width: '100%',
         paddingY: 2,
         paddingX: 4,
-        fontSize: 3,
+        cursor: 'pointer',
+        borderRight: '2px solid',
+        borderColor: props.selected ? 'blues.400' : 'transparent',
         ':hover': {
+          backgroundColor: 'grays.200'
+        },
+        ':focus': {
+          outline: 'none',
           backgroundColor: 'grays.200'
         }
       }}
       {...props}
     />
-  </li>
+  </Element>
 )
 
 const badgeStyles = {

@@ -14,13 +14,15 @@ function PropsTable(props) {
   let componentProps = []
 
   if (matchingEdge) {
-    componentProps = convertArrayToObject(matchingEdge.node.props)
+    componentProps = convertArrayToObject(
+      pullDescriptionOut(matchingEdge.node.props)
+    )
 
     if (!matchingEdge.node.props.length) {
       // add warning as first row of table
     }
 
-    return <Table props={componentProps} />
+    return <Table id={componentName} props={componentProps} />
   }
 
   return null
@@ -45,12 +47,24 @@ const query = graphql`
               raw
             }
             required
+            description {
+              text
+            }
           }
         }
       }
     }
   }
 `
+
+function pullDescriptionOut(props) {
+  return props.map(prop => {
+    if (prop.description && prop.description.text) {
+      prop.description = prop.description.text
+    }
+    return prop
+  })
+}
 
 function convertArrayToObject(props) {
   return keyBy(props, 'name')

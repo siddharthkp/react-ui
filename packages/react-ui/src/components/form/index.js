@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useId } from '@reach/auto-id'
 
 import { styles } from './form.styles'
 import { Element } from '@ds-tools/primitives'
-import { Stack } from '../Stack'
+import { Stack } from '../stack'
 
 const Form = props => {
   return (
@@ -47,7 +48,25 @@ Form.Label = props => (
   />
 )
 
-Form.Field = function({ label, children, ...props }) {
+const FormField = function({ label, id, isRequired, ...props }) {
+  const inputId = useId(id)
+
+  const children = React.Children.map(props.children, (child, index) => {
+    const additionalProps = {}
+
+    // We only attach id to the first child.
+    // This is irrelevant when there is only one form element.
+    // When there are multiple elements in the same field, the first one gets focused.
+    if (index === 0) additionalProps.id = inputId
+
+    // this one is tricky. We don't really know the intention here if the user
+    // wanted to make both fields required or just one of them
+    // we assume it's both
+    additionalProps.required = isRequired
+
+    return React.cloneElement(child, { ...additionalProps })
+  })
+
   return (
     <Element
       as="fieldset"
@@ -55,14 +74,31 @@ Form.Field = function({ label, children, ...props }) {
       baseStyles={styles.FormField}
       {...props}
     >
-      <Form.Label>{label}</Form.Label>
+      <Form.Label htmlFor={inputId}>
+        {label} {isRequired ? <span>*</span> : null}
+      </Form.Label>
       {children}
     </Element>
   )
 }
 
+FormField.propTypes = {
+  /** first */
+  label: PropTypes.string.isRequired,
+  /** second */
+  id: PropTypes.string,
+  /** third */
+  isRequired: PropTypes.bool
+}
+
+// attach display name explicitly to make codegen work
+FormField.displayName = 'Form.Field'
+
 Form.propTypes = {}
 
 Form.defaultProps = {}
+
+// attach child components to Form
+Form.Field = FormField
 
 export { Form }

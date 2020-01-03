@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import { styles } from './button.styles'
 import { Element } from '@ds-tools/primitives'
+import { styles } from './button.styles'
+import { merge } from '../../../utils'
 
 /** Description of a button */
 function Button(props) {
@@ -10,7 +10,7 @@ function Button(props) {
     <Element
       as="button"
       component="Button"
-      baseStyles={styles.Button}
+      baseStyles={merge(styles.Button, { variant: `buttons.${props.variant}` })}
       {...props}
     />
   )
@@ -18,11 +18,13 @@ function Button(props) {
 
 Button.propTypes = {
   /** Description of an button prop */
-  type: PropTypes.oneOf(['submit', 'button', 'reset'])
+  type: PropTypes.oneOf(['submit', 'button', 'reset']),
+  variant: PropTypes.oneOf(['primary', 'secondary', 'link', 'destructive'])
 }
 
 Button.defaultProps = {
-  type: 'submit'
+  type: 'submit',
+  variant: 'primary'
 }
 
 export { Button }

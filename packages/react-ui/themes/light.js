@@ -19,6 +19,18 @@ const theme = {
   },
   // transition speeds in ms
   speeds: [0, '75ms', '100ms', '150ms', '200ms', '300ms', '500ms'],
+
+  breakpoints: ['576px', '768px', '992px'],
+
+  shadows: [
+    'none',
+    '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+    '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+    '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+    '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+    '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+  ],
+
   colors: {
     white: '#fff',
     reds: {
@@ -86,7 +98,7 @@ theme.sizes = {
 
 theme.colors.text = {
   subtle: theme.colors.grays[700],
-  body: theme.colors.grays[800],
+  body: theme.colors.grays[900],
   link: theme.colors.blues[500],
   linkHover: theme.colors.blues[600]
 }
@@ -95,6 +107,81 @@ theme.colors.error = {
   background: theme.colors.reds[100],
   border: theme.colors.reds[300],
   text: theme.colors.reds[700]
+}
+
+theme.buttons = {
+  primary: {
+    backgroundColor: 'greens.700',
+    color: 'white',
+    borderColor: 'greens.700',
+    ':hover': {
+      backgroundColor: 'greens.600',
+      borderColor: 'greens.600'
+    },
+    ':focus': {
+      outline: 'none',
+      backgroundColor: 'greens.600',
+      borderColor: 'greens.700'
+    },
+    ':active': {
+      backgroundColor: 'greens.800',
+      borderColor: 'greens.800'
+    }
+  },
+  secondary: {
+    backgroundColor: 'grays.300',
+    color: 'text.body',
+    borderColor: 'grays.300',
+    ':hover': {
+      backgroundColor: 'grays.200',
+      borderColor: 'grays.200'
+    },
+    ':focus': {
+      outline: 'none',
+      backgroundColor: 'grays.200',
+      borderColor: 'grays.400'
+    },
+    ':active': {
+      backgroundColor: 'grays.400',
+      borderColor: 'grays.400'
+    }
+  },
+  destructive: {
+    backgroundColor: 'reds.600',
+    color: 'white',
+    borderColor: 'reds.600',
+    ':hover': {
+      backgroundColor: 'reds.500',
+      borderColor: 'reds.500'
+    },
+    ':focus': {
+      outline: 'none',
+      backgroundColor: 'reds.600',
+      borderColor: 'reds.900'
+    },
+    ':active': {
+      backgroundColor: 'reds.700',
+      borderColor: 'reds.700'
+    }
+  },
+  link: {
+    backgroundColor: 'transparent',
+    color: 'text.link',
+    borderColor: 'transparent',
+    ':hover': {
+      color: 'text.linkHover',
+      textDecoration: 'underline'
+    },
+    ':focus': {
+      outline: 'none',
+      textDecoration: 'underline',
+      backgroundColor: 'grays.200'
+    },
+    ':active': {
+      color: 'text.linkHover',
+      backgroundColor: 'grays.200'
+    }
+  }
 }
 
 export default theme

@@ -4,7 +4,7 @@ import { Element } from '@ds-tools/primitives'
 import { styles } from './stack.styles'
 
 const Stack = props => (
-  <Element as="div" component="Stack" css={styles.Stack} {...props}>
+  <Element as="div" component="Stack" baseStyles={styles.Stack} {...props}>
     {props.children}
   </Element>
 )
@@ -17,7 +17,7 @@ Stack.propTypes = {
 
 Stack.defaultProps = {
   gap: 3,
-  direction: 'horizontal'
+  direction: 'horizonal'
 }
 
 export { Stack }

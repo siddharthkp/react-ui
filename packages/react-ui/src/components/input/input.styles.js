@@ -6,9 +6,13 @@ export const styles = {
   border: '2px solid',
   borderColor: 'grays.400',
   backgroundColor: 'grays.100',
+  color: 'text.body',
   borderRadius: 2,
   boxSizing: 'border-box',
   width: '100%',
+  '::placeholder': {
+    color: 'text.subtle'
+  },
   ':hover': {
     borderColor: 'blues.300'
   },
