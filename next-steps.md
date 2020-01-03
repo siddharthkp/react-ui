@@ -18,23 +18,22 @@
 - add placeholder state for select
 - move menu component to core
 - build button component
+- build spinner component
 
 ## Next steps
 
 - build more components
-- build loader component
-- build icon component
 
-- recipe: create variants https://theme-ui.com/components/variants
-- recipe: styles based on props (maybe not)
-- recipe: usage with reach-ui
-- recipe: usage with react router
+* recipe: create variants https://theme-ui.com/components/variants
+* recipe: styles based on props (maybe not)
+* recipe: usage with reach-ui
+* recipe: usage with react router
 
-- docs: document components
-- docs: margin utilities
-- docs: theme spec + opinions
-- refactor base styles to merged css
-- docs: debug why form prop types aren't working
+* docs: document components
+* docs: margin utilities
+* docs: theme spec + opinions
+* refactor base styles to merged css
+* docs: debug why form prop types aren't working
 
 ### First 10 components
 
@@ -48,14 +47,14 @@ building blocks
 - x select
 - x breadcrumbs
 - x link
-- menu
+- x spinner
+- x menu
+- x button
 - radio
-- button
-- icons
-- loader
 - image
 - alert
 - avatar
+- icons (maybe not)
 
 typography
 

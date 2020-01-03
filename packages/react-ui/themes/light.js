@@ -184,4 +184,15 @@ theme.buttons = {
   }
 }
 
+theme.spinners = {
+  default: {
+    borderColor: 'rgba(0, 0, 0, 0.1)',
+    borderLeftColor: 'rgba(0, 0, 0, 0.5)'
+  },
+  inverse: {
+    borderColor: 'rgba(255, 255, 255, 0.2)',
+    borderLeftColor: 'rgba(255, 255, 255, 0.8)'
+  }
+}
+
 export default theme

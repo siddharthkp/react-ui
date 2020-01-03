@@ -1,5 +1,8 @@
 export const styles = {
   Button: {
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingY: 2,
     border: '2px solid',
     fontSize: 3,
