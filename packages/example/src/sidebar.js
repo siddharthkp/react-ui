@@ -30,7 +30,7 @@ Sidebar.Item = props => (
       as={Link}
       justify="space-between"
       css={{
-        display: ['none', 'flex'],
+        display: ['inline', 'flex'],
         width: '100%',
         paddingY: 2,
         paddingX: 4,

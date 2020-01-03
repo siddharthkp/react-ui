@@ -19,21 +19,23 @@
 - move menu component to core
 - build button component
 - build spinner component
+- build avatar component
+- docs: debug why form prop types aren't working
 
 ## Next steps
 
-- build more components
+- docs: document components
 
-* recipe: create variants https://theme-ui.com/components/variants
-* recipe: styles based on props (maybe not)
-* recipe: usage with reach-ui
-* recipe: usage with react router
+- recipe: create variants https://theme-ui.com/components/variants
+- recipe: styles based on props (maybe not)
+- recipe: usage with reach-ui
+- recipe: usage with react router
 
-* docs: document components
-* docs: margin utilities
-* docs: theme spec + opinions
-* refactor base styles to merged css
-* docs: debug why form prop types aren't working
+- docs: margin utilities
+- docs: theme spec + opinions
+- refactor base styles to merged css
+
+* build more components
 
 ### First 10 components
 
@@ -50,10 +52,10 @@ building blocks
 - x spinner
 - x menu
 - x button
-- radio
-- image
+- x avatar
 - alert
-- avatar
+- image (maybe not)
+- radio (maybe later)
 - icons (maybe not)
 
 typography

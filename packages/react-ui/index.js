@@ -12,6 +12,7 @@ export * from './src/components/link'
 export * from './src/components/breadcrumb'
 export * from './src/components/menu'
 export * from './src/components/spinner'
+export * from './src/components/avatar'
 
 export * from './src/components/grid'
 export * from './src/components/stack'

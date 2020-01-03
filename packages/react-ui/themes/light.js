@@ -1,5 +1,5 @@
 const theme = {
-  space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
+  space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48],
   radii: [0, 2, 5, 10],
   fontSizes: [0, 11, 12, 14, 16, 20, 24, 32, 48, 64, 72],
   fontWeights: {
@@ -93,7 +93,12 @@ const theme = {
 
 theme.sizes = {
   ...theme.space,
-  Input: theme.space[10]
+  Input: theme.space[10],
+  Avatar: {
+    small: theme.space[7],
+    medium: theme.space[9],
+    large: theme.space[12]
+  }
 }
 
 theme.colors.text = {

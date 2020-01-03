@@ -2,6 +2,7 @@ import React from 'react'
 
 import {
   Form,
+  Avatar,
   Input,
   Textarea,
   Select,
@@ -13,7 +14,8 @@ import {
   Breadcrumb,
   Stack,
   Menu,
-  ThemeProvider
+  ThemeProvider,
+  Element
 } from 'react-ui'
 import { Sidebar, Badge } from './sidebar'
 
@@ -27,68 +29,87 @@ function App() {
       <Grid>
         <Column span={[12, 3]}>
           <Sidebar>
-            <Sidebar.Item
-              selected={selectedLabel === 'Inbox'}
-              onClick={() => selectLabel('Inbox')}
-            >
-              <span>Inbox</span> <Badge>1</Badge>
-            </Sidebar.Item>
-            <Sidebar.Item
-              selected={selectedLabel === 'Starred'}
-              onClick={() => selectLabel('Starred')}
-            >
-              <span>Starred</span> <Badge variant="starred">5</Badge>
-            </Sidebar.Item>
-            <Sidebar.Item
-              selected={selectedLabel === 'Sent'}
-              onClick={() => selectLabel('Sent')}
-            >
-              <span>Sent</span> <Badge variant="sent">50</Badge>
-            </Sidebar.Item>
-            <Sidebar.Item
-              selected={selectedLabel === 'Spam'}
-              onClick={() => selectLabel('Spam')}
-            >
-              <span>Spam</span> <Badge variant="spam">200</Badge>
-            </Sidebar.Item>
+            <Element css={{ display: ['none', 'block'] }}>
+              <Stack justify="center" marginBottom={4}>
+                <Avatar
+                  src="https://tinyfac.es/data/avatars/475605E3-69C5-4D2B-8727-61B7BB8C4699-500w.jpeg"
+                  alt="user avatar"
+                  size="large"
+                />
+              </Stack>
 
-            <Menu>
               <Sidebar.Item
-                as={Menu.Button}
-                css={{
-                  display: ['block', 'block'],
-                  marginX: 2,
-                  paddingRight: 4,
-                  backgroundImage: `url(${Select.caret})`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: '96% 50%'
-                }}
+                selected={selectedLabel === 'Inbox'}
+                onClick={() => selectLabel('Inbox')}
               >
-                {selectedLabel}
+                <span>Inbox</span> <Badge>1</Badge>
               </Sidebar.Item>
-              <Menu.List>
-                <Menu.Item onSelect={() => selectLabel('Inbox')}>
-                  <Stack as={Link} justify="space-between">
-                    <span>Inbox</span> <Badge>1</Badge>
-                  </Stack>
-                </Menu.Item>
-                <Menu.Item onSelect={() => selectLabel('Starred')}>
-                  <Stack as={Link} justify="space-between">
-                    <span>Starred</span> <Badge variant="starred">5</Badge>
-                  </Stack>
-                </Menu.Item>
-                <Menu.Item onSelect={() => selectLabel('Sent')}>
-                  <Stack as={Link} justify="space-between">
-                    <span>Sent</span> <Badge variant="sent">50</Badge>
-                  </Stack>
-                </Menu.Item>
-                <Menu.Item onSelect={() => selectLabel('Spam')}>
-                  <Stack as={Link} justify="space-between">
-                    <span>Spam</span> <Badge variant="spam">200</Badge>
-                  </Stack>
-                </Menu.Item>
-              </Menu.List>
-            </Menu>
+              <Sidebar.Item
+                selected={selectedLabel === 'Starred'}
+                onClick={() => selectLabel('Starred')}
+              >
+                <span>Starred</span> <Badge variant="starred">5</Badge>
+              </Sidebar.Item>
+              <Sidebar.Item
+                selected={selectedLabel === 'Sent'}
+                onClick={() => selectLabel('Sent')}
+              >
+                <span>Sent</span> <Badge variant="sent">50</Badge>
+              </Sidebar.Item>
+              <Sidebar.Item
+                selected={selectedLabel === 'Spam'}
+                onClick={() => selectLabel('Spam')}
+              >
+                <span>Spam</span> <Badge variant="spam">200</Badge>
+              </Sidebar.Item>
+            </Element>
+
+            <Stack
+              justify="space-between"
+              css={{ display: ['flex', 'none'], paddingX: 4 }}
+            >
+              <Menu>
+                <Sidebar.Item
+                  as={Menu.Button}
+                  css={{
+                    paddingRight: 4,
+                    backgroundImage: `url(${Select.caret})`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: '96% 50%'
+                  }}
+                >
+                  {selectedLabel}
+                </Sidebar.Item>
+                <Menu.List>
+                  <Menu.Item onSelect={() => selectLabel('Inbox')}>
+                    <Stack as={Link} justify="space-between">
+                      <span>Inbox</span> <Badge>1</Badge>
+                    </Stack>
+                  </Menu.Item>
+                  <Menu.Item onSelect={() => selectLabel('Starred')}>
+                    <Stack as={Link} justify="space-between">
+                      <span>Starred</span> <Badge variant="starred">5</Badge>
+                    </Stack>
+                  </Menu.Item>
+                  <Menu.Item onSelect={() => selectLabel('Sent')}>
+                    <Stack as={Link} justify="space-between">
+                      <span>Sent</span> <Badge variant="sent">50</Badge>
+                    </Stack>
+                  </Menu.Item>
+                  <Menu.Item onSelect={() => selectLabel('Spam')}>
+                    <Stack as={Link} justify="space-between">
+                      <span>Spam</span> <Badge variant="spam">200</Badge>
+                    </Stack>
+                  </Menu.Item>
+                </Menu.List>
+              </Menu>
+
+              <Avatar
+                src="https://tinyfac.es/data/avatars/475605E3-69C5-4D2B-8727-61B7BB8C4699-500w.jpeg"
+                alt="user avatar"
+                size="small"
+              />
+            </Stack>
           </Sidebar>
         </Column>
 
@@ -130,18 +151,9 @@ function App() {
               <Form.Field label="Remember me">
                 <Switch />
               </Form.Field>
-              <Form.Field>
-                <Button marginBottom={2}>Update profile</Button>
-                <Button margin={2} variant="secondary">
-                  Update profile
-                </Button>
-                <Button margin={2} variant="link">
-                  Update profile
-                </Button>
-                <Button margin={2} variant="destructive">
-                  Update profile
-                </Button>
-              </Form.Field>
+              <Element marginX={6} marginBottom={2}>
+                <Button>Update profile</Button>
+              </Element>
             </Form>
           </div>
         </Column>
