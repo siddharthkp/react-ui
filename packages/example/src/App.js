@@ -24,6 +24,7 @@ import theme from './theme/theme.js'
 
 function App() {
   const [selectedLabel, selectLabel] = React.useState('Inbox')
+
   return (
     <ThemeProvider theme={theme}>
       <Grid>
@@ -31,11 +32,11 @@ function App() {
           <Sidebar>
             <Element css={{ display: ['none', 'block'] }}>
               <Stack justify="center" marginBottom={4}>
-                <Avatar
+                {/* <Avatar
                   src="https://tinyfac.es/data/avatars/475605E3-69C5-4D2B-8727-61B7BB8C4699-500w.jpeg"
                   alt="user avatar"
                   size="large"
-                />
+                /> */}
               </Stack>
 
               <Sidebar.Item
@@ -69,8 +70,8 @@ function App() {
               css={{ display: ['flex', 'none'], paddingX: 4 }}
             >
               <Menu>
-                <Sidebar.Item
-                  as={Menu.Button}
+                <Menu.Button
+                  variant="secondary"
                   css={{
                     paddingRight: 4,
                     backgroundImage: `url(${Select.caret})`,
@@ -79,7 +80,7 @@ function App() {
                   }}
                 >
                   {selectedLabel}
-                </Sidebar.Item>
+                </Menu.Button>
                 <Menu.List>
                   <Menu.Item onSelect={() => selectLabel('Inbox')}>
                     <Stack as={Link} justify="space-between">
@@ -104,21 +105,21 @@ function App() {
                 </Menu.List>
               </Menu>
 
-              <Avatar
+              {/* <Avatar
                 src="https://tinyfac.es/data/avatars/475605E3-69C5-4D2B-8727-61B7BB8C4699-500w.jpeg"
                 alt="user avatar"
                 size="small"
-              />
+              /> */}
             </Stack>
           </Sidebar>
         </Column>
 
-        <Column span={[12, 9]}>
-          <div
+        <Column span={[12, 9]} style={{ backgroundColor: 'App.background' }}>
+          <Element
             style={{
               width: 400,
               margin: 'auto',
-              marginTop: 40
+              marginY: 40
             }}
           >
             <Breadcrumb marginBottom={3}>
@@ -155,7 +156,7 @@ function App() {
                 <Button>Update profile</Button>
               </Element>
             </Form>
-          </div>
+          </Element>
         </Column>
       </Grid>
     </ThemeProvider>

@@ -1,9 +1,11 @@
+import { calc } from '../../../utils'
+
 export const styles = {
   SwitchBackground: {
     display: 'flex',
     alignItems: 'center',
     position: 'relative',
-    backgroundColor: 'grays.400',
+    backgroundColor: 'Switch.backgroundOff',
     width: 7,
     height: 4,
     borderRadius: 3
@@ -11,8 +13,9 @@ export const styles = {
   SwitchToggle: {
     backgroundColor: 'white',
     position: 'absolute',
-    width: theme => theme.space[4] - 2,
-    height: theme => theme.space[4] - 2,
+
+    width: calc(4, '-2px'),
+    height: calc(4, '-2px'),
     left: '1px',
     borderRadius: '50%',
     transition: 'left ease',
@@ -25,10 +28,10 @@ export const styles = {
   },
   SwitchContainer: {
     'input:checked + [data-component=SwitchBackground]': {
-      backgroundColor: 'greens.700'
+      backgroundColor: 'Switch.backgroundOn'
     },
     'input:checked + [data-component=SwitchBackground] [data-component=SwitchToggle]': {
-      left: theme => theme.space[4] - 3
+      left: theme => calc(4, '-3px')
     }
   }
 }

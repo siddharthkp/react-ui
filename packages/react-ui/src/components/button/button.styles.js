@@ -3,7 +3,7 @@ export const styles = {
     display: 'inline-flex',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingY: 2,
+    height: 'Button',
     border: '2px solid',
     fontSize: 3,
     lineHeight: 'default',

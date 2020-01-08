@@ -2,20 +2,12 @@ import base from './base'
 import { merge } from '../utils'
 
 const theme = {
+  // base is shallow merged
   ...base,
-
   // based on elevation levels
-  shadows: [
-    'none',
-    '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-    '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-    '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-    '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-    '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
-  ],
-
   colors: {
     white: '#fff',
+    black: '#000',
     reds: {
       100: '#F8E4E4',
       200: '#EFA6A6',
@@ -69,24 +61,33 @@ const theme = {
       600: '#929FB1',
       700: '#6E7A8A',
       800: '#404B5A',
-      900: '#202833'
+      900: '#202833',
+      1000: '#151515'
     }
-  }
+  },
+  shadows: [
+    'none',
+    '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+    '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+    '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+    '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+    '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+  ]
 }
 
 // decisions
-
-theme.colors.text = {
-  subtle: 'grays.700',
-  body: 'grays.900',
-  link: 'blues.500',
-  linkHover: 'blues.600'
-}
 
 theme.colors.error = {
   background: 'reds.100',
   border: 'reds.300',
   text: 'reds.700'
+}
+
+theme.colors.text = {
+  subtle: 'grays.700',
+  body: 'white',
+  link: 'blues.400',
+  linkHover: 'blues.500'
 }
 
 // component specific decisions
@@ -104,44 +105,44 @@ const components = {
 
   colors: {
     App: {
-      background: 'grays.100'
+      background: 'grays.900'
     },
     Avatar: {
-      border: 'grays.200'
+      border: 'grays.700'
     },
     Form: {
-      background: 'white'
-    },
-    Input: {
-      // also used for textarea and select
-      background: 'grays.100',
-      border: 'grays.400',
-      backgroundHover: 'grays.100',
-      borderHover: 'blues.300',
-      backgroundFocus: 'blues.100',
-      borderFocus: 'blues.500'
-    },
-    Menu: {
-      background: 'white',
-      border: 'grays.200',
-      backgroundSelected: 'grays.200'
-    },
-    MenuButton: {
-      backgroundHover: 'grays.200',
-      backgroundFocus: 'grays.200',
-      border: 'grays.200'
-    },
-    Switch: {
-      backgroundOff: 'grays.400',
-      backgroundOn: 'greens.700'
+      background: 'grays.800'
     },
 
+    Input: {
+      // also used for textarea and select
+      background: 'grays.900',
+      border: 'grays.1000',
+      backgroundHover: 'grays.900',
+      borderHover: 'black',
+      backgroundFocus: 'black',
+      borderFocus: 'grays.900'
+    },
+    Menu: {
+      background: 'grays.800',
+      backgroundSelected: 'grays.900',
+      border: 'grays.900'
+    },
+    MenuButton: {
+      backgroundHover: 'grays.900',
+      backgroundFocus: 'grays.900',
+      border: 'grays.900'
+    },
+    Switch: {
+      backgroundOff: 'grays.900',
+      backgroundOn: 'greens.600'
+    },
     Sidebar: {
       // light
-      background: 'white',
-      backgroundHover: 'grays.200',
-      backgroundFocus: 'grays.200',
-      border: 'grays.200'
+      background: 'grays.800',
+      backgroundHover: 'grays.900',
+      backgroundFocus: 'grays.900',
+      border: 'grays.1000'
     }
   },
 
@@ -219,16 +220,16 @@ const components = {
           backgroundColor: 'grays.200'
         }
       }
+    }
+  },
+  Spinners: {
+    default: {
+      borderColor: 'rgba(0, 0, 0, 0.1)',
+      borderLeftColor: 'rgba(0, 0, 0, 0.5)'
     },
-    Spinners: {
-      default: {
-        borderColor: 'rgba(0, 0, 0, 0.1)',
-        borderLeftColor: 'rgba(0, 0, 0, 0.5)'
-      },
-      inverse: {
-        borderColor: 'rgba(255, 255, 255, 0.2)',
-        borderLeftColor: 'rgba(255, 255, 255, 0.8)'
-      }
+    inverse: {
+      borderColor: 'rgba(255, 255, 255, 0.2)',
+      borderLeftColor: 'rgba(255, 255, 255, 0.8)'
     }
   }
 }

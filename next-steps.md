@@ -21,10 +21,20 @@
 - build spinner component
 - build avatar component
 - docs: debug why form prop types aren't working
+- internal: rewrite components to extract colors
+- internal: break up theme and colors
+- internal: dark theme
+- internal: allow usage of tokens inside theme file (especially user facing)
 
 ## Next steps
 
+- replace css
+
+- internal: add a darker gray than 900
+- internal: allow background to be used as backgroundColor
 - docs: document components
+- component: switch hover and focus state
+- component: input hover and focus states
 
 - recipe: create variants https://theme-ui.com/components/variants
 - recipe: styles based on props (maybe not)

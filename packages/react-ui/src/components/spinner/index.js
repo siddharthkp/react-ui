@@ -9,7 +9,7 @@ export const Spinner = ({ variant, ...props }) => (
     as="span"
     component="Spinner"
     baseStyles={merge(styles.Spinner, {
-      variant: `spinners.${variant}`
+      variant: `Spinners.${variant}`
     })}
     {...props}
   />

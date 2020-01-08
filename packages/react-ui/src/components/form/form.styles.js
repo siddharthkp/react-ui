@@ -1,7 +1,7 @@
 export const styles = {
   Form: {
-    background: 'white',
-    boxShadow: 'small',
+    backgroundColor: 'Form.background',
+    boxShadow: 1,
     paddingY: 4,
     borderRadius: 1,
     Button: {
@@ -18,9 +18,10 @@ export const styles = {
     display: 'block',
     fontSize: 2,
     lineHeight: 'default',
-    marginBottom: 1
+    paddingBottom: 1
   },
   FormHeader: {
+    color: 'text.body',
     fontSize: 5,
     fontWeight: 'normal',
     marginLeft: 6,

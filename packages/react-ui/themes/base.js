@@ -1,60 +1,52 @@
 const theme = {
-  components: {
-    Button: {
-      zIndex: 1,
-      fontSize: 2
-    },
+  space: [
+    '0px',
+    '4px',
+    '8px',
+    '12px',
+    '16px',
+    '20px',
+    '24px',
+    '28px',
+    '32px',
+    '36px',
+    '40px',
+    '44px',
+    '48px'
+  ],
+  radii: [0, '2px', '5px', '10px'],
+  fontSizes: [
+    '0px',
+    '11px',
+    '12px',
+    '14px',
+    '16px',
+    '20px',
+    '24px',
+    '32px',
+    '48px',
+    '64px',
+    '72px'
+  ],
+  fontWeights: {
+    thin: 100,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
+    black: 900
+  },
+  lineHeights: {
+    compact: '1.2',
+    default: '1.6',
+    cosy: '2'
+  },
+  // transition speeds in ms
+  speeds: [0, '75ms', '100ms', '150ms', '200ms', '300ms', '500ms'],
 
-    ButtonGroup: {
-      display: 'flex',
-      '& > button:focus': {
-        position: 'relative',
-        zIndex: 2
-      },
-      '& > button:first-of-type': {
-        borderTopRightRadius: 0,
-        borderBottomRightRadius: 0
-      },
-      '& > button:not(:first-of-type):not(:last-of-type)': {
-        borderRadius: 0,
-        borderLeftWidth: 0
-      },
-      '& > button:last-of-type': {
-        borderTopLeftRadius: 0,
-        borderBottomLeftRadius: 0,
-        borderLeftWidth: 0
-      }
-    },
-    Heading: {
-      margin: 0
-    },
-    Input: {
-      fontSize: 2
-    },
-    InputGroup: {
-      display: 'flex',
-      '& > *:focus': {
-        position: 'relative',
-        zIndex: 2
-      },
-      '& > :first-child': {
-        borderTopRightRadius: 0,
-        borderBottomRightRadius: 0
-      },
-      '& > *:not(:first-child):not(:last-child)': {
-        borderRadius: 0,
-        borderLeftWidth: 0
-      },
-      '& > *:last-child': {
-        borderTopLeftRadius: 0,
-        borderBottomLeftRadius: 0,
-        borderLeftWidth: 0
-      }
-    },
-    Paragraph: {
-      margin: 0
-    }
-  }
+  breakpoints: ['576px', '768px', '992px']
 }
 
 export default theme

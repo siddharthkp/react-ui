@@ -4,6 +4,7 @@ import { jsx } from '@emotion/core'
 import styled from '@emotion/styled'
 import { withTheme } from 'emotion-theming'
 import interpolate from '@styled-system/css'
+import interpolate2 from './interpolate'
 
 /** Base element (name is prefixed to the component) */
 const rui = styled('div')()
@@ -77,8 +78,14 @@ function Element(
 
   // instead of React.createElement
   return jsx(rui, {
-    css: interpolate(merged),
-    style: interpolate(inlineStyles)(theme),
+    // interpolate twice to alllow tokens inside theme,
+    // there is an obvious cost to this which needs to be benchmarked
+    // alternate solution is to flatten this in themeprovider
+    css:
+      component === 'Button'
+        ? interpolate2(merged)(theme)
+        : interpolate(interpolate(merged)(theme))(theme),
+    style: interpolate(interpolate(inlineStyles)(theme))(theme),
     ref,
     ...props
   })

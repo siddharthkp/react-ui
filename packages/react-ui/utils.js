@@ -7,4 +7,9 @@ export const mergeFns = (a, b) => {
   }
 }
 
+export const calc = (n, additor) => {
+  return theme =>
+    `calc(${theme.space[n]} ${additor.replace('-', '- ').replace('+', '+ ')})`
+}
+
 export { merge }

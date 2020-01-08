@@ -10,7 +10,7 @@ function Button(props) {
     <Element
       as="button"
       component="Button"
-      baseStyles={merge(styles.Button, { variant: `buttons.${props.variant}` })}
+      baseStyles={merge(styles.Button, { variant: `Buttons.${props.variant}` })}
       {...props}
     />
   )

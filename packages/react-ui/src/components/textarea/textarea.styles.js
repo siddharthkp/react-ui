@@ -3,17 +3,18 @@ export const styles = {
   lineHeight: 'default',
   fontSize: 3,
   border: '2px solid',
-  borderColor: 'grays.400',
-  backgroundColor: 'grays.100',
+  borderColor: 'Input.border',
+  backgroundColor: 'Input.background',
   borderRadius: 2,
   boxSizing: 'border-box',
   width: '100%',
   ':hover': {
-    borderColor: 'blues.300'
+    borderColor: 'Input.borderHover',
+    backgroundColor: 'Input.backgroundHover'
   },
   ':focus': {
     outline: 'none',
-    borderColor: 'blues.500',
-    backgroundColor: 'blues.100'
+    borderColor: 'Input.borderFocus',
+    backgroundColor: 'Input.backgroundFocus'
   }
 }

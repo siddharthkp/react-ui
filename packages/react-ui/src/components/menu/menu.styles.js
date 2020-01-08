@@ -2,28 +2,33 @@ export const styles = {
   MenuButton: {
     appearance: 'none',
     backgroundColor: 'transparent',
-    borderColor: 'grays.200',
+    borderColor: 'MenuButton.border',
     borderRadius: 1,
+    display: 'inline-flex',
+    alignItems: 'center',
+    lineHeight: 1,
     paddingX: 2,
-    paddingY: 1,
+    paddingY: 0,
     color: 'text.link',
     fontSize: 3,
     ':hover': {
-      backgroundColor: 'grays.200'
+      backgroundColor: 'MenuButton.backgroundHover'
     },
     ':focus': {
       outline: 'none',
-      backgroundColor: 'grays.200'
+      backgroundColor: 'MenuButton.backgroundFocus'
     },
     ':active': {
       border: '1px solid',
-      borderColor: 'grays.200'
+      borderColor: 'MenuButton.border'
     }
   },
   MenuList: {
-    borderColor: 'grays.200',
+    backgroundColor: 'Menu.background',
+    borderColor: 'Menu.border',
     paddingY: 0,
     borderRadius: 2,
+    marginTop: 1,
     overflow: 'hidden',
     boxShadow: 3,
     minWidth: 120,
@@ -31,7 +36,7 @@ export const styles = {
       paddingY: 2,
       paddingX: 3,
       '&[data-selected]': {
-        backgroundColor: 'blues.200'
+        backgroundColor: 'Menu.backgroundSelected'
       }
     }
   }

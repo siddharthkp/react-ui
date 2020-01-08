@@ -7,7 +7,7 @@ export const styles = {
   },
   BreadcrumbSeparator: {
     display: 'inline-block',
-    color: 'grays.700',
+    color: 'text.subtle',
     paddingX: 2
   },
   BreadcrumbItem: {

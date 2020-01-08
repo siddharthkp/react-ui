@@ -4,12 +4,12 @@ import { Element, Stack, Link } from 'react-ui'
 export const Sidebar = props => (
   <Element
     as="aside"
-    baseStyles={{
+    css={{
       top: 0,
       height: ['auto', '100vh'],
-      background: 'white',
+      backgroundColor: 'Sidebar.background',
       borderRight: '1px solid',
-      borderColor: 'grays.200',
+      borderColor: 'Sidebar.border',
       paddingY: [5, 10],
       fontSize: 3,
       ul: {
@@ -28,6 +28,7 @@ Sidebar.Item = props => (
   <Element as="li">
     <Stack
       as={Link}
+      href="#"
       justify="space-between"
       css={{
         display: ['inline', 'flex'],
@@ -38,11 +39,11 @@ Sidebar.Item = props => (
         borderRight: '2px solid',
         borderColor: props.selected ? 'blues.400' : 'transparent',
         ':hover': {
-          backgroundColor: 'grays.200'
+          backgroundColor: 'Sidebar.backgroundHover'
         },
         ':focus': {
           outline: 'none',
-          backgroundColor: 'grays.200'
+          backgroundColor: 'Sidebar.backgroundFocus'
         }
       }}
       {...props}
@@ -55,12 +56,12 @@ const badgeStyles = {
   justifyContent: 'center',
   alignItems: 'center',
   fontSize: 1,
-  lineHeight: 1,
+  lineHeight: 0,
   fontWeight: 600,
   paddingX: 1,
-  minWidth: '16px',
+  minWidth: 4,
   paddingY: '2px',
-  borderRadius: '20px'
+  borderRadius: '25px'
 }
 
 export const Badge = ({ variant = 'default', ...props }) => (
