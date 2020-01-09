@@ -4,6 +4,7 @@ import { Element, Stack, Link } from 'react-ui'
 export const Sidebar = props => (
   <Element
     as="aside"
+    component="Sidebar"
     css={{
       top: 0,
       height: ['auto', '100vh'],

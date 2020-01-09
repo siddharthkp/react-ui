@@ -32,11 +32,11 @@ function App() {
           <Sidebar>
             <Element css={{ display: ['none', 'block'] }}>
               <Stack justify="center" marginBottom={4}>
-                {/* <Avatar
+                <Avatar
                   src="https://tinyfac.es/data/avatars/475605E3-69C5-4D2B-8727-61B7BB8C4699-500w.jpeg"
                   alt="user avatar"
                   size="large"
-                /> */}
+                />
               </Stack>
 
               <Sidebar.Item
@@ -70,17 +70,7 @@ function App() {
               css={{ display: ['flex', 'none'], paddingX: 4 }}
             >
               <Menu>
-                <Menu.Button
-                  variant="secondary"
-                  css={{
-                    paddingRight: 4,
-                    backgroundImage: `url(${Select.caret})`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: '96% 50%'
-                  }}
-                >
-                  {selectedLabel}
-                </Menu.Button>
+                <Menu.Button>{selectedLabel}</Menu.Button>
                 <Menu.List>
                   <Menu.Item onSelect={() => selectLabel('Inbox')}>
                     <Stack as={Link} justify="space-between">
@@ -105,11 +95,11 @@ function App() {
                 </Menu.List>
               </Menu>
 
-              {/* <Avatar
+              <Avatar
                 src="https://tinyfac.es/data/avatars/475605E3-69C5-4D2B-8727-61B7BB8C4699-500w.jpeg"
                 alt="user avatar"
                 size="small"
-              /> */}
+              />
             </Stack>
           </Sidebar>
         </Column>

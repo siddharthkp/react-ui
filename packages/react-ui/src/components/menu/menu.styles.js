@@ -8,7 +8,7 @@ export const styles = {
     alignItems: 'center',
     lineHeight: 1,
     paddingX: 2,
-    paddingY: 0,
+    paddingY: 2,
     color: 'text.link',
     fontSize: 3,
     ':hover': {

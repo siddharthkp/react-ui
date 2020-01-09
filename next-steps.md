@@ -25,10 +25,11 @@
 - internal: break up theme and colors
 - internal: dark theme
 - internal: allow usage of tokens inside theme file (especially user facing)
+- replace css
 
 ## Next steps
 
-- replace css
+- add responsiveness to interpolate
 
 - internal: add a darker gray than 900
 - internal: allow background to be used as backgroundColor

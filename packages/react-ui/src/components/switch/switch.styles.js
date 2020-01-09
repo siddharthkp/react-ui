@@ -13,7 +13,6 @@ export const styles = {
   SwitchToggle: {
     backgroundColor: 'white',
     position: 'absolute',
-
     width: calc(4, '-2px'),
     height: calc(4, '-2px'),
     left: '1px',

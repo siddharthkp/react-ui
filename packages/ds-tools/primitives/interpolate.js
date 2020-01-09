@@ -8,16 +8,30 @@ function interpolate(styles, theme) {
   for (let key in styles) {
     const value = styles[key]
 
-    if (typeof value === 'object') {
-      // recursion
+    if (Array.isArray(value)) {
+      // responsive styles
+      const breakpoints = theme.breakpoints
+      if (!breakpoints) continue
+
+      const values = value // renaming to keep grammar easy to understand
+
+      values.map((_, index) => {
+        if (index === 0) {
+          // mobile styles are default
+          filledStyles[key] = get(key, values[0], theme)
+        } else {
+          const breakpoint = theme.breakpoints[index - 1]
+          const mediaQuery = `@media screen and (min-width: ${breakpoint})`
+          // create query rule if it doesn't exist
+          if (!filledStyles[mediaQuery]) filledStyles[mediaQuery] = {}
+          filledStyles[mediaQuery][key] = get(key, values[index], theme)
+        }
+      })
+    } else if (typeof value === 'object') {
+      // recursively interpolate
       filledStyles[key] = interpolate(value, theme)
     } else {
-      let scaleName = scales[key]
-
-      if (scaleName) {
-        const scale = theme[scaleName]
-        filledStyles[key] = get(value, scale)
-      }
+      filledStyles[key] = get(key, value, theme)
     }
 
     if (key === 'variant') {
@@ -25,25 +39,33 @@ function interpolate(styles, theme) {
       const interpolated = interpolate(variantStyles, theme)
       filledStyles = merge(filledStyles, interpolated)
     }
-
-    // expand shortcuts like paddingX, size, etc.
-    if (shortcuts[key]) {
-      shortcuts[key].forEach(realKeys => {
-        filledStyles[realKeys] = filledStyles[key]
-      })
-      delete filledStyles[key]
-    }
   }
+
+  // expand shortcuts like paddingX, size, etc.
+  filledStyles = replaceShortcuts(filledStyles)
 
   return filledStyles
 }
 
-function interpolateFactory(styles) {
-  return function(propsOrTheme) {
-    let theme
-    if (propsOrTheme.theme) theme = theme
-    else theme = propsOrTheme
+function replaceShortcuts(styles) {
+  for (let key in styles) {
+    let value = styles[key]
 
+    if (typeof value === 'object') {
+      value = replaceShortcuts(value)
+    }
+
+    if (shortcuts[key]) {
+      shortcuts[key].forEach(realKeys => (styles[realKeys] = value))
+      delete styles[key]
+    }
+  }
+
+  return styles
+}
+
+function interpolateFactory(styles) {
+  return function(theme) {
     return interpolate(styles, theme)
   }
 }
@@ -60,20 +82,26 @@ function getScale(key) {
 }
 
 // recursively resolve tokens
-function get(value, scale) {
+function get(key, value, theme) {
+  let scaleName = scales[key]
+  const scale = theme[scaleName]
+
   // if scale doesn't exist, there's nothing to do here
   if (!scale) return value
+  if (typeof value === 'undefined') return
 
   /** a value can be one of the following
    * a) css value
    * b) a scale token
    * c) reference to another token
+   * d) a function
    */
 
   let scaleValue
 
   // scale can be an array or object
   if (typeof value === 'number') scaleValue = scale[value]
+  else if (typeof value === 'function') scaleValue = value(theme)
   // delve uses dot.notation to resolve deep inside an object
   else scaleValue = delve(scale, value)
 
@@ -82,7 +110,7 @@ function get(value, scale) {
   else {
     // avoid infinite trap
     if (scaleValue === value) return value
-    const nestedScaleValue = get(scaleValue, scale)
+    const nestedScaleValue = get(key, scaleValue, theme)
 
     // if this value exists, it means it was a reference to another token
     if (nestedScaleValue) return nestedScaleValue

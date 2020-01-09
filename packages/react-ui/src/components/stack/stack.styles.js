@@ -5,7 +5,9 @@ export const styles = {
     alignItems: props.align,
     flexDirection: props.direction === 'vertical' ? 'column' : 'row',
     '> *:not(:last-child)': {
-      marginBottom: props.direction === 'vertical' ? props.gap : 0
+      [props.direction === 'vertical'
+        ? 'marginBottom'
+        : 'marginRight']: props.gap
     }
   })
 }
