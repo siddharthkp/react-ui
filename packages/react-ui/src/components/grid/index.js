@@ -38,8 +38,13 @@ function Column({ start, end, span, ...props }) {
   if (Array.isArray(end)) column.gridColumnEnd = end.map(s => s + 1)
   else if (end) column.gridColumnEnd = end + 1
 
-  if (Array.isArray(span)) column.gridColumnEnd = span.map(s => 'span  ' + s)
+  if (Array.isArray(span)) column.gridColumnEnd = span.map(s => 'span ' + s)
   else if (span) column.gridColumnEnd = 'span ' + span
+
+  // not sure if span=0 is a good idea, we'll find out
+  if (Array.isArray(span)) {
+    column.display = span.map(s => (s === 0 ? 'none' : 'block'))
+  } else if (span === 0) column.display = 'none'
 
   return (
     <Element as="div" component="GridColumn" baseStyles={column} {...props} />

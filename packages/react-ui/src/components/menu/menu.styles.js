@@ -26,12 +26,14 @@ export const styles = {
   MenuList: {
     backgroundColor: 'Menu.background',
     borderColor: 'Menu.border',
+    color: 'Menu.color',
     paddingY: 0,
     borderRadius: 2,
     marginTop: 1,
-    overflow: 'hidden',
     boxShadow: 3,
-    minWidth: 120,
+    minWidth: '120px', // with units, because 120 is not on the scale
+    maxHeight: '200px',
+    overflow: 'auto',
     '[data-reach-menu-item]': {
       paddingY: 2,
       paddingX: 3,

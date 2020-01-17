@@ -8,10 +8,10 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "@ds-tools/styled": "0.0.1",
     "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.15",
     "dlv": "^1.1.3",
-    "emotion-theming": "^10.0.14"
+    "emotion-theming": "^10.0.14",
+    "facepaint": "^1.2.1"
   }
 }

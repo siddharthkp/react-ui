@@ -14,7 +14,7 @@ const theme = {
     '44px',
     '48px'
   ],
-  radii: [0, '2px', '5px', '10px'],
+  radii: [0, '2px', '5px', '10px', '50%'],
   fontSizes: [
     '0px',
     '11px',

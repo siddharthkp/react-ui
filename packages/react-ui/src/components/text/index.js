@@ -9,7 +9,12 @@ function Text({ size, align, color, ...props }) {
     <Element
       as="span"
       component="Text"
-      baseStyles={{ ...styles, color, fontSize: size, textAlign: align }}
+      baseStyles={{
+        ...styles,
+        color,
+        fontSize: size || 'inherit',
+        textAlign: align
+      }}
       {...props}
     />
   )
@@ -21,7 +26,7 @@ Text.propTypes = {
 }
 
 Text.defaultProps = {
-  size: 4
+  // size: we don't give default for size because we want the html default: inherit
 }
 
 export { Text }

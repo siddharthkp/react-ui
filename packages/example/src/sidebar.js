@@ -7,11 +7,11 @@ export const Sidebar = props => (
     component="Sidebar"
     css={{
       top: 0,
-      height: ['auto', '100vh'],
+      height: ['auto', 'auto', '100vh'],
       backgroundColor: 'Sidebar.background',
       borderRight: '1px solid',
       borderColor: 'Sidebar.border',
-      paddingY: [5, 10],
+      paddingY: [5, 5, 10],
       fontSize: 3,
       ul: {
         paddingLeft: 0,
@@ -32,7 +32,7 @@ Sidebar.Item = props => (
       href="#"
       justify="space-between"
       css={{
-        display: ['inline', 'flex'],
+        display: ['inline', 'inline', 'flex'],
         width: '100%',
         paddingY: 2,
         paddingX: 4,

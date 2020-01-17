@@ -1,10 +1,20 @@
-import base from 'react-ui/themes/dark'
+import base from 'react-ui/themes/light'
 import { merge } from 'react-ui/utils'
 
 const theme = {
   colors: {
     Sidebar: {
-      background: 'grays.800' // this should work
+      // light
+      background: 'white',
+      backgroundHover: 'grays.200',
+      backgroundFocus: 'grays.200',
+      border: 'grays.200'
+
+      // dark
+      // background: 'grays.800',
+      // backgroundHover: 'grays.900',
+      // backgroundFocus: 'grays.900',
+      // border: 'grays.1000'
     }
   },
   components: {

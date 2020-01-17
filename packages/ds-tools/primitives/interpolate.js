@@ -1,9 +1,10 @@
-// github.com/styled-system/styled-system/blob/master/packages/css/src/index.js
 import delve from 'dlv'
 import merge from 'deepmerge'
+import facepaint from 'facepaint'
 
-function interpolate(styles, theme) {
+function interpolate(styles = {}, theme) {
   let filledStyles = {}
+  const label = styles.label
 
   for (let key in styles) {
     const value = styles[key]
@@ -13,25 +14,18 @@ function interpolate(styles, theme) {
       const breakpoints = theme.breakpoints
       if (!breakpoints) continue
 
-      const values = value // renaming to keep grammar easy to understand
+      const mq = facepaint(
+        breakpoints.map(breakpoint => `@media (min-width: ${breakpoint})`)
+      )
 
-      values.map((_, index) => {
-        if (index === 0) {
-          // mobile styles are default
-          filledStyles[key] = get(key, values[0], theme)
-        } else {
-          const breakpoint = theme.breakpoints[index - 1]
-          const mediaQuery = `@media screen and (min-width: ${breakpoint})`
-          // create query rule if it doesn't exist
-          if (!filledStyles[mediaQuery]) filledStyles[mediaQuery] = {}
-          filledStyles[mediaQuery][key] = get(key, values[index], theme)
-        }
-      })
+      const values = value // renaming to keep grammar easy to understand
+      const responsiveValues = values.map(v => get(key, v, theme, label))
+      filledStyles = merge(filledStyles, mq({ [key]: responsiveValues })[0])
     } else if (typeof value === 'object') {
       // recursively interpolate
       filledStyles[key] = interpolate(value, theme)
     } else {
-      filledStyles[key] = get(key, value, theme)
+      filledStyles[key] = get(key, value, theme, label)
     }
 
     if (key === 'variant') {
@@ -82,7 +76,7 @@ function getScale(key) {
 }
 
 // recursively resolve tokens
-function get(key, value, theme) {
+function get(key, value, theme, label) {
   let scaleName = scales[key]
   const scale = theme[scaleName]
 
@@ -105,22 +99,123 @@ function get(key, value, theme) {
   // delve uses dot.notation to resolve deep inside an object
   else scaleValue = delve(scale, value)
 
-  // if the value doesn't exist on the scale, it must be a css value
-  if (!scaleValue) return value
-  else {
+  // if the value doesn't exist on the scale, it must be a) css value
+  if (!scaleValue) {
+    if (
+      theme.showWarnings &&
+      scalesWithPixelUnits.includes(scaleName) &&
+      value != 0 && // 0 and '0' are valid
+      !hasUnits(value) // if it has units, we assume explicit intent
+    ) {
+      showPixelFallbackWarning(key, value, scaleName, scale, label)
+    } else if (
+      theme.showWarnings &&
+      scaleName === 'colors' &&
+      !['transparent'].includes(value) &&
+      !isHexCode(value)
+    ) {
+      showColorWarning(key, value, scaleName, scale, label)
+    }
+
+    return value
+  } else {
     // avoid infinite trap
     if (scaleValue === value) return value
-    const nestedScaleValue = get(key, scaleValue, theme)
+    const nestedScaleValue = get(key, scaleValue, theme, label)
 
-    // if this value exists, it means it was a reference to another token
+    // if this value exists, it means it was a c) reference to another token
     if (nestedScaleValue) return nestedScaleValue
-    // otherwise it was a scale token
+    // otherwise it was a b) scale token
     else return scaleValue
   }
 }
 
+const hasUnits = value => {
+  if (typeof value !== 'string') return false
+  else if (value.includes('%')) return true
+  else if (value.match(/[a-z]/i)) return true
+}
+
+const isHexCode = value => {
+  if (typeof value !== 'string') return false
+  else return value.startsWith('#')
+}
+
+const showPixelFallbackWarning = (key, value, scaleName, scale, label) => {
+  const fallback = value + 'px'
+  const fallbacksOnScale = getFallbacksOnScale(scaleName, scale, fallback)
+  const keysOnScale = getKeysOnScale(scale).join(', ')
+
+  let warning = `${value} is not a valid token for ${key} in ${label} component, applying ${fallback} as fallback.`
+  warning += `\n\n`
+  warning += `Please use one of the keys on the ${scaleName} scale: { ${keysOnScale} }`
+  warning += `\n\n`
+
+  if (fallbacksOnScale.length) {
+    if (fallbacksOnScale.length === 1) {
+      const expectedValue = fallbacksOnScale[0]
+      warning += `${value}px has the index ${expectedValue} on the scale. You can set the value for ${key} to ${expectedValue} to hide this warning.`
+    } else {
+      const expectedValues = fallbacksOnScale.join(', ')
+      warning += `${value}px is on your scale, you can set the value for ${key} to one of { ${expectedValues} } to hide this warning.`
+    }
+    warning += `\n\n`
+  }
+  warning += `If you are trying to use a custom value not on the scale, you can hide this message by specifying the unit, example: ${value}px or ${value}em`
+  warning += `\n\n`
+
+  console.warn(warning)
+}
+
+const showColorWarning = (key, value, scaleName, scale, label) => {
+  const fallback = value
+  const keysOnScale = getKeysOnScale(scale).join(', ')
+
+  let warning = `${value} is not a valid token for ${key} in ${label} component, applying "${key}: ${fallback}" as fallback.`
+  warning += `\n\n`
+  warning += `Please use one of the keys on the ${scaleName} scale: { ${keysOnScale} }`
+  warning += `\n\n`
+  warning += `If you are trying to use a custom value not on the scale, you can hide this message by using the hex code for the color, example: #38C172`
+  warning += `\n\n`
+
+  // find matching fallbacks in colors to suggest
+
+  console.warn(warning)
+}
+
+function getKeysOnScale(scale) {
+  return Object.keys(flattenScale(scale))
+}
+
+function getFallbacksOnScale(scaleName, scale, fallback) {
+  const fallbackKeys = ['hero']
+  const flatScale = flattenScale(scale)
+
+  // TODO: Interpolate flat scale and find all matching nested keys
+
+  for (let key in flatScale) {
+    if (flatScale[key] === fallback) fallbackKeys.push(key)
+  }
+  return fallbackKeys
+}
+
+function flattenScale(scale, prefix) {
+  let flatScale = {}
+  for (let key in scale) {
+    const value = scale[key]
+    if (typeof value === 'object') {
+      const flatNested = flattenScale(value, key)
+      flatScale = merge(flatScale, flattenScale(value, key))
+    } else {
+      const flatKey = prefix ? prefix + '.' + key : key
+      flatScale[flatKey] = value
+    }
+  }
+  return flatScale
+}
+
 // copied from @styled-system/css
-const scales = {
+export const scales = {
   color: 'colors',
   backgroundColor: 'colors',
   borderColor: 'colors',
@@ -193,6 +288,14 @@ const scales = {
   fill: 'colors',
   stroke: 'colors'
 }
+
+const scalesWithPixelUnits = [
+  'space',
+  'sizes',
+  'fontSizes',
+  'borderWidths',
+  'radii'
+]
 
 const shortcuts = {
   marginX: ['marginLeft', 'marginRight'],

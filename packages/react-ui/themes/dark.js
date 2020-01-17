@@ -124,25 +124,20 @@ const components = {
       borderFocus: 'grays.900'
     },
     Menu: {
-      background: 'grays.800',
-      backgroundSelected: 'grays.900',
-      border: 'grays.900'
+      background: 'grays.900',
+      backgroundSelected: 'grays.1000',
+      border: 'grays.1000',
+      color: 'text.body'
     },
     MenuButton: {
       backgroundHover: 'grays.900',
       backgroundFocus: 'grays.900',
       border: 'grays.900'
     },
+
     Switch: {
       backgroundOff: 'grays.900',
       backgroundOn: 'greens.600'
-    },
-    Sidebar: {
-      // light
-      background: 'grays.800',
-      backgroundHover: 'grays.900',
-      backgroundFocus: 'grays.900',
-      border: 'grays.1000'
     }
   },
 

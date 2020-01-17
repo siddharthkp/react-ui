@@ -134,14 +134,6 @@ const components = {
     Switch: {
       backgroundOff: 'grays.400',
       backgroundOn: 'greens.700'
-    },
-
-    Sidebar: {
-      // light
-      background: 'white',
-      backgroundHover: 'grays.200',
-      backgroundFocus: 'grays.200',
-      border: 'grays.200'
     }
   },
 

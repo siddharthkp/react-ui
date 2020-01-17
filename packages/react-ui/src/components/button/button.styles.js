@@ -9,6 +9,9 @@ export const styles = {
     lineHeight: 'default',
     borderRadius: 2,
     cursor: 'pointer',
-    transition: 'all 150ms'
+    transition: 'all 150ms',
+    ':disabled': {
+      opacity: 0.5
+    }
   }
 }

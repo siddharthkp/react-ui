@@ -12,12 +12,12 @@ const Stack = props => (
 Stack.propTypes = {
   /** Description of the gap prop */
   gap: PropTypes.number,
-  direction: PropTypes.oneOf(['horizonal', 'vertical'])
+  direction: PropTypes.oneOf(['horizontal', 'vertical'])
 }
 
 Stack.defaultProps = {
   gap: 3,
-  direction: 'horizonal'
+  direction: 'horizontal'
 }
 
 export { Stack }
