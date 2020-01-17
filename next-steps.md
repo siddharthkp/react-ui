@@ -41,6 +41,11 @@
 
 ## Next steps
 
+    - pluck out designer into it's own package
+    - publish beta
+    - finish documentation for all components
+    - better warnings
+
 = designer work:
 
     - activate on Ctrl

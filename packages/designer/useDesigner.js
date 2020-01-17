@@ -3,7 +3,7 @@ import deepmerge from 'deepmerge'
 
 let stylesCache = {}
 
-const useDesigner = designMode => {
+export const useDesigner = designMode => {
   if (!designMode) return null
 
   const [allChanges, setAllChanges] = React.useState({})
@@ -46,5 +46,3 @@ const useDesigner = designMode => {
   window.designer = designer
   return designer
 }
-
-export default useDesigner

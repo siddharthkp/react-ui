@@ -8,10 +8,10 @@ import { Element } from '@ds-tools/primitives'
 import { scales } from '@ds-tools/primitives/interpolate'
 
 // remove themeprovider this coz cyclic dependency
-import { ThemeProvider } from './index'
-import { Input, Stack, Select, Menu, Text, Button } from '../../../index'
-import dark from '../../../themes/dark'
-import { styles as selectStyles } from '../select/select.styles'
+import { ThemeProvider } from 'react-ui'
+import { Input, Stack, Menu, Text } from 'react-ui'
+import dark from 'react-ui/themes/dark'
+import { styles as selectStyles } from 'react-ui/src/components/select/select.styles'
 
 export const Designer = props => {
   const [docked, setDocked] = React.useState(true)
