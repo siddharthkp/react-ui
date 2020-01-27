@@ -1,6 +1,6 @@
 export const styles = {
   Stack: props => ({
-    display: 'flex',
+    display: props.inline ? 'inline-flex' : 'flex',
     justifyContent: props.justify,
     alignItems: props.align,
     flexDirection: props.direction === 'vertical' ? 'column' : 'row',

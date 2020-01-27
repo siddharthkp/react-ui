@@ -78,7 +78,7 @@ const theme = {
 
 theme.colors.text = {
   subtle: 'grays.700',
-  body: 'grays.900',
+  body: 'grays.800',
   link: 'blues.500',
   linkHover: 'blues.600'
 }
@@ -138,6 +138,26 @@ const components = {
   },
 
   variants: {
+    Link: {
+      default: {
+        color: 'text.link',
+        ':hover': {
+          color: 'text.linkHover'
+        },
+        '&[aria-current]': {
+          color: 'text.linkHover'
+        }
+      },
+      subtle: {
+        color: 'text.subtle',
+        ':hover': {
+          color: 'text.body'
+        },
+        '&[aria-current]': {
+          color: 'text.body'
+        }
+      }
+    },
     Buttons: {
       primary: {
         backgroundColor: 'greens.700',

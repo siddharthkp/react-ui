@@ -64,17 +64,6 @@ function interpolateFactory(styles) {
   }
 }
 
-function getScale(key) {
-  let scale
-  if (spaceKeys.includes(key)) scale = 'space'
-  else if (sizeKeys.includes(key)) scale = 'sizes'
-  else if (colorKeys.includes(key)) scale = 'colors'
-  else if (key === 'lineHeight') scale = 'lineHeights'
-  else if (key === 'fontSize') scale = 'fontSizes'
-  else if (key === 'borderRadius') scale = 'radii'
-  return scale
-}
-
 // recursively resolve tokens
 function get(key, value, theme, label) {
   let scaleName = scales[key]
@@ -104,7 +93,8 @@ function get(key, value, theme, label) {
     if (
       theme.showWarnings &&
       scalesWithPixelUnits.includes(scaleName) &&
-      value != 0 && // 0 and '0' are valid
+      value !== 0 &&
+      value !== '0' &&
       !hasUnits(value) // if it has units, we assume explicit intent
     ) {
       showPixelFallbackWarning(key, value, scaleName, scale, label)
@@ -204,7 +194,6 @@ function flattenScale(scale, prefix) {
   for (let key in scale) {
     const value = scale[key]
     if (typeof value === 'object') {
-      const flatNested = flattenScale(value, key)
       flatScale = merge(flatScale, flattenScale(value, key))
     } else {
       const flatKey = prefix ? prefix + '.' + key : key
@@ -305,10 +294,10 @@ const shortcuts = {
   size: ['width', 'height']
 }
 
-const shorthands = {
-  // more complex logic here
-  background: () => {},
-  border: () => {}
-}
+// const shorthands = {
+//   // more complex logic here
+//   background: () => {},
+//   border: () => {}
+// }
 
 export default interpolateFactory

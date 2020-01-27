@@ -1,0 +1,39 @@
+---
+title: Avatar
+description: Use a Button to ask the user for an action
+---
+
+import * as AvatarExamples from './avatar.stories'
+import { ThemeProvider, Avatar } from 'react-ui'
+
+<div className="description">
+  Avatars are used to show a thumbnail representation of an individual or business in the interface.
+</div>
+
+
+
+<div className="example preview-first preview-margin">
+
+<AvatarExamples.Basic />
+
+```jsx
+<Avatar src="https://github.com/sameen-shi.png" />
+```
+
+</div>
+
+<PropsTable for="Avatar" />
+
+## Examples
+
+<div className="example preview-first preview-margin">
+
+<AvatarExamples.Sizes />
+
+```jsx
+<Avatar size="small" src="https://github.com/sameen-shi.png" />
+<Avatar size="medium" src="https://github.com/sameen-shi.png" />
+<Avatar size="large" src="https://github.com/sameen-shi.png" />
+```
+
+</div>

@@ -6,7 +6,7 @@ import sidebar from '../sidebar'
 
 const demoSlugs = ['/setup-guide/', '/button/']
 
-function Navigation() {
+function Navigation(props) {
   const data = useStaticQuery(query)
 
   const posts = data.allMdx.edges.map(post => {
@@ -41,12 +41,18 @@ function Navigation() {
                     </Element>
                   )
                 } else {
+                  console.groupCollapsed(
+                    `Did not find ${slug}, did you mean one of:`
+                  )
                   console.log(
-                    `Did not find ${slug}, did you mean one of: \n${posts
+                    posts
                       .map(post => post.slug)
                       .filter(post => !demoSlugs.includes(post.slug))
-                      .join('\n')}`
+                      .join('\n')
                   )
+
+                  console.groupEnd()
+
                   return <li key={index}>Missing path: {slug}</li>
                 }
               })}

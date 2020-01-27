@@ -1,6 +1,6 @@
 {
   "name": "react-ui",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.6",
   "description": "",
   "source": "index.js",
   "main": "dist/index.js",
@@ -9,15 +9,14 @@
     "storybook": "storybook start -p 6006",
     "docs": "gatsby develop",
     "--------": "-------",
-    "build": "rollup -c",
-    "docs-build": "gatsby build",
-    "build-storybook": "storybook start build"
+    "build:lib": "rollup -c",
+    "build:docs": "gatsby build"
   },
   "keywords": [],
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "@ds-tools/primitives": "0.0.1",
+    "@ds-tools/primitives": "0.0.2",
     "@reach/auto-id": "^0.7.0",
     "@reach/menu-button": "^0.7.0",
     "deepmerge": "4.0.0",
@@ -30,10 +29,11 @@
     "@ds-tools/gatsby-theme-docs": "0.0.1",
     "@ds-tools/storybook": "0.0.1",
     "gatsby": "^2.13.58",
+    "react-ui-designer": "0.0.2",
     "rollup": "^1.27.8",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-peer-deps-external": "^2.2.0",
-    "react-ui-designer": "0.0.2"
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0"
   },
   "peerDependencies": {
     "react": "^16.8.6"

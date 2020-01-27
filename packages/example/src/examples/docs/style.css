@@ -1,0 +1,14 @@
+@import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+pre,
+code {
+  font-family: 'Roboto Mono', monospace;
+}
+* {
+  box-sizing: border-box;
+}

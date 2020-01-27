@@ -12,7 +12,11 @@ const theme = {
     '36px',
     '40px',
     '44px',
-    '48px'
+    '48px',
+    '52px',
+    '56px',
+    '60px',
+    '64px'
   ],
   radii: [0, '2px', '5px', '10px', '50%'],
   fontSizes: [

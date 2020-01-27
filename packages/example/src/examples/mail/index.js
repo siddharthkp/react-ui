@@ -21,7 +21,7 @@ import {
 import { Sidebar, Badge } from './sidebar'
 
 import './style.css'
-import theme from './theme/theme.js'
+import theme from './theme.js'
 
 function App() {
   const [selectedLabel, selectLabel] = React.useState('Inbox')
@@ -31,7 +31,11 @@ function App() {
       <Grid>
         <Column span={[12, 12, 2]}>
           <Sidebar>
-            <Stack justify="center" marginBottom={4}>
+            <Stack
+              justify="center"
+              marginBottom={4}
+              css={{ display: ['none', 'none', 'flex'] }}
+            >
               <Avatar
                 src="https://tinyfac.es/data/avatars/475605E3-69C5-4D2B-8727-61B7BB8C4699-500w.jpeg"
                 size="large"

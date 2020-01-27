@@ -2,9 +2,33 @@ import components from './components'
 
 const theme = {
   components,
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  radii: [0, 2, 5, 10],
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+  space: [
+    '0px',
+    '4px',
+    '8px',
+    '12px',
+    '16px',
+    '20px',
+    '24px',
+    '28px',
+    '32px',
+    '36px',
+    '40px',
+    '44px',
+    '48px'
+  ],
+  radii: [0, '2px', '5px', '10px', '50%'],
+  fontSizes: [
+    '12px',
+    '14px',
+    '16px',
+    '20px',
+    '24px',
+    '32px',
+    '48px',
+    '64px',
+    '72px'
+  ],
   colors: {
     white: '#fff',
     reds: [

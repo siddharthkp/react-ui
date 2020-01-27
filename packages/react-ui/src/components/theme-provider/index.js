@@ -14,7 +14,7 @@ function ThemeProvider({ theme = light, components = {}, ...props }) {
 
   const variants = theme.variants || {}
 
-  const generatedTheme = merge(theme, variants)
+  const generatedTheme = merge(merge(theme, variants), theme.components)
 
   return (
     <Provider theme={generatedTheme} {...props}>
@@ -26,7 +26,7 @@ function ThemeProvider({ theme = light, components = {}, ...props }) {
 const convertArrayToObject = array => {
   const obj = {}
 
-  array.map((item, index) => {
+  array.forEach((item, index) => {
     obj[index] = item
   })
 

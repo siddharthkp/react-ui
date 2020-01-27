@@ -2,7 +2,7 @@ import theme from '../theme'
 
 const nightOwl = {
   color: '#222',
-  backgroundColor: '#fafafa',
+  backgroundColor: '#fbfdff',
   '.changed': {
     color: 'rgb(162, 191, 252)'
   },
@@ -75,40 +75,6 @@ const code = {
 export default {
   ...theme,
   styles: {
-    div: {
-      '&.example': {
-        border: '1px solid #eee',
-        borderRadius: '5px',
-        marginTop: '1em',
-        marginBottom: '2em',
-        overflow: 'hidden',
-
-        pre: {
-          margin: 0,
-          borderRadius: 0,
-          border: 'none'
-        },
-        p: {
-          margin: 0,
-          img: {
-            border: 'none'
-          }
-        },
-        '&.code-first': {
-          pre: {
-            borderBottom: '1px solid #eee'
-          }
-        },
-        '&.preview-first': {
-          pre: {
-            borderTop: '1px solid #eee'
-          }
-        },
-        '&.preview-margin > :not(pre)': {
-          margin: '16px'
-        }
-      }
-    },
     p: { code },
     li: { code },
     img: {

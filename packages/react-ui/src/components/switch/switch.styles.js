@@ -13,8 +13,8 @@ export const styles = {
   SwitchToggle: {
     backgroundColor: 'white',
     position: 'absolute',
-    width: calc(4, '-2px'),
-    height: calc(4, '-2px'),
+    width: calc('4 - 2px'),
+    height: calc('4 - 2px'),
     left: '1px',
     borderRadius: '50%',
     transition: 'left ease',
@@ -30,7 +30,7 @@ export const styles = {
       backgroundColor: 'Switch.backgroundOn'
     },
     'input:checked + [data-component=SwitchBackground] [data-component=SwitchToggle]': {
-      left: theme => calc(4, '-3px')
+      left: theme => calc('4 - 3px')
     }
   }
 }

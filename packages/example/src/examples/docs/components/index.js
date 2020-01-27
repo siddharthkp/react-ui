@@ -1,0 +1,5 @@
+export * from '../components/table'
+export * from '../components/props'
+export * from '../components/badge'
+export * from '../components/example'
+export * from '../components/typography'

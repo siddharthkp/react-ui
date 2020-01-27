@@ -24,6 +24,7 @@ export default [
       '/docs/components/',
       '/docs/components/theme-provider/',
       '/docs/layout/',
+      '/src/components/avatar/avatar/',
       '/src/components/button/button/',
       '/src/components/input/input/',
       '/src/components/button-group/button-group/',

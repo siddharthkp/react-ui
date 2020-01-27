@@ -24,7 +24,7 @@ function Example(props) {
       theme: theme,
       ...props
     },
-    React.createElement('div', { className: 'example' }, props.children)
+    React.createElement('div', {}, props.children)
   )
 }
 

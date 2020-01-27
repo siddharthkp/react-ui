@@ -4,7 +4,6 @@ import { jsx } from '@emotion/core'
 import styled from '@emotion/styled'
 import { withTheme } from 'emotion-theming'
 import interpolate from './interpolate'
-import { useId } from '@reach/auto-id'
 
 /** Base element (name is prefixed to the component) */
 const rui = styled('div')()
@@ -30,8 +29,6 @@ function Element(
   },
   ref
 ) {
-  const instanceId = useId()
-
   theme.components = theme.components || {}
   const margins = {}
   Object.keys(props).forEach(prop => {

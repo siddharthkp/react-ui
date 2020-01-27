@@ -1,50 +1,72 @@
 ## Done
 
-- docs: make gatsby docs work again
-- rollup build
-- margin utility for all elements
-- docs: goals and scope
-- docs: tokens
-- docs: usage
-- docs: custom component recipes
-- docs: creating new components
-- build a switch component
-- build text area
-- build breadcrumbs
-- build stack
-- add id to form labels
-- fix switch component
-- add required to form labels
-- add placeholder state for select
-- move menu component to core
-- build button component
-- build spinner component
-- build avatar component
-- docs: debug why form prop types aren't working
-- internal: rewrite components to extract colors
-- internal: break up theme and colors
-- internal: dark theme
-- internal: allow usage of tokens inside theme file (especially user facing)
-- replace css
-- add responsiveness to interpolate
-- warning if you use out of scale values
-
-= designer work:
-
-    - global ui object
-    - ui for modifying in ui, floating
-    - add styles back via themeprovider
-    - add hook into global themeprovider
-    - add new properties on the fly
-    - change boxShadow to overlay like browser
-    - add variant property
+    - docs: make gatsby docs work again
+    - rollup build
+    - margin utility for all elements
+    - docs: goals and scope
+    - docs: tokens
+    - docs: usage
+    - docs: custom component recipes
+    - docs: creating new components
+    - build a switch component
+    - build text area
+    - build breadcrumbs
+    - build stack
+    - add id to form labels
+    - fix switch component
+    - add required to form labels
+    - add placeholder state for select
+    - move menu component to core
+    - build button component
+    - build spinner component
+    - build avatar component
+    - docs: debug why form prop types aren't working
+    - internal: rewrite components to extract colors
+    - internal: break up theme and colors
+    - internal: dark theme
+    - internal: allow usage of tokens inside theme file (especially user facing)
+    - replace css
+    - add responsiveness to interpolate
+    - warning if you use out of scale values
+    - publish beta-6
+    - designer: global ui object
+    - designer: ui for modifying in ui, floating
+    - designer: add styles back via themeprovider
+    - designer: add hook into global themeprovider
+    - designer: add new properties on the fly
+    - designer: change boxShadow to overlay like browser
+    - designer: add variant property
+    - designer: pluck out designer into it's own package to explore later
 
 ## Next steps
 
-    - pluck out designer into it's own package
-    - publish beta
-    - finish documentation for all components
-    - better warnings
+    - docs: avatar
+    - docs: breadcrumb
+    - docs: button
+    - docs: button-group
+    - docs: input
+    - docs: input-group
+    - docs: form
+    - docs: heading
+    - docs: link
+    - docs: menu
+    - docs: select
+    - docs: spinner
+    - docs: switch
+    - docs: text
+    - docs: textarea
+    - docs: grid
+    - docs: stack
+    - docs: theme-provider
+
+    - theme: add units to scales in theme provider for interpolate to work nicely
+    - element: debug emotion warning
+    - meta: make dist smaller
+    - element: better warnings
+    - demo: make mail app
+    - theme: make it easier to introduce scales
+
+---
 
 = designer work:
 

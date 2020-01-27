@@ -6,8 +6,9 @@ export const styles = {
     height: 'Button',
     border: '2px solid',
     fontSize: 3,
+    paddingX: 3,
     lineHeight: 'default',
-    borderRadius: 2,
+    borderRadius: 1,
     cursor: 'pointer',
     transition: 'all 150ms',
     ':disabled': {

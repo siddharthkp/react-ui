@@ -32,7 +32,7 @@ Sidebar.Item = props => (
       href="#"
       justify="space-between"
       css={{
-        display: ['inline', 'inline', 'flex'],
+        display: ['none', 'none', 'flex'],
         width: '100%',
         paddingY: 2,
         paddingX: 4,
