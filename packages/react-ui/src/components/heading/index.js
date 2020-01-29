@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Element } from '@ds-tools/primitives'
 import { styles } from './heading.styles'
+import { merge } from '../../../utils'
 
 /** Description of an input */
 function Heading({ size, ...props }) {
@@ -9,8 +10,12 @@ function Heading({ size, ...props }) {
     <Element
       as="h1"
       component="Heading"
-      baseStyles={styles}
-      fontSize={size}
+      baseStyles={merge(styles.Heading, {
+        fontSizes: theme => theme.sizes.Heading[size] || size,
+        backgroundColor: theme =>
+          console.log(size, theme.sizes.Heading, theme.sizes.Heading[size]) &&
+          'hello'
+      })}
       {...props}
     />
   )
@@ -18,11 +23,12 @@ function Heading({ size, ...props }) {
 
 Heading.propTypes = {
   /** Description of an Heading prop */
-  size: PropTypes.number
+  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 Heading.defaultProps = {
-  size: 6
+  as: 'h1'
 }
 
 export { Heading }

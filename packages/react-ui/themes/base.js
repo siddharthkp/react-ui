@@ -53,4 +53,8 @@ const theme = {
   breakpoints: ['576px', '768px', '992px']
 }
 
+theme.sizes = {
+  Heading: []
+}
+
 export default theme

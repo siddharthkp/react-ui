@@ -1,11 +1,19 @@
 import React from 'react'
 import { Router, Link as RouterLink } from '@reach/router'
-import { ThemeProvider, Element, Grid, Column, Link, calc } from 'react-ui'
+import {
+  ThemeProvider,
+  Element,
+  Grid,
+  Column,
+  Link,
+  Text,
+  calc
+} from 'react-ui'
 
-import * as Components from 'react-ui'
 import AvatarDocs from './pages/avatar'
 import BreadcrumbDocs from './pages/breadcrumb'
 import ButtonDocs from './pages/button'
+import HeadingDocs from './pages/heading'
 import './style.css'
 
 const App = () => {
@@ -28,9 +36,9 @@ const App = () => {
           as="aside"
           span={[0, 0, 3]}
           css={{
-            paddingLeft: 8,
-            height: calc('100vh - 96px'), // space taken by header
-            overflow: 'auto'
+            paddingLeft: 8
+            // minHeight: calc('100vh - 96px'), // space taken by header
+            // overflow: 'auto'
           }}
         >
           <NavSection
@@ -57,6 +65,7 @@ const App = () => {
               <AvatarDocs path="Avatar" />
               <BreadcrumbDocs path="Breadcrumb" />
               <ButtonDocs path="Button" />
+              <HeadingDocs path="Heading" />
             </Documentation>
           </Router>
         </Column>
@@ -92,14 +101,42 @@ const CoreConcepts = () => {
 }
 
 const ComponentNav = () => {
-  const items = Object.keys(Components)
-    .filter(name => !['merge', 'calc'].includes(name))
-    .map(component => ({
-      title: component,
-      path: component
-    }))
-
-  return <NavSection items={items} />
+  return (
+    <>
+      <Text size={3} color="text.subtle" marginBottom={3}>
+        Building blocks:
+      </Text>
+      <NavSection
+        items={[
+          { title: 'Element', path: 'Element' },
+          { title: 'Avatar', path: 'Avatar' },
+          { title: 'Button', path: 'Button' },
+          { title: 'Heading', path: 'Heading' },
+          { title: 'Input', path: 'Input' },
+          { title: 'Link', path: 'Link' },
+          { title: 'Select', path: 'Select' },
+          { title: 'Spinner', path: 'Spinner' },
+          { title: 'Switch', path: 'Switch' },
+          { title: 'Text', path: 'Text' },
+          { title: 'Textarea', path: 'Textarea' },
+          { title: 'ThemeProvider', path: 'ThemeProvider' }
+        ]}
+      />
+      <Text size={3} color="text.subtle" marginBottom={3}>
+        Molecules:
+      </Text>
+      <NavSection
+        items={[
+          { title: 'Breadcrumb', path: 'Breadcrumb' },
+          { title: 'Form', path: 'Form' },
+          { title: 'Grid', path: 'Grid' },
+          { title: 'InputGroup', path: 'InputGroup' },
+          { title: 'Menu', path: 'Menu' },
+          { title: 'Stack', path: 'Stack' }
+        ]}
+      />
+    </>
+  )
 }
 
 const NavSection = ({ items }) => {
@@ -132,4 +169,4 @@ const NavSection = ({ items }) => {
   )
 }
 
-const Documentation = props => props.children
+const Documentation = props => <Element {...props} />

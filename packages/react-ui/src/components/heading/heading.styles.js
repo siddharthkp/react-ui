@@ -1,4 +1,6 @@
 export const styles = {
-  margin: 0,
-  color: 'inherit'
+  Heading: {
+    margin: 0,
+    color: 'inherit'
+  }
 }

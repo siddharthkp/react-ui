@@ -1,40 +1,23 @@
 import React from 'react'
-import { ThemeProvider, Avatar, Link, Stack } from 'react-ui'
-import {
-  Table,
-  Props,
-  Example,
-  Paragraph,
-  Heading,
-  Tagline,
-  SectionHeading,
-  ExampleHeading
-} from '../components'
+import { ThemeProvider, Avatar, Link } from 'react-ui'
+import { Page, Props, Example, Section, Table, Paragraph } from '../components'
 
 const Documentation = () => {
   return (
-    <Stack direction="vertical" gap={16}>
-      <section>
-        <Heading>Avatar</Heading>
-        <Tagline>Avatars are used to show a thumbnail of a user.</Tagline>
-      </section>
-
-      <section id="example">
-        <Example>
-          <Example.Preview>
-            <Avatar size="large" src="https://github.com/sameen-shi.png" />
-          </Example.Preview>
-          <Example.Code>
-            {`<Avatar
+    <Page title="Button" tagline="A button is a way to ask users for action">
+      <Example>
+        <Example.Preview>
+          <Avatar size="large" src="https://github.com/sameen-shi.png" />
+        </Example.Preview>
+        <Example.Code>
+          {`<Avatar
               size="large"
               src="https://github.com/sameen-shi.png"
             />`}
-          </Example.Code>
-        </Example>
-      </section>
+        </Example.Code>
+      </Example>
 
-      <section id="props">
-        <SectionHeading>Props</SectionHeading>
+      <Section title="Props">
         <Props
           props={[
             {
@@ -52,17 +35,10 @@ const Documentation = () => {
             }
           ]}
         />
-      </section>
+      </Section>
 
-      <section id="examples">
-        <Link href="#examples">
-          <SectionHeading>Examples</SectionHeading>
-        </Link>
-      </section>
-
-      <section id="size">
-        <ExampleHeading>Size</ExampleHeading>
-        <Example>
+      <Section title="Examples">
+        <Example title="Size">
           <Example.Preview>
             <Avatar size="small" src="https://github.com/sameen-shi.png" />
             <Avatar size="medium" src="https://github.com/sameen-shi.png" />
@@ -74,13 +50,9 @@ const Documentation = () => {
             <Avatar size="large"  src="https://github.com/sameen-shi.png" />
           `}</Example.Code>
         </Example>
-      </section>
+      </Section>
 
-      <section id="customisation">
-        <Link href="#customisation">
-          <SectionHeading>Customisation</SectionHeading>
-        </Link>
-
+      <Section title="Customisation">
         <Paragraph>Avatar uses the following theme properties:</Paragraph>
 
         <Table>
@@ -141,8 +113,8 @@ const Documentation = () => {
             </ThemeProvider>
           </Example.Preview>
         </Example>
-      </section>
-    </Stack>
+      </Section>
+    </Page>
   )
 }
 

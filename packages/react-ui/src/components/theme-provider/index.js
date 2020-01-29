@@ -12,7 +12,7 @@ function ThemeProvider({ theme = light, components = {}, ...props }) {
   theme.components = theme.components || {}
   theme.components = merge(theme.components, components)
 
-  const variants = theme.variants || {}
+  const variants = merge(theme.variants || {}, components.variants || {})
 
   const generatedTheme = merge(merge(theme, variants), theme.components)
 

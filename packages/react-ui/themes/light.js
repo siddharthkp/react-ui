@@ -99,6 +99,11 @@ const components = {
       small: 7,
       medium: 9,
       large: 12
+    },
+    Heading: {
+      page: 8,
+      section: 6,
+      paragraph: 4
     }
   },
 

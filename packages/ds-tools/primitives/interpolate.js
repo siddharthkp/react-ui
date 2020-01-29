@@ -2,7 +2,7 @@ import delve from 'dlv'
 import merge from 'deepmerge'
 import facepaint from 'facepaint'
 
-function interpolate(styles = {}, theme) {
+export function interpolate(styles = {}, theme) {
   let filledStyles = {}
   const label = styles.label
 
@@ -65,7 +65,7 @@ function interpolateFactory(styles) {
 }
 
 // recursively resolve tokens
-function get(key, value, theme, label) {
+export function get(key, value, theme, label) {
   let scaleName = scales[key]
   const scale = theme[scaleName]
 
@@ -120,13 +120,13 @@ function get(key, value, theme, label) {
   }
 }
 
-const hasUnits = value => {
+export const hasUnits = value => {
   if (typeof value !== 'string') return false
   else if (value.includes('%')) return true
   else if (value.match(/[a-z]/i)) return true
 }
 
-const isHexCode = value => {
+export const isHexCode = value => {
   if (typeof value !== 'string') return false
   else return value.startsWith('#')
 }
@@ -173,11 +173,11 @@ const showColorWarning = (key, value, scaleName, scale, label) => {
   console.warn(warning)
 }
 
-function getKeysOnScale(scale) {
+export function getKeysOnScale(scale) {
   return Object.keys(flattenScale(scale))
 }
 
-function getFallbacksOnScale(scaleName, scale, fallback) {
+export function getFallbacksOnScale(scaleName, scale, fallback) {
   const fallbackKeys = ['hero']
   const flatScale = flattenScale(scale)
 
@@ -189,7 +189,7 @@ function getFallbacksOnScale(scaleName, scale, fallback) {
   return fallbackKeys
 }
 
-function flattenScale(scale, prefix) {
+export function flattenScale(scale, prefix) {
   let flatScale = {}
   for (let key in scale) {
     const value = scale[key]
@@ -278,7 +278,7 @@ export const scales = {
   stroke: 'colors'
 }
 
-const scalesWithPixelUnits = [
+export const scalesWithPixelUnits = [
   'space',
   'sizes',
   'fontSizes',
@@ -286,7 +286,7 @@ const scalesWithPixelUnits = [
   'radii'
 ]
 
-const shortcuts = {
+export const shortcuts = {
   marginX: ['marginLeft', 'marginRight'],
   marginY: ['marginTop', 'marginBottom'],
   paddingX: ['paddingLeft', 'paddingRight'],

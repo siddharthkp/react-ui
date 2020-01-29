@@ -1,55 +1,43 @@
 import React from 'react'
-import { ThemeProvider, Breadcrumb, Element, Link, Stack } from 'react-ui'
+import { ThemeProvider, Breadcrumb, Link } from 'react-ui'
 import {
   Table,
+  Page,
+  Section,
   Props,
   Badge,
   Example,
-  Paragraph,
-  Heading,
-  Tagline,
-  SectionHeading,
-  ExampleHeading
+  Paragraph
 } from '../components'
 
 const Documentation = () => {
   return (
-    <Stack direction="vertical" gap={16}>
-      <section>
-        <Stack justify="space-between" align="center">
-          <Heading>Breadcrumb</Heading>
-
-          <Badge>accessible</Badge>
-        </Stack>
-        <Tagline>
-          A breadcrumb helps the user identify the hierarchy of page within the
-          application.
-        </Tagline>
-      </section>
-
-      <section id="example">
-        <Example>
-          <Example.Preview>
-            <Breadcrumb>
-              <Link href="/home">Home</Link>
-              <Link href="/home">Settings</Link>
-              <span>Notifications</span>
-            </Breadcrumb>
-          </Example.Preview>
-          <Example.Code>
-            {`
+    <Page
+      title="Breadcrumb"
+      tagline="A breadcrumb helps the user identify the hierarchy of page within the
+          application."
+      badges={[<Badge key={0}>accessible</Badge>]}
+    >
+      <Example>
+        <Example.Preview>
+          <Breadcrumb>
+            <Link href="/home">Home</Link>
+            <Link href="/home">Settings</Link>
+            <span>Notifications</span>
+          </Breadcrumb>
+        </Example.Preview>
+        <Example.Code>
+          {`
               <Breadcrumb>
                 <Link href="/home">Home</Link>
                 <Link href="/home">Settings</Link>
                 <span>Notifications</span>
               </Breadcrumb>
             `}
-          </Example.Code>
-        </Example>
-      </section>
+        </Example.Code>
+      </Example>
 
-      <section id="props">
-        <SectionHeading>Props</SectionHeading>
+      <Section title="Props">
         <Props
           props={[
             {
@@ -66,22 +54,10 @@ const Documentation = () => {
             }
           ]}
         />
-      </section>
+      </Section>
 
-      <section id="examples">
-        <Link href="#examples">
-          <Heading
-            as="h2"
-            css={{ fontSize: 5, fontWeight: 'normal', color: 'text.body' }}
-          >
-            Examples
-          </Heading>
-        </Link>
-      </section>
-
-      <section id="size">
-        <ExampleHeading>Custom seperator</ExampleHeading>
-        <Example>
+      <Section title="Examples">
+        <Example title="Custom seperator">
           <Example.Preview>
             <Breadcrumb separator=">">
               <Link href="/home">Home</Link>
@@ -97,13 +73,9 @@ const Documentation = () => {
             </Breadcrumb>
           `}</Example.Code>
         </Example>
-      </section>
+      </Section>
 
-      <section id="customisation">
-        <Link href="#customisation">
-          <SectionHeading>Customisation</SectionHeading>
-        </Link>
-
+      <Section title="Customisation">
         <Paragraph>
           Breadcrumb has the following customisable elements:
         </Paragraph>
@@ -169,8 +141,8 @@ const Documentation = () => {
             </ThemeProvider>
           </Example.Preview>
         </Example>
-      </section>
-    </Stack>
+      </Section>
+    </Page>
   )
 }
 

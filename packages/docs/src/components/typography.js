@@ -26,7 +26,7 @@ export const SectionHeading = props => {
   return (
     <BaseHeading
       as="h2"
-      marginBottom={8}
+      marginBottom={10}
       css={{ fontSize: 5, fontWeight: 'normal', color: 'text.body' }}
       {...props}
     />

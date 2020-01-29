@@ -11,7 +11,7 @@ Table.Row = ({ css, ...props }) => (
     css={merge(
       {
         color: 'text.body',
-        padding: 2,
+        paddingY: 2,
         borderBottom: '1px solid',
         borderColor: 'grays.100'
       },

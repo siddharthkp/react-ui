@@ -1,5 +1,6 @@
 import React from 'react'
 import { Element, Stack } from 'react-ui'
+import { ExampleHeading } from './typography'
 
 import { highlight, languages } from 'prismjs/components/prism-core'
 import dedent from 'dedent'
@@ -10,16 +11,21 @@ import 'prismjs/components/prism-javascript'
 import 'prismjs/themes/prism-tomorrow.css'
 
 export const Example = props => (
-  <Element
-    css={{
-      border: '1px solid',
-      borderColor: 'grays.200',
-      borderRadius: 2,
-      overflow: 'hidden'
-    }}
-    marginBottom={10}
-    {...props}
-  />
+  <section>
+    {props.title && <ExampleHeading>{props.title}</ExampleHeading>}
+    <Element
+      css={{
+        border: '1px solid',
+        borderColor: 'grays.200',
+        borderRadius: 2,
+        overflow: 'hidden'
+      }}
+      marginBottom={10}
+      {...props}
+    >
+      {props.children}
+    </Element>
+  </section>
 )
 
 Example.Preview = props => (

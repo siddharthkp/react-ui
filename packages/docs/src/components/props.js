@@ -14,7 +14,7 @@ export const Props = ({ props, ...restprops }) => {
           <Table.Column span={3}>{prop.name}</Table.Column>
           <Table.Column span={7}>
             {prop.type}
-            {prop.options && ': ' + prop.options.join(', ')}
+            {prop.options && ': [' + prop.options.join(', ') + ']'}
           </Table.Column>
           <Table.Column span={2}>{prop.default}</Table.Column>
         </Table.Row>

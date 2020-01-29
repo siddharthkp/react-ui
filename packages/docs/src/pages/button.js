@@ -1,43 +1,34 @@
 import React from 'react'
-import { ThemeProvider, Breadcrumb, Button, Link, Stack } from 'react-ui'
+import { ThemeProvider, Button, Link } from 'react-ui'
 import {
-  Table,
+  Page,
+  Section,
   Props,
+  Table,
   Badge,
   Example,
-  Paragraph,
-  Heading,
-  Tagline,
-  SectionHeading,
-  ExampleHeading
+  Paragraph
 } from '../components'
 
 const Documentation = () => {
   return (
-    <Stack direction="vertical" gap={16}>
-      <section>
-        <Stack justify="space-between" align="center">
-          <Heading>Button</Heading>
-          <Badge>accessible</Badge>
-        </Stack>
-        <Tagline>A button is a way to ask users for action</Tagline>
-      </section>
-
-      <section id="example">
-        <Example>
-          <Example.Preview>
-            <Button>Log in</Button>
-          </Example.Preview>
-          <Example.Code>
-            {`
+    <Page
+      title="Button"
+      tagline="A button is a way to ask users for action"
+      badges={[<Badge key={0}>accessible</Badge>]}
+    >
+      <Example>
+        <Example.Preview>
+          <Button>Log in</Button>
+        </Example.Preview>
+        <Example.Code>
+          {`
               <Button>Log in</Button>
             `}
-          </Example.Code>
-        </Example>
-      </section>
+        </Example.Code>
+      </Example>
 
-      <section id="props">
-        <SectionHeading>Props</SectionHeading>
+      <Section title="Props">
         <Props
           props={[
             {
@@ -50,42 +41,32 @@ const Documentation = () => {
             {
               name: 'variant',
               type: 'enum',
-              options: ['primary', 'secondary', 'link', 'destructive'],
+              options: ['primary', 'secondary', 'destructive', 'link'],
               description: '',
               default: 'primary'
             }
           ]}
         />
-      </section>
+      </Section>
 
-      <section id="examples">
-        <Link href="#examples">
-          <SectionHeading>Examples</SectionHeading>
-        </Link>
-      </section>
-
-      <section id="size">
-        <ExampleHeading>Variants</ExampleHeading>
-        <Example>
+      <Section title="Examples">
+        <Example title="Variants">
           <Example.Preview gap={4}>
             <Button>Log in</Button>
             <Button variant="secondary">Cancel</Button>
-            <Button variant="link">Reset form</Button>
-            <Button variant="destructive">Delete project</Button>
+            <Button variant="destructive">Delete</Button>
+            <Button variant="link">Reset</Button>
           </Example.Preview>
           <Example.Code>{`
             <Button>Log in</Button>
             <Button variant="secondary">Cancel</Button>
-            <Button variant="link">Reset form</Button>
             <Button variant="destructive">Delete project</Button>
+            <Button variant="link">Reset form</Button>
           `}</Example.Code>
         </Example>
-      </section>
+      </Section>
 
-      <section id="customisation">
-        <Link href="#customisation">
-          <SectionHeading>Customisation</SectionHeading>
-        </Link>
+      <Section title="Customisation">
         <Paragraph>Button uses the following theme properties:</Paragraph>
 
         <Table>
@@ -128,54 +109,77 @@ const Documentation = () => {
         <Example>
           <Example.Code lang="js">{`
           const components = {
-            Breadcrumb: {
-              backgroundColor: 'blues.100',
-              paddingX: 4,
-              Link: {
-                // this nested selector will only target
-                // Link components inside Breadcrumb
-                textDecoration: 'underline'
+            // overwrite the size for Button
+            sizes: { Button: 8 },
+            
+            // add new variant "warning" on top of
+            // existing variants in theme
+            variants: {
+              Buttons: {
+                warning: {
+                  backgroundColor: 'yellows.700',
+                  color: 'white',
+                  borderColor: 'yellows.700',
+                  ':hover': {
+                    backgroundColor: 'yellows.600',
+                    borderColor: 'yellows.600'
+                  },
+                  ':focus': {
+                    backgroundColor: 'yellows.600',
+                    borderColor: 'yellows.700'
+                  },
+                  ':active': {
+                    backgroundColor: 'yellows.800',
+                    borderColor: 'yellows.800'
+                  }
+                }, 
+                link: {
+
+                }
               }
-            },
-            BreadcrumbSeparator: {
-              color: 'blues.200'
             }
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider components={components}>
-            <Breadcrumb separator=">">
-              <Link href="/home">Home</Link>
-              <Link href="/home">Settings</Link>
-              <span>Notifications</span>
-            </Breadcrumb>
+          <ThemeProvider components={components}> 
+            <Button variant="warning">Cancel</Button>
+            <Button variant="destructive">Delete</Button>
           </ThemeProvider>
         `}</Example.Code>
-          <Example.Preview>
+          <Example.Preview gap={4}>
             <ThemeProvider
               components={{
-                Breadcrumb: {
-                  backgroundColor: 'blues.100',
-                  paddingX: 4,
-                  Link: {
-                    textDecoration: 'underline'
+                sizes: { Button: 8 },
+                variants: {
+                  Buttons: {
+                    warning: {
+                      backgroundColor: 'yellows.700',
+                      color: 'white',
+                      borderColor: 'yellows.700',
+                      ':hover': {
+                        backgroundColor: 'yellows.600',
+                        borderColor: 'yellows.600'
+                      },
+                      ':focus': {
+                        backgroundColor: 'yellows.600',
+                        borderColor: 'yellows.700'
+                      },
+                      ':active': {
+                        backgroundColor: 'yellows.800',
+                        borderColor: 'yellows.800'
+                      }
+                    }
                   }
-                },
-                BreadcrumbSeparator: {
-                  color: 'blues.200'
                 }
               }}
             >
-              <Breadcrumb separator=">">
-                <Link href="/home">Home</Link>
-                <Link href="/home">Settings</Link>
-                <span>Notifications</span>
-              </Breadcrumb>
+              <Button variant="warning">Cancel</Button>
+              <Button variant="destructive">Delete</Button>
             </ThemeProvider>
           </Example.Preview>
         </Example>
-      </section>
-    </Stack>
+      </Section>
+    </Page>
   )
 }
 
