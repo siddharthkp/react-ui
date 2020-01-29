@@ -1,4 +1,6 @@
 export const styles = {
-  display: 'inline-block',
-  color: 'inherit'
+  Text: {
+    display: 'inline-block',
+    color: 'inherit'
+  }
 }

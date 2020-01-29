@@ -1,14 +1,13 @@
 export const styles = {
   Form: {
-    backgroundColor: 'Form.background',
-    boxShadow: 1,
+    backgroundColor: 'Form.backgroundColor',
     paddingY: 4,
-    borderRadius: 1,
     Button: {
       width: '100%'
     }
   },
   FormField: {
+    width: '100%',
     border: 'none',
     paddingX: 6,
     paddingY: 0

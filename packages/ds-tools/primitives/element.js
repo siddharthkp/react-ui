@@ -23,6 +23,7 @@ function Element(
     css: cssProp,
     baseStyles: baseProp,
     style: inlineStyles,
+    variant,
     component,
     theme,
     ...props
@@ -43,6 +44,9 @@ function Element(
   if (typeof baseProp === 'function') baseStyles = baseProp(props)
   else baseStyles = baseProp
 
+  // if variant prop is given, attach the prop to baseStyles
+  if (variant) baseStyles.variant = component + '.' + variant
+
   let label
   if (component) label = component
   else if (typeof props.as === 'string') label = props.as
@@ -57,9 +61,12 @@ function Element(
   let merged = mergeAll(
     baseStyles || {},
     theme.components[component] || {},
+    theme[component] || {},
     css || {},
     margins || {}
   )
+
+  // if (props.ya) console.log(merged)
 
   /** Allow nested component keys */
   walk(merged, node => {
@@ -82,6 +89,7 @@ function Element(
     // interpolate twice to alllow tokens inside theme,
     // there is an obvious cost to this which needs to be benchmarked
     // alternate solution is to flatten this in themeprovider
+
     css: interpolate(merged)(theme),
     style: interpolate(inlineStyles)(theme),
     ref,
@@ -89,8 +97,8 @@ function Element(
   })
 }
 
-function mergeAll(a, b, c, d) {
-  return merge(merge(merge(a, b), c), d)
+function mergeAll(a, b, c, d, e) {
+  return merge(merge(merge(merge(a, b), c), d), e)
 }
 
 function walk(obj, callback) {

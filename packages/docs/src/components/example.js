@@ -28,8 +28,8 @@ export const Example = props => (
   </section>
 )
 
-Example.Preview = props => (
-  <Element as={Stack} css={{ paddingY: 10, paddingX: 6 }} {...props} />
+Example.Preview = ({ css = {}, ...props }) => (
+  <Element as={Stack} css={{ paddingY: 10, paddingX: 6, ...css }} {...props} />
 )
 
 Example.Code = ({ children, lang = 'jsx' }) => (

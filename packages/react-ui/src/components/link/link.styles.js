@@ -1,3 +1,5 @@
 export const styles = {
-  textDecoration: 'none'
+  Link: {
+    textDecoration: 'none'
+  }
 }

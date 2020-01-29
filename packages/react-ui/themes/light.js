@@ -107,25 +107,41 @@ const components = {
     }
   },
 
+  Input: {
+    // also used for textarea and select
+    backgroundColor: 'grays.100',
+    borderColor: 'grays.400',
+    ':hover': {
+      backgroundColor: 'grays.100',
+      borderColor: 'blues.300'
+    },
+    ':focus': {
+      outline: 'none',
+      backgroundColor: 'blues.100',
+      borderColor: 'blues.500'
+    },
+    ':disabled': {
+      // same as default
+      backgroundColor: 'grays.100',
+      borderColor: 'grays.400'
+    },
+    '&[aria-invalid]': {
+      backgroundColor: 'reds.100',
+      borderColor: 'reds.300'
+    }
+  },
+
   colors: {
     App: {
       background: 'grays.100'
     },
     Avatar: {
-      border: 'grays.200'
+      borderColor: 'grays.200'
     },
     Form: {
-      background: 'white'
+      backgroundColor: 'white'
     },
-    Input: {
-      // also used for textarea and select
-      background: 'grays.100',
-      border: 'grays.400',
-      backgroundHover: 'grays.100',
-      borderHover: 'blues.300',
-      backgroundFocus: 'blues.100',
-      borderFocus: 'blues.500'
-    },
+
     Menu: {
       background: 'white',
       border: 'grays.200',
@@ -133,6 +149,11 @@ const components = {
     },
     MenuButton: {
       backgroundHover: 'grays.200',
+      backgroundFocus: 'grays.200',
+      border: 'grays.200'
+    },
+    MenuButton: {
+      ':hover': { background: 'grays.200' },
       backgroundFocus: 'grays.200',
       border: 'grays.200'
     },
@@ -163,7 +184,7 @@ const components = {
         }
       }
     },
-    Buttons: {
+    Button: {
       primary: {
         backgroundColor: 'greens.700',
         color: 'white',
@@ -237,7 +258,7 @@ const components = {
         }
       }
     },
-    Spinners: {
+    Spinner: {
       default: {
         borderColor: 'rgba(0, 0, 0, 0.1)',
         borderLeftColor: 'rgba(0, 0, 0, 0.5)'

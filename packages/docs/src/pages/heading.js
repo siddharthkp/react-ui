@@ -40,40 +40,56 @@ const Documentation = () => {
       </Section>
 
       <Section title="Examples">
-        <Example title="Size">
-          <Example.Preview direction="vertical" gap={2}>
+        <Paragraph>Headings can take their size from two places:</Paragraph>
+
+        <Example title="1. fontSize units from theme:">
+          <Example.Preview
+            direction="vertical"
+            justify="space-between"
+            css={{ height: 250 }}
+          >
             <Heading size={8}>Size 8</Heading>
-            <Heading size="page">Size 8</Heading>
-
             <Heading size={7}>Size 7</Heading>
-            <Heading size="section">Size 7</Heading>
-
             <Heading size={6}>Size 6</Heading>
-            <Heading size="paragraph">Size 6</Heading>
           </Example.Preview>
           <Example.Code>{`
-            <Heading size={8}>Page Heading</Heading>
-            <Heading size={7}>Section Heading</Heading>
-            <Heading size={6}>Paragraph Heading</Heading>
+            <Heading size={8}>Size 8</Heading>
+            <Heading size={7}>Size 7</Heading>
+            <Heading size={6}>Size 6</Heading>
+          `}</Example.Code>
+        </Example>
+
+        <Example title="2. Decisions from sizes.Heading:">
+          <Example.Preview
+            direction="vertical"
+            justify="space-between"
+            css={{ height: 250 }}
+          >
+            <Heading size="page">Page heading</Heading>
+            <Heading size="section">Section heading</Heading>
+            <Heading size="paragraph">Paragraph heading</Heading>
+          </Example.Preview>
+          <Example.Code>{`
+            <Heading size="page">Page heading</Heading>
+            <Heading size="section">Section heading</Heading>
+            <Heading size="paragraph">Paragraph heading</Heading>
           `}</Example.Code>
         </Example>
       </Section>
 
       <Section title="Customisation">
-        <Paragraph>Avatar uses the following theme properties:</Paragraph>
+        <Paragraph>Heading uses the following theme properties:</Paragraph>
 
         <Table>
           <Table.Header>
             <Table.Column span={3}>Property</Table.Column>
-            <Table.Column span={3}>Theme key</Table.Column>
+            <Table.Column span={9}>Theme key</Table.Column>
           </Table.Header>
           <Table.Row>
             <Table.Column span={3}>size</Table.Column>
-            <Table.Column span={3}>sizes.Avatar</Table.Column>
-          </Table.Row>
-          <Table.Row>
-            <Table.Column span={3}>borderColor</Table.Column>
-            <Table.Column span={3}>Avatar.borderColor</Table.Column>
+            <Table.Column span={9}>
+              theme.fontSizes & sizes.Heading
+            </Table.Column>
           </Table.Row>
         </Table>
 
@@ -83,40 +99,40 @@ const Documentation = () => {
 
         <Example>
           <Example.Code lang="js">{`
+          const theme= {
+            fontSizes: [
+              '0px', '12px', '14px', '16px', '24px', '32px', '48px', '64px'
+            ]
+          }
+
           const components = {
             sizes: {
-              Avatar: {
-                xsmall: 5,
-                small: 7,
-                medium: 9,
-                large: 12,
-                xlarge: 15
+              Heading: {
+                page: 8,
+                section: 6,
+                paragraph: 4
               }
-            },
-            Avatar: {
-              borderColor: 'blues.200'
             }
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider components={components}>
-            <Avatar size="xsmall" src="https://github.com/sameen-shi.png" />
-            <Avatar size="medium" src="https://github.com/sameen-shi.png" />
-            <Avatar size="xlarge" src="https://github.com/sameen-shi.png" />
+          <ThemeProvider theme={theme} components={components}>
+            <YourApp>
+              <Heading size="page">Page heading</Heading>
+              <Heading size="section">Section heading</Heading>
+              <Heading size="paragraph">Paragraph heading</Heading>
+            </YouApp>
           </ThemeProvider>
         `}</Example.Code>
-          <Example.Preview>
-            <ThemeProvider
-              components={{
-                sizes: { Avatar: { xsmall: 5, xlarge: 15 } },
-                Avatar: {
-                  borderColor: 'blues.200'
-                }
-              }}
-            >
-              <Avatar size="xsmall" src="https://github.com/sameen-shi.png" />
-              <Avatar size="medium" src="https://github.com/sameen-shi.png" />
-              <Avatar size="xlarge" src="https://github.com/sameen-shi.png" />
+          <Example.Preview
+            direction="vertical"
+            justify="space-between"
+            css={{ height: 250 }}
+          >
+            <ThemeProvider>
+              <Heading size="page">Page heading</Heading>
+              <Heading size="section">Section heading</Heading>
+              <Heading size="paragraph">Paragraph heading</Heading>
             </ThemeProvider>
           </Example.Preview>
         </Example>

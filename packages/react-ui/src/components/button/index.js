@@ -10,7 +10,7 @@ const Button = props => {
     <Element
       as="button"
       component="Button"
-      baseStyles={merge(styles.Button, { variant: `Buttons.${props.variant}` })}
+      baseStyles={styles.Button}
       {...props}
     />
   )

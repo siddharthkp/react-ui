@@ -1,18 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Element } from '@ds-tools/primitives'
 import { styles } from './link.styles'
 import { merge } from '../../../utils'
+import { Text } from '../text'
 
-export const Link = props => (
-  <Element
-    as="a"
-    component="Link"
-    baseStyles={merge(styles, {
-      variant: `Link.${props.variant}`
-    })}
-    {...props}
-  />
+export const Link = ({ css, ...props }) => (
+  <Text as="a" component="Link" css={merge(styles.Link, css)} {...props} />
 )
 
 Link.defaultProps = {

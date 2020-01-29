@@ -1,6 +1,7 @@
 import React from 'react'
 import { ThemeProvider as EmotionThemeProvider } from '@ds-tools/primitives'
 import light from '../../../themes/light'
+// import dark from '../../../themes/dark'
 import { merge } from '../../../utils'
 
 const Provider = EmotionThemeProvider

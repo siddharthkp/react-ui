@@ -10,10 +10,7 @@ import {
   calc
 } from 'react-ui'
 
-import AvatarDocs from './pages/avatar'
-import BreadcrumbDocs from './pages/breadcrumb'
-import ButtonDocs from './pages/button'
-import HeadingDocs from './pages/heading'
+import * as Pages from './pages'
 import './style.css'
 
 const App = () => {
@@ -34,7 +31,7 @@ const App = () => {
       <Grid css={{ maxWidth: 1024, marginX: 'auto', color: 'text.body' }}>
         <Column
           as="aside"
-          span={[0, 0, 3]}
+          span={[12, 12, 3]}
           css={{
             paddingLeft: 8
             // minHeight: calc('100vh - 96px'), // space taken by header
@@ -62,10 +59,10 @@ const App = () => {
         >
           <Router>
             <Documentation path="components">
-              <AvatarDocs path="Avatar" />
-              <BreadcrumbDocs path="Breadcrumb" />
-              <ButtonDocs path="Button" />
-              <HeadingDocs path="Heading" />
+              {Object.keys(Pages).map(name => {
+                const Page = Pages[name]
+                return <Page key={name} path={name} />
+              })}
             </Documentation>
           </Router>
         </Column>
@@ -123,16 +120,23 @@ const ComponentNav = () => {
         ]}
       />
       <Text size={3} color="text.subtle" marginBottom={3}>
+        Layout:
+      </Text>
+      <NavSection
+        items={[
+          { title: 'Stack', path: 'Stack' },
+          { title: 'Grid', path: 'Grid' }
+        ]}
+      />
+      <Text size={3} color="text.subtle" marginBottom={3}>
         Molecules:
       </Text>
       <NavSection
         items={[
           { title: 'Breadcrumb', path: 'Breadcrumb' },
           { title: 'Form', path: 'Form' },
-          { title: 'Grid', path: 'Grid' },
           { title: 'InputGroup', path: 'InputGroup' },
-          { title: 'Menu', path: 'Menu' },
-          { title: 'Stack', path: 'Stack' }
+          { title: 'Menu', path: 'Menu' }
         ]}
       />
     </>

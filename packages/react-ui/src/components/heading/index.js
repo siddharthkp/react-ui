@@ -11,10 +11,7 @@ function Heading({ size, ...props }) {
       as="h1"
       component="Heading"
       baseStyles={merge(styles.Heading, {
-        fontSizes: theme => theme.sizes.Heading[size] || size,
-        backgroundColor: theme =>
-          console.log(size, theme.sizes.Heading, theme.sizes.Heading[size]) &&
-          'hello'
+        fontSize: theme => theme.sizes.Heading[size] || size
       })}
       {...props}
     />

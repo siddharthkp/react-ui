@@ -121,7 +121,9 @@ const components = {
       backgroundHover: 'grays.900',
       borderHover: 'black',
       backgroundFocus: 'black',
-      borderFocus: 'grays.900'
+      borderFocus: 'grays.900',
+      backgroundError: 'black',
+      borderError: 'reds.500'
     },
     Menu: {
       background: 'grays.900',

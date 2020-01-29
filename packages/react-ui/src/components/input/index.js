@@ -4,8 +4,18 @@ import { Element } from '@ds-tools/primitives'
 import { styles } from './input.styles'
 
 /** Description of an input */
-function Input(props) {
-  return <Element as="input" component="Input" baseStyles={styles} {...props} />
+function Input({ invalid, ...props }) {
+  return (
+    <>
+      <Element
+        as="input"
+        component="Input"
+        aria-invalid={invalid}
+        baseStyles={styles.Input}
+        {...props}
+      />
+    </>
+  )
 }
 
 Input.propTypes = {

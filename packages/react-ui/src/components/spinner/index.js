@@ -4,13 +4,11 @@ import { Element } from '@ds-tools/primitives'
 import { styles } from './spinner.styles'
 import { merge } from '../../../utils'
 
-export const Spinner = ({ variant, ...props }) => (
+export const Spinner = props => (
   <Element
     as="span"
     component="Spinner"
-    baseStyles={merge(styles.Spinner, {
-      variant: `Spinners.${variant}`
-    })}
+    baseStyles={styles.Spinner}
     {...props}
   />
 )

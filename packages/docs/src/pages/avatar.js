@@ -4,7 +4,7 @@ import { Page, Props, Example, Section, Table, Paragraph } from '../components'
 
 const Documentation = () => {
   return (
-    <Page title="Button" tagline="A button is a way to ask users for action">
+    <Page title="Avatar" tagline="Avatar can be used to represent a user.">
       <Example>
         <Example.Preview>
           <Avatar size="large" src="https://github.com/sameen-shi.png" />
