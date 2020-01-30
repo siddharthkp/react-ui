@@ -5,14 +5,13 @@ import { styles } from './text.styles'
 import { merge } from '../../../utils'
 
 /** Description of an input */
-function Text({ size, align, color, ...props }) {
+function Text({ size, align, ...props }) {
   return (
     <>
       <Element
         as="span"
         component="Text"
         baseStyles={merge(styles.Text, {
-          color,
           fontSize: size || 'inherit',
           textAlign: align
         })}
@@ -23,12 +22,21 @@ function Text({ size, align, color, ...props }) {
 }
 
 Text.propTypes = {
-  /** Description of an Text prop */
-  size: PropTypes.number
+  size: PropTypes.number,
+  align: PropTypes.oneOf([
+    'left',
+    'right',
+    'center',
+    'justify',
+    'inherit',
+    'initial'
+  ]),
+  variant: PropTypes.oneOf(['default', 'body', 'subtle', 'danger'])
 }
 
 Text.defaultProps = {
-  // size: we don't give default for size because we want the html default: inherit
+  // we don't give default for size or align because we want the html default: inherit,
+  // size: align: html default
 }
 
 export { Text }

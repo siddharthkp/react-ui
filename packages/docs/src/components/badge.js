@@ -1,24 +1,13 @@
 import React from 'react'
 import { Element, Stack } from 'react-ui'
 
-export const Badge = props => {
-  return (
-    <Element
-      as={props => <Stack as="span" {...props} />}
-      inline
-      align="center"
-      gap={1}
-      css={{
-        backgroundColor: 'greens.100',
-        color: 'greens.800',
-        fontSize: 2,
-        borderRadius: 1,
-        fontWeight: 'semibold',
-        paddingX: 2,
-        paddingY: 1
-      }}
-      {...props}
-    >
+const content = {
+  accessible: {
+    styles: {
+      backgroundColor: 'greens.100',
+      color: 'greens.800'
+    },
+    icon: (
       <svg
         width="13"
         height="10"
@@ -33,6 +22,34 @@ export const Badge = props => {
           fill="currentcolor"
         />
       </svg>
+    )
+  },
+  Layout: {
+    styles: {
+      backgroundColor: 'yellows.100',
+      color: 'yellows.800'
+    }
+  }
+}
+
+export const Badge = props => {
+  return (
+    <Element
+      as={props => <Stack as="span" {...props} />}
+      inline
+      align="center"
+      gap={1}
+      css={{
+        fontSize: 2,
+        borderRadius: 1,
+        fontWeight: 'semibold',
+        paddingX: 2,
+        paddingY: 1,
+        ...content[props.children].styles
+      }}
+      {...props}
+    >
+      {content[props.children].icon}
       <span>{props.children}</span>
     </Element>
   )

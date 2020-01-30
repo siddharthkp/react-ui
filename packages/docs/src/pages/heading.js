@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider, Avatar, Heading, Link } from 'react-ui'
+import { ThemeProvider, Heading, Link } from 'react-ui'
 import { Page, Props, Example, Section, Table, Paragraph } from '../components'
 
 const Documentation = () => {

@@ -1,18 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Element } from '@ds-tools/primitives'
 import { styles } from './textarea.styles'
+import { Input } from '../input'
+import { merge } from '../../../utils'
 
-/** Description of an input */
-function Textarea(props) {
-  return (
-    <Element
-      as="textarea"
-      component="Textarea"
-      baseStyles={styles}
-      {...props}
-    />
-  )
+function Textarea({ css, ...props }) {
+  return <Input as="textarea" css={merge(styles.Textarea, css)} {...props} />
 }
 
 Textarea.propTypes = {

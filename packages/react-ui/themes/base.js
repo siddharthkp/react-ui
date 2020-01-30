@@ -48,7 +48,7 @@ const theme = {
     cosy: '2'
   },
   // transition speeds in ms
-  speeds: [0, '75ms', '100ms', '150ms', '200ms', '300ms', '500ms'],
+  durations: [0, '75ms', '100ms', '150ms', '200ms', '300ms', '500ms', '1000ms'],
 
   breakpoints: ['576px', '768px', '992px']
 }

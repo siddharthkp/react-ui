@@ -6,19 +6,19 @@ export const styles = {
     alignItems: 'center',
     position: 'relative',
     backgroundColor: 'Switch.backgroundOff',
-    width: 7,
-    height: 4,
-    borderRadius: 3
+    width: '100%',
+    height: 'Switch'
   },
   SwitchToggle: {
     backgroundColor: 'white',
     position: 'absolute',
-    width: calc('4 - 2px'),
-    height: calc('4 - 2px'),
-    left: '1px',
+    width: calc('Switch - 2px'),
+    height: calc('Switch - 2px'),
+    left: 0,
+    marginX: '1px', // offset 1px for snug fit
     borderRadius: '50%',
     transition: 'left ease',
-    transitionDuration: theme => theme.speeds[3]
+    transitionDuration: 3
   },
   SwitchInput: {
     width: 0,
@@ -26,11 +26,20 @@ export const styles = {
     position: 'absolute'
   },
   SwitchContainer: {
+    width: 7,
+    borderRadius: 3,
+    overflow: 'hidden',
+    cursor: 'pointer',
+
     'input:checked + [data-component=SwitchBackground]': {
       backgroundColor: 'Switch.backgroundOn'
     },
     'input:checked + [data-component=SwitchBackground] [data-component=SwitchToggle]': {
-      left: theme => calc('4 - 3px')
+      left: calc('100% - Switch')
+    },
+    'input:disabled + [data-component=SwitchBackground]': {
+      opacity: 0.4,
+      cursor: 'not-allowed'
     }
   }
 }

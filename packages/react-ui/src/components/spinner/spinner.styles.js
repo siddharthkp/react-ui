@@ -8,10 +8,10 @@ const rotate = keyframes`
 export const styles = {
   Spinner: {
     display: 'inline-block',
-    width: 14,
-    height: 14,
     border: '2px solid',
     borderRadius: '50%',
-    animation: `0.8s infinite ${rotate}`
+    animation: `0.8s infinite ${rotate}`,
+    borderColor: 'white',
+    borderLeftColor: 'black'
   }
 }

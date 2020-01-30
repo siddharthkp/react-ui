@@ -114,8 +114,8 @@ const Documentation = () => {
             
             // add new variant "warning" on top of
             // existing variants in theme
-            variants: {
-              Button: {
+            Button: {
+              variants: {
                 warning: {
                   backgroundColor: 'yellows.700',
                   color: 'white',
@@ -147,8 +147,8 @@ const Documentation = () => {
             <ThemeProvider
               components={{
                 sizes: { Button: 8 },
-                variants: {
-                  Button: {
+                Button: {
+                  variants: {
                     warning: {
                       backgroundColor: 'yellows.700',
                       color: 'white',

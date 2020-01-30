@@ -8,10 +8,10 @@ export const Link = ({ css, ...props }) => (
   <Text as="a" component="Link" css={merge(styles.Link, css)} {...props} />
 )
 
-Link.defaultProps = {
-  variant: 'default'
-}
-
 Link.propTypes = {
   variant: PropTypes.oneOf(['default', 'subtle'])
+}
+
+Link.defaultProps = {
+  variant: 'default'
 }

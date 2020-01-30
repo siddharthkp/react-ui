@@ -15,6 +15,11 @@ const hasUnits = value => {
   else if (value.match(/[a-z]/i)) return true
 }
 
+const isComponent = value => {
+  if (value.match(/[A-Z]/)) return true
+  return false
+}
+
 export const calc = string => {
   let operator
   if (string.includes('+')) operator = '+'
@@ -28,10 +33,15 @@ export const calc = string => {
   b = b.trim()
 
   return theme => {
-    a = hasUnits(a) ? a : theme.space[a]
+    a = isComponent(a) ? theme.sizes[a] : a
+    a = hasUnits(a) ? a : theme.space[a] || theme.sizes[a]
 
+    b = isComponent(b) ? theme.sizes[b] : b
     // dont multiple or divide pixcels
-    b = hasUnits(b) || ['*', '/'].includes(operator) ? b : theme.space[b]
+    b =
+      hasUnits(b) || ['*', '/'].includes(operator)
+        ? b
+        : theme.space[b] || theme.sizes[b]
 
     return `calc(${a} ${operator} ${b})`
   }

@@ -13,6 +13,8 @@ Stack.propTypes = {
   /** Description of the gap prop */
   gap: PropTypes.number,
   direction: PropTypes.oneOf(['horizontal', 'vertical']),
+  justify: PropTypes.string,
+  align: PropTypes.string,
   inline: PropTypes.bool
 }
 

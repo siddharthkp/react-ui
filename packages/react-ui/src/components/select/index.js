@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Element } from '@ds-tools/primitives'
+import { Input } from '../input/'
 import { styles, caret } from './select.styles'
 import { merge, mergeFns } from '../../../utils'
 
@@ -22,27 +22,22 @@ const usePlaceholder = props => {
   return { placeholderStyles, onChange }
 }
 
-function Select(props) {
+function Select({ css, ...props }) {
   const { placeholderStyles, onChange } = usePlaceholder(props)
 
   return (
-    <Element
+    <Input
       as="select"
-      component="Select"
-      baseStyles={merge(styles, placeholderStyles)}
+      css={merge(merge(styles, placeholderStyles), css)}
       {...props}
       onChange={mergeFns(onChange, props.onChange)}
     />
   )
 }
 
-Select.propTypes = {
-  rows: PropTypes.number
-}
+Select.propTypes = {}
 
-Select.defaultProps = {
-  rows: 3
-}
+Select.defaultProps = {}
 
 Select.caret = caret
 export { Select }

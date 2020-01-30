@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider, Input, Link, Text } from 'react-ui'
+import { ThemeProvider, Link } from 'react-ui'
 import { Page, Props, Example, Section, Table, Paragraph } from '../components'
 
 const Documentation = () => {
@@ -37,6 +37,11 @@ const Documentation = () => {
               options: ['default', 'subtle'],
               description: '',
               default: 'default'
+            },
+            {
+              name: '+',
+              type: 'props of Text',
+              description: ''
             }
           ]}
         />
@@ -125,8 +130,8 @@ const Documentation = () => {
         <Example>
           <Example.Code lang="js">{`
           const components = {
-            variants: {
-              Link: {
+            Link: {
+              variants: {
                 // adds variant subtle for Link
                 // overrides properties it if it already exists
                 subtle: {
@@ -150,12 +155,13 @@ const Documentation = () => {
             <Link variant="subtle" href="https://github.com/siddharthkp/react-ui" target="_blank">
               Open GitHub repository
             </Link>
+          </ThemeProvider>
         `}</Example.Code>
           <Example.Preview direction="vertical" gap={2}>
             <ThemeProvider
               components={{
-                variants: {
-                  Link: {
+                Link: {
+                  variants: {
                     // adds variant subtle for Link
                     // overrides properties it if it already exists
                     subtle: {

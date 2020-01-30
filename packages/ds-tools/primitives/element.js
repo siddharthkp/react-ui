@@ -23,7 +23,7 @@ function Element(
     css: cssProp,
     baseStyles: baseProp,
     style: inlineStyles,
-    variant,
+    variant = 'default',
     component,
     theme,
     ...props
@@ -43,9 +43,6 @@ function Element(
   let baseStyles
   if (typeof baseProp === 'function') baseStyles = baseProp(props)
   else baseStyles = baseProp
-
-  // if variant prop is given, attach the prop to baseStyles
-  if (variant) baseStyles.variant = component + '.' + variant
 
   let label
   if (component) label = component
@@ -79,6 +76,9 @@ function Element(
       delete node[key]
     })
   })
+
+  // if variant prop is given, attach the prop to baseStyles
+  if (variant) merged.variant = component + '.variants.' + variant
 
   // Better classNames for debugging
   props['data-component'] = label

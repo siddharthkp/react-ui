@@ -104,31 +104,13 @@ const components = {
       page: 8,
       section: 6,
       paragraph: 4
-    }
-  },
-
-  Input: {
-    // also used for textarea and select
-    backgroundColor: 'grays.100',
-    borderColor: 'grays.400',
-    ':hover': {
-      backgroundColor: 'grays.100',
-      borderColor: 'blues.300'
     },
-    ':focus': {
-      outline: 'none',
-      backgroundColor: 'blues.100',
-      borderColor: 'blues.500'
+    Spinner: {
+      small: 4,
+      medium: 6,
+      large: 8
     },
-    ':disabled': {
-      // same as default
-      backgroundColor: 'grays.100',
-      borderColor: 'grays.400'
-    },
-    '&[aria-invalid]': {
-      backgroundColor: 'reds.100',
-      borderColor: 'reds.300'
-    }
+    Switch: 4
   },
 
   colors: {
@@ -163,8 +145,31 @@ const components = {
     }
   },
 
-  variants: {
-    Link: {
+  Input: {
+    backgroundColor: 'grays.100',
+    borderColor: 'grays.400',
+    ':hover': {
+      backgroundColor: 'grays.100',
+      borderColor: 'blues.300'
+    },
+    ':focus': {
+      outline: 'none',
+      backgroundColor: 'blues.100',
+      borderColor: 'blues.500'
+    },
+    ':disabled': {
+      // same as default
+      backgroundColor: 'grays.100',
+      borderColor: 'grays.400'
+    },
+    '&[aria-invalid]': {
+      backgroundColor: 'reds.100',
+      borderColor: 'reds.300'
+    }
+  },
+
+  Link: {
+    variants: {
       default: {
         color: 'text.link',
         ':hover': {
@@ -183,8 +188,11 @@ const components = {
           color: 'text.body'
         }
       }
-    },
-    Button: {
+    }
+  },
+
+  Button: {
+    variants: {
       primary: {
         backgroundColor: 'greens.700',
         color: 'white',
@@ -257,16 +265,17 @@ const components = {
           backgroundColor: 'grays.200'
         }
       }
-    },
-    Spinner: {
-      default: {
-        borderColor: 'rgba(0, 0, 0, 0.1)',
-        borderLeftColor: 'rgba(0, 0, 0, 0.5)'
-      },
-      inverse: {
-        borderColor: 'rgba(255, 255, 255, 0.2)',
-        borderLeftColor: 'rgba(255, 255, 255, 0.8)'
-      }
+    }
+  },
+  Spinner: {
+    borderColor: 'grays.200',
+    borderLeftColor: 'grays.600'
+  },
+  Text: {
+    variants: {
+      default: { color: 'text.body' },
+      subtle: { color: 'text.subtle' },
+      danger: { color: 'error.text' }
     }
   }
 }

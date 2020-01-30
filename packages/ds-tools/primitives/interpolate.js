@@ -273,6 +273,7 @@ export const scales = {
   maxHeight: 'sizes',
   flexBasis: 'sizes',
   size: 'sizes',
+  transitionDuration: 'durations',
   // svg
   fill: 'colors',
   stroke: 'colors'

@@ -15,8 +15,8 @@ const Switch = props => {
         type="checkbox"
         baseStyles={styles.SwitchInput}
         component="SwitchInput"
-        checked={props.on}
-        defaultChecked={props.defaultOn}
+        checked={props.value}
+        defaultChecked={props.defaultValue}
         {...props}
       />
       <Element
@@ -35,9 +35,9 @@ const Switch = props => {
 }
 
 Switch.propTypes = {
+  value: PropTypes.bool,
+  defaultValue: PropTypes.bool,
   disabled: PropTypes.bool,
-  on: PropTypes.bool,
-  defaultOn: PropTypes.bool,
   onChange: PropTypes.func
 }
 
