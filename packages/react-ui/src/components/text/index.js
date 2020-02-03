@@ -4,20 +4,23 @@ import { Element } from '@ds-tools/primitives'
 import { styles } from './text.styles'
 import { merge } from '../../../utils'
 
-/** Description of an input */
-function Text({ size, align, ...props }) {
+function Text({ css, size, align, weight, color, ...props }) {
   return (
-    <>
-      <Element
-        as="span"
-        component="Text"
-        baseStyles={merge(styles.Text, {
-          fontSize: size || 'inherit',
-          textAlign: align
-        })}
-        {...props}
-      />
-    </>
+    <Element
+      as="span"
+      component="Text"
+      baseStyles={styles.Text}
+      css={merge(
+        {
+          fontSize: size,
+          textAlign: align,
+          fontWeight: weight,
+          color: color
+        },
+        css
+      )}
+      {...props}
+    />
   )
 }
 
@@ -31,6 +34,8 @@ Text.propTypes = {
     'inherit',
     'initial'
   ]),
+  weight: PropTypes.string,
+  color: PropTypes.string,
   variant: PropTypes.oneOf(['default', 'body', 'subtle', 'danger'])
 }
 

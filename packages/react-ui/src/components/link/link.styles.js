@@ -1,5 +1,6 @@
 export const styles = {
   Link: {
-    textDecoration: 'none'
+    textDecoration: 'none',
+    cursor: 'pointer'
   }
 }

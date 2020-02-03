@@ -17,11 +17,39 @@ function ThemeProvider({ theme = light, components = {}, ...props }) {
 
   const generatedTheme = merge(merge(theme, variants), theme.components)
 
+  // add units if missing
+  complainAboutUnits(generatedTheme)
+
   return (
     <Provider theme={generatedTheme} {...props}>
       {props.children}
     </Provider>
   )
+}
+
+export const hasUnits = value => {
+  if (typeof value !== 'string') return false
+  else if (value.includes('%')) return true
+  else if (value.match(/[a-z]/i)) return true
+}
+
+const complainAboutUnits = theme => {
+  const unitScales = ['space', 'sizes', 'fontSizes', 'borderWidths', 'radii']
+  const complainAbout = []
+
+  unitScales.map(name => {
+    const scale = theme[name]
+    const firstValue = scale && scale[1] // not zeroth
+
+    if (firstValue && !hasUnits(firstValue)) complainAbout.push(name)
+  })
+  if (complainAbout.length) {
+    const joined = complainAbout.join(', ')
+    let warning = `Scale values should have units. Found values without units in ${joined}.`
+    warning += `\n\n`
+    warning += `Example: Instead of 4, use 4px or 0.25rem`
+    console.warn(warning)
+  }
 }
 
 const convertArrayToObject = array => {

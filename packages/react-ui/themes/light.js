@@ -77,7 +77,7 @@ const theme = {
 // decisions
 
 theme.colors.text = {
-  subtle: 'grays.700',
+  subtle: 'grays.600',
   body: 'grays.800',
   link: 'blues.500',
   linkHover: 'blues.600'
@@ -97,8 +97,8 @@ const components = {
     Button: 10,
     Avatar: {
       small: 7,
-      medium: 9,
-      large: 12
+      medium: 10,
+      large: 15
     },
     Heading: {
       page: 8,
@@ -168,12 +168,12 @@ const components = {
         }
       },
       subtle: {
-        color: 'text.subtle',
+        color: 'text.body',
         ':hover': {
-          color: 'text.body'
+          color: 'text.link'
         },
         '&[aria-current]': {
-          color: 'text.body'
+          color: 'text.link'
         }
       }
     }

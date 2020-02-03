@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Element } from '@ds-tools/primitives'
 import { styles } from './stack.styles'
+import { merge } from '../../../utils'
 
-const Stack = props => (
+const Stack = ({ ...props }) => (
   <Element as="div" component="Stack" baseStyles={styles.Stack} {...props}>
     {props.children}
   </Element>
