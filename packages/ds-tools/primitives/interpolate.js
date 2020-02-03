@@ -207,6 +207,7 @@ export function flattenScale(scale, prefix) {
 export const scales = {
   color: 'colors',
   backgroundColor: 'colors',
+  background: 'colors',
   borderColor: 'colors',
   margin: 'space',
   marginTop: 'space',
@@ -232,6 +233,9 @@ export const scales = {
   gap: 'space',
   columnGap: 'space',
   rowGap: 'space',
+  backgroundPosition: 'space',
+  backgroundPositionX: 'space',
+  backgroundPositionY: 'space',
   fontFamily: 'fonts',
   fontSize: 'fontSizes',
   fontWeight: 'fontWeights',

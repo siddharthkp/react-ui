@@ -47,19 +47,12 @@ function Column({ start, end, span, ...props }) {
   } else if (span === 0) column.display = 'none'
 
   return (
-    <Element as="div" component="GridColumn" baseStyles={column} {...props} />
+    <Element as="div" baseStyles={column} component="GridColumn" {...props} />
   )
 }
 
 function Row(props) {
-  return (
-    <Element
-      as={Grid}
-      component="GridRow"
-      baseStyles={styles.GridRow}
-      {...props}
-    />
-  )
+  return <Column span={12} as={Grid} component="GridRow" {...props} />
 }
 
 Grid.propTypes = {

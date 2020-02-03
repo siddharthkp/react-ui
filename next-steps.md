@@ -37,9 +37,6 @@
     - designer: change boxShadow to overlay like browser
     - designer: add variant property
     - designer: pluck out designer into it's own package to explore later
-
-## Next steps
-
     - docs: avatar
     - docs: breadcrumb
     - docs: button
@@ -59,12 +56,15 @@
     - docs: stack
     - docs: theme-provider
 
+## Next steps
+
     - theme: add units to scales in theme provider for interpolate to work nicely
     - element: debug emotion warning
     - meta: make dist smaller
     - element: better warnings
     - demo: make mail app
     - theme: make it easier to introduce scales
+    - component: bring in reach ui styles without importing css
 
 ---
 

@@ -123,22 +123,10 @@ const components = {
     Form: {
       backgroundColor: 'white'
     },
-
     Menu: {
-      background: 'white',
-      border: 'grays.200',
-      backgroundSelected: 'grays.200'
+      backgroundSelected: 'grays.300'
     },
-    MenuButton: {
-      backgroundHover: 'grays.200',
-      backgroundFocus: 'grays.200',
-      border: 'grays.200'
-    },
-    MenuButton: {
-      ':hover': { background: 'grays.200' },
-      backgroundFocus: 'grays.200',
-      border: 'grays.200'
-    },
+
     Switch: {
       backgroundOff: 'grays.400',
       backgroundOn: 'greens.700'

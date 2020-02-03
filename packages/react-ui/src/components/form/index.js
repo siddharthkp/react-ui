@@ -8,7 +8,7 @@ import { Stack } from '../stack'
 
 const Form = props => {
   return (
-    <Element as="form" component="Form" css={styles.Form} {...props}>
+    <Element as="form" component="Form" baseStyles={styles.Form} {...props}>
       <Stack component="FormStack" direction="vertical" gap={6}>
         {props.children}
       </Stack>
@@ -16,10 +16,7 @@ const Form = props => {
   )
 }
 
-Form.propTypes = {
-  /** Description of an button prop */
-  children: PropTypes.element
-}
+Form.propTypes = {}
 
 Form.Header = props => (
   <Element

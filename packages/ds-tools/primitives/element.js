@@ -63,8 +63,6 @@ function Element(
     margins || {}
   )
 
-  // if (props.ya) console.log(merged)
-
   /** Allow nested component keys */
   walk(merged, node => {
     const keys = Object.keys(node)

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Element, Stack } from 'react-ui'
+import { Element, Stack, Link } from 'react-ui'
 import { ExampleHeading } from './typography'
 
 import { highlight, languages } from 'prismjs/components/prism-core'
@@ -12,7 +12,11 @@ import 'prismjs/themes/prism-tomorrow.css'
 
 export const Example = props => (
   <section>
-    {props.title && <ExampleHeading>{props.title}</ExampleHeading>}
+    {props.title && (
+      <Link variant="subtle" href={'#' + props.title} id={props.title}>
+        <ExampleHeading>{props.title}</ExampleHeading>
+      </Link>
+    )}
     <Element
       css={{
         border: '1px solid',
@@ -20,7 +24,7 @@ export const Example = props => (
         borderRadius: 2,
         overflow: 'hidden'
       }}
-      marginBottom={10}
+      marginBottom={12}
       {...props}
     >
       {props.children}

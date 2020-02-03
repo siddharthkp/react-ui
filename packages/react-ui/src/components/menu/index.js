@@ -3,6 +3,7 @@ import { Element } from '@ds-tools/primitives'
 import * as ReachMenu from '@reach/menu-button'
 import '@reach/menu-button/styles.css'
 import { styles } from './menu.styles'
+import { Button } from '../Button'
 
 const Menu = ({ ...props }) => {
   return (
@@ -13,25 +14,35 @@ const Menu = ({ ...props }) => {
 }
 
 const MenuButton = props => {
-  return (
-    <Element
-      as={ReachMenu.MenuButton}
-      baseStyles={styles.MenuButton}
-      {...props}
-    />
-  )
+  return <Button variant="secondary" as={ReachMenu.MenuButton} {...props} />
 }
 
 const MenuList = props => {
   return (
-    <Element as={ReachMenu.MenuList} baseStyles={styles.MenuList} {...props}>
+    <Element
+      as={ReachMenu.MenuList}
+      component="MenuList"
+      baseStyles={styles.MenuList}
+      {...props}
+    >
       {props.children}
     </Element>
   )
 }
 
+const MenuItem = props => {
+  return (
+    <Element
+      as={ReachMenu.MenuItem}
+      component="MenuItem"
+      baseStyles={styles.MenuItem}
+      {...props}
+    />
+  )
+}
+
 Menu.Button = MenuButton
 Menu.List = MenuList
-Menu.Item = ReachMenu.MenuItem
+Menu.Item = MenuItem
 
 export { Menu }

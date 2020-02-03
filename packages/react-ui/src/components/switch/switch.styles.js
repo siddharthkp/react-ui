@@ -26,6 +26,7 @@ export const styles = {
     position: 'absolute'
   },
   SwitchContainer: {
+    display: 'inline-block',
     width: 7,
     borderRadius: 3,
     overflow: 'hidden',

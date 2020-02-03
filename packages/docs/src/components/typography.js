@@ -37,7 +37,7 @@ export const ExampleHeading = props => {
   return (
     <BaseHeading
       as="h3"
-      marginBottom={8}
+      marginBottom={6}
       css={{ fontSize: 4, fontWeight: 'normal' }}
       {...props}
     />

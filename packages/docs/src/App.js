@@ -135,7 +135,6 @@ const ComponentNav = () => {
         items={[
           { title: 'Breadcrumb', path: 'Breadcrumb' },
           { title: 'Form', path: 'Form' },
-          { title: 'InputGroup', path: 'InputGroup' },
           { title: 'Menu', path: 'Menu' }
         ]}
       />
