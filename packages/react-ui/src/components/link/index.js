@@ -4,9 +4,9 @@ import { styles } from './link.styles'
 import { merge } from '../../../utils'
 import { Text } from '../text'
 
-export const Link = ({ css, ...props }) => (
-  <Text as="a" component="Link" css={merge(styles.Link, css)} {...props} />
-)
+export const Link = ({ ...props }) => {
+  return <Text as="a" component="Link" baseStyles={styles.Link} {...props} />
+}
 
 Link.propTypes = {
   variant: PropTypes.oneOf(['default', 'subtle'])

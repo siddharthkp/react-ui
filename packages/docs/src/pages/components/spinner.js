@@ -1,6 +1,13 @@
 import React from 'react'
 import { ThemeProvider, Spinner, Link } from 'react-ui'
-import { Page, Props, Example, Section, Table, Paragraph } from '../components'
+import {
+  Page,
+  Props,
+  Example,
+  Section,
+  Table,
+  Paragraph
+} from '../../components'
 
 const Documentation = () => {
   return (

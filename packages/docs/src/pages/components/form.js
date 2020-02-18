@@ -18,7 +18,7 @@ import {
   Table,
   Paragraph,
   Badge
-} from '../components'
+} from '../../components'
 
 const Documentation = () => {
   return (

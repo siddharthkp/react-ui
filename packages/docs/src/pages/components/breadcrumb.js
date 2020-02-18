@@ -8,7 +8,7 @@ import {
   Badge,
   Example,
   Paragraph
-} from '../components'
+} from '../../components'
 
 const Documentation = () => {
   return (

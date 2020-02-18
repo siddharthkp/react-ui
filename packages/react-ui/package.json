@@ -1,6 +1,6 @@
 {
   "name": "react-ui",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0-beta.11",
   "description": "",
   "source": "index.js",
   "main": "dist/index.js",
@@ -16,7 +16,7 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "@ds-tools/primitives": "0.0.2",
+    "@ds-tools/primitives": "0.0.4",
     "@reach/auto-id": "^0.7.0",
     "@reach/menu-button": "^0.7.0",
     "deepmerge": "4.0.0",

@@ -54,17 +54,38 @@
     - docs: textarea
     - docs: grid
     - docs: stack
-    - docs: theme-provider
+    - theme: add warning for units
+    - component: image
+    - text variant subtle not working, why?
 
 ## Next steps
 
-    - theme: add units to scales in theme provider for interpolate to work nicely
+    - cdocs: image
+    - cdocs: card
+    - cdocs: paragraph
+    - cdocs: sidebar toggle
+    - cdocs: theme-provider
+    - cdocs: element
+    - docs: copy code
+    - docs: make example container resizable
+    - dx: show warning if themeprovider is missing
+    - docs: home page
+    - docs: core concepts
+    - docs: customisation
+    - docs: Constraints based design
+    - docs: Base Element
+    - docs: Extending components
+    - docs: Variants
+    - docs: css prop
+    - docs: margin utils
+
     - element: debug emotion warning
     - meta: make dist smaller
     - element: better warnings
     - demo: make mail app
     - theme: make it easier to introduce scales
     - component: bring in reach ui styles without importing css
+    - components: add data-focus for :focus and pass down data-focus from elements like link which can have focus
 
 ---
 

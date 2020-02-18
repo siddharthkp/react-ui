@@ -1,9 +1,23 @@
 import React from 'react'
-import { Text, Heading as BaseHeading } from 'react-ui'
+import {
+  Text,
+  Heading as BaseHeading,
+  Paragraph as BaseParagraph,
+  merge
+} from 'react-ui'
 
 export const Paragraph = props => {
-  return <Text css={{ display: 'block' }} marginBottom={8} {...props} />
+  return (
+    <BaseParagraph
+      css={{ display: 'block' }}
+      gap={4}
+      marginBottom={8}
+      {...props}
+    />
+  )
 }
+
+export const Para = Paragraph
 
 export const Heading = props => {
   return (
@@ -22,12 +36,34 @@ export const Tagline = props => {
   )
 }
 
-export const SectionHeading = props => {
+export const Code = props => {
+  return (
+    <Text
+      debug
+      color="blues.800"
+      css={{
+        fontFamily: 'Roboto Mono',
+        fontSize: '95%',
+        verticalAlign: 'text-bottom'
+      }}
+      {...props}
+    />
+  )
+}
+
+export const SectionHeading = ({ css, ...props }) => {
   return (
     <BaseHeading
       as="h2"
       marginBottom={10}
-      css={{ fontSize: 5, fontWeight: 'normal', color: 'text.body' }}
+      css={merge(
+        {
+          fontSize: 5,
+          fontWeight: 'normal',
+          color: 'text.body'
+        },
+        css
+      )}
       {...props}
     />
   )

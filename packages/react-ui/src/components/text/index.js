@@ -1,21 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Element } from '@ds-tools/primitives'
-import { styles } from './text.styles'
 import { merge } from '../../../utils'
 
-function Text({ css, size, align, weight, color, ...props }) {
+function Text({ size, color, align, weight, block, css, ...props }) {
   return (
     <Element
       as="span"
       component="Text"
-      baseStyles={styles.Text}
       css={merge(
         {
           fontSize: size,
           textAlign: align,
           fontWeight: weight,
-          color: color
+          color: color,
+          display: block || props.marginBottom ? 'block' : 'inline'
         },
         css
       )}
@@ -36,7 +35,8 @@ Text.propTypes = {
   ]),
   weight: PropTypes.string,
   color: PropTypes.string,
-  variant: PropTypes.oneOf(['default', 'body', 'subtle', 'danger'])
+  variant: PropTypes.oneOf(['default', 'body', 'subtle', 'danger']),
+  block: PropTypes.bool
 }
 
 Text.defaultProps = {

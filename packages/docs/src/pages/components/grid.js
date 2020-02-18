@@ -1,6 +1,13 @@
 import React from 'react'
 import { Link, Grid, Column, Row } from 'react-ui'
-import { Page, Props, Example, Paragraph, Section, Badge } from '../components'
+import {
+  Page,
+  Props,
+  Example,
+  Paragraph,
+  Section,
+  Badge
+} from '../../components'
 
 const Documentation = () => {
   return (

@@ -5,16 +5,14 @@ import { styles } from './avatar.styles'
 import { merge } from '../../../utils'
 
 export const Avatar = ({ size, ...props }) => (
-  <>
-    <Element
-      as="img"
-      component="Avatar"
-      baseStyles={merge(styles.Avatar, {
-        size: `Avatar.${size}`
-      })}
-      {...props}
-    />
-  </>
+  <Element
+    as="img"
+    component="Avatar"
+    baseStyles={merge(styles.Avatar, {
+      size: `Avatar.${size}`
+    })}
+    {...props}
+  />
 )
 
 Avatar.propTypes = {

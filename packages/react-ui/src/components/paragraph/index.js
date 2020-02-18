@@ -6,7 +6,13 @@ function Paragraph({ css, ...props }) {
   return (
     <Stack
       as="p"
-      css={merge({ margin: 0 }, css)}
+      css={merge(
+        {
+          margin: 0,
+          '> span': { display: 'inline-block' }
+        },
+        css
+      )}
       component="Paragraph"
       direction="vertical"
       gap={1}

@@ -11,7 +11,9 @@ export const Props = ({ props, ...restprops }) => {
       </Table.Header>
       {props.map(prop => (
         <Table.Row key={prop.name}>
-          <Table.Column span={3}>{prop.name}</Table.Column>
+          <Table.Column span={3}>
+            {prop.name} {prop.required && '*'}
+          </Table.Column>
           <Table.Column span={7}>
             {prop.type}
             {prop.options && ': [' + prop.options.join(', ') + ']'}

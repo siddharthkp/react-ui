@@ -8,6 +8,7 @@ const Provider = EmotionThemeProvider
 
 function ThemeProvider({ theme = light, components = {}, ...props }) {
   // good defaults
+
   theme.sizes = merge(convertArrayToObject(theme.space), theme.sizes)
 
   theme.components = theme.components || {}
@@ -52,7 +53,7 @@ const complainAboutUnits = theme => {
   }
 }
 
-const convertArrayToObject = array => {
+const convertArrayToObject = (array = []) => {
   const obj = {}
 
   array.forEach((item, index) => {

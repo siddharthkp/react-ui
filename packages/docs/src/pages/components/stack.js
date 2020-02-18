@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avatar, Link, Stack, Text, Input, Button } from 'react-ui'
-import { Page, Props, Example, Section, Badge } from '../components'
+import { Page, Props, Example, Section, Badge } from '../../components'
 
 const Documentation = () => {
   return (

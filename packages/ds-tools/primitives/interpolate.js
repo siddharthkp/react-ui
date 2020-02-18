@@ -28,10 +28,36 @@ export function interpolate(styles = {}, theme) {
       filledStyles[key] = get(key, value, theme, label)
     }
 
+    /**
+     * The order of styles is important for css in shorthands
+     * so { borderColor: 'blue', border: '1px solid' }
+     * will not pick up borderColor, instead it will use the
+     * missing value from the shorthand
+     *
+     * If we break the shorthand into its values, we don't face this
+     * problem
+     */
+    if (borderValues.includes(key)) {
+      const [borderWidth, borderStyle, borderColor] = value.split(' ')
+      const borderStyles = {}
+      if (borderWidth && borderWidth !== 'none') {
+        borderStyles.borderWidth = borderWidth
+      }
+      if (borderStyle) borderStyles.borderStyle = borderStyle
+      if (borderColor) borderStyles.borderColor = borderColor
+      filledStyles = merge(filledStyles, borderStyles)
+      delete filledStyles[key]
+    }
+
     if (key === 'variant') {
       const variantStyles = delve(theme, value)
       const interpolated = interpolate(variantStyles, theme)
-      filledStyles = merge(filledStyles, interpolated)
+      const isDefaultVariant = value === label + '.variants.default'
+
+      if (isDefaultVariant) filledStyles = merge(interpolated, filledStyles)
+      else filledStyles = merge(filledStyles, interpolated)
+
+      delete filledStyles.variant
     }
   }
 
@@ -253,6 +279,8 @@ export const scales = {
   borderTopLeftRadius: 'radii',
   borderBottomRightRadius: 'radii',
   borderBottomLeftRadius: 'radii',
+  borderTopRadius: 'radii',
+  borderBottomRadius: 'radii',
   borderTopWidth: 'borderWidths',
   borderTopColor: 'colors',
   borderTopStyle: 'borderStyles',
@@ -296,8 +324,18 @@ export const shortcuts = {
   marginY: ['marginTop', 'marginBottom'],
   paddingX: ['paddingLeft', 'paddingRight'],
   paddingY: ['paddingTop', 'paddingBottom'],
-  size: ['width', 'height']
+  size: ['width', 'height'],
+  borderTopRadius: ['borderTopLeftRadius', 'borderTopRightRadius'],
+  borderBottomRadius: ['borderBottomLeftRadius', 'borderBottomRightRadius']
 }
+
+export const borderValues = [
+  'border',
+  'borderTop',
+  'borderRight',
+  'borderBottom',
+  'borderLeft'
+]
 
 // const shorthands = {
 //   // more complex logic here

@@ -5,6 +5,8 @@ import styled from '@emotion/styled'
 import { withTheme } from 'emotion-theming'
 import interpolate from './interpolate'
 
+const clone = obj => merge(obj, {})
+
 /** Base element (name is prefixed to the component) */
 const rui = styled('div')()
 
@@ -20,9 +22,9 @@ const marginProps = [
 
 function Element(
   {
-    css: cssProp,
-    baseStyles: baseProp,
-    style: inlineStyles,
+    css: cssProp = {},
+    baseStyles: baseProp = {},
+    style: inlineStyles = {},
     variant = 'default',
     component,
     theme,
@@ -31,6 +33,7 @@ function Element(
   ref
 ) {
   theme.components = theme.components || {}
+
   const margins = {}
   Object.keys(props).forEach(prop => {
     if (marginProps.includes(prop)) margins[prop] = props[prop]
@@ -38,11 +41,21 @@ function Element(
 
   let css
   if (typeof cssProp === 'function') css = cssProp(props)
-  else css = cssProp
+  else css = clone(cssProp)
 
   let baseStyles
   if (typeof baseProp === 'function') baseStyles = baseProp(props)
-  else baseStyles = baseProp
+  else baseStyles = clone(baseProp)
+
+  // if variant prop is given, attach the prop to css
+  if (
+    variant &&
+    theme[component] &&
+    theme[component].variants &&
+    theme[component].variants[variant]
+  ) {
+    css.variant = component + '.variants.' + variant
+  }
 
   let label
   if (component) label = component
@@ -74,9 +87,6 @@ function Element(
       delete node[key]
     })
   })
-
-  // if variant prop is given, attach the prop to baseStyles
-  if (variant) merged.variant = component + '.variants.' + variant
 
   // Better classNames for debugging
   props['data-component'] = label

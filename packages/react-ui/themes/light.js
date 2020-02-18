@@ -77,7 +77,7 @@ const theme = {
 // decisions
 
 theme.colors.text = {
-  subtle: 'grays.600',
+  subtle: 'grays.700',
   body: 'grays.800',
   link: 'blues.500',
   linkHover: 'blues.600'
@@ -117,9 +117,6 @@ const components = {
     App: {
       background: 'grays.100'
     },
-    Avatar: {
-      borderColor: 'grays.200'
-    },
     Form: {
       backgroundColor: 'white'
     },
@@ -131,6 +128,10 @@ const components = {
       backgroundOff: 'grays.400',
       backgroundOn: 'greens.700'
     }
+  },
+
+  Avatar: {
+    borderColor: 'grays.200'
   },
 
   Input: {
@@ -160,7 +161,7 @@ const components = {
     variants: {
       default: {
         color: 'text.link',
-        ':hover': {
+        ':hover, :focus': {
           color: 'text.linkHover'
         },
         '&[aria-current]': {
@@ -169,11 +170,15 @@ const components = {
       },
       subtle: {
         color: 'text.body',
+        textDecoration: 'none',
         ':hover': {
-          color: 'text.link'
+          color: 'text.linkHover'
         },
         '&[aria-current]': {
           color: 'text.link'
+        },
+        ':focus': {
+          color: 'text.linkHover'
         }
       }
     }

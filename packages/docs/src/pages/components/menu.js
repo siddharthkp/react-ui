@@ -8,7 +8,7 @@ import {
   Badge,
   Example,
   Paragraph
-} from '../components'
+} from '../../components'
 
 const Documentation = () => {
   return (
@@ -61,7 +61,8 @@ const Documentation = () => {
               name: 'children',
               type: 'Menu.Button and Menu.List',
               description: '',
-              default: ''
+              default: '',
+              required: true
             }
           ]}
         />
@@ -89,7 +90,8 @@ const Documentation = () => {
             {
               name: 'children',
               type: '[ Menu.Item ]',
-              description: ''
+              description: '',
+              required: true
             }
           ]}
         />
@@ -107,7 +109,8 @@ const Documentation = () => {
             {
               name: 'children',
               type: '[ React elements ]',
-              description: ''
+              description: '',
+              required: true
             }
           ]}
         />
@@ -146,10 +149,10 @@ const Documentation = () => {
             <Menu>
               <Menu.Button variant="primary">Home</Menu.Button>
               <Menu.List>
-                <Menu.Item onSelect={_ => {}}>Home</Menu.Item>
-                <Menu.Item onSelect={_ => {}}>Search</Menu.Item>
-                <Menu.Item onSelect={_ => {}}>Trending</Menu.Item>
-                <Menu.Item onSelect={_ => {}}>Lists</Menu.Item>
+                <Menu.Item onSelect={onSelect}>Home</Menu.Item>
+                <Menu.Item onSelect={onSelect}>Search</Menu.Item>
+                <Menu.Item onSelect={onSelect}>Trending</Menu.Item>
+                <Menu.Item onSelect={onSelect}>Lists</Menu.Item>
               </Menu.List>
             </Menu>
           </ThemeProvider>
