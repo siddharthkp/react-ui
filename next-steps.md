@@ -60,6 +60,17 @@
 
 ## Next steps
 
+    - meta: create base theme
+    - meta: add multiple scales of fontsizes to base theme as commented out options
+    - meta: convert px to rem in theme
+    - meta: remove basestyles in favor of merged css
+    - meta: find style values that assume single value instead of array and move to get (variant, size, more?)
+
+    - docs: change customisation options for components after Button
+    - meta: size should be considered a meta property like
+    - meta: pull out sizes from components - components.Button.sizes to theme.sizes.Button
+    variant but also support the option for single value
+
     - cdocs: image
     - cdocs: card
     - cdocs: paragraph
@@ -71,7 +82,8 @@
     - dx: show warning if themeprovider is missing
     - docs: home page
     - docs: core concepts
-    - docs: customisation
+    - docs: customising tokens
+    - docs: customising components
     - docs: Constraints based design
     - docs: Base Element
     - docs: Extending components

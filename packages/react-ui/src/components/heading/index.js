@@ -1,3 +1,4 @@
+import delve from 'dlv'
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Element } from '@ds-tools/primitives'
@@ -11,11 +12,16 @@ function Heading({ size, ...props }) {
       as="h1"
       component="Heading"
       baseStyles={merge(styles.Heading, {
-        fontSize: theme => theme.sizes.Heading[size] || size
+        fontSize: getWithFallback(`fontSizes.Heading.${size}`, size)
       })}
       {...props}
     />
   )
+}
+
+const getWithFallback = (value, fallback) => theme => {
+  const valueIfDefined = delve(theme, value)
+  return valueIfDefined || fallback
 }
 
 Heading.propTypes = {

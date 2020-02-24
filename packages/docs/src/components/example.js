@@ -30,7 +30,12 @@ export const Example = props => {
         <Element
           css={{
             borderRadius: 2,
-            overflow: 'hidden'
+            overflow: 'hidden',
+            '> :first-child': {
+              borderTopRadius: 2,
+              borderBottomRadius: codeVisible ? 0 : 2
+            },
+            '> :last-child': { borderBottomRadius: 2 }
           }}
           marginBottom={12}
           {...props}
@@ -43,7 +48,6 @@ export const Example = props => {
 }
 
 const Preview = ({ css = {}, ...props }) => {
-  const { codeVisible } = React.useContext(ExampleContext)
   return (
     <Element
       as={Stack}
@@ -51,9 +55,6 @@ const Preview = ({ css = {}, ...props }) => {
         paddingY: 10,
         paddingX: 6,
         border: '1px solid',
-        borderTopRadius: 2,
-        borderBottomRadius: codeVisible ? 0 : 2,
-        borderBottom: codeVisible ? 'none' : '1px solid',
         borderColor: 'grays.200',
         ...css
       }}

@@ -1,9 +1,9 @@
-import base from './base'
+import common from './common'
 import { merge } from '../utils'
 
 const theme = {
   // base is shallow merged
-  ...base,
+  ...common,
   // based on elevation levels
   colors: {
     white: '#fff',
@@ -217,6 +217,28 @@ const components = {
           backgroundColor: 'grays.200'
         }
       }
+    }
+  },
+  Input: {
+    backgroundColor: 'grays.900',
+    borderColor: 'grays.1000',
+    ':hover': {
+      backgroundColor: 'grays.900',
+      borderColor: 'black'
+    },
+    ':focus': {
+      outline: 'none',
+      backgroundColor: 'black',
+      borderColor: 'grays.900'
+    },
+    ':disabled': {
+      // same as default
+      backgroundColor: 'grays.100',
+      borderColor: 'grays.400'
+    },
+    '&[aria-invalid]': {
+      backgroundColor: 'black',
+      borderColor: 'reds.500'
     }
   },
   Spinners: {

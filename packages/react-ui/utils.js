@@ -39,6 +39,10 @@ export const calc = string => {
   b = b.trim()
 
   return theme => {
+    // check if theme.space and theme.sizes exist
+    if ((hasUnits(a) || hasUnits(b)) && !theme.space) return string
+    if ((isComponent(a) || isComponent(b)) && !theme.sizes) return string
+
     a = isComponent(a) ? theme.sizes[a] : a
     a = hasUnits(a) ? a : theme.space[a] || theme.sizes[a]
 

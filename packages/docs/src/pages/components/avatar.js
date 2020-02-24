@@ -1,12 +1,15 @@
 import React from 'react'
-import { ThemeProvider, Avatar, Link } from 'react-ui'
+
+import { ThemeProvider, Avatar, Link, Text, merge } from 'react-ui'
+import light from 'react-ui/themes/light'
 import {
   Page,
   Props,
   Example,
   Section,
   Table,
-  Paragraph
+  Para,
+  Code
 } from '../../components'
 
 const Documentation = () => {
@@ -60,46 +63,57 @@ const Documentation = () => {
       </Section>
 
       <Section title="Customisation">
-        <Paragraph>Avatar uses the following theme properties:</Paragraph>
+        <Para>
+          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+            Please read the docs on{' '}
+            <Link href="/core-concepts/customising-components">
+              customising components
+            </Link>{' '}
+            first.
+          </Text>
+        </Para>
+
+        <Para>
+          <Text>Avatar uses the following properties from theme:</Text>
+        </Para>
 
         <Table>
           <Table.Header>
-            <Table.Column span={3}>Property</Table.Column>
-            <Table.Column span={3}>Theme key</Table.Column>
+            <Table.Column span={6}>Property</Table.Column>
+            <Table.Column span={6}>Theme key</Table.Column>
           </Table.Header>
           <Table.Row>
-            <Table.Column span={3}>size</Table.Column>
-            <Table.Column span={3}>sizes.Avatar</Table.Column>
+            <Table.Column span={6}>component name</Table.Column>
+            <Table.Column span={6}>Avatar</Table.Column>
           </Table.Row>
           <Table.Row>
-            <Table.Column span={3}>borderColor</Table.Column>
-            <Table.Column span={3}>Avatar.borderColor</Table.Column>
+            <Table.Column span={6}>size prop</Table.Column>
+            <Table.Column span={6}>theme.sizes.Avatar</Table.Column>
           </Table.Row>
         </Table>
 
-        <Paragraph>
-          Read more about <Link href="/todo">customizing components</Link> here.
-        </Paragraph>
+        <Para>
+          <Text>
+            You can extend the sizes supported by Avatar by extending{' '}
+            <Code>theme.sizes.Avatar</Code>:
+          </Text>
+        </Para>
 
         <Example>
           <Example.Code lang="js">{`
-          const components = {
-            sizes: {
-              Avatar: {
-                xsmall: 5,
-                small: 7,
-                medium: 9,
-                large: 12,
-                xlarge: 15
-              }
-            },
-            Avatar: {
-              borderColor: 'blues.200'
-            }
+          import {theme, components} from 'react-ui/themes/base'
+
+          // extend base theme
+          theme.sizes.Avatar = {
+            xsmall: 5, // reads from theme.sizes.5
+            small: 7,
+            medium: 9,
+            large: 12,
+            xlarge: 15
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider components={components}>
+          <ThemeProvider theme={theme} components={components}>
             <Avatar size="xsmall" src="https://github.com/sameen-shi.png" />
             <Avatar size="medium" src="https://github.com/sameen-shi.png" />
             <Avatar size="xlarge" src="https://github.com/sameen-shi.png" />
@@ -107,12 +121,17 @@ const Documentation = () => {
         `}</Example.Code>
           <Example.Preview>
             <ThemeProvider
-              components={{
-                sizes: { Avatar: { xsmall: 5, xlarge: 15 } },
-                Avatar: {
-                  borderColor: 'blues.200'
+              theme={merge(light, {
+                sizes: {
+                  Avatar: {
+                    xsmall: 5,
+                    small: 7,
+                    medium: 9,
+                    large: 12,
+                    xlarge: 15
+                  }
                 }
-              }}
+              })}
             >
               <Avatar size="xsmall" src="https://github.com/sameen-shi.png" />
               <Avatar size="medium" src="https://github.com/sameen-shi.png" />

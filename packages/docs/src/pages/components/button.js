@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider, Button, Link } from 'react-ui'
+import { ThemeProvider, Button, Link, Text } from 'react-ui'
 import {
   Page,
   Section,
@@ -7,7 +7,8 @@ import {
   Table,
   Badge,
   Example,
-  Paragraph
+  Para,
+  Code
 } from '../../components'
 
 const Documentation = () => {
@@ -18,7 +19,7 @@ const Documentation = () => {
       badges={[<Badge key={0}>accessible</Badge>]}
     >
       <Example>
-        <Example.Preview>
+        <Example.Preview align="center">
           <Button>Log in</Button>
         </Example.Preview>
         <Example.Code>
@@ -41,8 +42,7 @@ const Documentation = () => {
             {
               name: 'variant',
               type: 'enum',
-              options: ['primary', 'secondary', 'destructive', 'link'],
-              description: '',
+              description: 'defined in theme',
               default: 'primary'
             }
           ]}
@@ -67,80 +67,76 @@ const Documentation = () => {
       </Section>
 
       <Section title="Customisation">
-        <Paragraph>Button uses the following theme properties:</Paragraph>
+        <Para>
+          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+            Please read the docs on{' '}
+            <Link href="/core-concepts/customising-components">
+              customising components
+            </Link>{' '}
+            first.
+          </Text>
+        </Para>
+
+        <Para>Button uses the following theme properties:</Para>
 
         <Table>
           <Table.Header>
             <Table.Column span={4}>Property</Table.Column>
             <Table.Column span={8}>Theme key</Table.Column>
           </Table.Header>
-
+          <Table.Row>
+            <Table.Column span={4}>component name</Table.Column>
+            <Table.Column span={8}>Button</Table.Column>
+          </Table.Row>
           <Table.Row>
             <Table.Column span={4}>height</Table.Column>
             <Table.Column span={8}>sizes.Button</Table.Column>
           </Table.Row>
           <Table.Row>
-            <Table.Column span={4}>backgroundColor</Table.Column>
-            <Table.Column span={8}>
-              variants.Button[variant].backgroundColor
-            </Table.Column>
-          </Table.Row>
-          <Table.Row>
-            <Table.Column span={4}>color</Table.Column>
-            <Table.Column span={8}>variants.Button[variant].color</Table.Column>
-          </Table.Row>
-          <Table.Row>
-            <Table.Column span={4}>borderColor</Table.Column>
-            <Table.Column span={8}>
-              variants.Button[variant].borderColor
-            </Table.Column>
-          </Table.Row>
-          <Table.Row>
-            <Table.Column span={4}></Table.Column>
-            <Table.Column span={8} css={{ fontStyle: 'italic' }}>
-              + :hover, :focus, :active states
-            </Table.Column>
+            <Table.Column span={4}>variant</Table.Column>
+            <Table.Column span={8}>components.Button.variants</Table.Column>
           </Table.Row>
         </Table>
-        <Paragraph>
-          Read more about <Link href="/todo">customizing components</Link> here.
-        </Paragraph>
+
+        <Para>
+          <Text>
+            You can add your own variants or modify the existing ones in{' '}
+            <Code>components.Button.variants</Code>:
+          </Text>
+        </Para>
 
         <Example>
           <Example.Code lang="js">{`
-          const components = {
-            // overwrite the size for Button
-            sizes: { Button: 8 },
-            
-            // add new variant "warning" on top of
-            // existing variants in theme
-            Button: {
-              variants: {
-                warning: {
-                  backgroundColor: 'yellows.700',
-                  color: 'white',
-                  borderColor: 'yellows.700',
-                  ':hover': {
-                    backgroundColor: 'yellows.600',
-                    borderColor: 'yellows.600'
-                  },
-                  ':focus': {
-                    backgroundColor: 'yellows.600',
-                    borderColor: 'yellows.700'
-                  },
-                  ':active': {
-                    backgroundColor: 'yellows.800',
-                    borderColor: 'yellows.800'
-                  }
-                },
-              }
+          import { theme, components } from 'react-ui/themes/base'
+
+          // extend base theme
+          theme.sizes.Button = 8 // reads from theme.sizes.8
+
+          // overwrite Button variants
+          // the default variant is primary
+          components.Button.variants = {
+            primary: {
+              backgroundColor: 'greens.700',
+              borderColor: 'greens.700',
+              color: 'white',
+              ':hover':  { backgroundColor: 'greens.600' },
+              ':focus':  { backgroundColor: 'greens.600' },
+              ':active': { backgroundColor: 'greens.800' }
+            },
+            danger: {
+              backgroundColor: 'reds.600',
+              borderColor: 'reds.600',
+              color: 'white',
+              ':hover':  {backgroundColor: 'reds.500' },
+              ':focus':  {backgroundColor: 'reds.600' },
+              ':active': {backgroundColor: 'reds.700' }
             }
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider components={components}> 
-            <Button variant="warning">Cancel</Button>
-            <Button variant="destructive">Delete</Button>
+          <ThemeProvider theme={theme} components={components}> 
+            <Button>Save</Button>
+            <Button variant="danger">Delete</Button>
           </ThemeProvider>
         `}</Example.Code>
           <Example.Preview gap={4}>
@@ -149,29 +145,28 @@ const Documentation = () => {
                 sizes: { Button: 8 },
                 Button: {
                   variants: {
-                    warning: {
-                      backgroundColor: 'yellows.700',
+                    primary2: {
+                      backgroundColor: 'greens.700',
+                      borderColor: 'greens.700',
                       color: 'white',
-                      borderColor: 'yellows.700',
-                      ':hover': {
-                        backgroundColor: 'yellows.600',
-                        borderColor: 'yellows.600'
-                      },
-                      ':focus': {
-                        backgroundColor: 'yellows.600',
-                        borderColor: 'yellows.700'
-                      },
-                      ':active': {
-                        backgroundColor: 'yellows.800',
-                        borderColor: 'yellows.800'
-                      }
+                      ':hover': { backgroundColor: 'greens.600' },
+                      ':focus': { backgroundColor: 'greens.600' },
+                      ':active': { backgroundColor: 'greens.800' }
+                    },
+                    danger: {
+                      backgroundColor: 'reds.600',
+                      borderColor: 'reds.600',
+                      color: 'white',
+                      ':hover': { backgroundColor: 'reds.500' },
+                      ':focus': { backgroundColor: 'reds.600' },
+                      ':active': { backgroundColor: 'reds.700' }
                     }
                   }
                 }
               }}
             >
-              <Button variant="warning">Cancel</Button>
-              <Button variant="destructive">Delete</Button>
+              <Button variant="primary2">Cancel</Button>
+              <Button variant="danger">Delete</Button>
             </ThemeProvider>
           </Example.Preview>
         </Example>

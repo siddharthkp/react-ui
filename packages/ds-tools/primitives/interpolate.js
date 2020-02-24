@@ -7,15 +7,18 @@ export function interpolate(styles = {}, theme) {
   const label = styles.label
 
   for (let key in styles) {
-    const value = styles[key]
+    let value = styles[key]
 
     if (Array.isArray(value)) {
       // responsive styles
       const breakpoints = theme.breakpoints
       if (!breakpoints) continue
 
+      // facepaint takes array of breakpoints not object
       const mq = facepaint(
-        breakpoints.map(breakpoint => `@media (min-width: ${breakpoint})`)
+        Object.values(breakpoints).map(
+          breakpoint => `@media (min-width: ${breakpoint})`
+        )
       )
 
       const values = value // renaming to keep grammar easy to understand
@@ -37,15 +40,16 @@ export function interpolate(styles = {}, theme) {
      * If we break the shorthand into its values, we don't face this
      * problem
      */
-    if (borderValues.includes(key)) {
-      const [borderWidth, borderStyle, borderColor] = value.split(' ')
+    if (borderValues.includes(key) && value !== 'none') {
       const borderStyles = {}
-      if (borderWidth && borderWidth !== 'none') {
-        borderStyles.borderWidth = borderWidth
-      }
-      if (borderStyle) borderStyles.borderStyle = borderStyle
-      if (borderColor) borderStyles.borderColor = borderColor
+
+      const [borderWidth, borderStyle, borderColor] = value.split(' ')
+      if (borderWidth) borderStyles[key + 'Width'] = borderWidth
+      if (borderStyle) borderStyles[key + 'Style'] = borderStyle
+      if (borderColor) borderStyles[key + 'Color'] = borderColor
+
       filledStyles = merge(filledStyles, borderStyles)
+
       delete filledStyles[key]
     }
 
@@ -281,6 +285,8 @@ export const scales = {
   borderBottomLeftRadius: 'radii',
   borderTopRadius: 'radii',
   borderBottomRadius: 'radii',
+  borderLeftRadius: 'radii',
+  borderRightRadius: 'radii',
   borderTopWidth: 'borderWidths',
   borderTopColor: 'colors',
   borderTopStyle: 'borderStyles',
@@ -306,6 +312,8 @@ export const scales = {
   flexBasis: 'sizes',
   size: 'sizes',
   transitionDuration: 'durations',
+  animationDuration: 'durations',
+  animationDelay: 'durations',
   // svg
   fill: 'colors',
   stroke: 'colors'
@@ -326,7 +334,9 @@ export const shortcuts = {
   paddingY: ['paddingTop', 'paddingBottom'],
   size: ['width', 'height'],
   borderTopRadius: ['borderTopLeftRadius', 'borderTopRightRadius'],
-  borderBottomRadius: ['borderBottomLeftRadius', 'borderBottomRightRadius']
+  borderBottomRadius: ['borderBottomLeftRadius', 'borderBottomRightRadius'],
+  borderLeftRadius: ['borderTopLeftRadius', 'borderBottomLeftRadius'],
+  borderRightRadius: ['borderTopRightRadius', 'borderBottomRightRadius']
 }
 
 export const borderValues = [

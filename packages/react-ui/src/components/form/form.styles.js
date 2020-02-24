@@ -7,14 +7,15 @@ export const styles = {
   FormField: {
     width: '100%',
     border: 'none',
-    padding: 0
+    padding: 0,
+    margin: 0
   },
   FormLabel: {
     color: 'text.body',
     display: 'block',
     fontSize: 2,
     lineHeight: 'default',
-    paddingBottom: 1
+    marginBottom: 1
   },
   FormHeader: {
     color: 'text.body',

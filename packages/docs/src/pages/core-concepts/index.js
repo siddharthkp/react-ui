@@ -4,17 +4,17 @@ import { Link as RouterLink } from '@reach/router'
 import { Page, Paragraph as Para } from '../../components'
 
 const items = [
-  { title: 'todo: Constraints based design', path: '1' },
-  { title: 'todo: Theme specification', path: 'theme-specification' },
-  { title: 'Customisation', path: 'customisation' },
+  { title: 'Constraints based design', path: 'constraints-based-design' },
+  { title: 'Customising components', path: 'customising-components' },
+  { title: 'Customising design tokens', path: 'customising-tokens' },
   {
     title: 'Creating new components',
     path: 'creating-new-components'
   },
-  { title: 'todo: Layouts', path: 'layouts' },
-  { title: 'todo: Responsive', path: '6' },
-  { title: 'todo: Utilities', path: '7' },
-  { title: 'todo: Variants', path: '8' }
+  { title: 'Layouts', path: 'layouts' },
+  { title: 'Responsive', path: 'responsive', todo: true },
+  { title: 'Utilities', path: 'utilities', todo: true },
+  { title: 'Variants', path: 'variants', todo: true }
 ]
 
 const Documentation = () => {
@@ -37,9 +37,13 @@ const Documentation = () => {
       >
         {items.map(item => (
           <li key={item.path}>
-            <Link as={RouterLink} to={item.path || ''}>
-              {item.title}
-            </Link>
+            {item.todo ? (
+              <Text variant="subtle">{item.title}</Text>
+            ) : (
+              <Link as={RouterLink} to={item.path}>
+                {item.title}
+              </Link>
+            )}
           </li>
         ))}
       </Element>

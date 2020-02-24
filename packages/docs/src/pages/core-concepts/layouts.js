@@ -1,5 +1,15 @@
 import React from 'react'
-import { Text, Card, Element, Link, Stack, Avatar } from 'react-ui'
+import {
+  Text,
+  Card,
+  Element,
+  Link,
+  Stack,
+  Avatar,
+  Grid,
+  Row,
+  Column
+} from 'react-ui'
 
 import { Page, Example, Section, Para, Code, Divider } from '../../components'
 
@@ -310,7 +320,92 @@ const Documentation = () => {
           `}</Example.Code>
         </Example>
       </Section>
-      <Section title="Grid"></Section>
+      <Section title="Grid">
+        <Para>
+          <Text>
+            For higher level layouts like pages, you might want to use the{' '}
+            <Code>Grid</Code> instead.
+          </Text>
+          <Text>
+            A grid is divided into 12 columns for elements to distribute with
+            the <Code>span</Code> prop.
+          </Text>
+        </Para>
+        <Example>
+          <Example.Preview>
+            <Grid>
+              <Row css={{ height: 20, background: 'reds.200' }} />
+              <Column
+                span={2}
+                css={{ height: 140, background: 'greens.200' }}
+              />
+              <Column
+                span={10}
+                css={{ height: 140, background: 'blues.200' }}
+              />
+            </Grid>
+          </Example.Preview>
+          <Example.Code>
+            {`
+            <Grid>
+              <Row />
+              <Column span={2} />
+              <Column span={10} />
+            </Grid>
+          `}
+          </Example.Code>
+        </Example>
+      </Section>
+      <Para>
+        <Text>
+          Like the Stack, Grid supports responsive syntax, which makes it easier
+          to create responsive layouts.
+        </Text>
+        <Text>
+          Try resizing the browser window to see this in effect.{' '}
+          <Text variant="subtle">
+            (If you're on mobile, try switching to landscape mode)
+          </Text>
+        </Text>
+      </Para>
+      <Example>
+        <Example.Preview>
+          <Grid>
+            <Row css={{ height: 20, background: 'reds.200' }} />
+            <Column
+              span={[12, 2, 2]}
+              css={{ height: [20, 140, 140], background: 'greens.200' }}
+            />
+            <Column
+              span={[12, 10, 10]}
+              css={{ height: 140, background: 'blues.200' }}
+            />
+          </Grid>
+        </Example.Preview>
+        <Example.Code>
+          {`
+            <Grid>
+              <Row />
+              <Column span={[12, 2, 2]} />
+              <Column span={[12, 10, 10]} />
+            </Grid>
+          `}
+        </Example.Code>
+      </Example>
+      <Para>
+        <Text>
+          The syntax is mobile first and is applied to your breakpoints from
+          smallest to widest.
+        </Text>
+      </Para>
+      <Para>
+        <Text>
+          Learn more about the{' '}
+          <Link href="/components/Grid">
+            props and features supported by Grid here.
+          </Link>
+        </Text>
+      </Para>
     </Page>
   )
 }

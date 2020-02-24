@@ -11,7 +11,7 @@ export const Paragraph = props => {
     <BaseParagraph
       css={{ display: 'block' }}
       gap={4}
-      marginBottom={8}
+      marginBottom={10}
       {...props}
     />
   )

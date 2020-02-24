@@ -26,6 +26,7 @@ function Element(
     baseStyles: baseProp = {},
     style: inlineStyles = {},
     variant = 'default',
+    size = 'medium',
     component,
     theme,
     ...props
@@ -55,6 +56,29 @@ function Element(
     theme[component].variants[variant]
   ) {
     css.variant = component + '.variants.' + variant
+  }
+
+  if (size && theme.sizes && theme.sizes[component]) {
+    const width = baseStyles.width || css.width || baseStyles.size || css.size
+    const height =
+      baseStyles.height || css.height || baseStyles.size || css.size
+
+    let value
+    if (typeof theme.sizes[component] !== 'object') {
+      // single value, attach to component
+      value = theme.sizes[component]
+    } else {
+      // if its multiple values, attach the corresponding key
+      value = theme.sizes[component][size]
+    }
+
+    // if the component already has a height / width property,
+    // respect that and attach to the other property only
+    if (!width && !height) css.size = value
+    else {
+      if (!width) css.width = value
+      if (!height) css.height = value
+    }
   }
 
   let label

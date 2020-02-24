@@ -5,12 +5,14 @@ import { styles } from './button.styles'
 import { merge } from '../../../utils'
 
 /** Description of a button */
-const Button = props => {
+const Button = ({ size, ...props }) => {
   return (
     <Element
       as="button"
       component="Button"
-      baseStyles={styles.Button}
+      baseStyles={merge(styles.Button, {
+        height: `Button.${size}`
+      })}
       {...props}
     />
   )
@@ -19,13 +21,11 @@ const Button = props => {
 Button.propTypes = {
   /** Description of an button prop */
   type: PropTypes.oneOf(['submit', 'button', 'reset'])
-  // TODO: static variant prop makes no sense, as variant comes from theme on runtime
-  // maybe we should add theme to props and use that here /shrug
-  // variant: PropTypes.oneOf(['primary', 'secondary', 'link', 'destructive'])
 }
 
 Button.defaultProps = {
   type: 'submit',
+  size: 'medium',
   variant: 'primary'
 }
 

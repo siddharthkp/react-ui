@@ -4,7 +4,7 @@ import { Element } from '@ds-tools/primitives'
 import { styles } from './avatar.styles'
 import { merge } from '../../../utils'
 
-export const Avatar = ({ size, ...props }) => (
+export const Avatar = props => (
   <Element
     as="img"
     component="Avatar"
@@ -17,11 +17,11 @@ export const Avatar = ({ size, ...props }) => (
 
 Avatar.propTypes = {
   /** Image url for avatar */
-  src: PropTypes.string,
+  src: PropTypes.string.isRequired,
   /** size of avatar */
   size: PropTypes.string
 }
 
 Avatar.defaultProps = {
-  size: 'small'
+  // size: 'medium'
 }

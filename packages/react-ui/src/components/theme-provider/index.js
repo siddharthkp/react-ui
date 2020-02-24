@@ -1,18 +1,26 @@
 import React from 'react'
 import { ThemeProvider as EmotionThemeProvider } from '@ds-tools/primitives'
-import light from '../../../themes/light'
-// import dark from '../../../themes/dark'
 import { merge } from '../../../utils'
+
+// import light from '../../../themes/light'
+// import dark from '../../../themes/dark'
+import * as base from '../../../themes/base'
 
 const Provider = EmotionThemeProvider
 
-function ThemeProvider({ theme = light, components = {}, ...props }) {
-  // good defaults
+function ThemeProvider({
+  theme: propTheme = base.theme,
+  components = base.components,
+  ...props
+}) {
+  let theme = { ...propTheme }
 
-  theme.sizes = merge(convertArrayToObject(theme.space), theme.sizes)
+  theme = convertArraysToObject(theme)
 
   theme.components = theme.components || {}
   theme.components = merge(theme.components, components)
+
+  theme.sizes = merge(theme.sizes, getSizesFromComponents(theme.components))
 
   const variants = merge(theme.variants || {}, components.variants || {})
 
@@ -53,14 +61,34 @@ const complainAboutUnits = theme => {
   }
 }
 
-const convertArrayToObject = (array = []) => {
-  const obj = {}
+const convertArraysToObject = (theme = {}) => {
+  const keys = Object.keys(theme)
 
-  array.forEach((item, index) => {
-    obj[index] = item
+  keys.map(key => {
+    if (Array.isArray(theme[key])) {
+      const obj = {}
+
+      theme[key].forEach((item, index) => {
+        obj[index] = item
+      })
+
+      theme[key] = obj
+    }
   })
 
-  return obj
+  return theme
+}
+
+const getSizesFromComponents = (components = {}) => {
+  const names = Object.keys(components)
+  const sizes = {}
+
+  names.forEach(name => {
+    const themeStyles = components[name]
+    if (themeStyles.sizes) sizes[name] = themeStyles.sizes
+  })
+
+  return sizes
 }
 
 export { ThemeProvider }

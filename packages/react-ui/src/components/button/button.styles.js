@@ -1,16 +1,14 @@
 export const styles = {
   Button: {
+    boxSizing: 'border-box',
     display: 'inline-flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 'Button',
-    border: '2px solid',
-    fontSize: 3,
-    paddingX: 3,
-    lineHeight: 'default',
-    borderRadius: 1,
+    width: 'auto',
+    lineHeight: 0, // trust height and flex for alignment
     cursor: 'pointer',
-    transition: 'all 150ms',
+    transitionProperty: 'background-color, color, border-color',
+    transitionDuration: 3,
     ':disabled': {
       opacity: 0.5
     }

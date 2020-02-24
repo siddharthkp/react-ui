@@ -26,11 +26,11 @@ const Documentation = () => {
       <NavSection
         category="Building blocks"
         items={[
-          { title: 'Element', path: 'Element' },
+          { title: 'Element', path: 'Element', todo: true },
           { title: 'Avatar', path: 'Avatar' },
           { title: 'Button', path: 'Button' },
           { title: 'Heading', path: 'Heading' },
-          { title: 'Image', path: 'Image' },
+          { title: 'Image', path: 'Image', todo: true },
           { title: 'Input', path: 'Input' },
           { title: 'Link', path: 'Link' },
           { title: 'Select', path: 'Select' },
@@ -38,7 +38,7 @@ const Documentation = () => {
           { title: 'Switch', path: 'Switch' },
           { title: 'Text', path: 'Text' },
           { title: 'Textarea', path: 'Textarea' },
-          { title: 'ThemeProvider', path: 'ThemeProvider' }
+          { title: 'ThemeProvider', path: 'ThemeProvider', todo: true }
         ]}
       />
 
@@ -54,10 +54,10 @@ const Documentation = () => {
         category="Molecules"
         items={[
           { title: 'Breadcrumb', path: 'Breadcrumb' },
-          { title: 'Card', path: 'Card' },
+          { title: 'Card', path: 'Card', todo: true },
           { title: 'Form', path: 'Form' },
           { title: 'Menu', path: 'Menu' },
-          { title: 'Paragraph', path: 'Paragraph' }
+          { title: 'Paragraph', path: 'Paragraph', todo: true }
         ]}
       />
     </Page>
@@ -75,9 +75,15 @@ const NavSection = ({ category, items }) => {
       <Grid gap="auto">
         {items.map(item => (
           <Column span={[6, 4, 4]} key={item.path}>
-            <Link as={RouterLink} to={item.path}>
-              {item.title}
-            </Link>
+            {item.todo ? (
+              <Text variant="subtle" css={{ textDecoration: 'line-through' }}>
+                {item.title}
+              </Text>
+            ) : (
+              <Link as={RouterLink} to={item.path}>
+                {item.title}
+              </Link>
+            )}
           </Column>
         ))}
       </Grid>

@@ -1,8 +1,8 @@
-import base from './base'
+import common from './common'
 import { merge } from '../utils'
 
 const theme = {
-  ...base,
+  ...common,
 
   // based on elevation levels
   shadows: [
@@ -100,17 +100,20 @@ const components = {
       medium: 10,
       large: 15
     },
-    Heading: {
-      page: 8,
-      section: 6,
-      paragraph: 4
-    },
     Spinner: {
       small: 4,
       medium: 6,
       large: 8
     },
     Switch: 4
+  },
+
+  fontSizes: {
+    Heading: {
+      page: 8,
+      section: 6,
+      paragraph: 4
+    }
   },
 
   colors: {
@@ -131,6 +134,7 @@ const components = {
   },
 
   Avatar: {
+    border: '2px solid',
     borderColor: 'grays.200'
   },
 
@@ -266,7 +270,7 @@ const components = {
   },
   Text: {
     variants: {
-      default: { color: 'text.body' },
+      default: { color: 'inherit' },
       subtle: { color: 'text.subtle' },
       danger: { color: 'error.text' }
     }
