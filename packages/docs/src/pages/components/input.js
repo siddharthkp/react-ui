@@ -1,13 +1,6 @@
 import React from 'react'
-import { ThemeProvider, Input, Link } from 'react-ui'
-import {
-  Page,
-  Props,
-  Example,
-  Section,
-  Table,
-  Paragraph
-} from '../../components'
+import { ThemeProvider, Input, Link, Text } from 'react-ui'
+import { Page, Props, Example, Section, Table, Para } from '../../components'
 
 const Documentation = () => {
   return (
@@ -41,11 +34,11 @@ const Documentation = () => {
       </Section>
 
       <Section title="Examples">
-        <Paragraph>
+        <Para>
           Inputs can be used with{' '}
           <Link href="/components/Form">Form.Field</Link> which adds accessible
           labels and error states.
-        </Paragraph>
+        </Para>
 
         <Example>
           <Example.Preview direction="vertical" gap={2}>
@@ -64,7 +57,17 @@ const Documentation = () => {
       </Section>
 
       <Section title="Customisation">
-        <Paragraph>Input uses the following theme properties:</Paragraph>
+        <Para>
+          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+            Please read the docs on{' '}
+            <Link href="/core-concepts/customising-components">
+              customising components
+            </Link>{' '}
+            first.
+          </Text>
+        </Para>
+
+        <Para>Input uses the following theme properties:</Para>
 
         <Table>
           <Table.Header>
@@ -72,56 +75,55 @@ const Documentation = () => {
             <Table.Column span={8}>Theme key</Table.Column>
           </Table.Header>
           <Table.Row>
+            <Table.Column span={4}>component name</Table.Column>
+            <Table.Column span={8}>Input</Table.Column>
+          </Table.Row>
+          <Table.Row>
             <Table.Column span={4}>height</Table.Column>
-            <Table.Column span={8}>sizes.Input</Table.Column>
-          </Table.Row>
-          <Table.Row>
-            <Table.Column span={4}>color</Table.Column>
-            <Table.Column span={8}>colors.text.body</Table.Column>
-          </Table.Row>
-          <Table.Row>
-            <Table.Column span={4}>placeholder color</Table.Column>
-            <Table.Column span={8}>colors.text.subtle</Table.Column>
+            <Table.Column span={8}>Input.sizes</Table.Column>
           </Table.Row>
         </Table>
 
-        <Paragraph>
-          Read more about <Link href="/todo">customizing components</Link> here.
-        </Paragraph>
-
         <Example>
           <Example.Code lang="js">{`
-          const components = {
-            // add to theme.sizes 
-            sizes: { Input: 12 },
-            // add Input component styles
-            Input: {
-              fontSize: 4,
-              ':hover': {
-                borderColor: 'greens.400'
-              },
-              ':focus': {
-                borderColor: 'greens.600'
-              }
+          import { theme, components } from 'react-ui/themes/base'
+          
+          // overwrite Input styles
+          components.Input = {
+            sizes: { medium: 10 }, // medium is default size
+            fontSize: 4,
+            paddingX: 2,
+            border: '2px solid',
+            borderColor: 'green',
+            '::placeholder': {
+              color: 'green'
+            }
+            ':focus': {
+              outline: 'none',
+              borderColor: 'lightgreen'
             }
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider components={components}>
+          <ThemeProvider theme={theme} components={components}>
             <Input type="text" placeholder="Please enter your name" />
           </ThemeProvider>
         `}</Example.Code>
           <Example.Preview>
             <ThemeProvider
               components={{
-                sizes: { Input: 12 },
                 Input: {
+                  sizes: { medium: 10 },
                   fontSize: 4,
-                  ':hover': {
-                    borderColor: 'greens.400'
+                  paddingX: 2,
+                  border: '2px solid',
+                  borderColor: 'green',
+                  '::placeholder': {
+                    color: 'green'
                   },
                   ':focus': {
-                    borderColor: 'greens.600'
+                    outline: 'none',
+                    borderColor: 'lightgreen'
                   }
                 }
               }}

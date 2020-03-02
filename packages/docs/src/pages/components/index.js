@@ -24,21 +24,27 @@ const Documentation = () => {
       </Example>
 
       <NavSection
-        category="Building blocks"
+        category="Primitives"
         items={[
           { title: 'Element', path: 'Element', todo: true },
+          { title: 'ThemeProvider', path: 'ThemeProvider', todo: true }
+        ]}
+      />
+
+      <NavSection
+        category="Building blocks"
+        items={[
           { title: 'Avatar', path: 'Avatar' },
           { title: 'Button', path: 'Button' },
           { title: 'Heading', path: 'Heading' },
-          { title: 'Image', path: 'Image', todo: true },
+          { title: 'Image', path: 'Image' },
           { title: 'Input', path: 'Input' },
           { title: 'Link', path: 'Link' },
           { title: 'Select', path: 'Select' },
           { title: 'Spinner', path: 'Spinner' },
           { title: 'Switch', path: 'Switch' },
           { title: 'Text', path: 'Text' },
-          { title: 'Textarea', path: 'Textarea' },
-          { title: 'ThemeProvider', path: 'ThemeProvider', todo: true }
+          { title: 'Textarea', path: 'Textarea' }
         ]}
       />
 
@@ -54,10 +60,10 @@ const Documentation = () => {
         category="Molecules"
         items={[
           { title: 'Breadcrumb', path: 'Breadcrumb' },
-          { title: 'Card', path: 'Card', todo: true },
+          { title: 'Card', path: 'Card' },
           { title: 'Form', path: 'Form' },
           { title: 'Menu', path: 'Menu' },
-          { title: 'Paragraph', path: 'Paragraph', todo: true }
+          { title: 'Paragraph', path: 'Paragraph' }
         ]}
       />
     </Page>

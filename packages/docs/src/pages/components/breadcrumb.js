@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider, Breadcrumb, Link } from 'react-ui'
+import { ThemeProvider, Breadcrumb, Link, Text } from 'react-ui'
 import {
   Table,
   Page,
@@ -7,7 +7,7 @@ import {
   Props,
   Badge,
   Example,
-  Paragraph
+  Para
 } from '../../components'
 
 const Documentation = () => {
@@ -76,9 +76,17 @@ const Documentation = () => {
       </Section>
 
       <Section title="Customisation">
-        <Paragraph>
-          Breadcrumb has the following customisable elements:
-        </Paragraph>
+        <Para>
+          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+            Please read the docs on{' '}
+            <Link href="/core-concepts/customising-components">
+              customising components
+            </Link>{' '}
+            first.
+          </Text>
+        </Para>
+
+        <Para>Breadcrumb has the following customisable elements:</Para>
 
         <Table>
           <Table.Header>Name</Table.Header>
@@ -88,29 +96,26 @@ const Documentation = () => {
           <Table.Row>Link</Table.Row>
         </Table>
 
-        <Paragraph>
-          Read more about <Link href="/todo">customizing components</Link> here.
-        </Paragraph>
-
         <Example>
           <Example.Code lang="js">{`
-          const components = {
-            Breadcrumb: {
-              backgroundColor: 'blues.100',
-              paddingX: 4,
-              Link: {
-                // this nested selector will only target
-                // Link components inside Breadcrumb
-                textDecoration: 'underline'
-              }
+          import { theme, components } from 'react-ui/themes/base'
+          
+          components.Breadcrumb = {
+            backgroundColor: 'skyblue',
+            paddingX: 4,
+            Link: {
+              // this nested selector will only target
+              // Link components inside Breadcrumb
+              textDecoration: 'underline'
             },
-            BreadcrumbSeparator: {
-              color: 'blues.200'
-            }
+          }
+
+          components.BreadcrumbSeparator = {
+            color: 'white'
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider components={components}>
+          <ThemeProvider theme={theme} components={components}>
             <Breadcrumb separator=">">
               <Link href="/home">Home</Link>
               <Link href="/home">Settings</Link>
@@ -122,14 +127,14 @@ const Documentation = () => {
             <ThemeProvider
               components={{
                 Breadcrumb: {
-                  backgroundColor: 'blues.100',
+                  backgroundColor: 'skyblue',
                   paddingX: 4,
                   Link: {
                     textDecoration: 'underline'
                   }
                 },
                 BreadcrumbSeparator: {
-                  color: 'blues.200'
+                  color: 'white'
                 }
               }}
             >

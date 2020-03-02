@@ -31,11 +31,11 @@ export const Example = props => {
           css={{
             borderRadius: 2,
             overflow: 'hidden',
-            '> :first-child': {
+            '> *:first-child': {
               borderTopRadius: 2,
               borderBottomRadius: codeVisible ? 0 : 2
             },
-            '> :last-child': { borderBottomRadius: 2 }
+            '> *:last-child': { borderBottomRadius: 2 }
           }}
           marginBottom={12}
           {...props}
@@ -85,8 +85,10 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
       as="pre"
       css={{
         margin: 0,
-        backgroundColor: 'grays.900',
-        color: 'grays.100',
+        // backgroundColor: 'grays.900',
+        // color: 'grays.100',
+        backgroundColor: 'black',
+        color: '#f5faff',
         padding: 4,
         fontSize: 3,
         overflow: 'scroll'

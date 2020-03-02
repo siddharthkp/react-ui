@@ -19,9 +19,9 @@ const Documentation = () => {
       <Example>
         <Example.Preview>
           <Grid>
-            <Row css={{ height: 20, background: 'reds.200' }} />
-            <Column span={2} css={{ height: 140, background: 'greens.200' }} />
-            <Column span={10} css={{ height: 140, background: 'blues.200' }} />
+            <Row css={{ height: 20, background: '#EFA6A6' }} />
+            <Column span={2} css={{ height: 140, background: '#A8EEC1' }} />
+            <Column span={10} css={{ height: 140, background: '#B7DBF7' }} />
           </Grid>
         </Example.Preview>
         <Example.Code>
@@ -97,13 +97,13 @@ const Documentation = () => {
         <Example title="start + span">
           <Example.Preview>
             <Grid css={{ height: 40 }}>
-              <Column start={1} end={4} css={{ background: 'reds.200' }}>
+              <Column start={1} end={4} css={{ background: '#EFA6A6' }}>
                 1 to 4
               </Column>
-              <Column start={6} end={7} css={{ background: 'greens.200' }}>
+              <Column start={6} end={7} css={{ background: '#A8EEC1' }}>
                 6-7
               </Column>
-              <Column start={9} end={12} css={{ background: 'blues.200' }}>
+              <Column start={9} end={12} css={{ background: '#B7DBF7' }}>
                 9 to 12
               </Column>
             </Grid>
@@ -122,11 +122,11 @@ const Documentation = () => {
         <Example title="row + column">
           <Example.Preview>
             <Grid>
-              <Row css={{ height: 20, background: 'reds.200' }}>header</Row>
-              <Column span={2} css={{ height: 140, background: 'greens.200' }}>
+              <Row css={{ height: 20, background: '#EFA6A6' }}>header</Row>
+              <Column span={2} css={{ height: 140, background: '#A8EEC1' }}>
                 sidebar
               </Column>
-              <Column span={10} css={{ height: 140, background: 'blues.200' }}>
+              <Column span={10} css={{ height: 140, background: '#B7DBF7' }}>
                 main
               </Column>
             </Grid>
@@ -191,22 +191,22 @@ const Documentation = () => {
         <Example title="Responsive - try resizing the browser window.">
           <Example.Preview>
             <Grid>
-              <Row css={{ height: 20, background: 'reds.200' }}>header</Row>
+              <Row css={{ height: 20, background: '#EFA6A6' }}>header</Row>
               <Column
                 span={[12, 12, 2]}
-                css={{ height: [40, 40, 140], background: 'yellows.200' }}
+                css={{ height: [40, 40, 140], background: '#FAECC2' }}
               >
                 sidebar
               </Column>
               <Column
                 span={[12, 6, 5]}
-                css={{ height: 140, background: 'greens.200' }}
+                css={{ height: 140, background: '#A8EEC1' }}
               >
                 column
               </Column>
               <Column
                 span={[12, 6, 5]}
-                css={{ height: 140, background: 'blues.200' }}
+                css={{ height: 140, background: '#B7DBF7' }}
               >
                 column
               </Column>

@@ -1,13 +1,6 @@
 import React from 'react'
-import { ThemeProvider, Heading, Link } from 'react-ui'
-import {
-  Page,
-  Props,
-  Example,
-  Section,
-  Table,
-  Paragraph
-} from '../../components'
+import { ThemeProvider, Heading, Link, Text } from 'react-ui'
+import { Page, Props, Example, Section, Table, Para } from '../../components'
 
 const Documentation = () => {
   return (
@@ -47,7 +40,7 @@ const Documentation = () => {
       </Section>
 
       <Section title="Examples">
-        <Paragraph>Headings can take their size from two places:</Paragraph>
+        <Para>Headings can take their size from two places:</Para>
 
         <Example title="1. fontSize units from theme:">
           <Example.Preview
@@ -85,7 +78,17 @@ const Documentation = () => {
       </Section>
 
       <Section title="Customisation">
-        <Paragraph>Heading uses the following theme properties:</Paragraph>
+        <Para>
+          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+            Please read the docs on{' '}
+            <Link href="/core-concepts/customising-components">
+              customising components
+            </Link>{' '}
+            first.
+          </Text>
+        </Para>
+
+        <Para>Heading uses the following theme properties:</Para>
 
         <Table>
           <Table.Header>
@@ -100,26 +103,25 @@ const Documentation = () => {
           </Table.Row>
         </Table>
 
-        <Paragraph>
-          Read more about <Link href="/todo">customizing components</Link> here.
-        </Paragraph>
-
         <Example>
           <Example.Code lang="js">{`
-          const theme= {
+          /* 
+            Scale: 
+          */
+          const theme = {
             fontSizes: [
-              '0px', '12px', '14px', '16px', '24px', '32px', '48px', '64px'
+              '0px', '12px', '14px', '16px', '24px', '32px', '48px', '64px', '72px'
             ]
           }
 
-          const components = {
-            sizes: {
-              Heading: {
-                page: 8,
-                section: 6,
-                paragraph: 4
-              }
-            }
+          /* 
+            Decisions: 
+            You can create aliases in scales based on the scale.
+          */
+          theme.fontSizes.Heading = {
+            page: 8, // reads from theme.fontSizes.8
+            section: 6,
+            paragraph: 4
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`

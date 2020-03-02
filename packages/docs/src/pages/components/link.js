@@ -1,20 +1,13 @@
 import React from 'react'
-import { ThemeProvider, Link } from 'react-ui'
-import {
-  Page,
-  Props,
-  Example,
-  Section,
-  Table,
-  Paragraph
-} from '../../components'
+import { ThemeProvider, Link, Text } from 'react-ui'
+import { Page, Props, Example, Section, Table, Para } from '../../components'
 
 const Documentation = () => {
   return (
     <Page title="Link" tagline="Use Links to connect pages with each other">
-      <Paragraph>
+      <Para>
         Extends <Link href="/components/Text">Text</Link>.
-      </Paragraph>
+      </Para>
       <Example>
         <Example.Preview>
           <span>
@@ -85,11 +78,11 @@ const Documentation = () => {
           `}</Example.Code>
         </Example>
 
-        <Paragraph>
+        <Para>
           The Link component extends the{' '}
           <Link href="/components/Text">Text</Link> component which means you
           can attach all props of the Text component on a Link.
-        </Paragraph>
+        </Para>
         <Example>
           <Example.Preview direction="vertical" gap={2}>
             <span>
@@ -112,7 +105,17 @@ const Documentation = () => {
       </Section>
 
       <Section title="Customisation">
-        <Paragraph>Link uses the following theme properties:</Paragraph>
+        <Para>
+          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+            Please read the docs on{' '}
+            <Link href="/core-concepts/customising-components">
+              customising components
+            </Link>{' '}
+            first.
+          </Text>
+        </Para>
+
+        <Para>Link uses the following theme properties:</Para>
         <Table>
           <Table.Header>
             <Table.Column span={4}>Property</Table.Column>
@@ -122,34 +125,24 @@ const Documentation = () => {
             <Table.Column span={4}>color</Table.Column>
             <Table.Column span={8}>variants.Link[variant].color</Table.Column>
           </Table.Row>
-          <Table.Row>
-            <Table.Column span={4}></Table.Column>
-            <Table.Column span={8} css={{ fontStyle: 'italic' }}>
-              + :hover, &[aria-selected] state
-            </Table.Column>
-          </Table.Row>
         </Table>
-
-        <Paragraph>
-          Read more about <Link href="/todo">customizing components</Link> here.
-        </Paragraph>
 
         <Example>
           <Example.Code lang="js">{`
-          const components = {
-            Link: {
-              variants: {
-                // adds variant subtle for Link
-                // overrides properties it if it already exists
-                subtle: {
-                  color: 'text.subtle',
-                  ':hover': {
-                    color: 'text.linkHover'
-                  },
-                  '&[aria-current]': {
-                    color: 'text.linkHover'
-                  }
-                }
+          import { theme, components } from 'react-ui/themes/base'
+
+          // overwrite Link styles
+          components.Link = {
+            textDecoration: 'underline',
+
+            variants: {
+              default: {
+                color: 'blue',
+                ':hover': { color: 'darkblue' }
+              },
+              subtle: {
+                color: 'grey',
+                ':hover': { color: 'darkblue' }
               }
             }
           }
@@ -168,17 +161,15 @@ const Documentation = () => {
             <ThemeProvider
               components={{
                 Link: {
+                  textDecoration: 'underline',
                   variants: {
-                    // adds variant subtle for Link
-                    // overrides properties it if it already exists
+                    default: {
+                      color: 'blue',
+                      ':hover': { color: 'darkblue' }
+                    },
                     subtle: {
-                      color: 'text.subtle',
-                      ':hover': {
-                        color: 'text.linkHover'
-                      },
-                      '&[aria-current]': {
-                        color: 'text.linkHover'
-                      }
+                      color: 'grey',
+                      ':hover': { color: 'darkblue' }
                     }
                   }
                 }
@@ -186,6 +177,7 @@ const Documentation = () => {
             >
               <span>
                 <Link
+                  debug
                   href="https://github.com/siddharthkp/react-ui"
                   target="_blank"
                 >

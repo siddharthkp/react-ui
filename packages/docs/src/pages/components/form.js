@@ -1,4 +1,5 @@
 import React from 'react'
+import * as base from 'react-ui/themes/base'
 import {
   ThemeProvider,
   Form,
@@ -8,7 +9,8 @@ import {
   Switch,
   Stack,
   Button,
-  Link
+  Link,
+  Text
 } from 'react-ui'
 import {
   Page,
@@ -16,7 +18,7 @@ import {
   Example,
   Section,
   Table,
-  Paragraph,
+  Para,
   Badge
 } from '../../components'
 
@@ -113,7 +115,7 @@ const Documentation = () => {
               <Form.Field label="Remember me">
                 <Switch />
               </Form.Field>
-              <Stack>
+              <Stack gap={2}>
                 <Button>Update profile</Button>
                 <Button variant="link">Cancel</Button>
               </Stack>
@@ -154,9 +156,17 @@ const Documentation = () => {
       </Section>
 
       <Section title="Customisation">
-        <Paragraph>
-          Breadcrumb has the following customisable elements:
-        </Paragraph>
+        <Para>
+          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+            Please read the docs on{' '}
+            <Link href="/core-concepts/customising-components">
+              customising components
+            </Link>{' '}
+            first.
+          </Text>
+        </Para>
+
+        <Para>Breadcrumb has the following customisable elements:</Para>
 
         <Table>
           <Table.Header>Name</Table.Header>
@@ -167,26 +177,25 @@ const Documentation = () => {
           <Table.Row>FormLabel</Table.Row>
         </Table>
 
-        <Paragraph>
-          Read more about <Link href="/todo">customizing components</Link> here.
-        </Paragraph>
-
         <Example>
           <Example.Code lang="js">{`
-          const components = {
-            Input: {
-              fontSize: 4,
-              ':hover': {
-                borderColor: 'greens.400'
-              },
-              ':focus': {
-                borderColor: 'greens.600'
-              }
+          import { theme, components } from 'react-ui/themes/base'
+          
+          components.Form = {
+            width: '400px',
+            backgroundColor: 'pink',
+            paddingX: 10,
+
+            FormHeader: {
+              textAlign: 'center'
+            },
+            FormLabel: {
+              textTransform: 'uppercase'
             }
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider components={components}>
+          <ThemeProvider theme={theme} components={components}>
             <Form>
               <Form.Field label="Name">
                 <Input type="text" placeholder="Please enter your name" />
@@ -204,10 +213,11 @@ const Documentation = () => {
           <Example.Preview>
             <ThemeProvider
               components={{
+                ...base.components,
                 Form: {
                   width: '400px',
-                  background: 'yellows.100',
-                  paddingX: 10,
+                  backgroundColor: 'pink',
+                  padding: 10,
 
                   FormHeader: {
                     textAlign: 'center'

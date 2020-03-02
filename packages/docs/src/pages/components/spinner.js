@@ -1,13 +1,6 @@
 import React from 'react'
-import { ThemeProvider, Spinner, Link } from 'react-ui'
-import {
-  Page,
-  Props,
-  Example,
-  Section,
-  Table,
-  Paragraph
-} from '../../components'
+import { ThemeProvider, Spinner, Link, Text } from 'react-ui'
+import { Page, Props, Example, Section, Table, Para } from '../../components'
 
 const Documentation = () => {
   return (
@@ -53,7 +46,17 @@ const Documentation = () => {
       </Section>
 
       <Section title="Customisation">
-        <Paragraph>Spinner uses the following theme properties:</Paragraph>
+        <Para>
+          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+            Please read the docs on{' '}
+            <Link href="/core-concepts/customising-components">
+              customising components
+            </Link>{' '}
+            first.
+          </Text>
+        </Para>
+
+        <Para>Spinner uses the following theme properties:</Para>
 
         <Table>
           <Table.Header>
@@ -61,8 +64,12 @@ const Documentation = () => {
             <Table.Column span={8}>Theme key</Table.Column>
           </Table.Header>
           <Table.Row>
-            <Table.Column span={4}>width + height</Table.Column>
-            <Table.Column span={8}>sizes.Spinner</Table.Column>
+            <Table.Column span={4}>component name</Table.Column>
+            <Table.Column span={8}>Spinner</Table.Column>
+          </Table.Row>
+          <Table.Row>
+            <Table.Column span={4}>size</Table.Column>
+            <Table.Column span={8}>components.Spinner.sizes</Table.Column>
           </Table.Row>
           <Table.Row>
             <Table.Column span={4}>borderColor</Table.Column>
@@ -74,42 +81,34 @@ const Documentation = () => {
           </Table.Row>
         </Table>
 
-        <Paragraph>
-          Read more about <Link href="/todo">customizing components</Link> here.
-        </Paragraph>
-
         <Example>
           <Example.Code lang="js">{`
-          const components = {
-            sizes: {
-              Spinner: {
-                small: 4,
-                large: 10
-              }
-            },
-            Spinner: {
-              borderColor: 'blues.100',
-              borderLeftColor: 'blues.500'
-            }
+          import { theme, components } from 'react-ui/themes/base'
+
+          // overwrite spinner styles
+          components.Spinner = {
+            sizes: { small: 2, medium: 4, large: 6 },
+            borderColor: 'blues.100',
+            borderLeftColor: 'blues.500'
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider components={components}>
-            <Spinner size="small" />
+          <ThemeProvider theme={theme} components={components}>
+            <Spinner size="medium" />
             <Spinner size="large" />
           </ThemeProvider>
         `}</Example.Code>
           <Example.Preview align="center" gap={4}>
             <ThemeProvider
               components={{
-                sizes: { Spinner: { small: 4, large: 10 } },
                 Spinner: {
-                  borderColor: 'blues.100',
-                  borderLeftColor: 'blues.500'
+                  sizes: { small: 2, medium: 4, large: 6 },
+                  borderColor: 'pink',
+                  borderLeftColor: 'red'
                 }
               }}
             >
-              <Spinner size="small" />
+              <Spinner size="medium" />
               <Spinner size="large" />
             </ThemeProvider>
           </Example.Preview>

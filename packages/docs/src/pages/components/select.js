@@ -1,20 +1,13 @@
 import React from 'react'
-import { ThemeProvider, Select, Link } from 'react-ui'
-import {
-  Page,
-  Props,
-  Example,
-  Section,
-  Table,
-  Paragraph
-} from '../../components'
+import { ThemeProvider, Select, Link, Text } from 'react-ui'
+import { Page, Props, Example, Section, Table, Para } from '../../components'
 
 const Documentation = () => {
   return (
     <Page title="Select" tagline="Use Select to request selection from a list">
-      <Paragraph>
+      <Para>
         Extends <Link href="/components/Input">Input</Link>.
-      </Paragraph>
+      </Para>
       <Example>
         <Example.Preview>
           <Select>
@@ -49,11 +42,11 @@ const Documentation = () => {
       </Section>
 
       <Section title="Examples">
-        <Paragraph>
+        <Para>
           Select can be used with{' '}
           <Link href="/components/Form">Form.Field</Link> which adds accessible
           labels and error states.
-        </Paragraph>
+        </Para>
 
         <Example>
           <Example.Preview direction="vertical" gap={2}>
@@ -98,9 +91,15 @@ const Documentation = () => {
       </Section>
 
       <Section title="Customisation">
-        <Paragraph>
-          Select extends Input and uses the following theme properties:
-        </Paragraph>
+        <Para>
+          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+            Please read the docs on{' '}
+            <Link href="/core-concepts/customising-components">
+              customising components
+            </Link>{' '}
+            first.
+          </Text>
+        </Para>
 
         <Table>
           <Table.Header>
@@ -109,34 +108,30 @@ const Documentation = () => {
           </Table.Header>
           <Table.Row>
             <Table.Column span={4}>height</Table.Column>
-            <Table.Column span={8}>sizes.Input</Table.Column>
+            <Table.Column span={8}>Select.sizes</Table.Column>
           </Table.Row>
           <Table.Row>
-            <Table.Column span={4}>color</Table.Column>
-            <Table.Column span={8}>colors.text.body</Table.Column>
-          </Table.Row>
-          <Table.Row>
-            <Table.Column span={4}>placeholder color</Table.Column>
-            <Table.Column span={8}>colors.text.subtle</Table.Column>
+            <Table.Column span={4}>component name</Table.Column>
+            <Table.Column span={8}>Select</Table.Column>
           </Table.Row>
         </Table>
-
-        <Paragraph>
-          Read more about <Link href="/todo">customizing components</Link> here.
-        </Paragraph>
 
         <Example>
           <Example.Code lang="js">{`
           const components = {
-            // Select extends Input styles
-            sizes: { Input: 12 },
-            Input: {
-              fontSize: 4,
-              ':hover': {
-                borderColor: 'greens.400'
-              },
+            Select: {
+              sizes: { small: 6, medium: 8, large: 10 },
+              fontSize: 3,
+              borderRadius: 1,
+              paddingX: 2,
+
+              border: '2px solid',
+              borderColor: 'green',
               ':focus': {
-                borderColor: 'greens.600'
+                borderColor: 'darkgreen'
+              },
+              '&[aria-invalid]': {
+                borderColor: 'red'
               }
             }
           }
@@ -153,14 +148,19 @@ const Documentation = () => {
           <Example.Preview>
             <ThemeProvider
               components={{
-                sizes: { Input: 12 },
-                Input: {
-                  fontSize: 4,
-                  ':hover': {
-                    borderColor: 'greens.400'
-                  },
+                Select: {
+                  sizes: { small: 6, medium: 8, large: 10 },
+                  fontSize: 3,
+                  borderRadius: 1,
+                  paddingX: 2,
+
+                  border: '2px solid',
+                  borderColor: 'green',
                   ':focus': {
-                    borderColor: 'greens.600'
+                    borderColor: 'darkgreen'
+                  },
+                  '&[aria-invalid]': {
+                    borderColor: 'red'
                   }
                 }
               }}

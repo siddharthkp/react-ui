@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { ThemeProvider, Avatar, Link, Text, merge } from 'react-ui'
-import * as light from 'react-ui/themes/light'
+import { components } from 'react-ui/themes/base'
+
 import {
   Page,
   Props,
@@ -11,6 +12,15 @@ import {
   Para,
   Code
 } from '../../components'
+
+const customisedComponents = merge({}, components)
+customisedComponents.Avatar.sizes = {
+  xsmall: 5,
+  small: 7,
+  medium: 9,
+  large: 12,
+  xlarge: 15
+}
 
 const Documentation = () => {
   return (
@@ -101,10 +111,10 @@ const Documentation = () => {
 
         <Example>
           <Example.Code lang="js">{`
-          import {theme, components} from 'react-ui/themes/base'
+          import { theme, components } from 'react-ui/themes/base'
 
           // extend base theme
-          theme.sizes.Avatar = {
+          components.Avatar.sizes = {
             xsmall: 5, // reads from theme.sizes.5
             small: 7,
             medium: 9,
@@ -120,19 +130,7 @@ const Documentation = () => {
           </ThemeProvider>
         `}</Example.Code>
           <Example.Preview>
-            <ThemeProvider
-              theme={merge(light, {
-                sizes: {
-                  Avatar: {
-                    xsmall: 5,
-                    small: 7,
-                    medium: 9,
-                    large: 12,
-                    xlarge: 15
-                  }
-                }
-              })}
-            >
+            <ThemeProvider components={customisedComponents}>
               <Avatar size="xsmall" src="https://github.com/sameen-shi.png" />
               <Avatar size="medium" src="https://github.com/sameen-shi.png" />
               <Avatar size="xlarge" src="https://github.com/sameen-shi.png" />

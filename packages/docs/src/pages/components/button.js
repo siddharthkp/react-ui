@@ -109,27 +109,29 @@ const Documentation = () => {
           <Example.Code lang="js">{`
           import { theme, components } from 'react-ui/themes/base'
 
-          // extend base theme
-          theme.sizes.Button = 8 // reads from theme.sizes.8
-
+          // overwrite Button sizes
+          components.Button.sizes = {
+             small: 6, medium: 10
+          }
+          
           // overwrite Button variants
           // the default variant is primary
           components.Button.variants = {
             primary: {
-              backgroundColor: 'greens.700',
-              borderColor: 'greens.700',
+              backgroundColor: 'green',
+              borderColor: 'green',
               color: 'white',
-              ':hover':  { backgroundColor: 'greens.600' },
-              ':focus':  { backgroundColor: 'greens.600' },
-              ':active': { backgroundColor: 'greens.800' }
+              ':hover':  { backgroundColor: 'darkgreen' },
+              ':focus':  { backgroundColor: 'darkgreen' },
+              ':active': { backgroundColor: 'seagreen' }
             },
             danger: {
-              backgroundColor: 'reds.600',
-              borderColor: 'reds.600',
+              backgroundColor: 'red',
+              borderColor: 'red',
               color: 'white',
-              ':hover':  {backgroundColor: 'reds.500' },
-              ':focus':  {backgroundColor: 'reds.600' },
-              ':active': {backgroundColor: 'reds.700' }
+              ':hover':  {backgroundColor: 'darkred' },
+              ':focus':  {backgroundColor: 'red' },
+              ':active': {backgroundColor: 'maroon' }
             }
           }
         `}</Example.Code>
@@ -139,34 +141,36 @@ const Documentation = () => {
             <Button variant="danger">Delete</Button>
           </ThemeProvider>
         `}</Example.Code>
-          <Example.Preview gap={4}>
+          <Example.Preview gap={4} align="center">
             <ThemeProvider
               components={{
-                sizes: { Button: 8 },
                 Button: {
+                  sizes: { small: 6, medium: 10 },
                   variants: {
-                    primary2: {
-                      backgroundColor: 'greens.700',
-                      borderColor: 'greens.700',
+                    primary: {
+                      backgroundColor: 'green',
+                      borderColor: 'green',
                       color: 'white',
-                      ':hover': { backgroundColor: 'greens.600' },
-                      ':focus': { backgroundColor: 'greens.600' },
-                      ':active': { backgroundColor: 'greens.800' }
+                      ':hover': { backgroundColor: 'seagreen' },
+                      ':focus': { backgroundColor: 'green' },
+                      ':active': { backgroundColor: 'darkgreen' }
                     },
                     danger: {
-                      backgroundColor: 'reds.600',
-                      borderColor: 'reds.600',
+                      backgroundColor: 'red',
+                      borderColor: 'red',
                       color: 'white',
-                      ':hover': { backgroundColor: 'reds.500' },
-                      ':focus': { backgroundColor: 'reds.600' },
-                      ':active': { backgroundColor: 'reds.700' }
+                      ':hover': { backgroundColor: 'darkred' },
+                      ':focus': { backgroundColor: 'red' },
+                      ':active': { backgroundColor: 'maroon' }
                     }
                   }
                 }
               }}
             >
-              <Button variant="primary2">Cancel</Button>
-              <Button variant="danger">Delete</Button>
+              <Button variant="primary">Cancel</Button>
+              <Button variant="danger" size="small">
+                Delete
+              </Button>
             </ThemeProvider>
           </Example.Preview>
         </Example>

@@ -1,13 +1,6 @@
 import React from 'react'
-import { ThemeProvider, Switch, Link } from 'react-ui'
-import {
-  Page,
-  Props,
-  Example,
-  Section,
-  Table,
-  Paragraph
-} from '../../components'
+import { ThemeProvider, Switch, Link, Text } from 'react-ui'
+import { Page, Props, Example, Section, Table, Para } from '../../components'
 
 const Documentation = () => {
   return (
@@ -58,11 +51,11 @@ const Documentation = () => {
       </Section>
 
       <Section title="Examples">
-        <Paragraph>
+        <Para>
           Switch can be used with{' '}
           <Link href="/components/Form">Form.Field</Link> which adds accessible
           labels and error states.
-        </Paragraph>
+        </Para>
 
         <Example>
           <Example.Preview direction="vertical" gap={2}>
@@ -79,7 +72,17 @@ const Documentation = () => {
       </Section>
 
       <Section title="Customisation">
-        <Paragraph>Switch uses the following theme keys:</Paragraph>
+        <Para>
+          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+            Please read the docs on{' '}
+            <Link href="/core-concepts/customising-components">
+              customising components
+            </Link>{' '}
+            first.
+          </Text>
+        </Para>
+
+        <Para>Switch uses the following theme keys:</Para>
 
         <Table>
           <Table.Header>
@@ -92,13 +95,9 @@ const Documentation = () => {
               colors.Switch.backgroundOff, colors.Switch.backgroundOn
             </Table.Column>
           </Table.Row>
-          <Table.Row>
-            <Table.Column span={4}>height</Table.Column>
-            <Table.Column span={8}>sizes.Spinner</Table.Column>
-          </Table.Row>
         </Table>
 
-        <Paragraph>and has the following customisable elements:</Paragraph>
+        <Para>and has the following customisable elements:</Para>
 
         <Table>
           <Table.Header>Name</Table.Header>
@@ -107,29 +106,19 @@ const Documentation = () => {
           <Table.Row>SwitchToggle</Table.Row>
         </Table>
 
-        <Paragraph>
-          Read more about <Link href="/todo">customizing components</Link> here.
-        </Paragraph>
-
         <Example>
           <Example.Code lang="js">{`
-          const components = {
-            sizes: { Switch: 4 },
+          import { theme, components } from 'react-ui/themes/base'
+
+          components.Switch = {
             colors: {
-              Switch: {
-                // change supported colors
-                backgroundOn: 'blues.600',
-                backgroundOff: 'blues.300'
-              }
-            },
-            // customise element by name
-            SwitchContainer: {
-              width: 10
+              backgroundOn: 'blue',
+              backgroundOff: 'black'
             }
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider components={components}>
+          <ThemeProvider theme={theme} components={components}>
             <Switch />
             <Switch defaultValue={true} />
           </ThemeProvider>
@@ -137,15 +126,11 @@ const Documentation = () => {
           <Example.Preview direction="vertical" gap={2}>
             <ThemeProvider
               components={{
-                sizes: { Switch: 4 },
-                colors: {
-                  Switch: {
-                    backgroundOn: 'blues.600',
-                    backgroundOff: 'blues.300'
+                Switch: {
+                  colors: {
+                    backgroundOff: 'black',
+                    backgroundOn: 'blue'
                   }
-                },
-                SwitchContainer: {
-                  width: 10
                 }
               }}
             >

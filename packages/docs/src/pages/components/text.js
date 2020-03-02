@@ -1,13 +1,6 @@
 import React from 'react'
 import { ThemeProvider, Link, Text } from 'react-ui'
-import {
-  Page,
-  Props,
-  Example,
-  Section,
-  Table,
-  Paragraph
-} from '../../components'
+import { Page, Props, Example, Section, Table, Para } from '../../components'
 
 const Documentation = () => {
   return (
@@ -63,7 +56,7 @@ const Documentation = () => {
 
       <Section title="Examples">
         <Example title="Variants">
-          <Example.Preview direction="vertical" gap={2}>
+          <Example.Preview direction="vertical">
             <Text>Text might seem like a boring component</Text>
             <Text variant="subtle">
               but can we incredibly handy with variants
@@ -78,7 +71,7 @@ const Documentation = () => {
         </Example>
 
         <Example title="Alignment">
-          <Example.Preview direction="vertical" gap={2}>
+          <Example.Preview direction="vertical">
             <Text>left</Text>
             <Text align="center">center</Text>
             <Text align="right">right</Text>
@@ -92,7 +85,17 @@ const Documentation = () => {
       </Section>
 
       <Section title="Customisation">
-        <Paragraph>Link uses the following theme properties:</Paragraph>
+        <Para>
+          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+            Please read the docs on{' '}
+            <Link href="/core-concepts/customising-components">
+              customising components
+            </Link>{' '}
+            first.
+          </Text>
+        </Para>
+
+        <Para>Link uses the following theme properties:</Para>
         <Table>
           <Table.Header>
             <Table.Column span={4}>Property</Table.Column>
@@ -104,37 +107,34 @@ const Documentation = () => {
           </Table.Row>
         </Table>
 
-        <Paragraph>
-          Read more about <Link href="/todo">customizing components</Link> here.
-        </Paragraph>
-
         <Example>
           <Example.Code lang="js">{`
-          const components = {
-            Text: {
-              variants: {
-                // adds variant success for Link
-                // overrides properties it if it already exists
-                success: { color: 'greens.700' }
-              }
-            }
+          import { theme, components } from 'react-ui/themes/base'
+
+          // overwrite Text variants
+          components.Text.variants = {
+            default: { color: 'black' },
+            subtle: { color: 'grey' },
+            danger: { color: 'red' },
+            success: { color: 'green' }
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider components={components}> 
+          <ThemeProvider theme={theme} components={components}> 
             <Text>Text might seem like a boring component</Text>
             <Text variant="subtle">but can we incredibly handy with variants</Text>
             <Text variant="success">to quickly express context</Text>
           </ThemeProvider>
         `}</Example.Code>
-          <Example.Preview direction="vertical" gap={2}>
+          <Example.Preview direction="vertical">
             <ThemeProvider
               components={{
                 Text: {
                   variants: {
-                    success: {
-                      color: 'greens.700'
-                    }
+                    default: { color: 'black' },
+                    subtle: { color: 'grey' },
+                    danger: { color: 'red' },
+                    success: { color: 'green' }
                   }
                 }
               }}
@@ -143,7 +143,8 @@ const Documentation = () => {
               <Text variant="subtle">
                 but can we incredibly handy with variants
               </Text>
-              <Text variant="success">to quickly express context</Text>
+              <Text variant="danger">to quickly express context</Text>
+              <Text variant="success">faster than ever</Text>
             </ThemeProvider>
           </Example.Preview>
         </Example>

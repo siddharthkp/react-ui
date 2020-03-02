@@ -1,5 +1,6 @@
 import React from 'react'
-import { ThemeProvider, Link, Menu } from 'react-ui'
+import * as base from 'react-ui/themes/base'
+import { ThemeProvider, Link, Text, Menu } from 'react-ui'
 import {
   Table,
   Page,
@@ -7,7 +8,7 @@ import {
   Props,
   Badge,
   Example,
-  Paragraph
+  Para
 } from '../../components'
 
 const Documentation = () => {
@@ -17,7 +18,7 @@ const Documentation = () => {
       tagline="Use Menu to "
       badges={[<Badge key={0}>accessible</Badge>]}
     >
-      <Paragraph>
+      <Para>
         Extends{' '}
         <Link
           href="https://reacttraining.com/reach-ui/menu-button"
@@ -26,7 +27,7 @@ const Documentation = () => {
           reach-ui/menu
         </Link>
         .
-      </Paragraph>
+      </Para>
       <Example>
         <Example.Preview>
           <Menu>
@@ -69,9 +70,9 @@ const Documentation = () => {
       </Section>
 
       <Section title="Props: Menu.Button">
-        <Paragraph>
+        <Para>
           Extends <Link href="/component/Button">Button</Link>
-        </Paragraph>
+        </Para>
         <Props
           props={[
             {
@@ -117,7 +118,17 @@ const Documentation = () => {
       </Section>
 
       <Section title="Customisation">
-        <Paragraph>Menu has the following customisable elements:</Paragraph>
+        <Para>
+          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+            Please read the docs on{' '}
+            <Link href="/core-concepts/customising-components">
+              customising components
+            </Link>{' '}
+            first.
+          </Text>
+        </Para>
+
+        <Para>Menu has the following customisable elements:</Para>
 
         <Table>
           <Table.Header>Name</Table.Header>
@@ -126,21 +137,18 @@ const Documentation = () => {
           <Table.Row>MenuItem</Table.Row>
         </Table>
 
-        <Paragraph>
-          Read more about <Link href="/todo">customizing components</Link> here.
-        </Paragraph>
-
         <Example>
           <Example.Code lang="js">{`
-          const components = {
-            MenuList: {
-              width: 200
-            },
-            MenuItem: {
-              '&[data-selected]': {
-                backgroundColor: 'greens.700',
-                color: 'white'
-              }
+          import { theme, components } from 'react-ui/themes/base'
+          
+          components.MenuList = {
+            width: 200    
+          }
+          
+          components.MenuItem = {
+            '&[data-selected]': {
+              backgroundColor: 'green',
+              color: 'white'
             }
           }
         `}</Example.Code>
@@ -160,12 +168,13 @@ const Documentation = () => {
           <Example.Preview>
             <ThemeProvider
               components={{
+                ...base.components,
                 MenuList: {
                   width: 200
                 },
                 MenuItem: {
                   '&[data-selected]': {
-                    backgroundColor: 'greens.700',
+                    backgroundColor: 'green',
                     color: 'white'
                   }
                 }

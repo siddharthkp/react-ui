@@ -14,7 +14,7 @@ const items = [
   { title: 'Layouts', path: 'layouts' },
   { title: 'Responsive', path: 'responsive', todo: true },
   { title: 'Utilities', path: 'utilities', todo: true },
-  { title: 'Variants', path: 'variants', todo: true }
+  { title: 'Variants and Sizes', path: 'variants-and-sizes', todo: true }
 ]
 
 const Documentation = () => {
