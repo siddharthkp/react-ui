@@ -2,17 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Element } from '@ds-tools/primitives'
 import { styles } from './avatar.styles'
-import { merge } from '../../../utils'
 
 export const Avatar = props => (
-  <Element
-    as="img"
-    component="Avatar"
-    baseStyles={merge(styles.Avatar, {
-      size: `Avatar.${size}`
-    })}
-    {...props}
-  />
+  <Element as="img" component="Avatar" baseStyles={styles.Avatar} {...props} />
 )
 
 Avatar.propTypes = {
@@ -22,6 +14,4 @@ Avatar.propTypes = {
   size: PropTypes.string
 }
 
-Avatar.defaultProps = {
-  // size: 'medium'
-}
+Avatar.defaultProps = {}

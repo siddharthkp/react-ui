@@ -9,8 +9,8 @@ import {
   Select,
   Stack
 } from 'react-ui'
-import light from 'react-ui/themes/light'
-import dark from 'react-ui/themes/dark'
+import * as light from 'react-ui/themes/light'
+import * as dark from 'react-ui/themes/dark'
 
 import { Page, Example, Section, Para, Code, Table } from '../../components'
 

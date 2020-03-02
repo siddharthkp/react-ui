@@ -1,5 +1,4 @@
 import common from './common'
-import { merge } from '../utils'
 
 const theme = {
   // base is shallow merged
@@ -253,4 +252,4 @@ const components = {
   }
 }
 
-export default merge(theme, components)
+export { theme, components }

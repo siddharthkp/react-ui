@@ -35,8 +35,8 @@ Text.propTypes = {
   ]),
   weight: PropTypes.string,
   color: PropTypes.string,
-  variant: PropTypes.oneOf(['default', 'body', 'subtle', 'danger']),
   block: PropTypes.bool
+  // variant: PropTypes.oneOf(['default', 'subtle', 'danger']),
 }
 
 Text.defaultProps = {

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ThemeProvider, Avatar, Link, Text, merge } from 'react-ui'
-import light from 'react-ui/themes/light'
+import * as light from 'react-ui/themes/light'
 import {
   Page,
   Props,

@@ -2,7 +2,7 @@ import React from 'react'
 import { ThemeProvider as EmotionThemeProvider } from '@ds-tools/primitives'
 import { merge } from '../../../utils'
 
-// import light from '../../../themes/light'
+// import * as light from '../../../themes/light'
 // import dark from '../../../themes/dark'
 import * as base from '../../../themes/base'
 
@@ -21,6 +21,7 @@ function ThemeProvider({
   theme.components = merge(theme.components, components)
 
   theme.sizes = merge(theme.sizes, getSizesFromComponents(theme.components))
+  theme.colors = merge(theme.colors, getColorsFromComponents(theme.components))
 
   const variants = merge(theme.variants || {}, components.variants || {})
 
@@ -84,11 +85,26 @@ const getSizesFromComponents = (components = {}) => {
   const sizes = {}
 
   names.forEach(name => {
-    const themeStyles = components[name]
-    if (themeStyles.sizes) sizes[name] = themeStyles.sizes
+    const componentStyles = components[name]
+    if (componentStyles.sizes) sizes[name] = componentStyles.sizes
+    if (componentStyles.size) sizes[name] = componentStyles.size
   })
 
   return sizes
+}
+
+const getColorsFromComponents = (components = {}) => {
+  const names = Object.keys(components)
+  const colors = {}
+
+  names.forEach(name => {
+    const componentStyles = components[name]
+    if (componentStyles.colors) {
+      colors[name] = componentStyles.colors
+    }
+  })
+
+  return colors
 }
 
 export { ThemeProvider }

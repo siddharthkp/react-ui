@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { styles } from './link.styles'
-import { merge } from '../../../utils'
 import { Text } from '../text'
 
 export const Link = ({ ...props }) => {

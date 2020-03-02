@@ -1,3 +1,8 @@
+/* 
+  Tokens: 
+  Define your scales first
+*/
+
 const theme = {
   space: {
     0: 0,
@@ -81,7 +86,14 @@ theme.fontSizes.Heading = {
   paragraph: 4
 }
 
-theme.colors.text = {}
+// we define these at the theme level
+// so that they can be used by other
+// components as well
+theme.colors.text = {
+  body: 'black',
+  subtle: 'grey',
+  error: 'red'
+}
 
 /* 
   Component styles:
@@ -89,31 +101,154 @@ theme.colors.text = {}
 */
 
 const components = {
+  /** Atoms */
+
   Avatar: {
     sizes: { small: 6, medium: 8, large: 12 }
   },
   Button: {
-    sizes: { small: 4, medium: 6, large: 8 },
+    sizes: { small: 6, medium: 8, large: 10 },
     fontSize: 3,
     borderRadius: 1,
     paddingX: 3,
     variants: {
-      // primary is the default variant for buttons
-      primary: {}
+      primary: {
+        // primary is the default variant for buttons
+      }
     }
   },
+  Heading: {},
+  Image: {},
   Input: {
     // recommended: match sizes of input and buttons so
     // that they go well together in forms next to other
-    sizes: { small: 4, medium: 6, large: 8 },
+    sizes: { small: 6, medium: 8, large: 10 },
     fontSize: 3,
     borderRadius: 1,
     paddingX: 2,
+    backgroundColor: 'white',
+    borderColor: 'black',
     color: 'text.body',
     '::placeholder': {
       color: 'text.subtle'
+    },
+    '&[aria-invalid]': {
+      borderColor: 'red'
     }
-  }
+  },
+  Link: {
+    variants: {
+      default: {
+        color: 'blue',
+        ':hover': { color: 'darkblue' }
+      },
+      subtle: {
+        color: 'grey', // match Text.variants.subtle
+        ':hover': { color: 'darkblue' }
+      }
+    }
+  },
+  Select: {
+    // recommended: match styles of input
+    sizes: { small: 6, medium: 8, large: 10 },
+    fontSize: 3,
+    borderRadius: 1,
+    paddingX: 2,
+    backgroundColor: 'white',
+    borderColor: 'black',
+    color: 'text.body',
+    '&[aria-invalid]': {
+      borderColor: 'red'
+    }
+  },
+  Spinner: {
+    sizes: { small: 2, medium: 4, large: 6 },
+    borderColor: 'white',
+    borderLeftColor: 'black'
+  },
+  Switch: {
+    colors: {
+      backgroundOff: 'grey',
+      backgroundOn: 'green'
+    }
+  },
+  Text: {
+    variants: {
+      default: { color: 'text.body' },
+      subtle: { color: 'text.subtle' },
+      danger: { color: 'text.error' }
+    }
+  },
+  Textarea: {
+    // recommended: match styles of input
+    sizes: { small: 6, medium: 8, large: 10 },
+    fontSize: 3,
+    borderRadius: 1,
+    paddingX: 2,
+    paddingY: 2,
+    backgroundColor: 'white',
+    color: 'text.body',
+    '::placeholder': {
+      color: 'text.subtle'
+    },
+    '&[aria-invalid]': {
+      borderColor: 'red'
+    }
+  },
+
+  /** Molecules */
+
+  Breadcrumb: {
+    fontSize: 3
+  },
+  BreadcrumbSeparator: {
+    display: 'inline-block',
+    color: 'text.subtle',
+    paddingX: 2
+  },
+  BreadcrumbItem: {
+    display: 'inline-block',
+    '&[aria-current]': {
+      color: 'text.body'
+    }
+  },
+  Card: {
+    width: '500px',
+    backgroundColor: 'white',
+    border: '1px solid',
+    borderColor: 'silver',
+    padding: 5,
+    borderRadius: 2,
+    boxShadow: 2
+  },
+  Form: {
+    paddingY: 4
+  },
+  FormLabel: {
+    fontSize: 2,
+    marginBottom: 1
+  },
+  FormHeader: {
+    color: 'text.body',
+    fontSize: 5,
+    fontWeight: 'normal',
+    marginBottom: 4
+  },
+  MenuList: {
+    backgroundColor: 'white',
+    borderRadius: 2,
+    marginTop: 1,
+    boxShadow: 3
+  },
+  MenuItem: {
+    paddingY: 2,
+    paddingX: 3,
+    '&[data-selected]': {
+      backgroundColor: 'blue',
+      color: 'white'
+    }
+  },
+  Paragraph: {}
 }
 
 export { theme, components }

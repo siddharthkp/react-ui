@@ -10,8 +10,6 @@ export const styles = {
     display: 'inline-block',
     border: '2px solid',
     borderRadius: '50%',
-    animation: `0.8s infinite ${rotate}`,
-    borderColor: 'white',
-    borderLeftColor: 'black'
+    animation: `0.8s infinite ${rotate}`
   }
 }

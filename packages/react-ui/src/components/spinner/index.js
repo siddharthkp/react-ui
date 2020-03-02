@@ -2,21 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Element } from '@ds-tools/primitives'
 import { styles } from './spinner.styles'
-import { merge } from '../../../utils'
 
-export const Spinner = ({ size, ...props }) => (
+export const Spinner = props => (
   <Element
     as="span"
     component="Spinner"
-    baseStyles={merge(styles.Spinner, { size: `Spinner.${size}` })}
+    baseStyles={styles.Spinner}
     {...props}
   />
 )
 
-Spinner.propTypes = {
-  size: PropTypes.string
-}
+Spinner.propTypes = {}
 
-Spinner.defaultProps = {
-  size: 'small'
-}
+Spinner.defaultProps = {}

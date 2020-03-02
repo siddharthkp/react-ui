@@ -22,6 +22,7 @@ const hasUnits = value => {
 }
 
 const isComponent = value => {
+  if (!value) return false
   if (value.match(/[A-Z]/)) return true
   return false
 }

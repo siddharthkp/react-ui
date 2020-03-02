@@ -16,7 +16,7 @@ import {
   Card,
   calc
 } from 'react-ui'
-import { Page, Section, Example, Divider } from './components'
+import { Page, Section, Example, Divider, useThemeSwitcher } from './components'
 
 import * as Pages from './pages'
 import './style.css'
@@ -24,15 +24,23 @@ import './style.css'
 const App = () => {
   const [menuVisible, setMenuVisibility] = React.useState(false)
   const [locationKey, setLocationKey] = React.useState()
+  const {
+    name,
+    tokens,
+    components,
+    setThemeName,
+    ThemeSwitcher
+  } = useThemeSwitcher()
 
   React.useEffect(() => {
     setMenuVisibility(false)
   }, [locationKey])
 
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={tokens} components={components}>
       <Stack
         as="header"
+        justify="space-between"
         align="center"
         css={{
           height: 12,
@@ -51,6 +59,7 @@ const App = () => {
         >
           <MenuIcon />
         </Button>
+        <ThemeSwitcher name={name} setThemeName={setThemeName} />
       </Stack>
 
       <Grid css={{ maxWidth: 1024, marginX: 'auto', color: 'text.body' }}>

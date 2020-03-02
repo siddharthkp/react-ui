@@ -5,7 +5,14 @@ import { Input } from '../input'
 import { merge } from '../../../utils'
 
 function Textarea({ css, ...props }) {
-  return <Input as="textarea" css={merge(styles.Textarea, css)} {...props} />
+  return (
+    <Input
+      as="textarea"
+      css={merge(styles.Textarea, css)}
+      component="Textarea"
+      {...props}
+    />
+  )
 }
 
 Textarea.propTypes = {

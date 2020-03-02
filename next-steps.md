@@ -1,181 +1,55 @@
-## Done
-
-    - docs: make gatsby docs work again
-    - rollup build
-    - margin utility for all elements
-    - docs: goals and scope
-    - docs: tokens
-    - docs: usage
-    - docs: custom component recipes
-    - docs: creating new components
-    - build a switch component
-    - build text area
-    - build breadcrumbs
-    - build stack
-    - add id to form labels
-    - fix switch component
-    - add required to form labels
-    - add placeholder state for select
-    - move menu component to core
-    - build button component
-    - build spinner component
-    - build avatar component
-    - docs: debug why form prop types aren't working
-    - internal: rewrite components to extract colors
-    - internal: break up theme and colors
-    - internal: dark theme
-    - internal: allow usage of tokens inside theme file (especially user facing)
-    - replace css
-    - add responsiveness to interpolate
-    - warning if you use out of scale values
-    - publish beta-6
-    - designer: global ui object
-    - designer: ui for modifying in ui, floating
-    - designer: add styles back via themeprovider
-    - designer: add hook into global themeprovider
-    - designer: add new properties on the fly
-    - designer: change boxShadow to overlay like browser
-    - designer: add variant property
-    - designer: pluck out designer into it's own package to explore later
-    - docs: avatar
-    - docs: breadcrumb
-    - docs: button
-    - docs: button-group
-    - docs: input
-    - docs: input-group
-    - docs: form
-    - docs: heading
-    - docs: link
-    - docs: menu
-    - docs: select
-    - docs: spinner
-    - docs: switch
-    - docs: text
-    - docs: textarea
-    - docs: grid
-    - docs: stack
-    - theme: add warning for units
-    - component: image
-    - text variant subtle not working, why?
-
 ## Next steps
 
-    - meta: create base theme
-    - meta: add multiple scales of fontsizes to base theme as commented out options
-    - meta: convert px to rem in theme
-    - meta: remove basestyles in favor of merged css
-    - meta: find style values that assume single value instead of array and move to get (variant, size, more?)
+.......... ... .... .......... ....
 
-    - docs: change customisation options for components after Button
-    - meta: size should be considered a meta property like
-    - meta: pull out sizes from components - components.Button.sizes to theme.sizes.Button
-    variant but also support the option for single value
+Docs:
 
-    - cdocs: image
-    - cdocs: card
-    - cdocs: paragraph
-    - cdocs: sidebar toggle
-    - cdocs: theme-provider
-    - cdocs: element
-    - docs: copy code
-    - docs: make example container resizable
-    - dx: show warning if themeprovider is missing
-    - docs: home page
-    - docs: core concepts
-    - docs: customising tokens
-    - docs: customising components
-    - docs: Constraints based design
-    - docs: Base Element
-    - docs: Extending components
-    - docs: Variants
-    - docs: css prop
-    - docs: margin utils
+1. theme-provider
+2. element
+3. customisting tokens
+4. variants and sizes
+5. responsive syntax
+6. utilities
+7. credits
+8. write document about using other libraries (react router, reach-ui)
+9. built-in themes
+10. redo customising docs
 
-    - element: debug emotion warning
-    - meta: make dist smaller
-    - element: better warnings
-    - demo: make mail app
-    - theme: make it easier to introduce scales
-    - component: bring in reach ui styles without importing css
-    - components: add data-focus for :focus and pass down data-focus from elements like link which can have focus
+Theme:
 
----
+1. rewrite light theme based on base
+2. create a dark theme
+3. add multiple scales of fontsizes to base theme as options (comments)
 
-= designer work:
+Docs website:
 
-    - activate on Ctrl
-    - understand props
-    - more like figma
-    - handle datatypes
-    - add inherit to all possible places?
-    - add hovering _label_ like browser
-    - design for nested keys: hover, focus, etc.
-    - design for responsive properties
-    - move global object to context
-    - persist back to file, how? - local diff file + babel source map + replace
+1. add theme switcher
+2. wrap customisation docs in base theme
+3. implement copy code
+4. homepage
 
-= warning work
+Library:
 
-    - interpolated flat scale for keys
-    - better rust like errors - https://github.com/sass/sass-spec/pull/1505/files
-    - less verbose errors - https://mariusschulz.com/blog/advanced-javascript-logging-using-console-group
+1. remove basestyles in favor of merged css
+2. show warning if themeprovider is missing ¹ ²
+3. convert px to rem in theme
+4. add css variables for theme tokens in dev mode
+5. make controlled switch to avoid leaky abstraction
+6. add warnings for pixel values
+7. add bundlesize to library
+8. find ways of making library smaller
+9. move to styled-components
+10. components: add data-focus for :focus and pass down data-focus from elements like link which can have focus ³
 
-- debug emotion warning
-- make mail app
-- make it easier to introduce scales
+Demos:
 
-- minimal theme with no styles
-- internal: add a darker gray than 900
-- internal: allow background to be used as backgroundColor
-- docs: document components
-- component: switch hover and focus state
-- component: input hover and focus states
+1. make email app
+2. make airbnb card
+3. make skyscanner card
+4. make twitter card
 
-- recipe: create variants https://theme-ui.com/components/variants
-- recipe: styles based on props (maybe not)
-- recipe: usage with reach-ui
-- recipe: usage with react router
+Notes:
 
-- docs: margin utilities
-- docs: theme spec + opinions
-- refactor base styles to merged css
-
-- build more components?
-
-### First 10 components
-
-building blocks
-
-- x form
-- x input
-- x label
-- x switch
-- x textarea
-- x select
-- x breadcrumbs
-- x link
-- x spinner
-- x menu
-- x button
-- x avatar
-- alert
-- image (maybe not)
-- radio (maybe later)
-- icons (maybe not)
-
-typography
-
-- x heading
-- paragraph
-
-layout
-
-- x grid
-- x stack
-
-## Big Ideas
-
-- constraints based design
-- unification on a format: object based css-in-js for the web
-- constraints lead to better tools
-- theming as a first class citizen
+¹ rust has great errors - https://github.com/sass/sass-spec/pull/1505/files
+² look at less verbose errors by folding - https://mariusschulz.com/blog/advanced-javascript-logging-using-console-group
+³ implementation: https://codesandbox.io/s/pseudo-class-sticker-sheet-5nwsu

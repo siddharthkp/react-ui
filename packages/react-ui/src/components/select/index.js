@@ -28,6 +28,7 @@ function Select({ css, ...props }) {
   return (
     <Input
       as="select"
+      component="Select"
       css={merge(merge(styles.Select, placeholderStyles), css)}
       {...props}
       onChange={mergeFns(onChange, props.onChange)}
