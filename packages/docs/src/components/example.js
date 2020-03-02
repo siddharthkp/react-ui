@@ -1,6 +1,8 @@
 import React from 'react'
 import { Element, Stack, Button, Link } from 'react-ui'
 import { ExampleHeading } from './typography'
+import { useId } from '@reach/auto-id'
+import VisuallyHidden from '@reach/visually-hidden'
 
 import { highlight, languages } from 'prismjs/components/prism-core'
 import dedent from 'dedent'
@@ -31,6 +33,7 @@ export const Example = props => {
           css={{
             borderRadius: 2,
             overflow: 'hidden',
+            position: 'relative',
             '> *:first-child': {
               borderTopRadius: 2,
               borderBottomRadius: codeVisible ? 0 : 2
@@ -67,6 +70,16 @@ const Preview = ({ css = {}, ...props }) => {
 
 const Code = ({ children, lang = 'jsx', ...props }) => {
   const { codeVisible, setCodeVisibility } = React.useContext(ExampleContext)
+  const uniqueId = useId()
+  const [copied, setCopied] = React.useState(false)
+
+  const copyCode = () => {
+    const copyText = document.querySelector('#s' + uniqueId)
+    copyText.select()
+    document.execCommand('copy')
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 2000)
+  }
 
   if (!codeVisible) {
     return (
@@ -81,24 +94,62 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
   const html = highlight(dedent(children), languages[lang])
 
   return (
-    <Element
-      as="pre"
-      css={{
-        margin: 0,
-        // backgroundColor: 'grays.900',
-        // color: 'grays.100',
-        backgroundColor: 'black',
-        color: '#f5faff',
-        padding: 4,
-        fontSize: 3,
-        overflow: 'scroll'
-      }}
-      dangerouslySetInnerHTML={{
-        __html: html
-      }}
-    />
+    <>
+      <Button
+        variant="link"
+        title="Copy code"
+        css={{
+          position: 'absolute',
+          right: 0,
+          top: '10px',
+          svg: { color: copied ? '#38C172' : '#c6cbd1' },
+          ':hover': { svg: { color: copied ? '#38C172' : '#929FB1' } }
+        }}
+        onClick={copyCode}
+      >
+        {copy}
+      </Button>
+      <VisuallyHidden>
+        <input
+          id={'s' + uniqueId}
+          value={dedent(children)}
+          onChange={() => {}}
+        />
+      </VisuallyHidden>
+      <Element
+        as="pre"
+        css={{
+          margin: 0,
+          // backgroundColor: 'grays.900',
+          // color: 'grays.100',
+          backgroundColor: 'black',
+          color: '#f5faff',
+          padding: 4,
+          fontSize: 3,
+          overflow: 'scroll'
+        }}
+        dangerouslySetInnerHTML={{
+          __html: html
+        }}
+      />
+    </>
   )
 }
 
 Example.Code = Code
 Example.Preview = Preview
+
+const copy = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+  >
+    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+  </svg>
+)

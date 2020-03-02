@@ -65,6 +65,8 @@ export function interpolate(styles = {}, theme) {
     }
   }
 
+  // TODO: this should happen in the get function, this is
+  // too late to set it.
   // expand shortcuts like paddingX, size, etc.
   filledStyles = replaceShortcuts(filledStyles)
 

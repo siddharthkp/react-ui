@@ -142,10 +142,12 @@ const Documentation = () => {
           import { theme, components } from 'react-ui/themes/base'
           
           components.MenuList = {
-            width: 200    
+            width: 150    
           }
           
           components.MenuItem = {
+            paddingY: 2,
+            paddingX: 3,
             '&[data-selected]': {
               backgroundColor: 'green',
               color: 'white'
@@ -170,9 +172,11 @@ const Documentation = () => {
               components={{
                 ...base.components,
                 MenuList: {
-                  width: 200
+                  width: 150
                 },
                 MenuItem: {
+                  paddingY: 2,
+                  paddingX: 3,
                   '&[data-selected]': {
                     backgroundColor: 'green',
                     color: 'white'

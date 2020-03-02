@@ -1,6 +1,6 @@
 ## Next steps
 
-.......... ... .... .......... ....
+.......... ... ..\\ .......... ....
 
 Docs:
 
@@ -23,10 +23,8 @@ Theme:
 
 Docs website:
 
-1. add theme switcher
-2. wrap customisation docs in base theme
-3. implement copy code
-4. homepage
+1. wrap customisation docs in base theme
+2. homepage
 
 Library:
 

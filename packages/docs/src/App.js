@@ -45,7 +45,8 @@ const App = () => {
         css={{
           height: 12,
           borderBottom: '1px solid',
-          borderColor: 'grays.100'
+          borderColor: 'grays.100',
+          paddingRight: 2
         }}
         marginBottom={12}
       >
