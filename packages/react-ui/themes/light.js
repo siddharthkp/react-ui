@@ -141,7 +141,7 @@ theme.colors.text = {
   subtle: 'grays.700',
   body: 'grays.800',
   link: 'blues.500',
-  linkHover: 'blues.600'
+  linkHover: 'blues.700'
 }
 
 theme.colors.error = {
@@ -150,80 +150,138 @@ theme.colors.error = {
   text: 'reds.700'
 }
 
-// component specific decisions
+theme.colors.App = {
+  backgroundColor: 'white',
+  color: 'grays.900',
+  borderColor: 'grays.200'
+}
+
+theme.fontSizes.Heading = {
+  page: 8, // reads from theme.fontSizes.8
+  section: 6,
+  paragraph: 4
+}
+
+/* 
+  Component styles:
+  You can define styles, sizes and variants here
+*/
 
 const components = {
-  Card: {
-    width: '500px',
-    backgroundColor: 'white',
-    border: '1px solid',
-    borderColor: 'grays.100',
-    padding: 5,
-    borderRadius: 2,
-    boxShadow: 3
-  },
-
-  sizes: {
-    Input: 10,
-    Avatar: {
-      small: 7,
-      medium: 10,
-      large: 15
-    },
-    Spinner: {
-      small: 4,
-      medium: 6,
-      large: 8
-    },
-    Switch: 4
-  },
-
-  fontSizes: {
-    Heading: {
-      page: 8,
-      section: 6,
-      paragraph: 4
-    }
-  },
-
-  colors: {
-    App: {
-      background: 'grays.100'
-    },
-    Form: {
-      backgroundColor: 'white'
-    },
-    Menu: {
-      backgroundSelected: 'grays.300'
-    },
-
-    Switch: {
-      backgroundOff: 'grays.400',
-      backgroundOn: 'greens.700'
-    }
-  },
+  /** Atoms */
 
   Avatar: {
+    sizes: { small: 7, medium: 10, large: 15 },
     border: '2px solid',
     borderColor: 'grays.200'
   },
+  Button: {
+    fontSize: 3,
+    borderRadius: 1,
+    paddingX: 3,
+    border: '1px solid',
+
+    sizes: { small: 6, medium: 8, large: 10 },
+    variants: {
+      primary: {
+        backgroundColor: 'greens.700',
+        color: 'white',
+        borderColor: 'greens.700',
+        ':hover': {
+          backgroundColor: 'greens.600',
+          borderColor: 'greens.600'
+        },
+        ':focus': {
+          outline: 'none',
+          boxShadow: 1,
+          backgroundColor: 'greens.600',
+          borderColor: 'greens.700'
+        },
+        ':active': {
+          backgroundColor: 'greens.800',
+          borderColor: 'greens.800'
+        }
+      },
+      secondary: {
+        backgroundColor: 'grays.300',
+        color: 'text.body',
+        borderColor: 'grays.300',
+        ':hover': {
+          backgroundColor: 'grays.200',
+          borderColor: 'grays.200'
+        },
+        ':focus': {
+          outline: 'none',
+          boxShadow: 1,
+          backgroundColor: 'grays.200',
+          borderColor: 'grays.400'
+        },
+        ':active': {
+          backgroundColor: 'grays.400',
+          borderColor: 'grays.400'
+        }
+      },
+      destructive: {
+        backgroundColor: 'reds.600',
+        color: 'white',
+        borderColor: 'reds.600',
+        ':hover': {
+          backgroundColor: 'reds.500',
+          borderColor: 'reds.500'
+        },
+        ':focus': {
+          outline: 'none',
+          boxShadow: 1,
+          backgroundColor: 'reds.600',
+          borderColor: 'reds.900'
+        },
+        ':active': {
+          backgroundColor: 'reds.700',
+          borderColor: 'reds.700'
+        }
+      },
+      link: {
+        backgroundColor: 'transparent',
+        color: 'text.link',
+        borderColor: 'transparent',
+        ':hover': {
+          color: 'text.linkHover'
+        },
+        ':focus': {
+          outline: 'none',
+          color: 'text.linkHover'
+        },
+        ':active': {
+          color: 'text.linkHover'
+        }
+      }
+    }
+  },
+  Heading: {
+    /** fontSizes for heading are defined in theme.fontSizes.Heading */
+    color: 'text.body'
+  },
+  Image: {},
 
   Input: {
+    // recommended: match sizes of input and buttons so
+    // that they go well together in forms next to other
+    sizes: { small: 6, medium: 8, large: 10 },
+    fontSize: 3,
+    borderRadius: 1,
+    paddingX: 2,
     backgroundColor: 'grays.100',
     borderColor: 'grays.400',
-    ':hover': {
-      backgroundColor: 'grays.100',
+    color: 'text.body',
+    '::placeholder': {
+      color: 'text.subtle'
+    },
+    ':hover:not(:disabled)': {
       borderColor: 'blues.300'
     },
-    ':focus': {
+    ':focus:not(:disabled)': {
       outline: 'none',
-      backgroundColor: 'blues.100',
       borderColor: 'blues.500'
-    },
-    ':disabled': {
-      // same as default
-      backgroundColor: 'grays.100',
-      borderColor: 'grays.400'
     },
     '&[aria-invalid]': {
       backgroundColor: 'reds.100',
@@ -243,7 +301,7 @@ const components = {
         }
       },
       subtle: {
-        color: 'text.body',
+        color: 'text.subtle',
         textDecoration: 'none',
         ':hover': {
           color: 'text.linkHover'
@@ -258,97 +316,139 @@ const components = {
     }
   },
 
-  Button: {
+  Select: {
+    // recommended: match styles of input
+    sizes: { small: 6, medium: 8, large: 10 },
     fontSize: 3,
     borderRadius: 1,
-    paddingX: 3,
-    sizes: { small: 6, medium: 8, large: 10 },
-    variants: {
-      primary: {
-        backgroundColor: 'greens.700',
-        color: 'white',
-        borderColor: 'greens.700',
-        ':hover': {
-          backgroundColor: 'greens.600',
-          borderColor: 'greens.600'
-        },
-        ':focus': {
-          outline: 'none',
-          backgroundColor: 'greens.600',
-          borderColor: 'greens.700'
-        },
-        ':active': {
-          backgroundColor: 'greens.800',
-          borderColor: 'greens.800'
-        }
-      },
-      secondary: {
-        backgroundColor: 'grays.300',
-        color: 'text.body',
-        borderColor: 'grays.300',
-        ':hover': {
-          backgroundColor: 'grays.200',
-          borderColor: 'grays.200'
-        },
-        ':focus': {
-          outline: 'none',
-          backgroundColor: 'grays.200',
-          borderColor: 'grays.400'
-        },
-        ':active': {
-          backgroundColor: 'grays.400',
-          borderColor: 'grays.400'
-        }
-      },
-      destructive: {
-        backgroundColor: 'reds.600',
-        color: 'white',
-        borderColor: 'reds.600',
-        ':hover': {
-          backgroundColor: 'reds.500',
-          borderColor: 'reds.500'
-        },
-        ':focus': {
-          outline: 'none',
-          backgroundColor: 'reds.600',
-          borderColor: 'reds.900'
-        },
-        ':active': {
-          backgroundColor: 'reds.700',
-          borderColor: 'reds.700'
-        }
-      },
-      link: {
-        backgroundColor: 'transparent',
-        color: 'text.link',
-        borderColor: 'transparent',
-        ':hover': {
-          color: 'text.linkHover',
-          textDecoration: 'underline'
-        },
-        ':focus': {
-          outline: 'none',
-          textDecoration: 'underline',
-          backgroundColor: 'grays.200'
-        },
-        ':active': {
-          color: 'text.linkHover',
-          backgroundColor: 'grays.200'
-        }
-      }
+    paddingX: 2,
+    backgroundColor: 'grays.100',
+    borderColor: 'grays.400',
+    color: 'text.body',
+    '::placeholder': {
+      color: 'text.subtle'
+    },
+    ':hover:not(:disabled)': {
+      backgroundColor: 'grays.100',
+      borderColor: 'blues.300'
+    },
+    ':focus:not(:disabled)': {
+      outline: 'none',
+      backgroundColor: 'blues.100',
+      borderColor: 'blues.500'
+    },
+    '&[aria-invalid]': {
+      backgroundColor: 'reds.100',
+      borderColor: 'reds.300'
     }
   },
+
   Spinner: {
+    sizes: { small: 4, medium: 6, large: 8 },
     borderColor: 'grays.200',
     borderLeftColor: 'grays.600'
+  },
+
+  Switch: {
+    sizes: {
+      medium: 4
+    },
+    colors: {
+      backgroundOff: 'grays.400',
+      backgroundOn: 'greens.700'
+    }
   },
   Text: {
     variants: {
       default: { color: 'inherit' },
+      body: { color: 'text.body' },
       subtle: { color: 'text.subtle' },
       danger: { color: 'error.text' }
     }
-  }
+  },
+
+  Textarea: {
+    // recommended: match styles of input
+    sizes: { small: 6, medium: 8, large: 10 },
+    fontSize: 3,
+    borderRadius: 1,
+    paddingX: 2,
+    paddingY: 2,
+    backgroundColor: 'grays.100',
+    borderColor: 'grays.400',
+    color: 'text.body',
+    '::placeholder': {
+      color: 'text.subtle'
+    },
+    ':hover:not(:disabled)': {
+      backgroundColor: 'grays.100',
+      borderColor: 'blues.300'
+    },
+    ':focus:not(:disabled)': {
+      outline: 'none',
+      backgroundColor: 'blues.100',
+      borderColor: 'blues.500'
+    },
+    '&[aria-invalid]': {
+      backgroundColor: 'reds.100',
+      borderColor: 'reds.300'
+    }
+  },
+
+  /** Molecules */
+
+  Breadcrumb: {
+    fontSize: 3
+  },
+  BreadcrumbSeparator: {
+    display: 'inline-block',
+    color: 'text.subtle',
+    paddingX: 2
+  },
+  BreadcrumbItem: {
+    display: 'inline-block',
+    '&[aria-current]': {
+      color: 'text.body'
+    }
+  },
+  Card: {
+    width: '500px',
+    backgroundColor: 'white',
+    border: '1px solid',
+    borderColor: 'grays.200',
+    padding: 5,
+    borderRadius: 2,
+    boxShadow: 2
+  },
+  Form: {
+    paddingY: 4
+  },
+  FormLabel: {
+    fontSize: 2,
+    marginBottom: 1
+  },
+  FormHeader: {
+    color: 'text.body',
+    fontSize: 5,
+    fontWeight: 'normal',
+    marginBottom: 4
+  },
+  MenuList: {
+    backgroundColor: 'white',
+    borderColor: 'grays.200',
+    borderRadius: 2,
+    marginTop: 1,
+    boxShadow: 3
+  },
+  MenuItem: {
+    paddingY: 2,
+    paddingX: 3,
+    '&[data-selected]': {
+      backgroundColor: 'blues.600',
+      color: 'grays.100'
+    }
+  },
+  Paragraph: {}
 }
 
 export { theme, components }

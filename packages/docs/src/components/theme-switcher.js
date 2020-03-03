@@ -9,7 +9,7 @@ const themes = { base, light, dark }
 const ThemeSwitcher = ({ name, setThemeName }) => {
   return (
     <Menu>
-      <Menu.Button style={{ paddingRight: 1 }}>
+      <Menu.Button variant="link" style={{ paddingRight: 1 }}>
         <Text marginRight={1} css={{ textTransform: 'capitalize' }}>
           Theme: {name}
         </Text>
@@ -25,12 +25,7 @@ const ThemeSwitcher = ({ name, setThemeName }) => {
 }
 
 const useThemeSwitcher = () => {
-  const [name, setName] = React.useState(localStorage.theme || 'base')
-
-  const setThemeName = name => {
-    setName(name)
-    localStorage.theme = name
-  }
+  const [name, setThemeName] = React.useState(localStorage.theme || 'dark')
 
   const theme = themes[name]
 
@@ -39,6 +34,7 @@ const useThemeSwitcher = () => {
     tokens: theme.theme,
     components: theme.components,
     setThemeName,
+
     ThemeSwitcher
   }
 }

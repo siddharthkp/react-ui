@@ -13,7 +13,7 @@ Table.Row = ({ css, ...props }) => (
         color: 'text.body',
         paddingY: 2,
         borderBottom: '1px solid',
-        borderColor: 'grays.100'
+        borderColor: 'App.borderColor'
       },
       css
     )}

@@ -142,7 +142,8 @@ const Documentation = () => {
           import { theme, components } from 'react-ui/themes/base'
           
           components.MenuList = {
-            width: 150    
+            width: 150,
+            borderRadius: 1
           }
           
           components.MenuItem = {
@@ -172,7 +173,8 @@ const Documentation = () => {
               components={{
                 ...base.components,
                 MenuList: {
-                  width: 150
+                  width: 150,
+                  borderRadius: 1
                 },
                 MenuItem: {
                   paddingY: 2,

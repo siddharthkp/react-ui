@@ -64,6 +64,14 @@ const Documentation = () => {
             <Button variant="link">Reset form</Button>
           `}</Example.Code>
         </Example>
+        <Para>
+          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+            Note: The variant "link" should be used sparingly. Because it
+            imitates a hyperlink, it does have great focus and active states.
+            It's recommended to use it for scenarios where there is already
+            ample user feedback after the button is clicked.
+          </Text>
+        </Para>
       </Section>
 
       <Section title="Customisation">

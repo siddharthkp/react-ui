@@ -40,7 +40,7 @@ export const Code = props => {
   return (
     <Text
       debug
-      color="blues.800"
+      color="blues.700"
       css={{
         fontFamily: 'Roboto Mono',
         fontSize: '95%',

@@ -91,6 +91,7 @@ theme.fontSizes.Heading = {
 // components as well
 theme.colors.text = {
   body: 'black',
+  link: 'blue',
   subtle: 'grey',
   error: 'red'
 }
@@ -114,6 +115,15 @@ const components = {
     variants: {
       primary: {
         // primary is the default variant for buttons
+      },
+      secondary: {
+        backgroundColor: 'black',
+        color: 'white'
+      },
+      link: {
+        color: 'text.link',
+        border: 'none',
+        background: 'none'
       }
     }
   },
@@ -174,7 +184,8 @@ const components = {
   },
   Text: {
     variants: {
-      default: { color: 'text.body' },
+      default: { color: 'inherit' },
+      body: { color: 'text.body' },
       subtle: { color: 'text.subtle' },
       danger: { color: 'text.error' }
     }
@@ -244,7 +255,7 @@ const components = {
     paddingY: 2,
     paddingX: 3,
     '&[data-selected]': {
-      backgroundColor: 'blue',
+      backgroundColor: 'blues.700',
       color: 'white'
     }
   },

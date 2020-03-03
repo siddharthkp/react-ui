@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  ThemeProvider,
   Text,
   Card,
   Element,
@@ -11,162 +10,148 @@ import {
   Row,
   Column
 } from 'react-ui'
-import * as light from 'react-ui/themes/light'
 
 import { Page, Example, Section, Para, Code, Divider } from '../../components'
 
 const Documentation = () => {
   return (
-    <ThemeProvider theme={light.theme} components={light.components}>
-      <Page title="Layouts">
-        <Section>
-          <Para>
-            <Text>React UI ships 2 layout primitives:</Text>
-          </Para>
-          <Element
-            as="ul"
-            css={{
-              paddingLeft: 0,
-              listStyle: 'none',
-              li: { paddingY: 2, color: 'text.subtle' }
-            }}
-          >
-            <li>
-              <Link href="#Stack">1. Stack</Link>
-            </li>
-            <li>
-              <Link href="#Grid">2. Grid</Link>
-            </li>
-          </Element>
-        </Section>
-
+    <Page title="Layouts">
+      <Section>
         <Para>
-          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
-            Note: This page uses the React UI Light theme.
+          <Text>React UI ships 2 layout primitives:</Text>
+        </Para>
+        <Element
+          as="ul"
+          css={{
+            paddingLeft: 0,
+            listStyle: 'none',
+            li: { paddingY: 2, color: 'text.subtle' }
+          }}
+        >
+          <li>
+            <Link href="#Stack">1. Stack</Link>
+          </li>
+          <li>
+            <Link href="#Grid">2. Grid</Link>
+          </li>
+        </Element>
+      </Section>
+
+      <Para>
+        <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+          Note: This page uses the React UI Light theme.
+        </Text>
+      </Para>
+
+      <Section title="Stack">
+        <Para>
+          <Text>
+            <Code>Stack</Code> aims to be a convenient way to, well, stack
+            elements.
           </Text>
         </Para>
-
-        <Section title="Stack">
-          <Para>
-            <Text>
-              <Code>Stack</Code> aims to be a convenient way to, well, stack
-              elements.
-            </Text>
-          </Para>
-          <Para>
-            <Text>
-              Let's take the example of putting a username next to an avatar,
-              this is what you would get:
-            </Text>
-          </Para>
-          <Example>
-            <Example.Preview>
-              <div>
-                <Avatar
-                  size="medium"
-                  src="https://github.com/siddharthkp.png"
-                />
-                <Text>Siddharth</Text>
-              </div>
-            </Example.Preview>
-            <Example.Code>
-              {`
+        <Para>
+          <Text>
+            Let's take the example of putting a username next to an avatar, this
+            is what you would get:
+          </Text>
+        </Para>
+        <Example>
+          <Example.Preview>
+            <div>
+              <Avatar size="medium" src="https://github.com/siddharthkp.png" />
+              <Text>Siddharth</Text>
+            </div>
+          </Example.Preview>
+          <Example.Code>
+            {`
               <Avatar size="small" src="https://github.com/siddharthkp.png" />
               <Text>Siddharth</Text>
             `}
-            </Example.Code>
-          </Example>
-          <Para>
-            <Text>
-              By default, both the elements are sitting on their baseline.
-            </Text>
-            <Text>
-              This isn't what we want. We'd like the two elements to be aligned
-              at the center. You can use the <Code>Stack</Code> component to
-              achieve this.
-            </Text>
-          </Para>
-          <Example>
-            <Example.Preview>
-              <Stack align="center">
-                <Avatar
-                  size="medium"
-                  src="https://github.com/siddharthkp.png"
-                />
-                <Text>Siddharth</Text>
-              </Stack>
-            </Example.Preview>
-            <Example.Code>
-              {`
+          </Example.Code>
+        </Example>
+        <Para>
+          <Text>
+            By default, both the elements are sitting on their baseline.
+          </Text>
+          <Text>
+            This isn't what we want. We'd like the two elements to be aligned at
+            the center. You can use the <Code>Stack</Code> component to achieve
+            this.
+          </Text>
+        </Para>
+        <Example>
+          <Example.Preview>
+            <Stack align="center">
+              <Avatar size="medium" src="https://github.com/siddharthkp.png" />
+              <Text>Siddharth</Text>
+            </Stack>
+          </Example.Preview>
+          <Example.Code>
+            {`
               <Stack align="center">
                 <Avatar size="small" src="https://github.com/siddharthkp.png" />
                 <Text>Siddharth</Text>
               </Stack>
             `}
-            </Example.Code>
-          </Example>
-          <Para>
-            <Text>
-              To make it look better, we need a little space between the two
-              elements. You could do that by specifying a <Code>gap</Code>{' '}
-              property for the Stack.
-            </Text>
-          </Para>
-          <Example>
-            <Example.Preview>
-              <Stack align="center" gap={2}>
-                <Avatar
-                  size="medium"
-                  src="https://github.com/siddharthkp.png"
-                />
-                <Text>Siddharth</Text>
-              </Stack>
-            </Example.Preview>
-            <Example.Code>
-              {`
+          </Example.Code>
+        </Example>
+        <Para>
+          <Text>
+            To make it look better, we need a little space between the two
+            elements. You could do that by specifying a <Code>gap</Code>{' '}
+            property for the Stack.
+          </Text>
+        </Para>
+        <Example>
+          <Example.Preview>
+            <Stack align="center" gap={2}>
+              <Avatar size="medium" src="https://github.com/siddharthkp.png" />
+              <Text>Siddharth</Text>
+            </Stack>
+          </Example.Preview>
+          <Example.Code>
+            {`
               <Stack align="center" gap={2}>
                 <Avatar size="small" src="https://github.com/siddharthkp.png" />
                 <Text>Siddharth</Text>
               </Stack>
             `}
-            </Example.Code>
-          </Example>
-          <Para>
-            <Text>
-              The value is based on the spacing scale from{' '}
-              <Code>theme.space</Code>. Here, the 2nd value on the space scale
-              is 8px.
-            </Text>
-          </Para>
-          <Divider />
-          <Para>
-            <Text>
-              Under the hood, <Code>Stack</Code> is a glorified wrapper around{' '}
-              <Code>flexbox</Code> with a polyfill for the{' '}
-              <Link href="https://caniuse.com/#feat=flexbox-gap">
-                flexbox-gap spec.
-              </Link>
-            </Text>
-            <Text>
-              Like flexbox, you can use the Stack for aligning elements
-              vertically and nest them.
-            </Text>
-          </Para>
-          <Example>
-            <Example.Preview>
-              <Stack gap={2} align="center">
-                <Avatar
-                  size="medium"
-                  src="https://github.com/siddharthkp.png"
-                />
-                <Stack direction="vertical">
-                  <Text>Siddharth</Text>
-                  <Text size={2}>likes CSS</Text>
-                </Stack>
+          </Example.Code>
+        </Example>
+        <Para>
+          <Text>
+            The value is based on the spacing scale from{' '}
+            <Code>theme.space</Code>. Here, the 2nd value on the space scale is
+            8px.
+          </Text>
+        </Para>
+        <Divider />
+        <Para>
+          <Text>
+            Under the hood, <Code>Stack</Code> is a glorified wrapper around{' '}
+            <Code>flexbox</Code> with a polyfill for the{' '}
+            <Link href="https://caniuse.com/#feat=flexbox-gap">
+              flexbox-gap spec.
+            </Link>
+          </Text>
+          <Text>
+            Like flexbox, you can use the Stack for aligning elements vertically
+            and nest them.
+          </Text>
+        </Para>
+        <Example>
+          <Example.Preview>
+            <Stack gap={2} align="center">
+              <Avatar size="medium" src="https://github.com/siddharthkp.png" />
+              <Stack direction="vertical">
+                <Text>Siddharth</Text>
+                <Text size={2}>likes CSS</Text>
               </Stack>
-            </Example.Preview>
-            <Example.Code>
-              {`
+            </Stack>
+          </Example.Preview>
+          <Example.Code>
+            {`
               <Stack>
                 <Avatar size="medium" src="https://github.com/siddharthkp.png" />
                 <Stack direction="vertical">
@@ -175,54 +160,54 @@ const Documentation = () => {
                 </Stack>
               </Stack>
             `}
-            </Example.Code>
-          </Example>
+          </Example.Code>
+        </Example>
 
-          <Para>
-            <Text>
-              Learn more about the{' '}
-              <Link href="/components/Stack">props supported by Stack.</Link>
+        <Para>
+          <Text>
+            Learn more about the{' '}
+            <Link href="/components/Stack">props supported by Stack.</Link>
+          </Text>
+        </Para>
+
+        <Divider />
+
+        <Para>
+          <Text>
+            Layouts can be more powerful with{' '}
+            <Link href="/core-concepts/responsive">responsive syntax</Link>, you
+            can mention different <Code>direction</Code> for different
+            breakpoints.
+          </Text>
+          <Text>
+            Try resizing the browser window to see this in effect.{' '}
+            <Text variant="subtle">
+              (If you're on mobile, try switching to landscape mode)
             </Text>
-          </Para>
+          </Text>
+        </Para>
 
-          <Divider />
-
-          <Para>
-            <Text>
-              Layouts can be more powerful with{' '}
-              <Link href="/core-concepts/responsive">responsive syntax</Link>,
-              you can mention different <Code>direction</Code> for different
-              breakpoints.
-            </Text>
-            <Text>
-              Try resizing the browser window to see this in effect.{' '}
-              <Text variant="subtle">
-                (If you're on mobile, try switching to landscape mode)
-              </Text>
-            </Text>
-          </Para>
-
-          <Example>
-            <Example.Preview>
-              <div style={{ width: '100%' }}>
-                <Stack
-                  direction={['vertical', 'horizontal', 'horizontal']}
-                  align={['start', 'center', 'center']}
-                  justify="space-between"
-                >
-                  <Text size={2} variant="subtle">
-                    Today's exchange
-                  </Text>
-                  <Stack align="center" gap={4}>
-                    <Text size={5}>1 EUR</Text>
-                    <Text size={5}>=</Text>
-                    <Text size={5}>1.08353 USD</Text>
-                  </Stack>
+        <Example>
+          <Example.Preview>
+            <div style={{ width: '100%' }}>
+              <Stack
+                direction={['vertical', 'horizontal', 'horizontal']}
+                align={['start', 'center', 'center']}
+                justify="space-between"
+              >
+                <Text size={2} variant="subtle">
+                  Today's exchange
+                </Text>
+                <Stack align="center" gap={4}>
+                  <Text size={5}>1 EUR</Text>
+                  <Text size={5}>=</Text>
+                  <Text size={5}>1.08353 USD</Text>
                 </Stack>
-              </div>
-            </Example.Preview>
-            <Example.Code>
-              {`
+              </Stack>
+            </div>
+          </Example.Preview>
+          <Example.Code>
+            {`
               <Stack
                 direction={['vertical', 'horizontal', 'horizontal']}
                 align={['start', 'center', 'center']}
@@ -238,69 +223,69 @@ const Documentation = () => {
                 </Stack>
               </Stack>
             `}
-            </Example.Code>
-          </Example>
+          </Example.Code>
+        </Example>
 
-          <Para>
-            By combining the above concepts, you can lay out pretty complex
-            interfaces with <Code>Stack</Code>.
-          </Para>
+        <Para>
+          By combining the above concepts, you can lay out pretty complex
+          interfaces with <Code>Stack</Code>.
+        </Para>
 
-          <Example hideCode>
-            <Example.Preview
-              justify="center"
-              css={{ backgroundColor: 'grays.100' }}
-            >
-              <Card>
-                <Stack
-                  direction={['vertical', 'horizontal', 'horizontal']}
-                  gap={4}
-                >
-                  <Stack align="center" gap={2}>
-                    <AirCanadaLogo />
-                    <Text size={2} variant="subtle">
-                      Air Canada
+        <Example hideCode>
+          <Example.Preview
+            justify="center"
+            css={{ backgroundColor: 'grays.100' }}
+          >
+            <Card>
+              <Stack
+                direction={['vertical', 'horizontal', 'horizontal']}
+                gap={4}
+              >
+                <Stack align="center" gap={2}>
+                  <AirCanadaLogo />
+                  <Text size={2} variant="subtle">
+                    Air Canada
+                  </Text>
+                </Stack>
+                <Stack justify="space-between" marginX="auto">
+                  <Stack direction="vertical" align="flex-end">
+                    <Text size={6}>09:15</Text>
+                    <Text size={4} variant="subtle">
+                      AMS
                     </Text>
                   </Stack>
-                  <Stack justify="space-between" marginX="auto">
-                    <Stack direction="vertical" align="flex-end">
-                      <Text size={6}>09:15</Text>
-                      <Text size={4} variant="subtle">
-                        AMS
-                      </Text>
+                  <Stack
+                    direction="vertical"
+                    align="center"
+                    css={{ minWidth: '100px', paddingX: 4 }}
+                  >
+                    <Text size={2}>8h 35</Text>
+                    <Stack css={{ width: '100%' }} align="center" gap={1}>
+                      <Element
+                        as="hr"
+                        css={{
+                          width: '100%',
+                          borderBottom: '0.25px solid',
+                          borderColor: 'grays.500'
+                        }}
+                      />
+                      <AirplaneIcon />
                     </Stack>
-                    <Stack
-                      direction="vertical"
-                      align="center"
-                      css={{ minWidth: '100px', paddingX: 4 }}
-                    >
-                      <Text size={2}>8h 35</Text>
-                      <Stack css={{ width: '100%' }} align="center" gap={1}>
-                        <Element
-                          as="hr"
-                          css={{
-                            width: '100%',
-                            borderBottom: '0.25px solid',
-                            borderColor: 'grays.500'
-                          }}
-                        />
-                        <AirplaneIcon />
-                      </Stack>
-                      <Text size={1} color="greens.700">
-                        Direct
-                      </Text>
-                    </Stack>
-                    <Stack direction="vertical" align="flex-start">
-                      <Text size={6}>11:50</Text>
-                      <Text size={4} variant="subtle">
-                        JFK
-                      </Text>
-                    </Stack>
+                    <Text size={1} color="greens.700">
+                      Direct
+                    </Text>
+                  </Stack>
+                  <Stack direction="vertical" align="flex-start">
+                    <Text size={6}>11:50</Text>
+                    <Text size={4} variant="subtle">
+                      JFK
+                    </Text>
                   </Stack>
                 </Stack>
-              </Card>
-            </Example.Preview>
-            <Example.Code>{`
+              </Stack>
+            </Card>
+          </Example.Preview>
+          <Example.Code>{`
             <Card>
               <Stack direction={['vertical', 'horizontal', 'horizontal']} gap={4}>
                 
@@ -339,93 +324,89 @@ const Documentation = () => {
               </Stack>
             </Card>
           `}</Example.Code>
-          </Example>
-        </Section>
-        <Section title="Grid">
-          <Para>
-            <Text>
-              For higher level layouts like pages, you might want to use the{' '}
-              <Code>Grid</Code> instead.
-            </Text>
-            <Text>
-              A grid is divided into 12 columns for elements to distribute with
-              the <Code>span</Code> prop.
-            </Text>
-          </Para>
-          <Example>
-            <Example.Preview>
-              <Grid>
-                <Row css={{ height: 20, background: '#EFA6A6' }} />
-                <Column span={2} css={{ height: 140, background: '#A8EEC1' }} />
-                <Column
-                  span={10}
-                  css={{ height: 140, background: '#B7DBF7' }}
-                />
-              </Grid>
-            </Example.Preview>
-            <Example.Code>
-              {`
-            <Grid>
-              <Row />
-              <Column span={2} />
-              <Column span={10} />
-            </Grid>
-          `}
-            </Example.Code>
-          </Example>
-        </Section>
+        </Example>
+      </Section>
+      <Section title="Grid">
         <Para>
           <Text>
-            Like the Stack, Grid supports responsive syntax, which makes it
-            easier to create responsive layouts.
+            For higher level layouts like pages, you might want to use the{' '}
+            <Code>Grid</Code> instead.
           </Text>
           <Text>
-            Try resizing the browser window to see this in effect.{' '}
-            <Text variant="subtle">
-              (If you're on mobile, try switching to landscape mode)
-            </Text>
+            A grid is divided into 12 columns for elements to distribute with
+            the <Code>span</Code> prop.
           </Text>
         </Para>
         <Example>
           <Example.Preview>
             <Grid>
               <Row css={{ height: 20, background: '#EFA6A6' }} />
-              <Column
-                span={[12, 2, 2]}
-                css={{ height: [20, 140, 140], background: '#A8EEC1' }}
-              />
-              <Column
-                span={[12, 10, 10]}
-                css={{ height: 140, background: '#B7DBF7' }}
-              />
+              <Column span={2} css={{ height: 140, background: '#A8EEC1' }} />
+              <Column span={10} css={{ height: 140, background: '#B7DBF7' }} />
             </Grid>
           </Example.Preview>
           <Example.Code>
             {`
             <Grid>
               <Row />
-              <Column span={[12, 2, 2]} />
-              <Column span={[12, 10, 10]} />
+              <Column span={2} />
+              <Column span={10} />
             </Grid>
           `}
           </Example.Code>
         </Example>
-        <Para>
-          <Text>
-            The syntax is mobile first and is applied to your breakpoints from
-            smallest to widest.
+      </Section>
+      <Para>
+        <Text>
+          Like the Stack, Grid supports responsive syntax, which makes it easier
+          to create responsive layouts.
+        </Text>
+        <Text>
+          Try resizing the browser window to see this in effect.{' '}
+          <Text variant="subtle">
+            (If you're on mobile, try switching to landscape mode)
           </Text>
-        </Para>
-        <Para>
-          <Text>
-            Learn more about the{' '}
-            <Link href="/components/Grid">
-              props and features supported by Grid here.
-            </Link>
-          </Text>
-        </Para>
-      </Page>
-    </ThemeProvider>
+        </Text>
+      </Para>
+      <Example>
+        <Example.Preview>
+          <Grid>
+            <Row css={{ height: 20, background: '#EFA6A6' }} />
+            <Column
+              span={[12, 2, 2]}
+              css={{ height: [20, 140, 140], background: '#A8EEC1' }}
+            />
+            <Column
+              span={[12, 10, 10]}
+              css={{ height: 140, background: '#B7DBF7' }}
+            />
+          </Grid>
+        </Example.Preview>
+        <Example.Code>
+          {`
+            <Grid>
+              <Row />
+              <Column span={[12, 2, 2]} />
+              <Column span={[12, 10, 10]} />
+            </Grid>
+          `}
+        </Example.Code>
+      </Example>
+      <Para>
+        <Text>
+          The syntax is mobile first and is applied to your breakpoints from
+          smallest to widest.
+        </Text>
+      </Para>
+      <Para>
+        <Text>
+          Learn more about the{' '}
+          <Link href="/components/Grid">
+            props and features supported by Grid here.
+          </Link>
+        </Text>
+      </Para>
+    </Page>
   )
 }
 

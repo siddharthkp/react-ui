@@ -1,5 +1,7 @@
 import React from 'react'
 import { Router, Location, Link as RouterLink } from '@reach/router'
+import { Global } from '@emotion/core'
+import { interpolate } from '@ds-tools/primitives/interpolate'
 
 import {
   ThemeProvider,
@@ -38,6 +40,18 @@ const App = () => {
 
   return (
     <ThemeProvider theme={tokens} components={components}>
+      <Global
+        styles={interpolate(
+          {
+            body: {
+              backgroundColor: 'App.backgroundColor',
+              color: 'App.color',
+              transition: 'background 500ms, color 500ms'
+            }
+          },
+          tokens
+        )}
+      />
       <Stack
         as="header"
         justify="space-between"
@@ -45,7 +59,7 @@ const App = () => {
         css={{
           height: 12,
           borderBottom: '1px solid',
-          borderColor: 'grays.100',
+          borderColor: 'App.borderColor',
           paddingRight: 2
         }}
         marginBottom={12}
@@ -63,10 +77,17 @@ const App = () => {
         <ThemeSwitcher name={name} setThemeName={setThemeName} />
       </Stack>
 
-      <Grid css={{ maxWidth: 1024, marginX: 'auto', color: 'text.body' }}>
+      <Grid
+        css={{
+          maxWidth: 1024,
+          marginX: 'auto',
+          color: 'text.body'
+        }}
+      >
         <Location>
           {({ location }) => {
             setLocationKey(location.key)
+
             return (
               <>
                 <Navigation
@@ -77,6 +98,7 @@ const App = () => {
                     paddingLeft: 8
                   }}
                 />
+
                 <Navigation
                   id="mobile-navigation"
                   span={[menuVisible ? 12 : 0, menuVisible ? 12 : 0, 0]}

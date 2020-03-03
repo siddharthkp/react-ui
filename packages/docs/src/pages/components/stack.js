@@ -155,21 +155,33 @@ const Documentation = () => {
           <Example.Preview direction="vertical" gap={10}>
             <Stack
               align="flex-start"
-              css={{ height: 12, backgroundColor: 'blues.100' }}
+              css={{
+                height: 12,
+                backgroundColor: 'App.borderColor',
+                color: 'App.color'
+              }}
             >
               content
             </Stack>
 
             <Stack
               align="center"
-              css={{ height: 12, backgroundColor: 'blues.100' }}
+              css={{
+                height: 12,
+                backgroundColor: 'App.borderColor',
+                color: 'App.color'
+              }}
             >
               content
             </Stack>
 
             <Stack
               align="flex-end"
-              css={{ height: 12, backgroundColor: 'blues.100' }}
+              css={{
+                height: 12,
+                backgroundColor: 'App.borderColor',
+                color: 'App.color'
+              }}
             >
               content
             </Stack>

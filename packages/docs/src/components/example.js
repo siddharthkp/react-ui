@@ -58,7 +58,7 @@ const Preview = ({ css = {}, ...props }) => {
         paddingY: 10,
         paddingX: 6,
         border: '1px solid',
-        borderColor: 'grays.200',
+        borderColor: 'App.borderColor',
         ...css
       }}
       {...props}
@@ -97,13 +97,12 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
     <>
       <Button
         variant="link"
-        title="Copy code"
         css={{
           position: 'absolute',
           right: 0,
           top: '10px',
           svg: { color: copied ? '#38C172' : '#c6cbd1' },
-          ':hover': { svg: { color: copied ? '#38C172' : '#929FB1' } }
+          ':hover, :focus': { svg: { color: copied ? '#38C172' : '#929FB1' } }
         }}
         onClick={copyCode}
       >
@@ -120,8 +119,6 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
         as="pre"
         css={{
           margin: 0,
-          // backgroundColor: 'grays.900',
-          // color: 'grays.100',
           backgroundColor: 'black',
           color: '#f5faff',
           padding: 4,

@@ -1,9 +1,69 @@
-import common from './common'
-
 const theme = {
-  // base is shallow merged
-  ...common,
+  space: {
+    0: 0,
+    1: '4px',
+    2: '8px',
+    3: '12px',
+    4: '16px',
+    5: '20px',
+    6: '24px',
+    7: '28px',
+    8: '32px',
+    9: '36px',
+    10: '40px',
+    11: '44px',
+    12: '48px',
+    13: '52px',
+    14: '56px',
+    15: '60px',
+    16: '64px'
+  },
+  radii: [0, '2px', '4px', '50%'],
+  fontSizes: {
+    0: 0,
+    1: '10px',
+    2: '12px',
+    3: '14px',
+    4: '16px',
+    5: '20px',
+    6: '24px',
+    7: '32px',
+    8: '48px',
+    9: '64px',
+    10: '72px'
+  },
+  fontWeights: {
+    thin: 100,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
+    black: 900
+  },
+  lineHeights: {
+    compact: '1.2',
+    default: '1.6',
+    cosy: '2'
+  },
+  breakpoints: {
+    0: '576px',
+    1: '768px',
+    2: '992px'
+  },
+
+  durations: [0, '75ms', '100ms', '150ms', '200ms', '300ms', '500ms', '1000ms'],
+
   // based on elevation levels
+  shadows: {
+    0: 'none',
+    1: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+    2: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+    3: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+    4: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+  },
+
   colors: {
     white: '#fff',
     black: '#000',
@@ -74,76 +134,62 @@ const theme = {
   ]
 }
 
+// recommended: use the same space grid for size
+theme.sizes = { ...theme.space }
+
 // decisions
+
+/* 
+  Decisions: 
+  You can create aliases in scales based on the scale.
+*/
+
+theme.colors.text = {
+  subtle: 'grays.500',
+  body: 'grays.100',
+  link: 'blues.500',
+  linkHover: 'blues.400'
+}
 
 theme.colors.error = {
   background: 'reds.100',
   border: 'reds.300',
-  text: 'reds.700'
+  text: 'reds.600'
 }
 
-theme.colors.text = {
-  subtle: 'grays.700',
-  body: 'white',
-  link: 'blues.400',
-  linkHover: 'blues.500'
+theme.colors.App = {
+  backgroundColor: 'grays.900',
+  color: 'grays.100',
+  borderColor: 'grays.800'
 }
 
-// component specific decisions
+theme.fontSizes.Heading = {
+  page: 8, // reads from theme.fontSizes.8
+  section: 6,
+  paragraph: 4
+}
+
+/* 
+  Component styles:
+  You can define styles, sizes and variants here
+*/
 
 const components = {
-  sizes: {
-    Input: 10,
-    Button: 10,
-    Avatar: {
-      small: 7,
-      medium: 9,
-      large: 12
-    }
+  /** Atoms */
+
+  Avatar: {
+    sizes: { small: 7, medium: 10, large: 15 },
+    border: '2px solid',
+    borderColor: 'grays.700'
   },
+  Button: {
+    fontSize: 3,
+    borderRadius: 1,
+    paddingX: 3,
+    border: '1px solid',
 
-  colors: {
-    App: {
-      background: 'grays.900'
-    },
-    Avatar: {
-      border: 'grays.700'
-    },
-    Form: {
-      background: 'grays.800'
-    },
-
-    Input: {
-      // also used for textarea and select
-      background: 'grays.900',
-      border: 'grays.1000',
-      backgroundHover: 'grays.900',
-      borderHover: 'black',
-      backgroundFocus: 'black',
-      borderFocus: 'grays.900',
-      backgroundError: 'black',
-      borderError: 'reds.500'
-    },
-    Menu: {
-      background: 'grays.900',
-      backgroundSelected: 'grays.1000',
-      border: 'grays.1000',
-      color: 'text.body'
-    },
-    MenuButton: {
-      backgroundHover: 'grays.900',
-      backgroundFocus: 'grays.900',
-      border: 'grays.900'
-    },
-
-    Switch: {
-      backgroundOff: 'grays.900',
-      backgroundOn: 'greens.600'
-    }
-  },
-
-  variants: {
-    Buttons: {
+    sizes: { small: 6, medium: 8, large: 10 },
+    variants: {
       primary: {
         backgroundColor: 'greens.700',
         color: 'white',
@@ -154,6 +200,7 @@ const components = {
         },
         ':focus': {
           outline: 'none',
+          boxShadow: 1,
           backgroundColor: 'greens.600',
           borderColor: 'greens.700'
         },
@@ -163,21 +210,22 @@ const components = {
         }
       },
       secondary: {
-        backgroundColor: 'grays.300',
+        backgroundColor: 'grays.800',
         color: 'text.body',
-        borderColor: 'grays.300',
+        borderColor: 'grays.800',
         ':hover': {
-          backgroundColor: 'grays.200',
-          borderColor: 'grays.200'
+          backgroundColor: 'grays.700',
+          borderColor: 'grays.700'
         },
         ':focus': {
           outline: 'none',
-          backgroundColor: 'grays.200',
-          borderColor: 'grays.400'
+          boxShadow: 1,
+          backgroundColor: 'grays.700',
+          borderColor: 'grays.800'
         },
         ':active': {
-          backgroundColor: 'grays.400',
-          borderColor: 'grays.400'
+          backgroundColor: 'grays.800',
+          borderColor: 'grays.800'
         }
       },
       destructive: {
@@ -190,6 +238,7 @@ const components = {
         },
         ':focus': {
           outline: 'none',
+          boxShadow: 1,
           backgroundColor: 'reds.600',
           borderColor: 'reds.900'
         },
@@ -203,53 +252,204 @@ const components = {
         color: 'text.link',
         borderColor: 'transparent',
         ':hover': {
-          color: 'text.linkHover',
-          textDecoration: 'underline'
+          color: 'text.linkHover'
         },
         ':focus': {
           outline: 'none',
-          textDecoration: 'underline',
-          backgroundColor: 'grays.200'
+          color: 'text.linkHover'
         },
         ':active': {
-          color: 'text.linkHover',
-          backgroundColor: 'grays.200'
+          color: 'text.linkHover'
         }
       }
     }
   },
+
+  Heading: {
+    /** fontSizes for heading are defined in theme.fontSizes.Heading */
+    color: 'text.body'
+  },
+  Image: {},
+
   Input: {
-    backgroundColor: 'grays.900',
-    borderColor: 'grays.1000',
-    ':hover': {
-      backgroundColor: 'grays.900',
-      borderColor: 'black'
+    // recommended: match sizes of input and buttons so
+    // that they go well together in forms next to other
+    sizes: { small: 6, medium: 8, large: 10 },
+    fontSize: 3,
+    borderRadius: 1,
+    paddingX: 2,
+    backgroundColor: 'grays.800',
+    borderColor: 'black',
+    color: 'text.body',
+    '::placeholder': {
+      color: 'text.subtle'
     },
-    ':focus': {
+    ':hover:not(:disabled)': {
+      borderColor: 'blues.800'
+    },
+    ':focus:not(:disabled)': {
       outline: 'none',
-      backgroundColor: 'black',
-      borderColor: 'grays.900'
-    },
-    ':disabled': {
-      // same as default
-      backgroundColor: 'grays.100',
-      borderColor: 'grays.400'
+      borderColor: 'blues.500'
     },
     '&[aria-invalid]': {
-      backgroundColor: 'black',
-      borderColor: 'reds.500'
+      borderColor: 'reds.300'
     }
   },
-  Spinners: {
-    default: {
-      borderColor: 'rgba(0, 0, 0, 0.1)',
-      borderLeftColor: 'rgba(0, 0, 0, 0.5)'
-    },
-    inverse: {
-      borderColor: 'rgba(255, 255, 255, 0.2)',
-      borderLeftColor: 'rgba(255, 255, 255, 0.8)'
+
+  Link: {
+    variants: {
+      default: {
+        color: 'text.link',
+        ':hover, :focus': {
+          color: 'text.linkHover'
+        },
+        '&[aria-current]': {
+          color: 'text.linkHover'
+        }
+      },
+      subtle: {
+        color: 'text.subtle',
+        textDecoration: 'none',
+        ':hover': {
+          color: 'text.linkHover'
+        },
+        '&[aria-current]': {
+          color: 'text.link'
+        },
+        ':focus': {
+          color: 'text.linkHover'
+        }
+      }
     }
-  }
+  },
+
+  Select: {
+    // recommended: match styles of input
+    sizes: { small: 6, medium: 8, large: 10 },
+    fontSize: 3,
+    borderRadius: 1,
+    paddingX: 2,
+    backgroundColor: 'grays.800',
+    borderColor: 'black',
+    color: 'text.body',
+    '::placeholder': {
+      color: 'text.subtle'
+    },
+    ':hover:not(:disabled)': {
+      borderColor: 'blues.800'
+    },
+    ':focus:not(:disabled)': {
+      outline: 'none',
+      borderColor: 'blues.500'
+    },
+    '&[aria-invalid]': {
+      borderColor: 'reds.300'
+    }
+  },
+
+  Spinner: {
+    sizes: { small: 4, medium: 6, large: 8 },
+    borderColor: 'grays.700',
+    borderLeftColor: 'grays.400'
+  },
+
+  Switch: {
+    sizes: {
+      medium: 4
+    },
+    colors: {
+      backgroundOff: 'grays.800',
+      backgroundOn: 'greens.600'
+    }
+  },
+  Text: {
+    variants: {
+      default: { color: 'inherit' },
+      body: { color: 'text.body' },
+      subtle: { color: 'text.subtle' },
+      danger: { color: 'error.text' }
+    }
+  },
+
+  Textarea: {
+    // recommended: match styles of input
+    sizes: { small: 6, medium: 8, large: 10 },
+    fontSize: 3,
+    borderRadius: 1,
+    paddingX: 2,
+    paddingY: 2,
+    backgroundColor: 'grays.800',
+    borderColor: 'black',
+    color: 'text.body',
+    '::placeholder': {
+      color: 'text.subtle'
+    },
+    ':hover:not(:disabled)': {
+      borderColor: 'blues.800'
+    },
+    ':focus:not(:disabled)': {
+      outline: 'none',
+      borderColor: 'blues.500'
+    },
+    '&[aria-invalid]': {
+      borderColor: 'reds.300'
+    }
+  },
+
+  /** Molecules */
+
+  Breadcrumb: {
+    fontSize: 3
+  },
+  BreadcrumbSeparator: {
+    display: 'inline-block',
+    color: 'text.subtle',
+    paddingX: 2
+  },
+  BreadcrumbItem: {
+    display: 'inline-block',
+    '&[aria-current]': {
+      color: 'text.body'
+    }
+  },
+  Card: {
+    width: '500px',
+    backgroundColor: 'grays.900',
+    border: '1px solid',
+    borderColor: 'grays.800',
+    padding: 5,
+    borderRadius: 2,
+    boxShadow: 2
+  },
+  Form: {
+    paddingY: 4
+  },
+  FormLabel: {
+    fontSize: 2,
+    marginBottom: 1
+  },
+  FormHeader: {
+    color: 'text.body',
+    fontSize: 5,
+    fontWeight: 'normal',
+    marginBottom: 4
+  },
+  MenuList: {
+    backgroundColor: 'grays.900',
+    borderColor: 'grays.800',
+    borderRadius: 2,
+    marginTop: 1,
+    boxShadow: 3
+  },
+  MenuItem: {
+    paddingY: 2,
+    paddingX: 3,
+    '&[data-selected]': {
+      backgroundColor: 'blues.500',
+      color: 'grays.100'
+    }
+  },
+  Paragraph: {}
 }
 
 export { theme, components }
