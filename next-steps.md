@@ -3,7 +3,7 @@
 docs .........
 theme \\
 website ..\\
-library \\\.........
+library \\\...\.....
 demos ....
 
 Docs:
@@ -28,12 +28,11 @@ Library:
 4. add warnings for pixel values
 5. add css variables for theme tokens
 6. convert px to rem in theme
-7. add bundlesize to library
-8. find ways of making library smaller
-9. components: add data-focus for :focus and pass down data-focus from elements like link which can have focus ³
-10. make controlled switch to avoid leaky abstraction
-11. bug: select caret color doesnt sync with theme
-12. global styles via theme
+7. find ways of making library smaller
+8. components: add data-focus for :focus and pass down data-focus from elements like link which can have focus ³
+9. make controlled switch to avoid leaky abstraction
+10. bug: select caret color doesnt sync with theme
+11. global styles via theme
 
 Demos:
 

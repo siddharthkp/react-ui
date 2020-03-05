@@ -3,7 +3,7 @@ import { Element } from '@ds-tools/primitives'
 import * as ReachMenu from '@reach/menu-button'
 import '@reach/menu-button/styles.css'
 import { styles } from './menu.styles'
-import { Button } from '../Button'
+import { Button } from '../button'
 import { merge } from '../../../utils'
 
 const Menu = ({ ...props }) => {
