@@ -25,9 +25,9 @@ Docs website:
 
 Library:
 
-4. convert px to rem in theme
-5. add css variables for theme tokens in dev mode
-6. add warnings for pixel values
+4. add warnings for pixel values
+5. add css variables for theme tokens
+6. convert px to rem in theme
 7. add bundlesize to library
 8. find ways of making library smaller
 9. components: add data-focus for :focus and pass down data-focus from elements like link which can have focus ³

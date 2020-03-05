@@ -5,5 +5,8 @@
   "workspaces": [
     "packages/*",
     "packages/ds-tools/*"
-  ]
+  ],
+  "scripts": {
+    "test": "cd packages/react-ui && yarn test"
+  }
 }
