@@ -5,10 +5,16 @@ import { useId } from '@reach/auto-id'
 import { styles } from './form.styles'
 import { Element } from '@ds-tools/primitives'
 import { Stack } from '../stack'
+import { merge } from '../../../utils'
 
-const Form = props => {
+const Form = ({ css, ...props }) => {
   return (
-    <Element as="form" component="Form" baseStyles={styles.Form} {...props}>
+    <Element
+      as="form"
+      component="Form"
+      css={merge(styles.Form, css)}
+      {...props}
+    >
       <Stack component="FormStack" direction="vertical" gap={6}>
         {props.children}
       </Stack>
@@ -18,11 +24,11 @@ const Form = props => {
 
 Form.propTypes = {}
 
-Form.Header = props => (
+Form.Header = ({ css, ...props }) => (
   <Element
     as="h1"
     component="FormHeader"
-    baseStyles={styles.FormHeader}
+    css={merge(styles.FormHeader, css)}
     {...props}
   />
 )
@@ -36,16 +42,16 @@ Form.Header.defaultProps = {
   as: 'h1'
 }
 
-Form.Label = props => (
+Form.Label = ({ css, ...props }) => (
   <Element
     as="label"
     component="FormLabel"
-    baseStyles={styles.FormLabel}
+    css={merge(styles.FormLabel, css)}
     {...props}
   />
 )
 
-const FormField = function({ label, id, isRequired, ...props }) {
+const FormField = function({ label, id, isRequired, css, ...props }) {
   const inputId = useId(id)
 
   const children = React.Children.map(props.children, (child, index) => {
@@ -68,7 +74,7 @@ const FormField = function({ label, id, isRequired, ...props }) {
     <Element
       as="fieldset"
       component="FormField"
-      baseStyles={styles.FormField}
+      css={merge(styles.FormField, css)}
       {...props}
     >
       <Form.Label htmlFor={inputId}>

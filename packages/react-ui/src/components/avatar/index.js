@@ -2,9 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Element } from '@ds-tools/primitives'
 import { styles } from './avatar.styles'
+import { merge } from '../../../utils'
 
-export const Avatar = props => (
-  <Element as="img" component="Avatar" baseStyles={styles.Avatar} {...props} />
+export const Avatar = ({ css, ...props }) => (
+  <Element
+    as="img"
+    component="Avatar"
+    css={merge(styles.Avatar, css)}
+    {...props}
+  />
 )
 
 Avatar.propTypes = {

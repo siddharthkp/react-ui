@@ -6,14 +6,16 @@ import { styles } from './heading.styles'
 import { merge } from '../../../utils'
 
 /** Description of an input */
-function Heading({ size, ...props }) {
+function Heading({ size, css, ...props }) {
   return (
     <Element
       as="h1"
       component="Heading"
-      baseStyles={merge(styles.Heading, {
-        fontSize: getWithFallback(`fontSizes.Heading.${size}`, size)
-      })}
+      css={merge(
+        styles.Heading,
+        { fontSize: getWithFallback(`fontSizes.Heading.${size}`, size) },
+        css
+      )}
       {...props}
     />
   )

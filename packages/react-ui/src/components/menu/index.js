@@ -4,6 +4,7 @@ import * as ReachMenu from '@reach/menu-button'
 import '@reach/menu-button/styles.css'
 import { styles } from './menu.styles'
 import { Button } from '../Button'
+import { merge } from '../../../utils'
 
 const Menu = ({ ...props }) => {
   return (
@@ -17,12 +18,12 @@ const MenuButton = props => {
   return <Button variant="secondary" as={ReachMenu.MenuButton} {...props} />
 }
 
-const MenuList = props => {
+const MenuList = ({ css, ...props }) => {
   return (
     <Element
       as={ReachMenu.MenuList}
       component="MenuList"
-      baseStyles={styles.MenuList}
+      css={merge(styles.MenuList, css)}
       {...props}
     >
       {props.children}
@@ -30,12 +31,12 @@ const MenuList = props => {
   )
 }
 
-const MenuItem = props => {
+const MenuItem = ({ css, ...props }) => {
   return (
     <Element
       as={ReachMenu.MenuItem}
       component="MenuItem"
-      baseStyles={styles.MenuItem}
+      css={merge(styles.MenuItem, css)}
       {...props}
     />
   )

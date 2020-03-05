@@ -5,14 +5,12 @@ import { styles } from './button.styles'
 import { merge } from '../../../utils'
 
 /** Description of a button */
-const Button = ({ size, ...props }) => {
+const Button = ({ size, css, ...props }) => {
   return (
     <Element
       as="button"
       component="Button"
-      baseStyles={merge(styles.Button, {
-        height: `Button.${size}`
-      })}
+      css={merge(styles.Button, { height: 'Button.' + size }, css)}
       {...props}
     />
   )

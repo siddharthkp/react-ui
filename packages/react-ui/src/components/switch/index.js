@@ -2,18 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Element } from '@ds-tools/primitives'
 import { styles } from './switch.styles'
+import { merge } from '../../../utils'
 
-const Switch = props => {
+const Switch = ({ css, ...props }) => {
   return (
     <Element
       as="label"
-      baseStyles={styles.SwitchContainer}
+      css={merge(styles.SwitchContainer, css)}
       component="SwitchContainer"
     >
       <Element
         as="input"
         type="checkbox"
-        baseStyles={styles.SwitchInput}
+        css={styles.SwitchInput}
         component="SwitchInput"
         checked={props.value}
         defaultChecked={props.defaultValue}
@@ -21,14 +22,10 @@ const Switch = props => {
       />
       <Element
         as="span"
-        baseStyles={styles.SwitchBackground}
+        css={styles.SwitchBackground}
         component="SwitchBackground"
       >
-        <Element
-          as="span"
-          baseStyles={styles.SwitchToggle}
-          component="SwitchToggle"
-        />
+        <Element as="span" css={styles.SwitchToggle} component="SwitchToggle" />
       </Element>
     </Element>
   )

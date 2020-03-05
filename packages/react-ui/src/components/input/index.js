@@ -2,16 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Element } from '@ds-tools/primitives'
 import { styles } from './input.styles'
+import { merge } from '../../../utils'
 
 /** Description of an input */
-function Input({ invalid, ...props }) {
+function Input({ invalid, css, ...props }) {
   return (
     <>
       <Element
         as="input"
         component="Input"
         aria-invalid={invalid}
-        baseStyles={styles.Input}
+        css={merge(styles.Input, css)}
         {...props}
       />
     </>

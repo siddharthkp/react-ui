@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Element } from '@ds-tools/primitives'
 import { merge } from '../../../utils'
 
-const Stack = ({ inline, justify, align, direction, gap, ...props }) => {
+const Stack = ({ inline, justify, align, direction, gap, css, ...props }) => {
   const styles = {
     display: inline ? 'inline-flex' : 'flex',
     // width: '100%', // causes weirdness in nested avatar. todo: debug
@@ -26,7 +26,7 @@ const Stack = ({ inline, justify, align, direction, gap, ...props }) => {
   }
 
   return (
-    <Element as="div" component="Stack" baseStyles={styles} {...props}>
+    <Element as="div" component="Stack" css={merge(styles, css)} {...props}>
       {props.children}
     </Element>
   )

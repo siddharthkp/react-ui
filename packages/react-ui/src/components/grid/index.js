@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Element } from '@ds-tools/primitives'
 import { styles } from './grid.styles'
+import { merge } from '../../../utils'
 
-function Grid({ gap, columnGap, rowGap, ...props }) {
+function Grid({ gap, columnGap, rowGap, css, ...props }) {
   let gaps = {}
 
   if (gap === 'auto') {
@@ -20,16 +21,13 @@ function Grid({ gap, columnGap, rowGap, ...props }) {
     <Element
       as="div"
       component="Grid"
-      baseStyles={{
-        ...styles.Grid,
-        ...gaps
-      }}
+      css={merge(styles.Grid, gaps, css)}
       {...props}
     />
   )
 }
 
-function Column({ start, end, span, ...props }) {
+function Column({ start, end, span, css, ...props }) {
   let column = {}
 
   if (Array.isArray(start)) column.gridColumnStart = start.map(s => s)
@@ -47,7 +45,12 @@ function Column({ start, end, span, ...props }) {
   } else if (span === 0) column.display = 'none'
 
   return (
-    <Element as="div" baseStyles={column} component="GridColumn" {...props} />
+    <Element
+      as="div"
+      css={merge(column, css)}
+      component="GridColumn"
+      {...props}
+    />
   )
 }
 

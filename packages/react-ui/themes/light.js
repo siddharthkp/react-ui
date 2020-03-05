@@ -23,7 +23,7 @@ const theme = {
     15: '60px',
     16: '64px'
   },
-  radii: [0, '2px', '4px', '50%'],
+  radii: [0, '2px', '4px', '16px', '50%'],
   fontSizes: {
     0: 0,
     1: '10px',

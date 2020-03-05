@@ -7,8 +7,7 @@ function Image({ width, height, css, ...props }) {
   return (
     <Element
       as="img"
-      baseStyles={styles.Image}
-      css={merge({ width, height }, css)}
+      css={merge(styles.Image, { width, height }, css)}
       component="Image"
       {...props}
     />

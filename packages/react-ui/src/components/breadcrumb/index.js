@@ -2,19 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Element } from '@ds-tools/primitives'
 import { styles } from './breadcrumb.styles'
+import { merge } from '../../../utils'
 
 const Separator = props => (
   <Element
     as="span"
     aria-hidden="true"
     component="BreadcrumbSeparator"
-    baseStyles={styles.BreadcrumbSeparator}
+    css={styles.BreadcrumbSeparator}
   >
     {props.separator}
   </Element>
 )
 
-export const Breadcrumb = ({ separator, ...props }) => {
+export const Breadcrumb = ({ separator, css, ...props }) => {
   const children = React.Children.map(props.children, function(child, index) {
     const isLast = index === props.children.length - 1
 
@@ -22,7 +23,7 @@ export const Breadcrumb = ({ separator, ...props }) => {
       <Element
         as="li"
         component="BreadcrumbItem"
-        baseStyles={styles.BreadcrumbItem}
+        css={styles.BreadcrumbItem}
         aria-current={isLast ? 'page' : null}
       >
         {child}
@@ -36,7 +37,7 @@ export const Breadcrumb = ({ separator, ...props }) => {
       as="nav"
       aria-label="breadcrumb"
       component="Breadcrumb"
-      baseStyles={styles.Breadcrumb}
+      css={merge(styles.Breadcrumb, css)}
       {...props}
     >
       <ol>{children}</ol>

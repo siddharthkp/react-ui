@@ -1,11 +1,17 @@
 import deepmerge from 'deepmerge'
 
-export const merge = (a = {}, b = {}) => {
+export const mergeTwo = (a = {}, b = {}) => {
   // remove undefined values before merge
   Object.keys(a).forEach(key => a[key] == undefined && delete a[key])
   Object.keys(b).forEach(key => b[key] == undefined && delete b[key])
 
   return deepmerge(a, b)
+}
+
+export const merge = (...objs) => {
+  return objs.reduce(function(merged, currentValue) {
+    return mergeTwo(merged, currentValue)
+  }, {})
 }
 
 export const mergeFns = (a, b) => {
