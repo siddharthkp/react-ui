@@ -165,17 +165,17 @@ const Documentation = () => {
               import { Breadcrumb as BaseComponent } from 'react-ui'
 
               const customStyles = {
-                background: 'blues.100',  // from tokens.colors.blues.100
-                padding: 2,               // from tokens.space.4
+                background: 'blues.100',      // from tokens.colors.blues.100
+                padding: 2,                   // from tokens.space.4
 
 
                 BreadcrumbSeparator: {
-                  color: 'text.subtle'          // from tokens.colors.text.subtle
+                  color: 'text.subtle'        // from tokens.colors.text.subtle
                 },
                 Link: {
                   // this will only target Link inside Breadcrumb,
                   // not all Links
-                  textDecoration: 'underline'   // plain old css :)
+                  textDecoration: 'underline' // plain old css :)
                 }
               }
             `}

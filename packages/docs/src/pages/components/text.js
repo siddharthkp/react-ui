@@ -109,7 +109,7 @@ const Documentation = () => {
 
         <Example>
           <Example.Code lang="js">{`
-          import { theme, components } from 'react-ui/themes/base'
+          import { tokens, components } from 'react-ui/themes/base'
 
           // overwrite Text variants
           components.Text.variants = {
@@ -120,7 +120,7 @@ const Documentation = () => {
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider theme={theme} components={components}> 
+          <ThemeProvider tokens={tokens} components={components}> 
             <Text>Text might seem like a boring component</Text>
             <Text variant="subtle">but can we incredibly handy with variants</Text>
             <Text variant="success">to quickly express context</Text>

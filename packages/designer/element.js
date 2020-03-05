@@ -80,8 +80,6 @@ function Element(
 
   merged.label = label
 
-  console.log(theme)
-
   // instead of React.createElement
   return jsx(rui, {
     // interpolate twice to alllow tokens inside theme,

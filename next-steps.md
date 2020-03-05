@@ -1,9 +1,9 @@
 ## Next steps
 
-docs \........
+docs .........
 theme \\
 website ..\\
-library ...........
+library \\\.........
 demos ....
 
 Docs:
@@ -25,17 +25,15 @@ Docs website:
 
 Library:
 
-2. \*rename theme to tokens in theme provider
-3. show warning if themeprovider is missing ¹ ²
 4. convert px to rem in theme
 5. add css variables for theme tokens in dev mode
 6. add warnings for pixel values
 7. add bundlesize to library
 8. find ways of making library smaller
-9. move to styled-components
-10. components: add data-focus for :focus and pass down data-focus from elements like link which can have focus ³
-11. make controlled switch to avoid leaky abstraction
-12. bug: select caret color doesnt sync with theme
+9. components: add data-focus for :focus and pass down data-focus from elements like link which can have focus ³
+10. make controlled switch to avoid leaky abstraction
+11. bug: select caret color doesnt sync with theme
+12. global styles via theme
 
 Demos:
 

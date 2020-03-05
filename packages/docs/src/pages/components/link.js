@@ -129,7 +129,7 @@ const Documentation = () => {
 
         <Example>
           <Example.Code lang="js">{`
-          import { theme, components } from 'react-ui/themes/base'
+          import { tokens, components } from 'react-ui/themes/base''
 
           // overwrite Link styles
           components.Link = {

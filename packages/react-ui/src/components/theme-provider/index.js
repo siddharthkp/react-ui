@@ -26,6 +26,9 @@ function ThemeProvider({
 
   const combinedTheme = merge(tokens, { components })
 
+  // pass a hint to element
+  combinedTheme.defined = true
+
   return (
     <Provider theme={combinedTheme} {...props}>
       {props.children}

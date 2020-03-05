@@ -51,12 +51,12 @@ const Documentation = () => {
             import ReactDOM from 'react-dom'
             import { ThemeProvider } from 'react-ui'
             import App from './App'
-            import theme from './theme'
+            import { tokens } from './theme'
             
           `}</Example.Code>
           <Example.Code lang="jsx">{`
             ReactDOM.render(
-              <ThemeProvider theme={theme}>
+              <ThemeProvider tokens={tokens}>
                 <App />
               </ThemeProvider>,
               document.getElementById('root')
@@ -95,7 +95,7 @@ const Documentation = () => {
         <Example title="Contrived Example:">
           <Example.Code lang="js">{`
             // theme.js
-            const theme = {
+            const tokens = {
               space: ['0px', '4px', '8px', '12px', '16px', '20px', '24px', '28px', '32px', '36px', '40px'],
               colors: {
                 primary: '#38C172',

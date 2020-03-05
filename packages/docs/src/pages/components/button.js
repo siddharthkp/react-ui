@@ -100,7 +100,7 @@ const Documentation = () => {
           </Table.Row>
           <Table.Row>
             <Table.Column span={4}>height</Table.Column>
-            <Table.Column span={8}>sizes.Button</Table.Column>
+            <Table.Column span={8}>components.Button.sizes</Table.Column>
           </Table.Row>
           <Table.Row>
             <Table.Column span={4}>variant</Table.Column>
@@ -117,7 +117,7 @@ const Documentation = () => {
 
         <Example>
           <Example.Code lang="js">{`
-          import { theme, components } from 'react-ui/themes/base'
+          import { tokens, components } from 'react-ui/themes/base'
 
           // overwrite Button sizes
           components.Button.sizes = {
@@ -146,7 +146,7 @@ const Documentation = () => {
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider theme={theme} components={components}> 
+          <ThemeProvider tokens={tokens} components={components}> 
             <Button>Save</Button>
             <Button variant="danger">Delete</Button>
           </ThemeProvider>

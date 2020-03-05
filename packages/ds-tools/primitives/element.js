@@ -32,6 +32,14 @@ function Element(
   },
   ref
 ) {
+  // warn if theme provider is not used
+  if (!theme.defined) {
+    let warning = `Missing ThemeProvider. Please wrap your application in a ThemeProvider from react-ui`
+    warning += `\n\n`
+    warning += `Refer to the documentation at: /components/ThemeProvider`
+    console.warn(warning)
+  }
+
   const margins = {}
   Object.keys(props).forEach(prop => {
     if (marginProps.includes(prop)) margins[prop] = props[prop]
@@ -41,13 +49,16 @@ function Element(
   if (typeof cssProp === 'function') css = cssProp(props)
   else css = clone(cssProp)
 
-  // if variant prop is given, attach the prop to css
+  let themeStyles = {}
+  if (theme.components) themeStyles = clone(theme.components[component])
+  if (typeof themeStyles === 'function') themeStyles = themeStyles(props)
 
+  // if variant prop is given, attach the prop to css
   if (
     variant &&
-    theme.components[component] &&
-    theme.components[component].variants &&
-    theme.components[component].variants[variant]
+    themeStyles &&
+    themeStyles.variants &&
+    themeStyles.variants[variant]
   ) {
     css.variant = component + '.variants.' + variant
   }
@@ -85,12 +96,7 @@ function Element(
   }
 
   // deep merge with overriding
-  let merged = mergeAll(
-    theme.components[component],
-    theme[component],
-    css,
-    margins
-  )
+  let merged = mergeAll(themeStyles, css, margins)
 
   /** Allow nested component keys */
   walk(merged, node => {
@@ -110,10 +116,6 @@ function Element(
 
   // instead of React.createElement
   return jsx(rui, {
-    // interpolate twice to alllow tokens inside theme,
-    // there is an obvious cost to this which needs to be benchmarked
-    // alternate solution is to flatten this in themeprovider
-
     css: interpolate(merged)(theme),
     style: interpolate(inlineStyles)(theme),
     ref,
@@ -121,8 +123,8 @@ function Element(
   })
 }
 
-function mergeAll(a = {}, b = {}, c = {}, d = {}) {
-  return merge(merge(merge(a, b), c), d)
+function mergeAll(a = {}, b = {}, c = {}) {
+  return merge(merge(a, b), c)
 }
 
 function walk(obj, callback) {

@@ -122,7 +122,7 @@ const Documentation = () => {
         <Para>
           <Text>
             The value is based on the spacing scale from{' '}
-            <Code>theme.space</Code>. Here, the 2nd value on the space scale is
+            <Code>tokens.space</Code>. Here, the 2nd value on the space scale is
             8px.
           </Text>
         </Para>

@@ -98,24 +98,24 @@ const Documentation = () => {
           </Table.Row>
           <Table.Row>
             <Table.Column span={6}>size prop</Table.Column>
-            <Table.Column span={6}>theme.sizes.Avatar</Table.Column>
+            <Table.Column span={6}>components.Avatar.sizes</Table.Column>
           </Table.Row>
         </Table>
 
         <Para>
           <Text>
             You can extend the sizes supported by Avatar by extending{' '}
-            <Code>theme.sizes.Avatar</Code>:
+            <Code>components.Avatar.sizes</Code>:
           </Text>
         </Para>
 
         <Example>
           <Example.Code lang="js">{`
-          import { theme, components } from 'react-ui/themes/base'
+          import { tokens, components } from 'react-ui/themes/base'
 
-          // extend base theme
+          // extend components
           components.Avatar.sizes = {
-            xsmall: 5, // reads from theme.sizes.5
+            xsmall: 5, // reads from tokens.sizes.5
             small: 7,
             medium: 9,
             large: 12,
@@ -123,7 +123,7 @@ const Documentation = () => {
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider theme={theme} components={components}>
+          <ThemeProvider tokens={tokens} components={components}>
             <Avatar size="xsmall" src="https://github.com/sameen-shi.png" />
             <Avatar size="medium" src="https://github.com/sameen-shi.png" />
             <Avatar size="xlarge" src="https://github.com/sameen-shi.png" />

@@ -97,9 +97,7 @@ const Documentation = () => {
           </Table.Header>
           <Table.Row>
             <Table.Column span={3}>size</Table.Column>
-            <Table.Column span={9}>
-              theme.fontSizes & sizes.Heading
-            </Table.Column>
+            <Table.Column span={9}>tokens.fontSizes</Table.Column>
           </Table.Row>
         </Table>
 
@@ -125,7 +123,7 @@ const Documentation = () => {
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider theme={theme} components={components}>
+          <ThemeProvider tokens={tokens} components={components}>
             <YourApp>
               <Heading size="page">Page heading</Heading>
               <Heading size="section">Section heading</Heading>
