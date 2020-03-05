@@ -23,7 +23,6 @@ const marginProps = [
 function Element(
   {
     css: cssProp = {},
-    baseStyles: baseProp = {},
     style: inlineStyles = {},
     variant = 'default',
     size = 'medium',
@@ -33,8 +32,6 @@ function Element(
   },
   ref
 ) {
-  theme.components = theme.components || {}
-
   const margins = {}
   Object.keys(props).forEach(prop => {
     if (marginProps.includes(prop)) margins[prop] = props[prop]
@@ -44,24 +41,20 @@ function Element(
   if (typeof cssProp === 'function') css = cssProp(props)
   else css = clone(cssProp)
 
-  let baseStyles
-  if (typeof baseProp === 'function') baseStyles = baseProp(props)
-  else baseStyles = clone(baseProp)
-
   // if variant prop is given, attach the prop to css
+
   if (
     variant &&
-    theme[component] &&
-    theme[component].variants &&
-    theme[component].variants[variant]
+    theme.components[component] &&
+    theme.components[component].variants &&
+    theme.components[component].variants[variant]
   ) {
     css.variant = component + '.variants.' + variant
   }
 
   if (size && theme.sizes && theme.sizes[component]) {
-    const width = baseStyles.width || css.width || baseStyles.size || css.size
-    const height =
-      baseStyles.height || css.height || baseStyles.size || css.size
+    const width = css.width || css.size
+    const height = css.height || css.size
 
     let value
     if (typeof theme.sizes[component] !== 'object') {
@@ -93,11 +86,10 @@ function Element(
 
   // deep merge with overriding
   let merged = mergeAll(
-    baseStyles || {},
-    theme.components[component] || {},
-    theme[component] || {},
-    css || {},
-    margins || {}
+    theme.components[component],
+    theme[component],
+    css,
+    margins
   )
 
   /** Allow nested component keys */
@@ -129,8 +121,8 @@ function Element(
   })
 }
 
-function mergeAll(a, b, c, d, e) {
-  return merge(merge(merge(merge(a, b), c), d), e)
+function mergeAll(a = {}, b = {}, c = {}, d = {}) {
+  return merge(merge(merge(a, b), c), d)
 }
 
 function walk(obj, callback) {

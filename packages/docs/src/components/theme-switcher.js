@@ -25,13 +25,17 @@ const ThemeSwitcher = ({ name, setThemeName }) => {
 }
 
 const useThemeSwitcher = () => {
-  const [name, setThemeName] = React.useState(localStorage.theme || 'dark')
+  const [name, setTheme] = React.useState(localStorage.theme || 'light')
 
   const theme = themes[name]
+  const setThemeName = name => {
+    localStorage.theme = name
+    setTheme(name)
+  }
 
   return {
     name,
-    tokens: theme.theme,
+    tokens: theme.tokens,
     components: theme.components,
     setThemeName,
 

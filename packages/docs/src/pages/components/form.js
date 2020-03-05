@@ -179,7 +179,7 @@ const Documentation = () => {
 
         <Example>
           <Example.Code lang="js">{`
-          import { theme, components } from 'react-ui/themes/base'
+          import { tokens, components } from 'react-ui/themes/base'
           
           components.Form = {
             width: '400px',
@@ -195,7 +195,7 @@ const Documentation = () => {
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider theme={theme} components={components}>
+          <ThemeProvider tokens={tokens} components={components}>
             <Form>
               <Form.Field label="Name">
                 <Input type="text" placeholder="Please enter your name" />

@@ -1,8 +1,8 @@
 ## Next steps
 
-docs ..........
+docs \........
 theme \\
-website ...\\
+website ..\\
 library ...........
 demos ....
 
@@ -17,18 +17,15 @@ Docs:
 7. credits
 8. write document about using other libraries (react router, reach-ui)
 9. built-in themes
-10. redo customising docs
 
 Docs website:
 
 1. wrap customisation docs in base theme
-2. lock theme to light outside of components
-3. homepage
+2. homepage
 
 Library:
 
-1. remove basestyles in favor of merged css
-2. rename theme to tokens in theme provider
+2. \*rename theme to tokens in theme provider
 3. show warning if themeprovider is missing ¹ ²
 4. convert px to rem in theme
 5. add css variables for theme tokens in dev mode

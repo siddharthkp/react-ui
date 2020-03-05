@@ -120,7 +120,7 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
         css={{
           margin: 0,
           backgroundColor: 'black',
-          color: '#f5faff',
+          color: 'grays.200',
           padding: 4,
           fontSize: 3,
           overflow: 'scroll'

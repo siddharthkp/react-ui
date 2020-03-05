@@ -4,34 +4,30 @@ import { merge } from '../../../utils'
 
 // import * as light from '../../../themes/light'
 // import dark from '../../../themes/dark'
-import * as base from '../../../themes/dark'
+import * as base from '../../../themes/base'
 
 const Provider = EmotionThemeProvider
 
 function ThemeProvider({
-  theme: propTheme = base.theme,
+  tokens = base.tokens,
   components = base.components,
+  theme = {}, // as a combined fallback, not recommended but you know
   ...props
 }) {
-  let theme = { ...propTheme }
+  // system-ui allows you to define scales as arrays,
+  // which is really ergonomic, we convert that to objects
+  // for the sake of ease of manipulation
+  tokens = convertArraysToObject(tokens)
 
-  theme = convertArraysToObject(theme)
+  complainAboutUnits(tokens)
 
-  theme.components = theme.components || {}
-  theme.components = merge(theme.components, components)
+  tokens.sizes = merge(tokens.sizes, getSizesFromComponents(components))
+  tokens.colors = merge(tokens.colors, getColorsFromComponents(components))
 
-  theme.sizes = merge(theme.sizes, getSizesFromComponents(theme.components))
-  theme.colors = merge(theme.colors, getColorsFromComponents(theme.components))
-
-  const variants = merge(theme.variants || {}, components.variants || {})
-
-  const generatedTheme = merge(merge(theme, variants), theme.components)
-
-  // add units if missing
-  complainAboutUnits(generatedTheme)
+  const combinedTheme = merge(tokens, { components })
 
   return (
-    <Provider theme={generatedTheme} {...props}>
+    <Provider theme={combinedTheme} {...props}>
       {props.children}
     </Provider>
   )
@@ -43,12 +39,12 @@ export const hasUnits = value => {
   else if (value.match(/[a-z]/i)) return true
 }
 
-const complainAboutUnits = theme => {
+const complainAboutUnits = tokens => {
   const unitScales = ['space', 'sizes', 'fontSizes', 'borderWidths', 'radii']
   const complainAbout = []
 
   unitScales.map(name => {
-    const scale = theme[name]
+    const scale = tokens[name]
     const firstValue = scale && scale[1] // not zeroth
 
     if (firstValue && !hasUnits(firstValue)) complainAbout.push(name)
@@ -62,22 +58,22 @@ const complainAboutUnits = theme => {
   }
 }
 
-const convertArraysToObject = (theme = {}) => {
-  const keys = Object.keys(theme)
+const convertArraysToObject = (tokens = {}) => {
+  const keys = Object.keys(tokens)
 
   keys.map(key => {
-    if (Array.isArray(theme[key])) {
+    if (Array.isArray(tokens[key])) {
       const obj = {}
 
-      theme[key].forEach((item, index) => {
+      tokens[key].forEach((item, index) => {
         obj[index] = item
       })
 
-      theme[key] = obj
+      tokens[key] = obj
     }
   })
 
-  return theme
+  return tokens
 }
 
 const getSizesFromComponents = (components = {}) => {

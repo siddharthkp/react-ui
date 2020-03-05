@@ -104,6 +104,7 @@ const Documentation = () => {
           components.Card = {
             width: 500,
             background: 'white',
+            color: 'black',
             border: '1px solid',
             borderColor: '#EEEEEE',
             padding: 5,
@@ -122,6 +123,7 @@ const Documentation = () => {
                 Card: {
                   width: 500,
                   background: 'white',
+                  color: 'black',
                   border: '1px solid',
                   borderColor: '#EEEEEE',
                   padding: 5,

@@ -16,7 +16,7 @@ import { Page, Example, Section, Para, Code, Table } from '../../components'
 
 const Documentation = () => {
   return (
-    <ThemeProvider theme={light.theme} components={light.components}>
+    <ThemeProvider tokens={light.tokens} components={light.components}>
       <Page title="Customising components">
         <Para>
           <Text variant="subtle" css={{ fontStyle: 'italic' }}>
@@ -101,8 +101,8 @@ const Documentation = () => {
               import { Breadcrumb as BaseComponent } from 'react-ui'
 
               const customStyles = {
-                background: 'blues.100',  // from theme.colors.blues.100
-                padding: 2,               // from theme.space.4
+                background: 'blues.100',  // from tokens.colors.blues.100
+                padding: 2,               // from tokens.space.4
               }
             `}
             </Example.Code>
@@ -165,12 +165,12 @@ const Documentation = () => {
               import { Breadcrumb as BaseComponent } from 'react-ui'
 
               const customStyles = {
-                background: 'blues.100',  // from theme.colors.blues.100
-                padding: 2,               // from theme.space.4
+                background: 'blues.100',  // from tokens.colors.blues.100
+                padding: 2,               // from tokens.space.4
 
 
                 BreadcrumbSeparator: {
-                  color: 'text.subtle'          // from theme.colors.text.subtle
+                  color: 'text.subtle'          // from tokens.colors.text.subtle
                 },
                 Link: {
                   // this will only target Link inside Breadcrumb,
@@ -208,12 +208,12 @@ const Documentation = () => {
             import ReactDOM from 'react-dom'
             import { ThemeProvider } from 'react-ui'
             import App from './App'
-            import theme from './theme'
+            import { tokens } from './tokens'
             
           `}</Example.Code>
             <Example.Code lang="jsx">{`
             ReactDOM.render(
-              <ThemeProvider theme={theme}>
+              <ThemeProvider tokens={tokens}>
                 <App />
               </ThemeProvider>,
               document.getElementById('root')
@@ -242,12 +242,12 @@ const Documentation = () => {
           import ReactDOM from 'react-dom'
           import { ThemeProvider } from 'react-ui'
           import App from './App'
-          import theme from './theme'
+          import tokens from './tokens'
 
           const components = {
             Breadcrumb: {
-              background: 'blues.100',  // from theme.colors.blues.100
-              padding: 2,               // from theme.space.4
+              background: 'blues.100',  // from tokens.colors.blues.100
+              padding: 2,               // from tokens.space.4
 
               Link: {
                 // this will only target Link inside Breadcrumb,
@@ -256,14 +256,14 @@ const Documentation = () => {
               }
             },
             BreadcrumbSeparator: {
-              color: 'text.subtle'     // from theme.colors.text.subtle
+              color: 'text.subtle'     // from tokens.colors.text.subtle
             }
           }
         `}</Example.Code>
             <Example.Code lang="jsx">{`
           ReactDOM.render(
             <ThemeProvider
-              theme={theme}
+              tokens={tokens}
               components={components}
             >
               <App />
@@ -327,17 +327,17 @@ const Documentation = () => {
           import { ThemeProvider, Select } from 'react-ui'
           import App from './App'
           
-          import light from './themes/light'
-          import dark from './themes/light'
+          import * as light from './themes/light'
+          import * as dark from './themes/light'
 
           const AppWithThemeSwitcher = () => {
             const themes = { light, dark }
             const [themeName, setThemeName] = React.useState('light')
 
-            const { theme, components } = themes[themeName] // light or dark
+            const { tokens, components } = themes[themeName] // light or dark
 
             return (
-              <ThemeProvider theme={theme} components={components}>
+              <ThemeProvider tokens={tokens} components={components}>
                 <Select value={themeName} onChange={e => setThemeName(e.target.value)}>
                   <option>light</option>
                   <option>dark</option>
@@ -369,7 +369,7 @@ const AppWithThemeSwitcher = () => {
   return (
     <Stack direction="vertical" gap={2}>
       <ThemeProvider
-        theme={themes[themeName].theme}
+        tokens={themes[themeName].tokens}
         components={themes[themeName].components}
       >
         <Select value={themeName} onChange={e => setThemeName(e.target.value)}>

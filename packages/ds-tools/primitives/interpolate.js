@@ -54,7 +54,8 @@ export function interpolate(styles = {}, theme) {
     }
 
     if (key === 'variant') {
-      const variantStyles = delve(theme, value)
+      const variantStyles = delve(theme.components, value)
+
       const interpolated = interpolate(variantStyles, theme)
       const isDefaultVariant = value === label + '.variants.default'
 

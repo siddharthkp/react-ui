@@ -53,7 +53,9 @@ const Documentation = () => {
         <Example title="Variants">
           <Example.Preview gap={4}>
             <Button>Log in</Button>
-            <Button variant="secondary">Cancel</Button>
+            <Button variant="secondary" debug>
+              Cancel
+            </Button>
             <Button variant="destructive">Delete</Button>
             <Button variant="link">Reset</Button>
           </Example.Preview>

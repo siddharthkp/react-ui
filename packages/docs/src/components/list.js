@@ -6,10 +6,11 @@ export const List = props => {
     <Element
       as="ul"
       css={{
-        paddingLeft: 0,
-        listStyle: 'none',
+        paddingLeft: props.as === 'ol' ? 5 : 0,
+        listStyle: props.as === 'ol' ? 'decimal' : 'none',
         li: { paddingY: 2 }
       }}
+      {...props}
     >
       {props.children.map((child, index) => (
         <li key={index}>{child}</li>

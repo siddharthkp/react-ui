@@ -39,12 +39,16 @@ export const Tagline = props => {
 export const Code = props => {
   return (
     <Text
-      debug
-      color="blues.700"
       css={{
         fontFamily: 'Roboto Mono',
-        fontSize: '95%',
-        verticalAlign: 'text-bottom'
+        fontSize: '90%',
+        verticalAlign: 'text-bottom',
+        backgroundColor: 'App.borderColor',
+        paddingX: 1,
+        borderRadius: 1,
+        position: 'relative',
+        bottom: '1px',
+        paddingBottom: '1px'
       }}
       {...props}
     />

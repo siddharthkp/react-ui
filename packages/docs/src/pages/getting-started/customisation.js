@@ -349,7 +349,6 @@ const Documentation = () => {
                   </Link>
                   <Stack direction="vertical">
                     <Link
-                      debug
                       variant="subtle"
                       weight="semibold"
                       href="https://twitter.com/freezydorito"

@@ -1,4 +1,4 @@
-const theme = {
+const tokens = {
   space: {
     0: 0,
     1: '4px',
@@ -135,7 +135,7 @@ const theme = {
 }
 
 // recommended: use the same space grid for size
-theme.sizes = { ...theme.space }
+tokens.sizes = { ...tokens.space }
 
 // decisions
 
@@ -144,27 +144,27 @@ theme.sizes = { ...theme.space }
   You can create aliases in scales based on the scale.
 */
 
-theme.colors.text = {
+tokens.colors.text = {
   subtle: 'grays.500',
   body: 'grays.100',
   link: 'blues.500',
   linkHover: 'blues.400'
 }
 
-theme.colors.error = {
+tokens.colors.error = {
   background: 'reds.100',
   border: 'reds.300',
   text: 'reds.600'
 }
 
-theme.colors.App = {
+tokens.colors.App = {
   backgroundColor: 'grays.900',
   color: 'grays.100',
   borderColor: 'grays.800'
 }
 
-theme.fontSizes.Heading = {
-  page: 8, // reads from theme.fontSizes.8
+tokens.fontSizes.Heading = {
+  page: 8, // reads from tokens.fontSizes.8
   section: 6,
   paragraph: 4
 }
@@ -266,7 +266,7 @@ const components = {
   },
 
   Heading: {
-    /** fontSizes for heading are defined in theme.fontSizes.Heading */
+    /** fontSizes for heading are defined in tokens.fontSizes.Heading */
     color: 'text.body'
   },
   Image: {},
@@ -452,4 +452,4 @@ const components = {
   Paragraph: {}
 }
 
-export { theme, components }
+export { tokens, components }

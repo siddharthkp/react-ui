@@ -12,35 +12,38 @@ import {
 } from 'react-ui'
 import * as light from 'react-ui/themes/light'
 
-import { Page, Example, Section, Para, Code, Divider } from '../../components'
+import {
+  Page,
+  Example,
+  Section,
+  Para,
+  Code,
+  Divider,
+  List
+} from '../../components'
 
 const Documentation = () => {
   return (
-    <ThemeProvider theme={light.theme} components={light.components}>
+    <ThemeProvider tokens={light.tokens} components={light.components}>
       <Page title="Constraints Based Design">
         <Section>
           <Para>
             <Text>
-              While building any interface, you are faced with a dozen decisions
-              every minute. At the core of every high quality interface, is a
-              set of constraints that help in creating this level of consistency
-              and quality.
+              At the core of every high quality interface, is a set of
+              constraints that help in creating this level of consistency and
+              quality.
             </Text>
             <Text>
-              Not only do constriants help in consistent features, but they also
-              make the decisions and their implementation fast.
+              Constriants help build consistent features at a faster pace by
+              moving the decisions into reusable patterns.
             </Text>
           </Para>
           <Para>
             <Text>
-              Let's take example of a Airbnb clone built with React UI:
+              Let's take example of this Airbnb-esque form built with React UI:
             </Text>
           </Para>
-          <Para>
-            <Text variant="subtle" css={{ fontStyle: 'italic' }}>
-              Note: This page uses the React UI Light theme.
-            </Text>
-          </Para>
+
           <Example
             hideCode
             css={{
@@ -94,7 +97,9 @@ const Documentation = () => {
                       borderColor: '#EBEBEB',
                       ':hover, :focus': {
                         background: 'transparent',
-                        borderColor: '#EBEBEB'
+                        borderColor: '#EBEBEB',
+                        position: 'relative',
+                        zIndex: 2
                       },
                       ':focus': {
                         borderColor: '#008489',
@@ -126,10 +131,10 @@ const Documentation = () => {
                       <Input
                         type="text"
                         placeholder="dd/mm/yyy"
-                        css={{ borderRightRadius: 0, borderRight: 'none' }}
+                        css={{ borderRightRadius: 0 }}
                       />
                     </Form.Field>
-                    <Form.Field label="Check-out">
+                    <Form.Field label="Check-out" marginLeft="-1px">
                       <Input
                         type="text"
                         placeholder="dd/mm/yyy"
@@ -336,7 +341,7 @@ const Documentation = () => {
             <Text>
               React UI ships with a 4 point scale which is great for building
               applications, but feel free to{' '}
-              <Link href="/core-concepts/customisation">
+              <Link href="/core-concepts/customising-tokens">
                 customise the scale
               </Link>{' '}
               this for your use case. If you're building a blog or documentation
@@ -358,16 +363,15 @@ const Documentation = () => {
           </Example>
           <Para>
             <Text>
-              You can pick font sizes one level apart on the font scale to
-              create a distinguish between the primary and secondary
-              information.
+              To distinguish primary information from secondary, you can pick a
+              font sizes that is one level down on the scale.
             </Text>
             <Text size={3} variant="subtle">
               (Bonus points if you also use one level down on the color scale.)
             </Text>
           </Para>
           <Example>
-            <Example.Preview>
+            <Example.Preview css={{ background: 'white' }}>
               <Stack gap={2} align="center">
                 <Avatar
                   size="medium"
@@ -393,25 +397,29 @@ const Documentation = () => {
           <Divider />
           <Para>
             <Text>
-              This concept isn't new, this is the idea behind Design Tokens.
-              Folks working on design system like{' '}
-              <Link href="http://twitter.com/jina">Jina Anne</Link> have been{' '}
-              <Link href="https://www.youtube.com/watch?v=wDBEc3dJJV8">
-                talking about it{' '}
-              </Link>
-              for more than 6 years now.{' '}
+              This concept wasn't introduced by React UI, this idea was
+              introduced into libraries under the name of Design Tokens about 6
+              years ago by <Link href="http://twitter.com/jina">Jina Anne</Link>
+              .
             </Text>
             <Text>
-              If you'd like to know more about Design Tokens, consider watching
-              the{' '}
-              <Link href="https://www.youtube.com/watch?v=wDBEc3dJJV8">
-                above talk
-              </Link>{' '}
-              or read this article by Nathan Curtis:{' '}
-              <Link href="https://medium.com/eightshapes-llc/tokens-in-design-systems-25dd82d58421">
-                Tokens in Design Systems.
-              </Link>
+              If you'd like to know more about Design Tokens, consider going
+              through these resources:
             </Text>
+            <List as="ol">
+              <Text>
+                <Link href="https://www.youtube.com/watch?v=wDBEc3dJJV8">
+                  Using Design Tokens with the Lightning Design System
+                </Link>
+                , talk by Jina Anne
+              </Text>
+              <Text>
+                <Link href="https://medium.com/eightshapes-llc/tokens-in-design-systems-25dd82d58421">
+                  Design Tokens in Design Systems
+                </Link>
+                , article by Nathan Curtis
+              </Text>
+            </List>
           </Para>
         </Section>
         <Section>

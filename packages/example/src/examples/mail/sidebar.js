@@ -1,5 +1,5 @@
 import React from 'react'
-import { Element, Stack, Link } from 'react-ui'
+import { Element, Stack, Link, merge } from 'react-ui'
 
 export const Sidebar = props => (
   <Element
@@ -65,13 +65,10 @@ const badgeStyles = {
   borderRadius: '25px'
 }
 
-export const Badge = ({ variant = 'default', ...props }) => (
+export const Badge = ({ variant = 'default', css, ...props }) => (
   <Element
     as="span"
-    baseStyles={{
-      ...badgeStyles,
-      variant: `badges.${variant}`
-    }}
+    css={merge(badgeStyles, { variant: `badges.${variant}` }, css)}
     {...props}
   >
     {props.children}

@@ -34,11 +34,11 @@ function Avatar5({ online, ...props }) {
 
 const Documentation = () => {
   return (
-    <ThemeProvider theme={light.theme} components={light.components}>
+    <ThemeProvider tokens={light.tokens} components={light.components}>
       <Page title="Creating new components">
         <Para>
           <Text variant="subtle" css={{ fontStyle: 'italic' }}>
-            Note: This page uses the React UI Light theme.
+            Note: This page uses the React UI Light tokens.
           </Text>
         </Para>
         On this page:
@@ -79,12 +79,12 @@ const Documentation = () => {
             <Text>
               One of these is the <Code>css</Code> prop that is connected to
               your theme — which means it resolves the values you provide to
-              their matching value in the theme.
+              their matching value in the tokens.
             </Text>
             <Text>
               For example, <Code>width</Code> and <Code>height</Code> pick their
-              values from <Code>theme.sizes</Code> and <Code>borderColor</Code>{' '}
-              picks its value from <Code>theme.colors</Code>.
+              values from <Code>tokens.sizes</Code> and <Code>borderColor</Code>{' '}
+              picks its value from <Code>tokens.colors</Code>.
             </Text>
           </Para>
           <Example codeFirst>
@@ -92,10 +92,10 @@ const Documentation = () => {
             import React from 'react'
 
             const styles = {
-              width: 10, // theme.sizes.10
-              height: 10, // theme.sizes.10
+              width: 10, // tokens.sizes.10
+              height: 10, // tokens.sizes.10
               border: '2px solid',
-              borderColor: 'grays.200', // theme.colors.grays.200
+              borderColor: 'grays.200', // tokens.colors.grays.200
               borderRadius: '50%'
             }
 
@@ -144,7 +144,7 @@ const Documentation = () => {
             <Text>
               While inline styles should be used sparingly, components built
               with <Code>Element</Code> connect the <Code>styles</Code> prop
-              with the theme as well.
+              with tokens as well.
             </Text>
           </Para>
           <Example codeFirst>
@@ -346,7 +346,7 @@ const Documentation = () => {
             <Example.Code lang="js">{`
             import React from 'react'
 
-            const theme = {
+            const components = {
               Avatar: {
                 variants: {
                   default: { borderColor: 'grays.200' },
@@ -372,7 +372,7 @@ const Documentation = () => {
             <Example.Preview>
               <div>
                 <ThemeProvider
-                  theme={light.theme}
+                  tokens={light.tokens}
                   components={{
                     Avatar: {
                       variants: {

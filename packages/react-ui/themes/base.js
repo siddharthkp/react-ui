@@ -3,7 +3,7 @@
   Define your scales first
 */
 
-const theme = {
+const tokens = {
   space: {
     0: 0,
     1: '4px',
@@ -73,23 +73,23 @@ const theme = {
 }
 
 // recommended: use the same space grid for size
-theme.sizes = { ...theme.space }
+tokens.sizes = { ...tokens.space }
 
 /* 
   Decisions: 
   You can create aliases in scales based on the scale.
 */
 
-theme.fontSizes.Heading = {
-  page: 8, // reads from theme.fontSizes.8
+tokens.fontSizes.Heading = {
+  page: 8, // reads from tokens.fontSizes.8
   section: 6,
   paragraph: 4
 }
 
-// we define these at the theme level
+// we define these at the tokens level
 // so that they can be used by other
 // components as well
-theme.colors.text = {
+tokens.colors.text = {
   body: 'black',
   link: 'blue',
   subtle: 'grey',
@@ -262,4 +262,4 @@ const components = {
   Paragraph: {}
 }
 
-export { theme, components }
+export { tokens, components }

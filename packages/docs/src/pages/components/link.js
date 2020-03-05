@@ -177,7 +177,6 @@ const Documentation = () => {
             >
               <span>
                 <Link
-                  debug
                   href="https://github.com/siddharthkp/react-ui"
                   target="_blank"
                 >

@@ -39,7 +39,7 @@ const App = () => {
   }, [locationKey])
 
   return (
-    <ThemeProvider theme={tokens} components={components}>
+    <ThemeProvider tokens={tokens} components={components}>
       <Global
         styles={interpolate(
           {
@@ -158,23 +158,30 @@ const ComponentNav = () => {
   return (
     <>
       <Text size={3} color="text.subtle" marginBottom={3}>
-        Building blocks:
+        Primitives:
       </Text>
       <NavSection
         items={[
           { title: 'Element', path: 'Element', todo: true },
+          { title: 'ThemeProvider', path: 'ThemeProvider', todo: true }
+        ]}
+      />
+      <Text size={3} color="text.subtle" marginBottom={3}>
+        Building blocks:
+      </Text>
+      <NavSection
+        items={[
           { title: 'Avatar', path: 'Avatar' },
           { title: 'Button', path: 'Button' },
           { title: 'Heading', path: 'Heading' },
-          { title: 'Image', path: 'Image', todo: true },
+          { title: 'Image', path: 'Image' },
           { title: 'Input', path: 'Input' },
           { title: 'Link', path: 'Link' },
           { title: 'Select', path: 'Select' },
           { title: 'Spinner', path: 'Spinner' },
           { title: 'Switch', path: 'Switch' },
           { title: 'Text', path: 'Text' },
-          { title: 'Textarea', path: 'Textarea' },
-          { title: 'ThemeProvider', path: 'ThemeProvider', todo: true }
+          { title: 'Textarea', path: 'Textarea' }
         ]}
       />
       <Text size={3} color="text.subtle" marginBottom={3}>
@@ -192,17 +199,17 @@ const ComponentNav = () => {
       <NavSection
         items={[
           { title: 'Breadcrumb', path: 'Breadcrumb' },
-          { title: 'Card', path: 'Card', todo: true },
+          { title: 'Card', path: 'Card' },
           { title: 'Form', path: 'Form' },
           { title: 'Menu', path: 'Menu' },
-          { title: 'Paragraph', path: 'Paragraph', todo: true }
+          { title: 'Paragraph', path: 'Paragraph' }
         ]}
       />
     </>
   )
 }
 
-const NavSection = ({ items }) => {
+const NavSection = ({ items, ...props }) => {
   return (
     <Element
       as="ul"
@@ -216,6 +223,7 @@ const NavSection = ({ items }) => {
           paddingY: 2
         }
       }}
+      {...props}
     >
       {items.map(item => (
         <li key={item.path}>
@@ -239,6 +247,7 @@ const Documentation = props => <Element {...props} />
 const Navigation = props => (
   <Column as="aside" {...props}>
     <NavSection
+      marginBottom={16}
       items={[
         { title: 'Getting started', path: 'getting-started' },
         { title: 'Core concepts', path: 'core-concepts' },
@@ -247,6 +256,7 @@ const Navigation = props => (
         // { title: 'Videos', path: 'videos' },
       ]}
     />
+
     <Router>
       <CoreConcepts path="core-concepts/*" />
       <ComponentNav path="components/*" />
@@ -294,9 +304,7 @@ const Home = props => {
               transitionDuration: 4
             },
             ':hover': {
-              Text: {
-                marginLeft: 2
-              }
+              Text: { marginLeft: 2 }
             }
           }}
         >
@@ -444,7 +452,6 @@ const Home = props => {
                   </Link>
                   <Stack direction="vertical">
                     <Link
-                      debug
                       variant="subtle"
                       weight="semibold"
                       href="https://twitter.com/freezydorito"
