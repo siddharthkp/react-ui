@@ -1,6 +1,6 @@
 ## Next steps
 
-docs .........
+docs \........
 theme \\
 website ..\\
 library \\\...\.....\
@@ -8,15 +8,14 @@ demos ....
 
 Docs:
 
-1. theme-provider
 2. element
 3. customisting tokens
 4. variants and sizes
 5. responsive syntax
 6. utilities
 7. credits
-8. write document about using other libraries (react router, reach-ui)
-9. built-in themes
+8. built-in themes
+9. readme
 
 Docs website:
 
@@ -45,6 +44,7 @@ Later:
 
 1. Improve light theme
 2. add multiple scales of fontsizes to base theme as options (comments)
+3. write document about using other libraries (react router, reach-ui)
 
 Notes:
 

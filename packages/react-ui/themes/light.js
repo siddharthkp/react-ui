@@ -451,4 +451,7 @@ const components = {
   Paragraph: {}
 }
 
+const theme = { tokens, components }
+
+export default theme
 export { tokens, components }

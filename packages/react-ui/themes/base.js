@@ -255,11 +255,14 @@ const components = {
     paddingY: 2,
     paddingX: 3,
     '&[data-selected]': {
-      backgroundColor: 'blues.700',
+      backgroundColor: 'blue',
       color: 'white'
     }
   },
   Paragraph: {}
 }
 
+const theme = { tokens, components }
+
+export default theme
 export { tokens, components }

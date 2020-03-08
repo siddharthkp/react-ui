@@ -7,10 +7,12 @@ const Documentation = () => {
   return (
     <Page title="Components">
       <Para>
-        React UI comes with a set of components that are{' '}
-        <Text weight="medium">accessible</Text>,{' '}
-        <Text weight="medium">responsive</Text> and{' '}
-        <Text weight="medium">customisable</Text>.
+        <Text>
+          React UI comes with a set of components that are
+          <Text weight="medium">accessible</Text>,{' '}
+          <Text weight="medium">responsive</Text> and{' '}
+          <Text weight="medium">customisable</Text>.
+        </Text>
       </Para>
 
       <Para>You can import them from the package like this:</Para>
@@ -27,7 +29,7 @@ const Documentation = () => {
         category="Primitives"
         items={[
           { title: 'Element', path: 'Element', todo: true },
-          { title: 'ThemeProvider', path: 'ThemeProvider', todo: true }
+          { title: 'ThemeProvider', path: 'ThemeProvider' }
         ]}
       />
 

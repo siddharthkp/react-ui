@@ -101,12 +101,12 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
           position: 'absolute',
           right: 0,
           top: '10px',
-          svg: { color: copied ? '#38C172' : '#c6cbd1' },
-          ':hover, :focus': { svg: { color: copied ? '#38C172' : '#929FB1' } }
+          svg: { color: copied ? '#38C172' : '#929FB1' },
+          ':hover, :focus': { svg: { color: copied ? '#38C172' : '#c6cbd1' } }
         }}
         onClick={copyCode}
       >
-        {copy}
+        {icon}
       </Button>
       <VisuallyHidden>
         <input
@@ -128,6 +128,7 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
         dangerouslySetInnerHTML={{
           __html: html
         }}
+        {...props}
       />
     </>
   )
@@ -136,7 +137,7 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
 Example.Code = Code
 Example.Preview = Preview
 
-const copy = (
+const icon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"

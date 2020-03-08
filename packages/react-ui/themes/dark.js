@@ -93,7 +93,7 @@ const tokens = {
       100: '#EFF8FF',
       200: '#B7DBF7',
       300: '#A8D1F2',
-      400: '#63A2D8',
+      400: '#66B8FF',
       500: '#3793E0',
       600: '#217CC9',
       700: '#2368A2',
@@ -147,8 +147,8 @@ tokens.sizes = { ...tokens.space }
 tokens.colors.text = {
   subtle: 'grays.500',
   body: 'grays.100',
-  link: 'blues.500',
-  linkHover: 'blues.400'
+  link: 'blues.400',
+  linkHover: 'blues.500'
 }
 
 tokens.colors.error = {
@@ -452,4 +452,7 @@ const components = {
   Paragraph: {}
 }
 
+const theme = { tokens, components }
+
+export default theme
 export { tokens, components }

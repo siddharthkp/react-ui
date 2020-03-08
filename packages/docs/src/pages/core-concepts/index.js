@@ -6,7 +6,11 @@ import { Page, Paragraph as Para } from '../../components'
 const items = [
   { title: 'Constraints based design', path: 'constraints-based-design' },
   { title: 'Customising components', path: 'customising-components' },
-  { title: 'Customising design tokens', path: 'customising-tokens' },
+  {
+    title: 'Customising design tokens',
+    path: 'customising-tokens',
+    todo: true
+  },
   {
     title: 'Creating new components',
     path: 'creating-new-components'
