@@ -373,11 +373,11 @@ const Documentation = () => {
           <Grid>
             <Row css={{ height: 20, background: '#EFA6A6' }} />
             <Column
-              span={[12, 2, 2]}
+              span={[12, 2, 6]}
               css={{ height: [20, 140, 140], background: '#A8EEC1' }}
             />
             <Column
-              span={[12, 10, 10]}
+              span={[12, 10, 6]}
               css={{ height: 140, background: '#B7DBF7' }}
             />
           </Grid>
@@ -386,8 +386,8 @@ const Documentation = () => {
           {`
             <Grid>
               <Row />
-              <Column span={[12, 2, 2]} />
-              <Column span={[12, 10, 10]} />
+              <Column span={[12, 2, 6]} />
+              <Column span={[12, 10, 6]} />
             </Grid>
           `}
         </Example.Code>

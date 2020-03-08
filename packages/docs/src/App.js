@@ -228,8 +228,8 @@ const NavSection = ({ items, ...props }) => {
       {items.map(item => (
         <li key={item.path}>
           {item.todo ? (
-            <Text variant="subtle" css={{ textDecoration: 'line-through' }}>
-              {item.title}
+            <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+              todo: {item.title}
             </Text>
           ) : (
             <Link as={RouterLink} to={item.path}>

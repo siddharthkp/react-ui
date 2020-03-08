@@ -82,8 +82,8 @@ const NavSection = ({ category, items }) => {
         {items.map(item => (
           <Column span={[6, 4, 4]} key={item.path}>
             {item.todo ? (
-              <Text variant="subtle" css={{ textDecoration: 'line-through' }}>
-                {item.title}
+              <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+                todo: {item.title}
               </Text>
             ) : (
               <Link as={RouterLink} to={item.path}>

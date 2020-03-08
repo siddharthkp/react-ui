@@ -38,7 +38,9 @@ const Documentation = () => {
         {items.map(item => (
           <li key={item.path}>
             {item.todo ? (
-              <Text variant="subtle">{item.title}</Text>
+              <Text variant="subtle" css={{ fontStyle: 'italic' }}>
+                todo: {item.title}
+              </Text>
             ) : (
               <Link as={RouterLink} to={item.path}>
                 {item.title}
