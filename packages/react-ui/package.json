@@ -25,9 +25,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
-    "@ds-tools/gatsby-theme-docs": "0.0.1",
     "@ds-tools/storybook": "0.0.1",
-    "gatsby": "^2.13.58",
     "rollup": "^1.27.8",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-node-resolve": "^5.2.0",
