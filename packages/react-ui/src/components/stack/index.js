@@ -16,7 +16,8 @@ const Stack = ({ inline, justify, align, direction, gap, css, ...props }) => {
       d === 'vertical' ? 'column' : 'row'
     )
     styles['> *:not(:last-child)'] = direction.map(d => ({
-      [d === 'vertical' ? 'marginBottom' : 'marginRight']: gap
+      [d === 'vertical' ? 'marginBottom' : 'marginRight']: gap,
+      [d === 'vertical' ? 'marginRight' : 'marginBottom']: 0
     }))
   } else {
     styles.flexDirection = direction === 'vertical' ? 'column' : 'row'

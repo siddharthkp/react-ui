@@ -18,12 +18,15 @@ export function interpolate(styles = {}, theme) {
       const mq = facepaint(
         Object.values(breakpoints).map(
           breakpoint => `@media (min-width: ${breakpoint})`
-        )
+        ),
+        { overlap: true }
       )
 
       const values = value // renaming to keep grammar easy to understand
       const responsiveValues = values.map(v => get(key, v, theme, label))
-      filledStyles = merge(filledStyles, mq({ [key]: responsiveValues })[0])
+      const responsiveStyles = mq({ [key]: responsiveValues })[0]
+
+      filledStyles = merge(filledStyles, responsiveStyles)
     } else if (typeof value === 'object') {
       // recursively interpolate
       filledStyles[key] = interpolate(value, theme)
