@@ -49,6 +49,11 @@ const Documentation = () => {
               options: ['default', 'subtle'],
               description: '',
               default: 'default'
+            },
+            {
+              name: 'maxWidth',
+              type: 'number [unit on tokens.sizes] or string with unit (150px)',
+              description: 'Truncates text with ellipses'
             }
           ]}
         />
@@ -80,6 +85,17 @@ const Documentation = () => {
             <Text>left</Text>
             <Text align="center">center</Text>
             <Text align="right">right</Text>
+          `}</Example.Code>
+        </Example>
+
+        <Example title="maxWidth">
+          <Example.Preview direction="vertical">
+            <Text maxWidth={12}>Truncate beyond max width</Text>
+            <Text maxWidth="180px">Truncate beyond max width</Text>
+          </Example.Preview>
+          <Example.Code>{`
+            <Text maxWidth={12}>Truncate beyond max width</Text>
+            <Text maxWidth="180px">Truncate beyond max width</Text>
           `}</Example.Code>
         </Example>
       </Section>

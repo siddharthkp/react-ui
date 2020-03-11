@@ -176,6 +176,14 @@ tokens.fontSizes.Heading = {
 */
 
 const components = {
+  /** Global */
+  Global: {
+    body: {
+      background: 'grays.900',
+      color: 'text.body'
+    }
+  },
+
   /** Atoms */
 
   Avatar: {

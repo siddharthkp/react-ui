@@ -1,7 +1,5 @@
 body {
   margin: 0;
-  background-color: #202833;
-  color: #f5faff;
   overflow: hidden;
 }
 
@@ -12,18 +10,5 @@ html {
 @supports (font-variation-settings: normal) {
   html {
     font-family: 'Inter var', sans-serif;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-}
-
-@keyframes slide-up {
-  from {
-    transform: translateY(200px);
-    opacity: 0;
   }
 }

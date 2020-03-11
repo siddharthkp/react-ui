@@ -1,5 +1,9 @@
 import React from 'react'
-import { ThemeProvider as EmotionThemeProvider } from '@ds-tools/primitives'
+import {
+  ThemeProvider as EmotionThemeProvider,
+  Global,
+  interpolate
+} from '@ds-tools/primitives'
 import { merge } from '../../../utils'
 
 // import * as light from '../../../themes/light'
@@ -31,6 +35,7 @@ function ThemeProvider({
 
   return (
     <Provider theme={combinedTheme} {...props}>
+      <Global styles={interpolate(components.Global, combinedTheme)} />
       {props.children}
     </Provider>
   )
