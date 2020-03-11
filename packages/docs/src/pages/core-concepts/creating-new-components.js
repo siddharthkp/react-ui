@@ -16,31 +16,61 @@ const styles = {
   borderRadius: '50%'
 }
 function Avatar2(props) {
-  return <Element as="img" css={styles} {...props} />
+  return (
+    <ThemeProvider tokens={light.tokens}>
+      <Element as="img" css={styles} {...props} />
+    </ThemeProvider>
+  )
 }
 function Avatar3({ css, ...props }) {
-  return <Element as="img" css={merge(styles, css)} {...props} />
+  return (
+    <ThemeProvider tokens={light.tokens}>
+      <Element as="img" css={merge(styles, css)} {...props} />
+    </ThemeProvider>
+  )
 }
 function Avatar4({ css, ...props }) {
-  return <Element as="img" component="Avatar" css={styles} {...props} />
+  return (
+    <ThemeProvider tokens={light.tokens}>
+      <Element as="img" component="Avatar" css={styles} {...props} />
+    </ThemeProvider>
+  )
 }
+
 function Avatar5({ online, ...props }) {
   const stylesWithStatus = merge(styles, {
     borderColor: online ? 'greens.500' : 'grays.200'
   })
 
-  return <Element as="img" css={stylesWithStatus} {...props} />
+  return (
+    <ThemeProvider tokens={light.tokens}>
+      <Element as="img" css={stylesWithStatus} {...props} />
+    </ThemeProvider>
+  )
+}
+
+function Avatar6(props) {
+  return (
+    <ThemeProvider
+      tokens={light.tokens}
+      components={{
+        Avatar: {
+          variants: {
+            default: { borderColor: 'grays.200' },
+            online: { borderColor: 'greens.500' }
+          }
+        }
+      }}
+    >
+      <Element as="img" component="Avatar" css={styles} {...props} />
+    </ThemeProvider>
+  )
 }
 
 const Documentation = () => {
   return (
-    <ThemeProvider tokens={light.tokens} components={light.components}>
+    <>
       <Page title="Creating new components">
-        <Para>
-          <Text variant="subtle" css={{ fontStyle: 'italic' }}>
-            Note: This page uses the React UI Light tokens.
-          </Text>
-        </Para>
         On this page:
         <List>
           <Link href="#using-element">1. Using the base element</Link>
@@ -71,6 +101,11 @@ const Documentation = () => {
               <Avatar1 src="https://avatars0.githubusercontent.com/u/43093040?v=4&s=60" />
             </Example.Preview>
           </Example>
+          <Para marginTop={-40}>
+            <Text variant="subtle" size={3} css={{ fontStyle: 'italic' }}>
+              Note: This page uses the React UI Light tokens in examples.
+            </Text>
+          </Para>
           <Para>
             <Text>
               By using <Code>Element as="img"</Code> instead of <Code>img</Code>
@@ -119,10 +154,10 @@ const Documentation = () => {
           </Para>
           <Para>
             <Text>
-              The other features that <Code>Element</Code> adds is the support
-              for <Code>margin</Code>,{' '}
-              <Link href="accepting-props">variant</Link> and <Code>style</Code>{' '}
-              props.
+              <Link href="/components/Element">
+                Here is a reference for all the features that{' '}
+                <Code>Element</Code> adds.
+              </Link>
             </Text>
           </Para>
           <Example codeFirst>
@@ -294,9 +329,6 @@ const Documentation = () => {
               help of the border color. We accept a boolean prop{' '}
               <Code>online</Code> from the developer using our component.
             </Text>
-            {/* <Text>1. talk about merging styles</Text>
-          <br />
-          <Text>2. talk about variants</Text> */}
           </Para>
 
           <Example codeFirst>
@@ -344,56 +376,48 @@ const Documentation = () => {
           </Para>
           <Example codeFirst>
             <Example.Code lang="js">{`
+            // index.js
+
             import React from 'react'
+            import { tokens } from 'react-ui/themes/light'
 
             const components = {
               Avatar: {
                 variants: {
-                  default: { borderColor: 'grays.200' },
-                  online: { borderColor: 'reds.200' }
+                  default: { borderColor: 'grays.500' },
+                  online: { borderColor: 'greens.500' }
                 }
               }
             }
 
-            // common styles - static
-            const styles = { ... }
+            const App = () => (
+              <ThemeProvider tokens={tokens} components={components}>
+                <App />
+              </ThemeProvider>
+            )
 
-            function Avatar(props) {
-              return <Element as="img" css={styles} {...props} />
-            }
-
-            render(
-              <>
-                <Avatar src="https://github.com/sameen-shi.png" />
-                <Avatar variant="online" src="https://github.com/sameen-shi.png" />
-              </>
-            )  
+            export default App
           `}</Example.Code>
-            <Example.Preview>
-              <div>
-                <ThemeProvider
-                  tokens={light.tokens}
-                  components={{
-                    Avatar: {
-                      variants: {
-                        default: { borderColor: 'grays.200' },
-                        online: { borderColor: 'greens.500' }
-                      }
-                    }
-                  }}
-                >
-                  <Avatar4 src="https://github.com/sameen-shi.png" />
-                  <Avatar4
-                    variant="online"
-                    src="https://github.com/sameen-shi.png"
-                  />
-                </ThemeProvider>
-              </div>
+          </Example>
+
+          <Example>
+            <Example.Code>
+              {`
+              <Avatar src="https://github.com/sameen-shi.png" />
+              <Avatar variant="online" src="https://github.com/sameen-shi.png" />
+            `}
+            </Example.Code>
+            <Example.Preview gap={2}>
+              <Avatar6 src="https://github.com/sameen-shi.png" />
+              <Avatar6
+                variant="online"
+                src="https://github.com/sameen-shi.png"
+              />
             </Example.Preview>
           </Example>
         </Section>
       </Page>
-    </ThemeProvider>
+    </>
   )
 }
 

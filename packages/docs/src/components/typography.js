@@ -5,11 +5,12 @@ import {
   Paragraph as BaseParagraph,
   merge
 } from 'react-ui'
+import { withTheme } from 'emotion-theming'
 
 export const Paragraph = props => {
   return (
     <BaseParagraph
-      css={{ display: 'block' }}
+      css={{ display: 'block', lineHeight: 1.4 }}
       gap={4}
       marginBottom={10}
       {...props}
@@ -36,24 +37,27 @@ export const Tagline = props => {
   )
 }
 
-export const Code = props => {
+export const Code = withTheme(props => {
+  const isDark = props.theme.name === 'React UI Dark'
+
   return (
     <Text
       css={{
         fontFamily: 'Roboto Mono',
         fontSize: '90%',
         verticalAlign: 'text-bottom',
-        backgroundColor: 'App.borderColor',
+        backgroundColor: isDark ? 'grays.800' : 'grays.200',
+        color: isDark ? 'grays.100' : 'grays.800',
         paddingX: 1,
         borderRadius: 1,
         position: 'relative',
-        bottom: '1px',
+        bottom: '-1px',
         paddingBottom: '1px'
       }}
       {...props}
     />
   )
-}
+})
 
 export const SectionHeading = ({ css, ...props }) => {
   return (

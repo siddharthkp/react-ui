@@ -1,6 +1,6 @@
 ## Next steps
 
-docs \........
+docs \\........
 theme \\
 website ..\\
 library \\\...\.....\
@@ -8,9 +8,8 @@ demos ....
 
 Docs:
 
-2. element
-3. customisting tokens
-4. variants and sizes
+3. \*tokens - what are they, example, table, customising syntax
+4. customisting tokens
 5. responsive syntax
 6. utilities
 7. credits
@@ -32,19 +31,23 @@ Library:
 9. make controlled switch to avoid leaky abstraction
 10. bug: select caret color doesnt sync with theme
 11. global styles via theme
+12. allow variant key `default` to refer to a different variant
+13. allow variants to be defined inside the component with a variants prop
 
 Demos:
 
-1. make email app
-2. make airbnb card
-3. make skyscanner card
-4. make twitter card
+1. podcast app
+2. make email app
+3. make airbnb card
+4. make skyscanner card
+5. make twitter card
 
 Later:
 
 1. Improve light theme
 2. add multiple scales of fontsizes to base theme as options (comments)
 3. write document about using other libraries (react router, reach-ui)
+4. docs: highlight lines
 
 Notes:
 

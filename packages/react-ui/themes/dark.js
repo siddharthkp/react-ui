@@ -1,4 +1,5 @@
 const tokens = {
+  name: 'React UI Dark',
   space: {
     0: 0,
     1: '4px',
@@ -309,6 +310,19 @@ const components = {
       },
       subtle: {
         color: 'text.subtle',
+        textDecoration: 'none',
+        ':hover': {
+          color: 'text.linkHover'
+        },
+        '&[aria-current]': {
+          color: 'text.link'
+        },
+        ':focus': {
+          color: 'text.linkHover'
+        }
+      },
+      body: {
+        color: 'text.body',
         textDecoration: 'none',
         ':hover': {
           color: 'text.linkHover'

@@ -38,7 +38,6 @@ const useThemeSwitcher = () => {
     tokens: theme.tokens,
     components: theme.components,
     setThemeName,
-
     ThemeSwitcher
   }
 }

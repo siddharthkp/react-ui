@@ -10,10 +10,6 @@ export const Link = ({ css, ...props }) => {
   )
 }
 
-Link.propTypes = {
-  variant: PropTypes.oneOf(['default', 'subtle'])
-}
+Link.propTypes = {}
 
-Link.defaultProps = {
-  variant: 'default'
-}
+Link.defaultProps = {}
