@@ -1,9 +1,35 @@
+/** next steps:
+ *
+ * - [ ] add play and pause buttons
+ * - [ ] show duration of podcast 12m / 45m or 27min left
+ * - [ ] smol player + big player (animations are for loader)
+ * - [ ] responsive design for desktop
+ */
+
 import React from 'react'
+import ms from 'pretty-ms'
 import { formatDistance } from 'date-fns'
-import { ThemeProvider, Stack, Avatar, Text, Link, calc } from 'react-ui'
 import { tokens, components } from 'react-ui/themes/dark'
+import {
+  ThemeProvider,
+  Stack,
+  Avatar,
+  Text,
+  Link,
+  Element,
+  Image,
+  calc
+} from 'react-ui'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link as RouterLink,
+  useParams
+} from 'react-router-dom'
+
 import './style.css'
-import { podcastIds, getEpisodes } from './api'
+import { podcastIds, getEpisodes, getEpisode } from './api'
 
 const App = () => {
   const [episodes, setEpisodes] = React.useState([])
@@ -29,8 +55,16 @@ const App = () => {
 
   return (
     <ThemeProvider tokens={tokens} components={components}>
-      <Header />
-      <Feed episodes={episodes} />
+      <Router>
+        <Header />
+        <Feed episodes={episodes} />
+        <Switch>
+          <Route
+            path="/podcast/:podcastId/episode/:episodeId"
+            children={<Player />}
+          />
+        </Switch>
+      </Router>
     </ThemeProvider>
   )
 }
@@ -64,53 +98,128 @@ const Header = () => {
   )
 }
 
-const Feed = ({ episodes }) => {
-  console.log(episodes)
+const day = 24 * 60 * 60 * 1000
+
+const Feed = ({ episodes: allEpisodes }) => {
+  console.log(allEpisodes)
+
+  const episodes = {
+    week: allEpisodes.filter(episode => {
+      return new Date() - episode.pub_date_ms < 8 * day
+    }),
+    month: allEpisodes.filter(episode => {
+      return (
+        new Date() - episode.pub_date_ms < 30 * day &&
+        new Date() - episode.pub_date_ms > 8 * day
+      )
+    })
+  }
+
   return (
     <Stack
-      as="ul"
       direction="vertical"
-      gap={6}
-      css={{
-        paddingY: 6,
-        paddingX: 0,
-        height: calc('100vh - 12'),
-        overflowY: 'auto'
-      }}
+      gap={8}
+      css={{ height: calc('100vh - 64px'), paddingY: 8, overflowY: 'auto' }}
     >
-      {episodes.map(episode => (
-        <Stack
-          as="li"
-          key={episode.id}
-          align="center"
-          gap={4}
-          css={{ paddingX: 6 }}
-        >
-          <Avatar
-            size="large"
-            src={episode.thumbnail}
-            alt="podcast thumbnail"
-          />
-          <Stack direction="vertical" css={{ width: calc('100% - 88px') }}>
-            <Link
-              href={'/episode/' + episode.id}
-              variant="body"
-              size={4}
-              maxWidth="100%"
-            >
-              {episode.title}
-            </Link>
-            <Text variant="subtle" size={3} maxWidth="100%">
-              {episode.description.replace(/<\/?[^>]+(>|$)/g, '')}
-            </Text>
-            <Text size={3} variant="subtle">
-              {formatDistance(episode.pub_date_ms, new Date())} ago
-            </Text>
-          </Stack>
-        </Stack>
-      ))}
+      <EpisodeList label="This week" episodes={episodes.week} />
+      <EpisodeList label="Earlier this month" episodes={episodes.month} />
     </Stack>
   )
 }
+
+const Player = () => {
+  let { podcastId, episodeId } = useParams()
+  const episode = getEpisode(podcastId, episodeId)
+
+  return (
+    <>
+      <Element
+        css={{
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          backgroundColor: 'black',
+          opacity: 0.6
+        }}
+      />
+      <Element
+        key={episodeId}
+        css={{
+          position: 'fixed',
+          bottom: 0,
+          width: '100%',
+          backgroundColor: 'grays.900',
+          borderTop: '1px solid',
+          borderColor: 'grays.800'
+        }}
+      >
+        <Stack direction="vertical" align="center" marginY={10} gap={5}>
+          <Image
+            src={episode.thumbnail}
+            alt="Epsiode thumbnail"
+            css={{
+              borderRadius: 3,
+              size: '250px'
+            }}
+          />
+          <audio controls>
+            <source src={episode.audio} />
+          </audio>
+          <Stack direction="vertical" align="center" gap={1}>
+            <Text>{episode.title}</Text>
+            <Text variant="subtle" size={3}>
+              {episode.podcast.title}
+            </Text>
+          </Stack>
+        </Stack>
+      </Element>
+    </>
+  )
+}
+
+const EpisodeList = ({ label, episodes }) => (
+  <Stack as="ul" direction="vertical" gap={6} css={{ paddingLeft: 0 }}>
+    <Text variant="subtle" size={3} marginLeft={6}>
+      {label}
+    </Text>
+    {episodes.map(episode => (
+      <Episode key={episode.id} episode={episode} />
+    ))}
+  </Stack>
+)
+
+const Episode = ({ episode }) => (
+  <Stack as="li" align="center" gap={4} css={{ paddingX: 6 }}>
+    <Avatar size="large" src={episode.thumbnail} alt="podcast thumbnail" />
+    <Stack direction="vertical" gap={1} css={{ width: calc('100% - 88px') }}>
+      <Link
+        as={RouterLink}
+        to={'/podcast/' + episode.podcast.id + '/episode/' + episode.id}
+        variant="body"
+        size={4}
+        maxWidth="100%"
+      >
+        {episode.title}
+      </Link>
+
+      <Stack gap={2}>
+        <Text size={3} variant="subtle">
+          {formatDistance(episode.pub_date_ms, new Date())} ago
+        </Text>
+        <Text size={3} variant="subtle">
+          ·
+        </Text>
+        <Text size={3} variant="subtle">
+          {ms(episode.audio_length_sec * 1000, { compact: true })}
+        </Text>
+      </Stack>
+      <Text variant="subtle" size={3} maxWidth="100%">
+        {episode.description.replace(/<\/?[^>]+(>|$)/g, '')}
+      </Text>
+    </Stack>
+  </Stack>
+)
 
 export default App
