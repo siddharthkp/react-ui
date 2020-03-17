@@ -116,8 +116,6 @@ const Header = () => {
 const day = 24 * 60 * 60 * 1000
 
 const Feed = ({ episodes: allEpisodes }) => {
-  console.log(allEpisodes)
-
   const episodes = {
     week: allEpisodes.filter(episode => {
       return new Date() - episode.pub_date_ms < 8 * day
@@ -152,7 +150,7 @@ const Player = () => {
   let { podcastId, episodeId } = useParams()
   const episode = getEpisode(podcastId, episodeId)
 
-  const [playing, setPlaying] = React.useState(false)
+  const [playing, setPlaying] = React.useState(true)
   const [currentTime, setCurrentTime] = React.useState(0)
   const audioRef = React.useRef()
 
@@ -199,12 +197,12 @@ const Player = () => {
           backgroundColor: 'grays.900',
           borderTop: '1px solid',
           borderColor: ['grays.800', 'grays.800', 'transparent'],
-          height: size === 'small' ? 12 : calc('1 * 100'),
+          height: size === 'small' ? 12 : '420px',
           transition: 'height ease-in-out',
           transitionDuration: 4
         }}
       >
-        <audio ref={audioRef}>
+        <audio ref={audioRef} autoPlay>
           <source src={episode.audio} />
         </audio>
 
@@ -272,7 +270,6 @@ const SmallPlayer = ({
         style={{
           position: 'absolute',
           top: 0,
-
           size: 12,
           backgroundColor: '#000000cc',
           color: playing ? 'white' : 'blues.400'
@@ -357,8 +354,8 @@ const BigPlayer = ({
       )}
     </Button>
 
-    <Stack direction="vertical" align="center" gap={1}>
-      <Text>{episode.title}</Text>
+    <Stack direction="vertical" align="center" gap={1} marginX={10}>
+      <Text align="center">{episode.title}</Text>
       <Text variant="subtle" size={3}>
         {episode.podcast.title}
       </Text>
