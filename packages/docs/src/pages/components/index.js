@@ -28,7 +28,7 @@ const Documentation = () => {
       <NavSection
         category="Primitives"
         items={[
-          { title: 'Element', path: 'Element', todo: true },
+          { title: 'Element', path: 'Element' },
           { title: 'ThemeProvider', path: 'ThemeProvider' }
         ]}
       />

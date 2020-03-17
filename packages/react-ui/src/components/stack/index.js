@@ -59,7 +59,6 @@ Stack.propTypes = {
 }
 
 Stack.defaultProps = {
-  gap: 0,
   direction: 'horizontal',
   inline: false
 }

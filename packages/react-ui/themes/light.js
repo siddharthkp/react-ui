@@ -4,6 +4,7 @@
 */
 
 const tokens = {
+  name: 'React UI Light',
   space: {
     0: 0,
     1: '4px',
@@ -168,8 +169,15 @@ tokens.fontSizes.Heading = {
 */
 
 const components = {
-  /** Atoms */
+  /** Global */
+  Global: {
+    body: {
+      background: 'grays.100',
+      color: 'text.body'
+    }
+  },
 
+  /** Atoms */
   Avatar: {
     sizes: { small: 7, medium: 10, large: 15 },
     border: '2px solid',
@@ -302,6 +310,19 @@ const components = {
       },
       subtle: {
         color: 'text.subtle',
+        textDecoration: 'none',
+        ':hover': {
+          color: 'text.linkHover'
+        },
+        '&[aria-current]': {
+          color: 'text.link'
+        },
+        ':focus': {
+          color: 'text.linkHover'
+        }
+      },
+      body: {
+        color: 'text.body',
         textDecoration: 'none',
         ':hover': {
           color: 'text.linkHover'

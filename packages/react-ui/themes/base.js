@@ -4,6 +4,7 @@
 */
 
 const tokens = {
+  name: 'React UI Base',
   space: {
     0: 0,
     1: '4px',

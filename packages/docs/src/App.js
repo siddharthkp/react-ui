@@ -162,7 +162,7 @@ const ComponentNav = () => {
       </Text>
       <NavSection
         items={[
-          { title: 'Element', path: 'Element', todo: true },
+          { title: 'Element', path: 'Element' },
           { title: 'ThemeProvider', path: 'ThemeProvider' }
         ]}
       />

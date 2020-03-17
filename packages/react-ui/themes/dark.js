@@ -1,4 +1,5 @@
 const tokens = {
+  name: 'React UI Dark',
   space: {
     0: 0,
     1: '4px',
@@ -53,7 +54,16 @@ const tokens = {
     2: '992px'
   },
 
-  durations: [0, '75ms', '100ms', '150ms', '200ms', '300ms', '500ms', '1000ms'],
+  durations: {
+    0: 0,
+    1: '75ms',
+    2: '100ms',
+    3: '150ms',
+    4: '200ms',
+    5: '300ms',
+    6: '500ms',
+    7: '1000ms'
+  },
 
   // based on elevation levels
   shadows: {
@@ -175,6 +185,14 @@ tokens.fontSizes.Heading = {
 */
 
 const components = {
+  /** Global */
+  Global: {
+    body: {
+      background: 'grays.900',
+      color: 'text.body'
+    }
+  },
+
   /** Atoms */
 
   Avatar: {
@@ -309,6 +327,19 @@ const components = {
       },
       subtle: {
         color: 'text.subtle',
+        textDecoration: 'none',
+        ':hover': {
+          color: 'text.linkHover'
+        },
+        '&[aria-current]': {
+          color: 'text.link'
+        },
+        ':focus': {
+          color: 'text.linkHover'
+        }
+      },
+      body: {
+        color: 'text.body',
         textDecoration: 'none',
         ':hover': {
           color: 'text.linkHover'

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Element } from '@ds-tools/primitives'
 import { merge } from '../../../utils'
 
-function Text({ size, color, align, weight, block, css, ...props }) {
+function Text({ size, color, align, weight, block, css, maxWidth, ...props }) {
   return (
     <Element
       as="span"
@@ -14,13 +14,21 @@ function Text({ size, color, align, weight, block, css, ...props }) {
           textAlign: align,
           fontWeight: weight,
           color: color,
-          display: block || props.marginBottom ? 'block' : 'inline'
+          display: block || props.marginBottom ? 'block' : 'inline',
+          maxWidth: maxWidth,
+          ...(maxWidth ? overflowStyles : {})
         },
         css
       )}
       {...props}
     />
   )
+}
+
+const overflowStyles = {
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap'
 }
 
 Text.propTypes = {

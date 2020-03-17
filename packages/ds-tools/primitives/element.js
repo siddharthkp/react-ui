@@ -8,7 +8,9 @@ import interpolate from './interpolate'
 const clone = obj => merge(obj, {})
 
 /** Base element (name is prefixed to the component) */
-const rui = styled('div')()
+const rui = styled('div')({
+  boxSizing: 'border-box'
+})
 
 const marginProps = [
   'margin',
@@ -40,7 +42,9 @@ function Element(
     console.warn(warning)
   }
 
-  const margins = {}
+  const margins = {
+    margin: 0 // reset: by default components should have no margin
+  }
   Object.keys(props).forEach(prop => {
     if (marginProps.includes(prop)) margins[prop] = props[prop]
   })
