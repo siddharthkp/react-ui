@@ -2,6 +2,10 @@ body {
   margin: 0;
   overflow: hidden;
 }
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent; /* For some Androids */
+}
 
 @import url('https://rsms.me/inter/inter.css');
 html {

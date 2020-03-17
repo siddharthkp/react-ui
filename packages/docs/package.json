@@ -1,7 +1,7 @@
 {
   "name": "docs",
   "version": "0.0.0",
-  "private": "true",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -18,8 +18,8 @@
     "prismjs": "^1.19.0",
     "react": "^16.8.9",
     "react-dom": "^16.8.9",
-    "react-scripts": "3.1.1",
-    "react-ui": "1.0.0-beta.12"
+    "react-scripts": "^3.4.0",
+    "react-ui": "1.0.0-beta.14"
   },
   "author": "siddharthkp",
   "license": "MIT",

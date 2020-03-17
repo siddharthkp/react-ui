@@ -36,6 +36,8 @@ import {
   Link as RouterLink,
   useParams
 } from 'react-router-dom'
+import Draggable from 'react-draggable'
+import useInterval from 'use-interval'
 
 import './style.css'
 import { podcastIds, getEpisodes, getEpisode } from './api'
@@ -167,11 +169,44 @@ const Player = () => {
     return () => window.clearInterval(timeout)
   }, [audioRef])
 
-  const [size, setSize] = React.useState('big')
+  const [dragging, setDragging] = React.useState(false)
+
+  const [y, setY] = React.useState(0)
+  const onDrag = (event, ui) => {
+    setY(ui.y)
+    setDragging(true)
+  }
+
+  const [finalY, setFinalY] = React.useState(0)
+
+  useInterval(() => {
+    if (dragging || finalY === y) return
+
+    if (finalY + 10 > y && finalY - 10 < y) setY(finalY)
+    else if (finalY < y) setY(y - 10)
+    else if (finalY > y) setY(y + 10)
+  }, 1000 / 60)
+
+  const [startY, setStartY] = React.useState(0)
+  const onDragStart = (event, ui) => {
+    setStartY(ui.y)
+  }
+
+  const threshold = 60
+  const onDragStop = (event, ui) => {
+    setDragging(false)
+
+    if (y > startY && y - startY > threshold) setFinalY(360)
+    else if (y > startY && y - startY < threshold) setFinalY(0)
+
+    if (startY > y && startY - y > threshold) setFinalY(0)
+    else if (startY > y && startY - y < threshold) setFinalY(360)
+  }
 
   return (
     <>
       <Element
+        id="backdrop"
         css={{
           position: 'absolute',
           top: 0,
@@ -179,74 +214,79 @@ const Player = () => {
           left: 0,
           right: 0,
           backgroundColor: 'black',
-          opacity: 0.6,
+          opacity: (1 - y / 360) * 0.6,
           display: [
-            size === 'small' ? 'none' : 'block',
-            size === 'small' ? 'none' : 'block',
+            y === 360 ? 'none' : 'block',
+            y === 360 ? 'none' : 'block',
             'none'
           ]
         }}
-        onClick={() => setSize('small')}
+        onClick={() => setFinalY(360)}
       />
-      <Element
-        key={episodeId}
-        css={{
-          position: ['fixed', 'fixed', 'relative'],
-          bottom: 0,
-          width: '100%',
-          backgroundColor: 'grays.900',
-          borderTop: '1px solid',
-          borderColor: ['grays.800', 'grays.800', 'transparent'],
-          height: size === 'small' ? 12 : '420px',
-          transition: 'height ease-in-out',
-          transitionDuration: 4
-        }}
+      <Draggable
+        axis="y"
+        bounds={{ top: 0, bottom: 420 - 60 }}
+        position={{ x: 0, y }}
+        onDrag={onDrag}
+        onStart={onDragStart}
+        onStop={onDragStop}
+        grid={[1, 1]}
       >
-        <audio ref={audioRef} autoPlay>
-          <source src={episode.audio} />
-        </audio>
+        <Element
+          key={episodeId}
+          css={{
+            position: ['fixed', 'fixed', 'relative'],
+            bottom: 0,
+            width: '100%',
+            backgroundColor: 'grays.900',
+            borderTop: '1px solid',
+            borderColor: ['grays.800', 'grays.800', 'transparent'],
+            height: '420px'
+            // transition: 'ease-in'
+            // transitionDuration: dragging ? 0 : 4
+          }}
+        >
+          <audio ref={audioRef} autoPlay>
+            <source src={episode.audio} />
+          </audio>
 
-        <BigPlayer
-          css={{
-            opacity: size === 'big' ? 1 : 0,
-            transition: 'opacity ease-in-out',
-            transitionDuration: 5
-          }}
-          {...{
-            setSize,
-            setPlaying,
-            episode,
-            playing,
-            currentTime,
-            audioRef
-          }}
-        />
-        <SmallPlayer
-          css={{
-            opacity: size === 'small' ? 1 : 0,
-            transition: 'opacity ease-in-out',
-            transitionDuration: 4,
-            position: 'absolute',
-            top: 0,
-            width: '100%'
-          }}
-          {...{
-            setSize,
-            setPlaying,
-            episode,
-            playing,
-            currentTime,
-            audioRef
-          }}
-        />
-      </Element>
+          <BigPlayer
+            style={{
+              opacity: (360 - y) / 360
+            }}
+            {...{
+              setPlaying,
+              episode,
+              playing,
+              currentTime,
+              audioRef
+            }}
+          />
+          <SmallPlayer
+            css={{
+              position: 'absolute',
+              top: 0,
+              width: '100%',
+              cursor: 'pointer',
+              opacity: (y - 320) / 40
+            }}
+            onClick={() => setFinalY(0)}
+            {...{
+              setPlaying,
+              episode,
+              playing,
+              currentTime,
+              audioRef
+            }}
+          />
+        </Element>
+      </Draggable>
     </>
   )
 }
 
 const SmallPlayer = ({
   setPlaying,
-  setSize,
   episode,
   playing,
   currentTime,
@@ -254,23 +294,18 @@ const SmallPlayer = ({
   ...props
 }) => {
   return (
-    <Stack
-      gap={2}
-      onClick={() => setSize('big')}
-      css={{ cursor: 'pointer' }}
-      {...props}
-    >
+    <Stack gap={2} {...props}>
       <Image
         src={episode.thumbnail}
         alt="Epsiode thumbnail"
-        css={{ size: 12 }}
+        css={{ size: 15 }}
       />
       <Button
         variant="link"
         style={{
           position: 'absolute',
           top: 0,
-          size: 12,
+          size: 15,
           backgroundColor: '#000000cc',
           color: playing ? 'white' : 'blues.400'
         }}
@@ -310,7 +345,6 @@ const SmallPlayer = ({
 }
 
 const BigPlayer = ({
-  setSize,
   setPlaying,
   episode,
   playing,
