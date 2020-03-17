@@ -1,9 +1,15 @@
 /** next steps:
  *
- * - [ ] add play and pause buttons
- * - [ ] show duration of podcast 12m / 45m or 27min left
- * - [ ] smol player + big player (animations are for loader)
- * - [ ] responsive design for desktop
+ * - [x] add play and pause buttons
+ * - [x] show duration of podcast 12m / 45m or 27min left
+ * - [x] smol player + big player
+ * - [x] transition animation for switching between players
+ * - [x] responsive design for desktop
+ * - [ ] publish the docs (beta)
+ * - [ ] show warning if value is not on the scale
+ * - [ ] define new scale unit
+ * - [ ] bug: borderTop doesn't take responsive syntax
+ 
  */
 
 import React from 'react'
@@ -14,10 +20,13 @@ import {
   ThemeProvider,
   Stack,
   Avatar,
+  Button,
   Text,
   Link,
   Element,
   Image,
+  Grid,
+  Column,
   calc
 } from 'react-ui'
 import {
@@ -57,13 +66,19 @@ const App = () => {
     <ThemeProvider tokens={tokens} components={components}>
       <Router>
         <Header />
-        <Feed episodes={episodes} />
-        <Switch>
-          <Route
-            path="/podcast/:podcastId/episode/:episodeId"
-            children={<Player />}
-          />
-        </Switch>
+        <Grid>
+          <Column span={[12, 12, 8]}>
+            <Feed episodes={episodes} />
+          </Column>
+          <Column span={[12, 12, 4]}>
+            <Switch>
+              <Route
+                path="/podcast/:podcastId/episode/:episodeId"
+                children={<Player />}
+              />
+            </Switch>
+          </Column>
+        </Grid>
       </Router>
     </ThemeProvider>
   )
@@ -119,7 +134,13 @@ const Feed = ({ episodes: allEpisodes }) => {
     <Stack
       direction="vertical"
       gap={8}
-      css={{ height: calc('100vh - 64px'), paddingY: 8, overflowY: 'auto' }}
+      css={{
+        height: calc('100vh - 64px'),
+        paddingY: 8,
+        overflowY: 'auto',
+        maxWidth: '768px',
+        marginX: 'auto'
+      }}
     >
       <EpisodeList label="This week" episodes={episodes.week} />
       <EpisodeList label="Earlier this month" episodes={episodes.month} />
@@ -131,6 +152,25 @@ const Player = () => {
   let { podcastId, episodeId } = useParams()
   const episode = getEpisode(podcastId, episodeId)
 
+  const [playing, setPlaying] = React.useState(false)
+  const [currentTime, setCurrentTime] = React.useState(0)
+  const audioRef = React.useRef()
+
+  React.useEffect(() => {
+    if (playing) audioRef.current.play()
+    else audioRef.current.pause()
+  }, [playing])
+
+  React.useEffect(() => {
+    let timeout = window.setInterval(() => {
+      if (audioRef.current) setCurrentTime(audioRef.current.currentTime)
+    }, 1000)
+
+    return () => window.clearInterval(timeout)
+  }, [audioRef])
+
+  const [size, setSize] = React.useState('big')
+
   return (
     <>
       <Element
@@ -141,43 +181,197 @@ const Player = () => {
           left: 0,
           right: 0,
           backgroundColor: 'black',
-          opacity: 0.6
+          opacity: 0.6,
+          display: [
+            size === 'small' ? 'none' : 'block',
+            size === 'small' ? 'none' : 'block',
+            'none'
+          ]
         }}
+        onClick={() => setSize('small')}
       />
       <Element
         key={episodeId}
         css={{
-          position: 'fixed',
+          position: ['fixed', 'fixed', 'relative'],
           bottom: 0,
           width: '100%',
           backgroundColor: 'grays.900',
           borderTop: '1px solid',
-          borderColor: 'grays.800'
+          borderColor: ['grays.800', 'grays.800', 'transparent'],
+          height: size === 'small' ? 12 : calc('1 * 100'),
+          transition: 'height ease-in-out',
+          transitionDuration: 4
         }}
       >
-        <Stack direction="vertical" align="center" marginY={10} gap={5}>
-          <Image
-            src={episode.thumbnail}
-            alt="Epsiode thumbnail"
-            css={{
-              borderRadius: 3,
-              size: '250px'
-            }}
-          />
-          <audio controls>
-            <source src={episode.audio} />
-          </audio>
-          <Stack direction="vertical" align="center" gap={1}>
-            <Text>{episode.title}</Text>
-            <Text variant="subtle" size={3}>
-              {episode.podcast.title}
-            </Text>
-          </Stack>
-        </Stack>
+        <audio ref={audioRef}>
+          <source src={episode.audio} />
+        </audio>
+
+        <BigPlayer
+          css={{
+            opacity: size === 'big' ? 1 : 0,
+            transition: 'opacity ease-in-out',
+            transitionDuration: 4
+          }}
+          {...{
+            setSize,
+            setPlaying,
+            episode,
+            playing,
+            currentTime,
+            audioRef
+          }}
+        />
+        <SmallPlayer
+          css={{
+            opacity: size === 'small' ? 1 : 0,
+            transition: 'opacity ease-in-out',
+            transitionDuration: 4,
+            position: 'absolute',
+            top: 0,
+            width: '100%'
+          }}
+          {...{
+            setSize,
+            setPlaying,
+            episode,
+            playing,
+            currentTime,
+            audioRef
+          }}
+        />
       </Element>
     </>
   )
 }
+
+const SmallPlayer = ({
+  setPlaying,
+  setSize,
+  episode,
+  playing,
+  currentTime,
+  audioRef,
+  ...props
+}) => {
+  return (
+    <Stack
+      gap={2}
+      onClick={() => setSize('big')}
+      css={{ cursor: 'pointer' }}
+      {...props}
+    >
+      <Image
+        src={episode.thumbnail}
+        alt="Epsiode thumbnail"
+        css={{ size: 12 }}
+      />
+      <Button
+        variant="link"
+        style={{
+          position: 'absolute',
+          top: 0,
+
+          size: 12,
+          backgroundColor: '#000000cc',
+          color: playing ? 'white' : 'blues.400'
+        }}
+        css={{
+          ':focus': {
+            outline: 'none'
+          },
+          ':active > svg': {
+            transform: 'scale(0.95)'
+          }
+        }}
+        onClick={() => setPlaying(!playing)}
+      >
+        {playing ? (
+          <PauseIcon width="32" height="32" />
+        ) : (
+          <PlayIcon width="32" height="32" />
+        )}
+      </Button>
+      <Stack
+        justify="space-between"
+        align="center"
+        css={{ width: '100%' }}
+        marginRight={2}
+      >
+        <Text>{episode.title}</Text>
+        <Text variant="subtle" size={3}>
+          {audioRef.current && audioRef.current.readyState === 4
+            ? ms((audioRef.current.duration - currentTime) * 1000, {
+                colonNotation: true
+              }).split('.')[0]
+            : null}
+        </Text>
+      </Stack>
+    </Stack>
+  )
+}
+
+const BigPlayer = ({
+  setSize,
+  setPlaying,
+  episode,
+  playing,
+  currentTime,
+  audioRef,
+  ...props
+}) => (
+  <Stack direction="vertical" align="center" marginY={10} gap={8} {...props}>
+    <Image
+      src={episode.thumbnail}
+      alt="Epsiode thumbnail"
+      css={{
+        borderRadius: 3,
+        size: '250px'
+      }}
+    />
+    <Button
+      variant="link"
+      style={{
+        position: 'absolute',
+        top: 10,
+        borderRadius: 3,
+        size: '250px',
+        backgroundColor: '#000000cc',
+        color: playing ? 'white' : 'blues.400'
+      }}
+      css={{
+        ':focus': {
+          outline: 'none'
+        },
+        ':active > svg': {
+          transform: 'scale(0.95)'
+        }
+      }}
+      onClick={() => setPlaying(!playing)}
+    >
+      {playing ? (
+        <PauseIcon width="80" height="80" />
+      ) : (
+        <PlayIcon width="80" height="80" />
+      )}
+    </Button>
+
+    <Stack direction="vertical" align="center" gap={1}>
+      <Text>{episode.title}</Text>
+      <Text variant="subtle" size={3}>
+        {episode.podcast.title}
+      </Text>
+      <Text variant="subtle" size={3}>
+        {audioRef.current && audioRef.current.readyState === 4
+          ? ms((audioRef.current.duration - currentTime) * 1000, {
+              colonNotation: true
+            }).split('.')[0]
+          : ':'}
+      </Text>
+    </Stack>
+  </Stack>
+)
 
 const EpisodeList = ({ label, episodes }) => (
   <Stack as="ul" direction="vertical" gap={6} css={{ paddingLeft: 0 }}>
@@ -223,3 +417,40 @@ const Episode = ({ episode }) => (
 )
 
 export default App
+
+const PlayIcon = props => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="0.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <circle cx="12" cy="12" r="10"></circle>
+    <polygon points="10 8 16 12 10 16 10 8"></polygon>
+  </svg>
+)
+
+const PauseIcon = props => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="0.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="10" y1="15" x2="10" y2="9"></line>
+    <line x1="14" y1="15" x2="14" y2="9"></line>
+  </svg>
+)
