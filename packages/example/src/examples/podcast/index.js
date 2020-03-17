@@ -210,7 +210,7 @@ const Player = () => {
           css={{
             opacity: size === 'big' ? 1 : 0,
             transition: 'opacity ease-in-out',
-            transitionDuration: 4
+            transitionDuration: 5
           }}
           {...{
             setSize,
