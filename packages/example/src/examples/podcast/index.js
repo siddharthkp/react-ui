@@ -5,6 +5,7 @@
  * - [x] smol player + big player
  * - [x] transition animation for switching between players
  * - [x] responsive design for desktop
+ * - [ ] react-spring
  * - [ ] publish the docs (beta)
  * - [ ] show warning if value is not on the scale
  * - [ ] define new scale unit

@@ -17,6 +17,7 @@
     "pretty-ms": "^6.0.1",
     "react": "^16.8.9",
     "react-dom": "^16.8.9",
+    "react-draggable": "^4.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.0",
     "react-spring": "^8.0.27",
