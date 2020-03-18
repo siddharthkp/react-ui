@@ -37,7 +37,7 @@ import {
   useParams
 } from 'react-router-dom'
 import Draggable from 'react-draggable'
-import useInterval from 'use-interval'
+import { Spring, config } from 'react-spring/renderprops'
 
 import './style.css'
 import { podcastIds, getEpisodes, getEpisode } from './api'
@@ -171,117 +171,102 @@ const Player = () => {
 
   const [dragging, setDragging] = React.useState(false)
 
-  const [y, setY] = React.useState(0)
   const onDrag = (event, ui) => {
-    setY(ui.y)
     setDragging(true)
+    setY(ui.y)
   }
 
-  const [finalY, setFinalY] = React.useState(0)
+  const [y, setY] = React.useState(0)
 
-  useInterval(() => {
-    if (dragging || finalY === y) return
-
-    if (finalY + 10 > y && finalY - 10 < y) setY(finalY)
-    else if (finalY < y) setY(y - 10)
-    else if (finalY > y) setY(y + 10)
-  }, 1000 / 60)
-
-  const [startY, setStartY] = React.useState(0)
-  const onDragStart = (event, ui) => {
-    setStartY(ui.y)
-  }
-
-  const threshold = 60
   const onDragStop = (event, ui) => {
     setDragging(false)
 
-    if (y > startY && y - startY > threshold) setFinalY(360)
-    else if (y > startY && y - startY < threshold) setFinalY(0)
-
-    if (startY > y && startY - y > threshold) setFinalY(0)
-    else if (startY > y && startY - y < threshold) setFinalY(360)
+    if (y > 300) setY(360)
+    else setY(0)
   }
 
   return (
-    <>
-      <Element
-        id="backdrop"
-        css={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
-          backgroundColor: 'black',
-          opacity: (1 - y / 360) * 0.6,
-          display: [
-            y === 360 ? 'none' : 'block',
-            y === 360 ? 'none' : 'block',
-            'none'
-          ]
-        }}
-        onClick={() => setFinalY(360)}
-      />
-      <Draggable
-        axis="y"
-        bounds={{ top: 0, bottom: 420 - 60 }}
-        position={{ x: 0, y }}
-        onDrag={onDrag}
-        onStart={onDragStart}
-        onStop={onDragStop}
-        grid={[1, 1]}
-      >
-        <Element
-          key={episodeId}
-          css={{
-            position: ['fixed', 'fixed', 'relative'],
-            bottom: 0,
-            width: '100%',
-            backgroundColor: 'grays.900',
-            borderTop: '1px solid',
-            borderColor: ['grays.800', 'grays.800', 'transparent'],
-            height: '420px'
-            // transition: 'ease-in'
-            // transitionDuration: dragging ? 0 : 4
-          }}
-        >
-          <audio ref={audioRef} autoPlay>
-            <source src={episode.audio} />
-          </audio>
-
-          <BigPlayer
-            style={{
-              opacity: (360 - y) / 360
-            }}
-            {...{
-              setPlaying,
-              episode,
-              playing,
-              currentTime,
-              audioRef
-            }}
-          />
-          <SmallPlayer
+    <Spring
+      to={{ y: y }}
+      config={dragging ? { tension: 0, friction: 0 } : config.default}
+    >
+      {spring => (
+        <>
+          <Element
+            id="backdrop"
             css={{
               position: 'absolute',
               top: 0,
-              width: '100%',
-              cursor: 'pointer',
-              opacity: (y - 320) / 40
+              bottom: 0,
+              left: 0,
+              right: 0,
+              backgroundColor: 'black',
+              opacity: (1 - spring.y / 360) * 0.6,
+              display: [
+                spring.y === 360 ? 'none' : 'block',
+                spring.y === 360 ? 'none' : 'block',
+                'none'
+              ]
             }}
-            onClick={() => setFinalY(0)}
-            {...{
-              setPlaying,
-              episode,
-              playing,
-              currentTime,
-              audioRef
-            }}
-          />
-        </Element>
-      </Draggable>
-    </>
+            onClick={() => setY(360)}
+          ></Element>
+          <Draggable
+            axis="y"
+            bounds={{ top: 0, bottom: 360 }}
+            position={{ x: 0, y: dragging ? y : spring.y }}
+            onDrag={onDrag}
+            onStop={onDragStop}
+          >
+            <Element
+              key={episodeId}
+              css={{
+                position: ['fixed', 'fixed', 'relative'],
+                bottom: 0,
+                width: '100%',
+                backgroundColor: 'grays.900',
+                borderTop: '1px solid',
+                borderColor: ['grays.800', 'grays.800', 'transparent'],
+                height: '420px'
+              }}
+            >
+              <audio ref={audioRef} autoPlay>
+                <source src={episode.audio} />
+              </audio>
+
+              <BigPlayer
+                style={{
+                  opacity: (360 - spring.y) / 360
+                }}
+                {...{
+                  setPlaying,
+                  episode,
+                  playing,
+                  currentTime,
+                  audioRef
+                }}
+              />
+              <SmallPlayer
+                css={{
+                  position: 'absolute',
+                  top: 0,
+                  width: '100%',
+                  cursor: 'pointer',
+                  opacity: (spring.y - 320) / 40
+                }}
+                onClick={() => setY(0)}
+                {...{
+                  setPlaying,
+                  episode,
+                  playing,
+                  currentTime,
+                  audioRef
+                }}
+              />
+            </Element>
+          </Draggable>
+        </>
+      )}
+    </Spring>
   )
 }
 
