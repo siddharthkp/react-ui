@@ -127,7 +127,6 @@ export function get(key, value, theme, label) {
   // if the value doesn't exist on the scale, it must be a) css value
   if (!scaleValue) {
     if (
-      theme.showWarnings &&
       scalesWithPixelUnits.includes(scaleName) &&
       value !== 0 &&
       value !== '0' &&
@@ -135,9 +134,8 @@ export function get(key, value, theme, label) {
     ) {
       showPixelFallbackWarning(key, value, scaleName, scale, label)
     } else if (
-      theme.showWarnings &&
       scaleName === 'colors' &&
-      !['transparent'].includes(value) &&
+      !['transparent', 'inherit', 'initial'].includes(value) &&
       !isHexCode(value)
     ) {
       showColorWarning(key, value, scaleName, scale, label)
@@ -173,8 +171,8 @@ const showPixelFallbackWarning = (key, value, scaleName, scale, label) => {
   const keysOnScale = getKeysOnScale(scale).join(', ')
 
   let warning = `${value} is not a valid token for ${key} in ${label} component, applying ${fallback} as fallback.`
-  warning += `\n\n`
-  warning += `Please use one of the keys on the ${scaleName} scale: { ${keysOnScale} }`
+  warning += ` `
+  warning += `Please use one of the keys on the '${scaleName}' scale.`
   warning += `\n\n`
 
   if (fallbacksOnScale.length) {
@@ -186,20 +184,21 @@ const showPixelFallbackWarning = (key, value, scaleName, scale, label) => {
       warning += `${value}px is on your scale, you can set the value for ${key} to one of { ${expectedValues} } to hide this warning.`
     }
     warning += `\n\n`
+  } else {
+    warning += `If you are trying to use a custom value not on the scale, you can hide this message by specifying the unit, example: ${value}px or ${value}em`
+    warning += `\n\n`
   }
-  warning += `If you are trying to use a custom value not on the scale, you can hide this message by specifying the unit, example: ${value}px or ${value}em`
-  warning += `\n\n`
 
   console.warn(warning)
 }
 
 const showColorWarning = (key, value, scaleName, scale, label) => {
   const fallback = value
-  const keysOnScale = getKeysOnScale(scale).join(', ')
+  const keysOnScale = getKeysOnScale(scale)
 
   let warning = `${value} is not a valid token for ${key} in ${label} component, applying "${key}: ${fallback}" as fallback.`
-  warning += `\n\n`
-  warning += `Please use one of the keys on the ${scaleName} scale: { ${keysOnScale} }`
+  warning += ` `
+  warning += `Please use one of the keys on the '${scaleName}' scale.`
   warning += `\n\n`
   warning += `If you are trying to use a custom value not on the scale, you can hide this message by using the hex code for the color, example: #38C172`
   warning += `\n\n`
@@ -214,7 +213,7 @@ export function getKeysOnScale(scale) {
 }
 
 export function getFallbacksOnScale(scaleName, scale, fallback) {
-  const fallbackKeys = ['hero']
+  const fallbackKeys = []
   const flatScale = flattenScale(scale)
 
   // TODO: Interpolate flat scale and find all matching nested keys

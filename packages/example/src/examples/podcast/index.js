@@ -1,18 +1,3 @@
-/** next steps:
- *
- * - [x] add play and pause buttons
- * - [x] show duration of podcast 12m / 45m or 27min left
- * - [x] smol player + big player
- * - [x] transition animation for switching between players
- * - [x] responsive design for desktop
- * - [ ] react-spring
- * - [ ] publish the docs (beta)
- * - [ ] show warning if value is not on the scale
- * - [ ] define new scale unit
- * - [ ] bug: borderTop doesn't take responsive syntax
- 
- */
-
 import React from 'react'
 import ms from 'pretty-ms'
 import { formatDistance } from 'date-fns'

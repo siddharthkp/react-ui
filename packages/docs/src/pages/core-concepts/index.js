@@ -33,12 +33,16 @@ const Documentation = () => {
         <Link as={RouterLink} to="constraints-based-design">
           Constraints based design
         </Link>
-        <Link as={RouterLink} to="tokens">
-          Design Tokens
-        </Link>
-        <Link as={RouterLink} to="customising-tokens">
-          Customising design tokens
-        </Link>
+        <Text to="tokens" variant="subtle" css={{ fontStyle: 'italic' }}>
+          todo: Design Tokens
+        </Text>
+        <Text
+          to="customising-tokens"
+          variant="subtle"
+          css={{ fontStyle: 'italic' }}
+        >
+          todo:Customising design tokens
+        </Text>
       </List>
 
       <List>
@@ -59,12 +63,12 @@ const Documentation = () => {
         <Link as={RouterLink} to="layouts">
           Layouts
         </Link>
-        <Link as={RouterLink} to="responsive">
-          Responsive syntax
-        </Link>
-        <Link as={RouterLink} to="utilities">
-          Utilities
-        </Link>
+        <Text to="responsive" variant="subtle" css={{ fontStyle: 'italic' }}>
+          todo: Responsive syntax
+        </Text>
+        <Text to="utilities" variant="subtle" css={{ fontStyle: 'italic' }}>
+          todo: Utilities
+        </Text>
       </List>
 
       {/* <List>

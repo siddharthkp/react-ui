@@ -1,3 +1,8 @@
+- [x] publish the docs (beta)
+- [x] show warning if value is not on the scale
+- [ ] define new scale unit
+- [ ] bug: borderTop doesn't take responsive syntax
+
 ## Next steps
 
 docs \\........

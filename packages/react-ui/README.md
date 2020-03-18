@@ -6,5 +6,3 @@
 </p>
 
 &nbsp;
-
-React UI is ~~bastardization~~ a thin wrapper on top of [styled-system](https://styled-system.com) that will _probably_ make styling components easier.

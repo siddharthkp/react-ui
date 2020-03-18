@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "react-ui",
+  "alias": ["react-ui.dev"],
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "public" }
+    }
+  ]
+}
