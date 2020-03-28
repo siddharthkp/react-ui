@@ -20,9 +20,7 @@ const Documentation = () => {
 
       <Para>
         Start by reading about{' '}
-        <Link href="/core-concepts/constraints-based-design">
-          Constraints based design
-        </Link>{' '}
+        <Link href="/core-concepts/ideas">Old and new ideas in React UI</Link>{' '}
         or exploring the <Link href="/components">set of Components</Link>.
       </Para>
 
