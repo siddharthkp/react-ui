@@ -112,8 +112,8 @@ const Documentation = () => {
 
           components.Switch = {
             colors: {
-              backgroundOn: 'blue',
-              backgroundOff: 'black'
+              backgroundOn: '#00f',
+              backgroundOff: '#000'
             }
           }
         `}</Example.Code>
@@ -128,8 +128,8 @@ const Documentation = () => {
               components={{
                 Switch: {
                   colors: {
-                    backgroundOff: 'black',
-                    backgroundOn: 'blue'
+                    backgroundOff: '#000',
+                    backgroundOn: '#00f'
                   }
                 }
               }}

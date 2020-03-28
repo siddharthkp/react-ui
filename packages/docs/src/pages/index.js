@@ -26,6 +26,7 @@ export { default as ComponentsIndex } from './components/index'
 export { default as GettingStarted } from './getting-started/index'
 
 export { default as CoreConcepts } from './core-concepts/index'
+export { default as Ideas } from './core-concepts/ideas'
 export { default as Constraints } from './core-concepts/constraints'
 export { default as CreatingNewComponents } from './core-concepts/creating-new-components'
 export { default as CustomisingComponents } from './core-concepts/customising-components'

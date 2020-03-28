@@ -166,6 +166,9 @@ export const isHexCode = value => {
 }
 
 const showPixelFallbackWarning = (key, value, scaleName, scale, label) => {
+  // if a function value is given, we need to first interpolate it
+  if (typeof value === 'function') return
+
   const fallback = value + 'px'
   const fallbacksOnScale = getFallbacksOnScale(scaleName, scale, fallback)
   const keysOnScale = getKeysOnScale(scale).join(', ')
@@ -193,6 +196,9 @@ const showPixelFallbackWarning = (key, value, scaleName, scale, label) => {
 }
 
 const showColorWarning = (key, value, scaleName, scale, label) => {
+  // if a function value is given, we need to first interpolate it
+  if (typeof value === 'function') return
+
   const fallback = value
   const keysOnScale = getKeysOnScale(scale)
 

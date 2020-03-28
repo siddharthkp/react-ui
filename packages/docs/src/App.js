@@ -79,7 +79,7 @@ const App = () => {
 
       <Grid
         css={{
-          maxWidth: 1024,
+          maxWidth: '1024px',
           marginX: 'auto',
           color: 'text.body'
         }}
@@ -126,6 +126,7 @@ const App = () => {
 
             <Documentation path="core-concepts">
               <Pages.CoreConcepts path="/" />
+              <Pages.Ideas path="/ideas" />
               <Pages.Constraints path="/constraints-based-design" />
               <Pages.CreatingNewComponents path="/creating-new-components" />
               <Pages.CustomisingComponents path="/customising-components" />

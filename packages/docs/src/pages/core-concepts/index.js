@@ -1,9 +1,10 @@
 import React from 'react'
 import { Text, Link } from 'react-ui'
 import { Link as RouterLink } from '@reach/router'
-import { Page, Paragraph as Para, List } from '../../components'
+import { Page, List } from '../../components'
 
 const items = [
+  { title: 'Old and new ideas', path: 'ideas' },
   { title: 'Constraints based design', path: 'constraints-based-design' },
   { title: 'Design Tokens', path: 'tokens', todo: true },
   {
@@ -28,6 +29,10 @@ const Documentation = () => {
       title="Core Concepts"
       tagline="These concepts will help you be more productive with React UI."
     >
+      <Link as={RouterLink} to="ideas">
+        Old and new ideas
+      </Link>
+
       <List>
         <Text variant="subtle">Tokens:</Text>
         <Link as={RouterLink} to="constraints-based-design">

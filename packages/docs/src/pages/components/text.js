@@ -129,7 +129,7 @@ const Documentation = () => {
 
           // overwrite Text variants
           components.Text.variants = {
-            default: { color: 'black' },
+            default: { color: '#000' },
             subtle: { color: 'grey' },
             danger: { color: 'red' },
             success: { color: 'green' }
@@ -147,7 +147,7 @@ const Documentation = () => {
               components={{
                 Text: {
                   variants: {
-                    default: { color: 'black' },
+                    default: { color: '#000' },
                     subtle: { color: 'grey' },
                     danger: { color: 'red' },
                     success: { color: 'green' }
