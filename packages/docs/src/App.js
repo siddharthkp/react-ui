@@ -202,6 +202,7 @@ const ComponentNav = () => {
           { title: 'Card', path: 'Card' },
           { title: 'Form', path: 'Form' },
           { title: 'Menu', path: 'Menu' },
+          { title: 'Stat', path: 'Stat' },
           { title: 'Paragraph', path: 'Paragraph' }
         ]}
       />
