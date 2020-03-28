@@ -1,7 +1,6 @@
 import React from 'react'
 import { Router, Location, Link as RouterLink } from '@reach/router'
 import { Global } from '@emotion/core'
-import { interpolate } from '@ds-tools/primitives/interpolate'
 
 import {
   ThemeProvider,
@@ -16,41 +15,39 @@ import {
   Paragraph,
   Avatar,
   Card,
+  Menu,
   calc
 } from 'react-ui'
-import { Page, Section, Example, Divider, useThemeSwitcher } from './components'
+import * as base from 'react-ui/themes/base'
+import * as light from 'react-ui/themes/light'
+import * as dark from 'react-ui/themes/dark'
+
+import { Page, Section, Example, Divider } from './components'
 
 import * as Pages from './pages'
 import './style.css'
 
+const themes = { base, light, dark }
+
 const App = () => {
   const [menuVisible, setMenuVisibility] = React.useState(false)
   const [locationKey, setLocationKey] = React.useState()
-  const {
-    name,
-    tokens,
-    components,
-    setThemeName,
-    ThemeSwitcher
-  } = useThemeSwitcher()
+
+  const [theme, setTheme] = React.useState('light')
 
   React.useEffect(() => {
     setMenuVisibility(false)
   }, [locationKey])
 
   return (
-    <ThemeProvider tokens={tokens} components={components}>
+    <ThemeProvider
+      tokens={themes[theme].tokens}
+      components={themes[theme].components}
+    >
       <Global
-        styles={interpolate(
-          {
-            body: {
-              backgroundColor: 'App.backgroundColor',
-              color: 'App.color',
-              transition: 'background 500ms, color 500ms'
-            }
-          },
-          tokens
-        )}
+        styles={{
+          body: { transition: 'background 500ms, color 500ms' }
+        }}
       />
       <Stack
         as="header"
@@ -74,9 +71,20 @@ const App = () => {
         >
           <MenuIcon />
         </Button>
-        <ThemeSwitcher name={name} setThemeName={setThemeName} />
+        <Menu>
+          <Menu.Button variant="link" style={{ paddingRight: 1 }}>
+            <Text marginRight={1} css={{ textTransform: 'capitalize' }}>
+              Theme: {theme}
+            </Text>
+            {chevron}
+          </Menu.Button>
+          <Menu.List>
+            <Menu.Item onSelect={_ => setTheme('base')}>Base</Menu.Item>
+            <Menu.Item onSelect={_ => setTheme('light')}>Light</Menu.Item>
+            <Menu.Item onSelect={_ => setTheme('dark')}>Dark</Menu.Item>
+          </Menu.List>
+        </Menu>
       </Stack>
-
       <Grid
         css={{
           maxWidth: '1024px',
@@ -319,7 +327,7 @@ const Home = props => {
             justify="center"
             css={{ backgroundColor: 'grays.100' }}
           >
-            <Card css={{ width: 250 }}>
+            <Card css={{ width: '250px' }}>
               <Stack gap={2} align="center">
                 <Avatar size="medium" src="https://github.com/sameen-shi.png" />
                 <Stack direction="vertical">
@@ -579,4 +587,18 @@ const AirCanadaLogo = props => (
       />
     </g>
   </Element>
+)
+
+const chevron = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </svg>
 )

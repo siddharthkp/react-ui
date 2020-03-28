@@ -138,7 +138,7 @@ export function get(key, value, theme, label) {
       !['transparent', 'inherit', 'initial'].includes(value) &&
       !isHexCode(value)
     ) {
-      showColorWarning(key, value, scaleName, scale, label)
+      // showColorWarning(key, value, scaleName, scale, label)
     }
 
     return value

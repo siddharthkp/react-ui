@@ -172,7 +172,7 @@ const components = {
   /** Global */
   Global: {
     body: {
-      background: 'grays.100',
+      background: 'white',
       color: 'text.body'
     }
   },
