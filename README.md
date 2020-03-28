@@ -6,21 +6,18 @@
   <img src="https://img.shields.io/badge/version-1.0.0--beta.14-F4CA64?style=flat-square"/>
 </p>
 
-
-### Getting started
-
-```
-npm install react-ui
-
-# or
-
-yarn add react-ui
-```
+&nbsp;
 
 ### Docs
 
 Jump to 
 
+- [Getting started](https://react-ui.dev/)
 - [Core concepts](https://react-ui.dev/core-concepts)
 - [Components](https://react-ui.dev/components)
 
+&nbsp;
+
+.
+
+&nbsp;
