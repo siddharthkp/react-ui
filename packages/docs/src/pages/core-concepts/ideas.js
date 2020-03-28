@@ -13,7 +13,15 @@ import {
 } from 'react-ui'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
 
-import { Page, Section, Para, Example, Code, List } from '../../components'
+import {
+  Page,
+  Section,
+  Para,
+  Example,
+  Code,
+  List,
+  Divider
+} from '../../components'
 import { AirplaneIcon, AirCanadaLogo } from './layouts'
 
 const Documentation = () => {
@@ -1249,6 +1257,7 @@ const Documentation = () => {
           </Link>
         </List>
       </Section>
+      <Divider />
     </Page>
   )
 }
