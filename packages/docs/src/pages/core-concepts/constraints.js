@@ -186,7 +186,7 @@ const Documentation = () => {
               <i>on a scale</i>.
             </Text>
             <Text css={{ paddingLeft: 5 }}>
-              The smallest space is between between a label and input field, 1
+              The smallest space is between a label and input field, 1
               unit = 8px. To create the diffrentiation between multiple fields,
               we need more space, bumping to the next unit of 2 = 16px does the
               job.
