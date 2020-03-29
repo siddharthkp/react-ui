@@ -105,7 +105,7 @@ const Documentation = () => {
             $brand-background-dark: #195594;
             
             /** sizes.scss */
-            $sizes-5: 40px;
+            $size-5: 40px;
           `}</Example.Code>
           <Example.Code
             lang="scss"
