@@ -132,7 +132,7 @@ function mergeAll(a = {}, b = {}, c = {}) {
 }
 
 function walk(obj, callback) {
-  if (typeof obj === 'object') {
+  if (obj && typeof obj === 'object') {
     callback(obj)
     Object.values(obj).map(node => walk(node, callback))
   }
