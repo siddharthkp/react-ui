@@ -202,13 +202,13 @@ const Documentation = () => {
                 span={[12, 6, 5]}
                 css={{ height: 140, background: '#A8EEC1' }}
               >
-                column
+                half &
               </Column>
               <Column
                 span={[12, 6, 5]}
                 css={{ height: 140, background: '#B7DBF7' }}
               >
-                column
+                half
               </Column>
             </Grid>
           </Example.Preview>
