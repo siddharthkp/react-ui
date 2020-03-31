@@ -8,7 +8,7 @@ const Documentation = () => {
     <Page title="Components">
       <Para>
         <Text>
-          React UI comes with a set of components that are
+          React UI comes with a set of components that are {' '}
           <Text weight="medium">accessible</Text>,{' '}
           <Text weight="medium">responsive</Text> and{' '}
           <Text weight="medium">customisable</Text>.
