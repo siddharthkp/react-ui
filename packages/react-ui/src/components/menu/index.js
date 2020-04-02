@@ -1,9 +1,9 @@
 import React from 'react'
-import { Element } from '../../../primitives'
+import { Element } from '../../primitives'
 import * as ReachMenu from '@reach/menu-button'
 import { styles } from './menu.styles'
 import { Button } from '../button'
-import { merge } from '../../../utils'
+import { merge } from '../../utils'
 
 const Menu = ({ ...props }) => {
   return (

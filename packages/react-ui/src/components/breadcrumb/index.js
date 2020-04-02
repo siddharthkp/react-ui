@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Element } from '../../../primitives'
+import { Element } from '../../primitives'
 import { styles } from './breadcrumb.styles'
-import { merge } from '../../../utils'
+import { merge } from '../../utils'
 
 const Separator = props => (
   <Element

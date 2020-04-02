@@ -24,7 +24,7 @@ export default [
     plugins
   },
   {
-    input: ['themes/base.js', 'themes/light.js', 'themes/dark.js'],
+    input: ['src/themes/base.js', 'src/themes/light.js', 'src/themes/dark.js'],
     output: [
       {
         dir: 'dist/themes/',

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Input } from '../input/'
 import { styles, caret } from './select.styles'
-import { merge, mergeFns } from '../../../utils'
+import { merge, mergeFns } from '../../utils'
 
 /**
  * We do a tiny dance to make selects look like they have a placeholder

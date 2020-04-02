@@ -21,5 +21,5 @@ export * from './src/components/card'
 
 export * from './src/components/theme-provider'
 
-export { Element } from './primitives'
-export { merge, mergeFns, calc } from './utils'
+export { Element } from './src/primitives'
+export { merge, mergeFns, calc } from './src/utils'

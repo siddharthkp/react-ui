@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Element } from '../../../primitives'
-import { merge } from '../../../utils'
+import { Element } from '../../primitives'
+import { merge } from '../../utils'
 
 const Stack = ({ inline, justify, align, direction, gap, css, ...props }) => {
   const styles = {
