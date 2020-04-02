@@ -456,7 +456,9 @@ const components = {
   },
   MenuList: {
     backgroundColor: 'white',
+    color: 'text.body',
     borderColor: 'grays.200',
+    fontSize: 3,
     borderRadius: 2,
     marginTop: 1,
     boxShadow: 3

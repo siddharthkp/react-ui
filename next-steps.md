@@ -1,8 +1,16 @@
 ## Next steps
 
+Issues:
+
+1. Doesn't work with next server side
+2. More components...
+3. Contribution guide
+4. Bug: MenuList marginTop doesn't get applied
+
 Docs:
 
-1. old and new ideas in react-ui with credits
+- [x] old and new ideas in react-ui with credits
+
 2. tokens - what are they, example, table, customising syntax
 3. customisting tokens
 4. responsive syntax

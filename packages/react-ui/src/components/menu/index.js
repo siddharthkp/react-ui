@@ -1,7 +1,6 @@
 import React from 'react'
 import { Element } from '@ds-tools/primitives'
 import * as ReachMenu from '@reach/menu-button'
-import '@reach/menu-button/styles.css'
 import { styles } from './menu.styles'
 import { Button } from '../button'
 import { merge } from '../../../utils'

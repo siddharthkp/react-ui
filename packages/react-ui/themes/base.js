@@ -103,6 +103,11 @@ tokens.colors.text = {
 */
 
 const components = {
+  /** Global */
+  Global: {
+    body: {}
+  },
+
   /** Atoms */
 
   Avatar: {
@@ -248,6 +253,8 @@ const components = {
   },
   MenuList: {
     backgroundColor: 'white',
+    color: 'text.body',
+    fontSize: 3,
     borderRadius: 2,
     marginTop: 1,
     boxShadow: 3

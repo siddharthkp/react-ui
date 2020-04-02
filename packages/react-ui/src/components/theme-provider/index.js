@@ -28,6 +28,11 @@ function ThemeProvider({
   tokens.sizes = merge(tokens.sizes, getSizesFromComponents(components))
   tokens.colors = merge(tokens.colors, getColorsFromComponents(components))
 
+  components.Global = merge(
+    { ':root': { '--reach-menu-button': 1 } },
+    components.Global
+  )
+
   const combinedTheme = merge(tokens, { components })
 
   // pass a hint to element
