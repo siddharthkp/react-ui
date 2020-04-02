@@ -1,6 +1,6 @@
 {
   "name": "react-ui",
-  "version": "1.0.0-beta.19",
+  "version": "1.0.0-beta.20",
   "description": "Customisable components and primitives based on design tokens",
   "homepage": "https://react-ui.dev",
   "source": "index.js",
@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "test": "yarn build && bundlesize"
+    "test": "yarn build && bundlesize",
+    "prepublish": "cp -r ./dist/themes themes/"
   },
   "keywords": [],
   "author": "siddharthkp",
