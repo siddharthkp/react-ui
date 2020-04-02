@@ -5,24 +5,33 @@ import external from 'rollup-plugin-peer-deps-external'
 
 import pkg from './package.json'
 
+const plugins = [
+  external({
+    includeDependencies: true
+  }),
+  resolve(),
+  babel({
+    presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
+    exclude: 'node_modules/**'
+  }),
+  commonjs()
+]
+
 export default [
   {
     input: pkg.source,
-
-    plugins: [
-      external({
-        includeDependencies: true
-      }),
-      resolve(),
-      babel({
-        presets: [
-          ['@babel/preset-env', { modules: false }],
-          '@babel/preset-react'
-        ],
-        exclude: 'node_modules/**'
-      }),
-      commonjs()
+    output: [{ file: pkg.main, format: 'cjs' }],
+    plugins
+  },
+  {
+    input: ['themes/base.js', 'themes/light.js', 'themes/dark.js'],
+    output: [
+      {
+        dir: 'dist/themes/',
+        format: 'cjs',
+        exports: 'named'
+      }
     ],
-    output: [{ file: pkg.main, format: 'cjs' }]
+    plugins
   }
 ]
