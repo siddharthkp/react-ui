@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Element } from '@ds-tools/primitives'
+import { Element } from '../../../primitives'
 import { styles } from './breadcrumb.styles'
 import { merge } from '../../../utils'
 

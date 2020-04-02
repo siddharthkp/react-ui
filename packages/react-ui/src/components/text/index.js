@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Element } from '@ds-tools/primitives'
+import { Element } from '../../../primitives'
 import { merge } from '../../../utils'
 
 function Text({ size, color, align, weight, block, css, maxWidth, ...props }) {

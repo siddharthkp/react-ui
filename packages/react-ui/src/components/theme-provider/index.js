@@ -3,7 +3,7 @@ import {
   ThemeProvider as EmotionThemeProvider,
   Global,
   interpolate
-} from '@ds-tools/primitives'
+} from '../../../primitives'
 import { merge } from '../../../utils'
 
 // import * as light from '../../../themes/light'

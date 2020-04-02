@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useId } from '@reach/auto-id'
 
 import { styles } from './form.styles'
-import { Element } from '@ds-tools/primitives'
+import { Element } from '../../../primitives'
 import { Stack } from '../stack'
 import { merge } from '../../../utils'
 

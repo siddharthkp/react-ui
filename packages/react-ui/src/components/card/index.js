@@ -1,5 +1,5 @@
 import React from 'react'
-import { Element } from '@ds-tools/primitives'
+import { Element } from '../../../primitives'
 import { styles } from './card.styles'
 import { merge } from '../../../utils'
 
