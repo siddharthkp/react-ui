@@ -8,7 +8,7 @@ import { merge } from '../../../utils'
 
 // import * as light from '../../../themes/light'
 // import dark from '../../../themes/dark'
-import * as base from '../../../themes/base'
+import base from '../../../themes/base'
 
 const Provider = EmotionThemeProvider
 

@@ -476,6 +476,5 @@ const components = {
 
 const theme = { tokens, components }
 
-exports.default = theme
-exports.tokens = tokens
-exports.components = components
+export default theme
+export { tokens, components }
