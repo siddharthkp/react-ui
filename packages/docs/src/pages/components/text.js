@@ -111,7 +111,7 @@ const Documentation = () => {
           </Text>
         </Para>
 
-        <Para>Link uses the following theme properties:</Para>
+        <Para>Text uses the following theme properties:</Para>
         <Table>
           <Table.Header>
             <Table.Column span={4}>Property</Table.Column>
@@ -136,7 +136,7 @@ const Documentation = () => {
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider tokens={tokens} components={components}> 
+          <ThemeProvider tokens={tokens} components={components}>
             <Text>Text might seem like a boring component</Text>
             <Text variant="subtle">but can we incredibly handy with variants</Text>
             <Text variant="success">to quickly express context</Text>
