@@ -12219,15 +12219,19 @@ react-ui@1.0.0-beta.14:
     deepmerge "4.0.0"
     prop-types "^15.7.2"
 
-react-ui@1.0.0-beta.15:
-  version "1.0.0-beta.15"
-  resolved "https://registry.yarnpkg.com/react-ui/-/react-ui-1.0.0-beta.15.tgz#45a3de5f70f3cbc58e824519209859cfd94b1a17"
-  integrity sha512-/DU1EYCf5dJK8K/Ri1C8Q4F783/agdX8KqaRVQZrw7hG9m7ddbkGfldizBC5Jj7VmZN/pt4UeSc6jIs7qxVM6A==
+react-ui@1.0.0-beta.17:
+  version "1.0.0-beta.17"
+  resolved "https://registry.yarnpkg.com/react-ui/-/react-ui-1.0.0-beta.17.tgz#f275f6a713969d983973e30a3142b513c46dc69a"
+  integrity sha512-ADuNBclGL32zUIJ80FQOzZUJup1nobOFPqQxD06CGvyB01NcM+SMsuL4gk7hhVcBpaBZ8yx+rN9BxnQwEnuE0Q==
   dependencies:
-    "@ds-tools/primitives" "0.0.6"
+    "@emotion/core" "^10.0.28"
+    "@emotion/styled" "^10.0.27"
     "@reach/auto-id" "^0.7.0"
     "@reach/menu-button" "^0.7.0"
     deepmerge "4.0.0"
+    dlv "^1.1.3"
+    emotion-theming "^10.0.27"
+    facepaint "^1.2.1"
     prop-types "^15.7.2"
 
 react@^16.8.3, react@^16.8.9:

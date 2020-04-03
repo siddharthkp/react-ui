@@ -13,11 +13,14 @@ import {
   Link,
   Text,
   Menu,
-  calc
+  calc,
+  merge,
 } from 'react-ui'
+
 import * as base from 'react-ui/themes/base'
 import * as light from 'react-ui/themes/light'
 import * as dark from 'react-ui/themes/dark'
+import { components as themeComponents } from './theme-components'
 
 import { Page, Section, Divider, List } from './components'
 
@@ -36,14 +39,13 @@ const App = () => {
     setMenuVisibility(false)
   }, [locationKey])
 
+  const components = merge(themes[theme].components, themeComponents)
+
   return (
-    <ThemeProvider
-      tokens={themes[theme].tokens}
-      components={themes[theme].components}
-    >
+    <ThemeProvider tokens={themes[theme].tokens} components={components}>
       <Global
         styles={{
-          body: { transition: 'background 500ms, color 500ms' }
+          body: { transition: 'background 500ms, color 500ms' },
         }}
       />
       <Stack
@@ -54,7 +56,7 @@ const App = () => {
           height: 12,
           borderBottom: '1px solid',
           borderColor: 'App.borderColor',
-          paddingRight: 2
+          paddingRight: 2,
         }}
         marginBottom={12}
       >
@@ -62,7 +64,7 @@ const App = () => {
           variant="link"
           css={{
             color: 'text.body',
-            visibility: ['visible', 'visible', 'hidden']
+            visibility: ['visible', 'visible', 'hidden'],
           }}
           onClick={() => setMenuVisibility(!menuVisible)}
         >
@@ -76,9 +78,9 @@ const App = () => {
             {chevron}
           </Menu.Button>
           <Menu.List>
-            <Menu.Item onSelect={_ => setTheme('base')}>Base</Menu.Item>
-            <Menu.Item onSelect={_ => setTheme('light')}>Light</Menu.Item>
-            <Menu.Item onSelect={_ => setTheme('dark')}>Dark</Menu.Item>
+            <Menu.Item onSelect={(_) => setTheme('base')}>Base</Menu.Item>
+            <Menu.Item onSelect={(_) => setTheme('light')}>Light</Menu.Item>
+            <Menu.Item onSelect={(_) => setTheme('dark')}>Dark</Menu.Item>
           </Menu.List>
         </Menu>
       </Stack>
@@ -86,7 +88,7 @@ const App = () => {
         css={{
           maxWidth: '1024px',
           marginX: 'auto',
-          color: 'text.body'
+          color: 'text.body',
         }}
       >
         <Location>
@@ -100,7 +102,7 @@ const App = () => {
                   span={[0, 0, 3]}
                   css={{
                     height: calc('100vh - 12'),
-                    paddingLeft: 8
+                    paddingLeft: 8,
                   }}
                 />
 
@@ -120,7 +122,7 @@ const App = () => {
           css={{
             paddingX: 16,
             paddingBottom: calc('16 * 2'),
-            height: calc('100vh - 12')
+            height: calc('100vh - 12'),
           }}
         >
           <Router>
@@ -141,7 +143,15 @@ const App = () => {
 
             <Documentation path="components">
               <Pages.ComponentsIndex path="/" />
-              {Object.keys(Pages).map(name => {
+              {Object.keys(Pages).map((name) => {
+                const Page = Pages[name]
+                return <Page key={name} path={name} />
+              })}
+            </Documentation>
+
+            <Documentation path="ecosystem">
+              <Pages.EcosystemIndex path="/" />
+              {Object.keys(Pages).map((name) => {
                 const Page = Pages[name]
                 return <Page key={name} path={name} />
               })}
@@ -169,7 +179,7 @@ const ComponentNav = () => {
       <NavSection
         items={[
           { title: 'Element', path: 'Element' },
-          { title: 'ThemeProvider', path: 'ThemeProvider' }
+          { title: 'ThemeProvider', path: 'ThemeProvider' },
         ]}
       />
       <Text size={3} color="text.subtle" marginBottom={3}>
@@ -187,7 +197,7 @@ const ComponentNav = () => {
           { title: 'Spinner', path: 'Spinner' },
           { title: 'Switch', path: 'Switch' },
           { title: 'Text', path: 'Text' },
-          { title: 'Textarea', path: 'Textarea' }
+          { title: 'Textarea', path: 'Textarea' },
         ]}
       />
       <Text size={3} color="text.subtle" marginBottom={3}>
@@ -196,7 +206,7 @@ const ComponentNav = () => {
       <NavSection
         items={[
           { title: 'Stack', path: 'Stack' },
-          { title: 'Grid', path: 'Grid' }
+          { title: 'Grid', path: 'Grid' },
         ]}
       />
       <Text size={3} color="text.subtle" marginBottom={3}>
@@ -208,7 +218,7 @@ const ComponentNav = () => {
           { title: 'Card', path: 'Card' },
           { title: 'Form', path: 'Form' },
           { title: 'Menu', path: 'Menu' },
-          { title: 'Paragraph', path: 'Paragraph' }
+          { title: 'Paragraph', path: 'Paragraph' },
         ]}
       />
     </>
@@ -226,12 +236,12 @@ const NavSection = ({ items, ...props }) => {
         fontSize: 3,
         paddingLeft: 0,
         li: {
-          paddingY: 2
-        }
+          paddingY: 2,
+        },
       }}
       {...props}
     >
-      {items.map(item => (
+      {items.map((item) => (
         <li key={item.path}>
           {item.external ? (
             <Link href={item.path} target="_blank">
@@ -248,9 +258,9 @@ const NavSection = ({ items, ...props }) => {
   )
 }
 
-const Documentation = props => <Element {...props} />
+const Documentation = (props) => <Element {...props} />
 
-const Navigation = props => (
+const Navigation = (props) => (
   <Column as="aside" {...props}>
     <NavSection
       marginBottom={16}
@@ -258,11 +268,12 @@ const Navigation = props => (
         { title: 'Getting started', path: 'getting-started' },
         { title: 'Core concepts', path: 'core-concepts' },
         { title: 'Components', path: 'components' },
+        // { title: 'Ecosystem', path: 'ecosystem' },
         {
           title: 'GitHub',
           path: 'https://github.com/siddharthkp/react-ui',
-          external: true
-        }
+          external: true,
+        },
         // { title: 'Videos', path: 'videos' },
       ]}
     />
@@ -274,7 +285,7 @@ const Navigation = props => (
   </Column>
 )
 
-const MenuIcon = props => (
+const MenuIcon = (props) => (
   <Element
     as="svg"
     xmlns="http://www.w3.org/2000/svg"
@@ -294,7 +305,7 @@ const MenuIcon = props => (
   </Element>
 )
 
-const Home = props => {
+const Home = (props) => {
   return (
     <Page>
       <Section>

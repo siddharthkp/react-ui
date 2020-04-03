@@ -11,9 +11,8 @@
   ],
   "scripts": {
     "dev": "rollup -c -w",
-    "build": "rollup -c",
-    "test": "yarn build && bundlesize",
-    "prepublish": "cp -r ./dist/themes themes/"
+    "build": "rollup -c && cp -r ./dist/themes themes/",
+    "test": "yarn build && bundlesize"
   },
   "keywords": [],
   "author": "siddharthkp",
