@@ -123,7 +123,7 @@ const Documentation = () => {
           components.Button.sizes = {
              small: 6, medium: 10
           }
-          
+
           // overwrite Button variants
           // the default variant is primary
           components.Button.variants = {
@@ -146,9 +146,9 @@ const Documentation = () => {
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider tokens={tokens} components={components}> 
-            <Button>Save</Button>
-            <Button variant="danger">Delete</Button>
+          <ThemeProvider tokens={tokens} components={components}>
+            <Button variant="primary">Cancel</Button>
+            <Button variant="danger" size="small">Delete</Button>
           </ThemeProvider>
         `}</Example.Code>
           <Example.Preview gap={4} align="center">

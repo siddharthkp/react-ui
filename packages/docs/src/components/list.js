@@ -1,15 +1,18 @@
 import React from 'react'
-import { Element } from 'react-ui'
+import { Element, merge } from 'react-ui'
 
-export const List = props => {
+export const List = ({ css, ...props }) => {
   return (
     <Element
       as="ul"
-      css={{
-        paddingLeft: props.as === 'ol' ? 5 : 0,
-        listStyle: props.as === 'ol' ? 'decimal' : 'none',
-        li: { paddingY: 2 }
-      }}
+      css={merge(
+        {
+          paddingLeft: props.as === 'ol' ? 5 : 0,
+          listStyle: props.as === 'ol' ? 'decimal' : 'none',
+          li: { paddingY: 2 }
+        },
+        css
+      )}
       {...props}
     >
       {props.children.map((child, index) => (

@@ -1,26 +1,19 @@
 # Logs
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+
+# Compiled
+dist
+build
 
 # Dependency directories
 node_modules/
-
-# Optional npm cache directory
-.npm
-
-# Yarn Integrity file
-.yarn-integrity
 
 # dotenv environment variables file
 .env
 .env.test
 
-# gatsby artifacts
-.cache
-public
-
-# bundles
-dist
-themes

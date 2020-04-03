@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { styles } from './textarea.styles'
 import { Input } from '../input'
-import { merge } from '../../../utils'
+import { merge } from '../../utils'
 
 function Textarea({ css, ...props }) {
   return (

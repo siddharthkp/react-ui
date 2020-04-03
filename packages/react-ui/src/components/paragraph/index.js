@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Stack } from '../stack'
 import { styles } from './paragraph.styles'
-import { merge } from '../../../utils'
+import { merge } from '../../utils'
 
 function Paragraph({ css, gap, ...props }) {
   return (

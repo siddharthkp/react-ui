@@ -11,6 +11,8 @@ import 'prismjs/components/prism-jsx'
 import 'prismjs/components/prism-clike'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-bash'
+import 'prismjs/components/prism-css'
+import 'prismjs/components/prism-scss'
 import 'prismjs/themes/prism-tomorrow.css'
 import 'prismjs/plugins/line-highlight/prism-line-highlight'
 
@@ -119,7 +121,7 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
         as="pre"
         css={{
           margin: 0,
-          backgroundColor: 'black',
+          backgroundColor: '#000',
           color: '#f5faff',
           padding: 4,
           fontSize: 3,

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Element } from '@ds-tools/primitives'
+import { Element } from '../../primitives'
 import { styles } from './card.styles'
-import { merge } from '../../../utils'
+import { merge } from '../../utils'
 
 function Card({ css, ...props }) {
   return (

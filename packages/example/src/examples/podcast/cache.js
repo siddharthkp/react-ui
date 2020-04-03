@@ -524,8 +524,8 @@ export default {
     thumbnail:
       'https://cdn-images-1.listennotes.com/podcasts/design-details-spec-R9lQegBoP-y.300x300.jpg'
   },
-  ca8dc6dc760b441495e21f450db3691c: {
-    id: 'ca8dc6dc760b441495e21f450db3691c',
+  '559de49bb9f24680825ae6b59839e60c': {
+    id: '559de49bb9f24680825ae6b59839e60c',
     title: 'Build Your SaaS – bootstrap in 2020',
     description:
       'Can you bootstrap a profitable startup in 2020? Thousands of entrepreneurs, developers, designers, and product people have tried to launch their own web apps. But with so many venture-backed startups now, is it still possible? Follow Jon and Justin as they build their podcasting SaaS, Transistor.fm.',
@@ -653,5 +653,27 @@ export default {
     ],
     thumbnail:
       'https://cdn-images-1.listennotes.com/podcasts/build-your-saas-bootstrapping-in-2019-lu9tIRBMLjW-wTZvPyLoW0m.300x300.jpg'
+  },
+  ca8dc6dc760b441495e21f450db3691c: {
+    id: 'ca8dc6dc760b441495e21f450db3691c',
+    title: 'Full Stack Radio',
+    description:
+      'A podcast for developers interested in building great software products. Every episode, Adam Wathan is joined by a guest to talk about everything from product design and user experience to unit testing and system administration.',
+    thumbnail:
+      'https://cdn-images-1.listennotes.com/podcasts/full-stack-radio-adam-wathan-Smf8-U0OEwF.300x300.jpg',
+    episodes: [
+      {
+        id: '558928da726e4409a971fc7839d8b10f',
+        title: '136: Michael Chan - React Is Not a Rails Competitor',
+        description:
+          '<p>In this episode, Adam is joined by <a href="https://t…mplex conditionals, and temporary variables.</li>\n</ul>',
+        audio:
+          'https://www.listennotes.com/e/p/558928da726e4409a971fc7839d8b10f/',
+        audio_length_sec: 4081,
+        pub_date_ms: 1585150920000,
+        thumbnail:
+          'https://cdn-images-1.listennotes.com/podcasts/full-stack-radio-adam-wathan-Smf8-U0OEwF.300x300.jpg'
+      }
+    ]
   }
 }

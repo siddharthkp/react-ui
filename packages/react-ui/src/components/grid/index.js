@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Element } from '@ds-tools/primitives'
+import { Element } from '../../primitives'
 import { styles } from './grid.styles'
-import { merge } from '../../../utils'
+import { merge } from '../../utils'
 
 function Grid({ gap, columnGap, rowGap, css, ...props }) {
   let gaps = {}

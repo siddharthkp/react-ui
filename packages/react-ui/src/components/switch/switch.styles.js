@@ -1,4 +1,4 @@
-import { calc } from '../../../utils'
+import { calc } from '../../utils'
 
 export const styles = {
   SwitchBackground: {

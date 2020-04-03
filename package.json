@@ -4,7 +4,8 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "packages/ds-tools/*"
+    "packages/ds-tools/*",
+    "packages/ecosystem/*"
   ],
   "scripts": {
     "test": "cd packages/react-ui && yarn test"

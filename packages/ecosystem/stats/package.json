@@ -1,0 +1,23 @@
+{
+  "name": "react-ui-stats",
+  "version": "0.0.1",
+  "author": "rubenmoya",
+  "source": "index.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c"
+  },
+  "peerDependencies": {
+    "react-ui": "^1.0.0-beta.17",
+    "react": "^16.8.6"
+  },
+  "devDependencies": {
+    "rollup": "^1.27.8",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0"
+  },
+  "license": "MIT"
+}

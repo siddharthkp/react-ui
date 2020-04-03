@@ -18,7 +18,7 @@ const Documentation = () => {
     >
       <Example>
         <Example.Preview>
-          <Grid>
+          <Grid css={{ width: '100%' }}>
             <Row css={{ height: 20, background: '#EFA6A6' }} />
             <Column span={2} css={{ height: 140, background: '#A8EEC1' }} />
             <Column span={10} css={{ height: 140, background: '#B7DBF7' }} />
@@ -96,7 +96,7 @@ const Documentation = () => {
 
         <Example title="start + span">
           <Example.Preview>
-            <Grid css={{ height: 40 }}>
+            <Grid css={{ width: '100%', height: 40 }}>
               <Column start={1} end={4} css={{ background: '#EFA6A6' }}>
                 1 to 4
               </Column>
@@ -121,7 +121,7 @@ const Documentation = () => {
 
         <Example title="row + column">
           <Example.Preview>
-            <Grid>
+            <Grid css={{ width: '100%' }}>
               <Row css={{ height: 20, background: '#EFA6A6' }}>header</Row>
               <Column span={2} css={{ height: 140, background: '#A8EEC1' }}>
                 sidebar
@@ -152,7 +152,7 @@ const Documentation = () => {
 
         <Example title="Overflow">
           <Example.Preview>
-            <Grid columnGap={2} rowGap={2}>
+            <Grid css={{ width: '100%' }} columnGap={2} rowGap={2}>
               {new Array(12).fill(true).map((value, index) => (
                 <Column
                   span={4}
@@ -190,7 +190,7 @@ const Documentation = () => {
 
         <Example title="Responsive - try resizing the browser window.">
           <Example.Preview>
-            <Grid>
+            <Grid css={{ width: '100%' }}>
               <Row css={{ height: 20, background: '#EFA6A6' }}>header</Row>
               <Column
                 span={[12, 12, 2]}
@@ -202,13 +202,13 @@ const Documentation = () => {
                 span={[12, 6, 5]}
                 css={{ height: 140, background: '#A8EEC1' }}
               >
-                column
+                half &
               </Column>
               <Column
                 span={[12, 6, 5]}
                 css={{ height: 140, background: '#B7DBF7' }}
               >
-                column
+                half
               </Column>
             </Grid>
           </Example.Preview>

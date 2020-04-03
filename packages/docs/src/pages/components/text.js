@@ -111,7 +111,7 @@ const Documentation = () => {
           </Text>
         </Para>
 
-        <Para>Link uses the following theme properties:</Para>
+        <Para>Text uses the following theme properties:</Para>
         <Table>
           <Table.Header>
             <Table.Column span={4}>Property</Table.Column>
@@ -129,14 +129,14 @@ const Documentation = () => {
 
           // overwrite Text variants
           components.Text.variants = {
-            default: { color: 'black' },
+            default: { color: '#000' },
             subtle: { color: 'grey' },
             danger: { color: 'red' },
             success: { color: 'green' }
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider tokens={tokens} components={components}> 
+          <ThemeProvider tokens={tokens} components={components}>
             <Text>Text might seem like a boring component</Text>
             <Text variant="subtle">but can we incredibly handy with variants</Text>
             <Text variant="success">to quickly express context</Text>
@@ -147,7 +147,7 @@ const Documentation = () => {
               components={{
                 Text: {
                   variants: {
-                    default: { color: 'black' },
+                    default: { color: '#000' },
                     subtle: { color: 'grey' },
                     danger: { color: 'red' },
                     success: { color: 'green' }

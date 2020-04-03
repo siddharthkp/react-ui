@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-ui'
 import { SectionHeading } from './typography'
 
-export const Section = ({ id, title, ...props }) => {
+export const Section = ({ id, title, badge, ...props }) => {
   return (
     <section id={id || title}>
       {title ? (
@@ -21,6 +21,7 @@ export const Section = ({ id, title, ...props }) => {
               }
             }
           }}
+          {...props}
         >
           <SectionHeading css={{ display: 'inline-block' }}>
             {title}

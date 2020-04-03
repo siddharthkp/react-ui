@@ -339,7 +339,7 @@ const Documentation = () => {
         </Para>
         <Example>
           <Example.Preview>
-            <Grid>
+            <Grid css={{ width: '100%' }}>
               <Row css={{ height: 20, background: '#EFA6A6' }} />
               <Column span={2} css={{ height: 140, background: '#A8EEC1' }} />
               <Column span={10} css={{ height: 140, background: '#B7DBF7' }} />
@@ -370,7 +370,7 @@ const Documentation = () => {
       </Para>
       <Example>
         <Example.Preview>
-          <Grid>
+          <Grid css={{ width: '100%' }}>
             <Row css={{ height: 20, background: '#EFA6A6' }} />
             <Column
               span={[12, 2, 6]}
@@ -412,7 +412,7 @@ const Documentation = () => {
 
 export default Documentation
 
-const AirplaneIcon = () => (
+export const AirplaneIcon = () => (
   <svg version="1.1" x="0" y="0" viewBox="0 0 12 12" width="12" height="12">
     <path
       fill="#929FB1"
@@ -421,7 +421,7 @@ const AirplaneIcon = () => (
   </svg>
 )
 
-const AirCanadaLogo = props => (
+export const AirCanadaLogo = props => (
   <Element
     as="svg"
     x="0px"

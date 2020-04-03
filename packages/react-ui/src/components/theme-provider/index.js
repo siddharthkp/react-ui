@@ -3,12 +3,12 @@ import {
   ThemeProvider as EmotionThemeProvider,
   Global,
   interpolate
-} from '@ds-tools/primitives'
-import { merge } from '../../../utils'
+} from '../../primitives'
+import { merge } from '../../utils'
 
 // import * as light from '../../../themes/light'
 // import dark from '../../../themes/dark'
-import * as base from '../../../themes/base'
+import base from '../../themes/base'
 
 const Provider = EmotionThemeProvider
 
@@ -27,6 +27,11 @@ function ThemeProvider({
 
   tokens.sizes = merge(tokens.sizes, getSizesFromComponents(components))
   tokens.colors = merge(tokens.colors, getColorsFromComponents(components))
+
+  components.Global = merge(
+    { ':root': { '--reach-menu-button': 1 } },
+    components.Global
+  )
 
   const combinedTheme = merge(tokens, { components })
 
