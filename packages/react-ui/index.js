@@ -16,7 +16,6 @@ export * from './src/components/stack'
 export * from './src/components/breadcrumb'
 export * from './src/components/form'
 export * from './src/components/menu'
-export * from './src/components/stat'
 export * from './src/components/paragraph'
 export * from './src/components/card'
 
