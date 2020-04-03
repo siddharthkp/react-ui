@@ -20,6 +20,7 @@ export { default as Breadcrumb } from './components/breadcrumb'
 export { default as Form } from './components/form'
 export { default as Card } from './components/card'
 export { default as Menu } from './components/menu'
+export { default as Stat } from './components/stat'
 export { default as Paragraph } from './components/paragraph'
 
 export { default as ComponentsIndex } from './components/index'
