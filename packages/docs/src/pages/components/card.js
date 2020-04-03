@@ -84,7 +84,7 @@ const Documentation = () => {
           </Text>
         </Para>
 
-        <Para>Input uses the following theme properties:</Para>
+        <Para>Card uses the following theme properties:</Para>
 
         <Table>
           <Table.Header>
@@ -100,7 +100,7 @@ const Documentation = () => {
         <Example>
           <Example.Code lang="js">{`
           import { tokens, components } from 'react-ui/themes/base'
-          
+
           components.Card = {
             width: 500,
             background: 'white',
