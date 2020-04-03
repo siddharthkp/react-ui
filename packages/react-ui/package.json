@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "dev": "rollup -c -w",
-    "build": "rollup -c && cp -r ./dist/themes themes/",
+    "build": "rollup -c",
     "test": "yarn build && bundlesize"
   },
   "keywords": [],

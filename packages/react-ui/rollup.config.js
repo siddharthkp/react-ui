@@ -29,8 +29,13 @@ export default [
       {
         dir: 'dist/themes/',
         format: 'cjs',
-        exports: 'named'
-      }
+        exports: 'named',
+      },
+      {
+        dir: 'themes',
+        format: 'cjs',
+        exports: 'named',
+      },
     ],
     plugins
   }
