@@ -166,7 +166,7 @@ const Documentation = () => {
           </Text>
         </Para>
 
-        <Para>Breadcrumb has the following customisable elements:</Para>
+        <Para>Form has the following customisable elements:</Para>
 
         <Table>
           <Table.Header>Name</Table.Header>
@@ -180,7 +180,7 @@ const Documentation = () => {
         <Example>
           <Example.Code lang="js">{`
           import { tokens, components } from 'react-ui/themes/base'
-          
+
           components.Form = {
             width: '400px',
             backgroundColor: 'pink',
