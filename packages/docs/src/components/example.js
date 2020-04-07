@@ -18,7 +18,7 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight'
 
 const ExampleContext = React.createContext()
 
-export const Example = props => {
+export const Example = (props) => {
   const [codeVisible, setCodeVisibility] = React.useState(
     props.hideCode ? false : true
   )
@@ -38,9 +38,9 @@ export const Example = props => {
             position: 'relative',
             '> *:first-child': {
               borderTopRadius: 2,
-              borderBottomRadius: codeVisible ? 0 : 2
+              borderBottomRadius: codeVisible ? 0 : 2,
             },
-            '> *:last-child': { borderBottomRadius: 2 }
+            '> *:last-child': { borderBottomRadius: 2 },
           }}
           marginBottom={12}
           {...props}
@@ -61,7 +61,7 @@ const Preview = ({ css = {}, ...props }) => {
         paddingX: 6,
         border: '1px solid',
         borderColor: 'App.borderColor',
-        ...css
+        ...css,
       }}
       {...props}
     >
@@ -86,7 +86,7 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
   if (!codeVisible) {
     return (
       <Stack justify="flex-end">
-        <Button variant="link" onClick={_ => setCodeVisibility(true)}>
+        <Button variant="link" onClick={(_) => setCodeVisibility(true)}>
           see code
         </Button>
       </Stack>
@@ -104,7 +104,7 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
           right: 0,
           top: '10px',
           svg: { color: copied ? '#38C172' : '#929FB1' },
-          ':hover, :focus': { svg: { color: copied ? '#38C172' : '#c6cbd1' } }
+          ':hover, :focus': { svg: { color: copied ? '#38C172' : '#c6cbd1' } },
         }}
         onClick={copyCode}
       >
@@ -125,10 +125,10 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
           color: '#f5faff',
           padding: 4,
           fontSize: 3,
-          overflow: 'scroll'
+          overflow: 'auto',
         }}
         dangerouslySetInnerHTML={{
-          __html: html
+          __html: html,
         }}
         {...props}
       />
