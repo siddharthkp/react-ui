@@ -12,7 +12,6 @@
 
 <br/><br/>
 
-
 #### What should I know before I get started?
 
 <br/>
@@ -41,30 +40,48 @@ It's helpful to read the post about [old and new ideas in React UI](https://reac
 
 1. Clone the repository
 
-    Run this command on your terminal:
+   Run this command on your terminal:
 
-    ```
-    git clone https://github.com/siddharthkp/react-ui.git
-    ```
+   ```
+   git clone https://github.com/siddharthkp/react-ui.git
+   ```
 
 2. Run `yarn` to install dependencies.
 
-    It's recommended to use [yarn](https://yarnpkg.com/) instead of npm because the project uses a `yarn.lock` file to make sure you get the exact version of dependencies as intended.
+   It's recommended to use [yarn](https://yarnpkg.com/) instead of npm because the project uses a `yarn.lock` file to make sure you get the exact version of dependencies as intended.
 
 3. There are a few `packages` inside the repository. The interesting ones are:
 
-    - packages/docs: This is the documentation site for React UI
-    - packages/react-ui: This is the components package
-    - packages/example: This is examples build with React UI
+   - packages/docs: This is the documentation site for React UI
+   - packages/react-ui: This is the components package
+   - packages/example: This is examples build with React UI
 
-    Each of these have their own scripts inside `package.json`. For example, to work on the documentation website, you can run
+   Each of these have their own scripts inside `package.json`. For example, to work on the documentation website, you can run
 
-    ```
+   ```
+   cd packages/docs
+   yarn start
+   ```
+
+   You don't have to install dependencies again for each package. React UI uses [yarn workspaces(https://classic.yarnpkg.com/en/docs/workspaces/) - which means you can use the local version of react-ui package inside the documentation website.
+
+4. The recommended way of testing a component is in by running the documentation site.
+
+   To do this, start the docs site
+
+   ```
     cd packages/docs
     yarn start
-    ```
+   ```
 
-    You don't have to install dependencies again for each package. React UI uses [yarn workspaces(https://classic.yarnpkg.com/en/docs/workspaces/) - which means you can use the local version of react-ui package inside the documentation website.
+   and run react-ui in development mode
+
+   ```
+   cd packages/react-ui
+   yarn dev
+   ```
+
+   Now, any changes made to the components or primitives will reflect in the documentation.
 
 <br/>
 
