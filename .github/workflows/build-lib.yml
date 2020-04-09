@@ -2,14 +2,27 @@ name: Build
 on: [push]
 
 jobs:
-  build:
+  lib:
+    name: Build lib
     runs-on: ubuntu-latest
     env:
       CI: true
     steps:
       - uses: actions/checkout@v2
-      - run: cd packages/react-ui
       - name: Install dependencies
         run: yarn
+      - run: cd packages/react-ui
+      - name: Test
+        run: yarn test
+  docs:
+    name: Build docs
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn
+      - run: cd packages/docs
       - name: Test
         run: yarn test
