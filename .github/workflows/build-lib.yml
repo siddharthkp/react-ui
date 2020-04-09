@@ -8,9 +8,8 @@ jobs:
       CI: true
     steps:
       - uses: actions/checkout@v2
-      
+      - run: cd packages/react-ui
       - name: Install dependencies
         run: yarn
-
       - name: Test
         run: yarn test
