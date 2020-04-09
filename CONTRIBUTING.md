@@ -83,6 +83,12 @@ It's helpful to read the post about [old and new ideas in React UI](https://reac
 
    Now, any changes made to the components or primitives will reflect in the documentation.
 
+5. Builds and publishing
+
+   To build the components package, run `yarn build` in `packages/react-iu`.
+
+   The documentation site is automatically deployed from master.
+
 <br/>
 
 If you'd like to learn how to create a pull request, [this guide is really helpful](http://makeapullrequest.com).
