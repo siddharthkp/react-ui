@@ -1,6 +1,6 @@
 {
   "name": "react-ui-stats",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "rubenmoya",
   "source": "index.js",
   "main": "dist/index.js",
