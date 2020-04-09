@@ -14,25 +14,30 @@ const Documentation = () => {
         <Text variant="subtle">Built by </Text>
         <Link href="https://github.com/rubenmoya">Rubén Moya</Link>
       </Stack>
-      <Example>
-        <Example.Preview>
-          <Stats>
-            <Stats.Label>Visits</Stats.Label>
-            <Stats.Value>345,670</Stats.Value>
-            <Stats.Description>Last 7 days</Stats.Description>
-          </Stats>
-        </Example.Preview>
-        <Example.Code>
-          {`
+      <Example title="Install">
+        <Example.Code lang="bash">yarn add react-ui-stats</Example.Code>
+      </Example>
+
+      <Section title="Examples">
+        <Example>
+          <Example.Preview>
+            <Stats>
+              <Stats.Label>Visits</Stats.Label>
+              <Stats.Value>345,670</Stats.Value>
+              <Stats.Description>Last 7 days</Stats.Description>
+            </Stats>
+          </Example.Preview>
+          <Example.Code>
+            {`
             <Stats>
               <Stats.Label>Visits</Stats.Label>
               <Stats.Value>345,670</Stats.Value>
               <Stats.Description>Last 7 days</Stats.Description>
             </Stats>
           `}
-        </Example.Code>
-      </Example>
-      <Section title="Examples">
+          </Example.Code>
+        </Example>
+
         <Para>
           Stats can be combined with <Link href="/components/Stack">Stack</Link>{' '}
           to create stats groups.
@@ -140,15 +145,15 @@ const Documentation = () => {
                 color: 'text.body', // reads from tokens.colors.text.body
 
                 StatsLabel: {
-                  textTransform: 'uppercase',
+                  textTransform: 'uppercase'
                 },
                 StatsValue: {
-                  fontSize: 5, // reads from tokens.fontSizes.5
+                  fontSize: 5 // reads from tokens.fontSizes.5
                 },
                 StatsDescription: {
                   fontSize: 2, // reads from tokens.fontSizes.2
-                  color: 'text.subtle', // reads from tokens.colors.text.subtle
-                },
+                  color: 'text.subtle' // reads from tokens.colors.text.subtle
+                }
               })}
             >
               <Stats>
