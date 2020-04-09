@@ -6,7 +6,7 @@
 
 [What should I know before I get started?](#what-should-i-know-before-i-get-started)
 
-[How can I Contribute?](#how-can-i-contribute)
+[How can I contribute?](#how-can-i-contribute)
 
 [How do I setup the project?](#how-do-i-setup-the-project)
 
@@ -21,7 +21,7 @@ It's helpful to read the post about [old and new ideas in React UI](https://reac
 
 <br/><br/>
 
-#### How can I Contribute?
+#### How can I contribute?
 
 <br/>
 
@@ -51,9 +51,7 @@ It's helpful to read the post about [old and new ideas in React UI](https://reac
 
     It's recommended to use [yarn](https://yarnpkg.com/) instead of npm because the project uses a `yarn.lock` file to make sure you get the exact version of dependencies as intended.
 
-3. packages
-
-    There are a few `packages` inside the repository. The interesting ones are:
+3. There are a few `packages` inside the repository. The interesting ones are:
 
     - packages/docs: This is the documentation site for React UI
     - packages/react-ui: This is the components package
@@ -68,6 +66,8 @@ It's helpful to read the post about [old and new ideas in React UI](https://reac
 
     You don't have to install dependencies again for each package. React UI uses [yarn workspaces(https://classic.yarnpkg.com/en/docs/workspaces/) - which means you can use the local version of react-ui package inside the documentation website.
 
-<br/><br/>
+<br/>
 
 If you'd like to learn how to create a pull request, [this guide is really helpful](http://makeapullrequest.com).
+
+<br/><br/>
