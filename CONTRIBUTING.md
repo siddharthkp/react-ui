@@ -85,7 +85,7 @@ It's helpful to read the post about [old and new ideas in React UI](https://reac
 
 5. Builds and publishing
 
-   To build the components package, run `yarn build` in `packages/react-iu`.
+   To build the components package, run `yarn build` in `packages/react-ui`.
 
    The documentation site is automatically deployed from master.
 
