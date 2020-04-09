@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Element } from '../../primitives'
 import { merge } from '../../utils'
 
-// TODO: prefixed version can be removed after upgrading to Emotion v11
+// TODO: prefixed version can be removed after upgrading to Emotion 11
 const createGap = (direction, gap) => {
   if (direction === 'vertical') {
     return {
