@@ -255,6 +255,8 @@ export const scales = {
   marginRight: 'space',
   marginBottom: 'space',
   marginLeft: 'space',
+  marginInlineStart: 'space',
+  marginInlineEnd: 'space',
   marginX: 'space',
   marginY: 'space',
   padding: 'space',
