@@ -1,28 +1,16 @@
 name: Build
-
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
+    env:
+      CI: true
     steps:
-    - uses: actions/checkout@v2
-    - name: Build react-ui
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: cd packages/react-ui
-    - run: npm run build --if-present
-    - run: npm test
-      env:
-        CI: true
+      - uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        run: yarn
+
+      - name: Test
+        run: yarn test
