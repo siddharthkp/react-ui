@@ -75,8 +75,11 @@ function Element(
     if (typeof theme.sizes[component] !== 'object') {
       // single value, attach to component
       value = theme.sizes[component]
+    } else if (Array.isArray(size)) {
+      // if its multiple values and size is array (responsive), attach the corresponding key
+      value = size.map(s => theme.sizes[component][s]);
     } else {
-      // if its multiple values, attach the corresponding key
+      // if its multiple values and size is single vlaue (non reponsive), attach the corresponding key
       value = theme.sizes[component][size]
     }
 

@@ -70,6 +70,24 @@ const Documentation = () => {
             <Avatar size="large"  src="https://github.com/sameen-shi.png" />
           `}</Example.Code>
         </Example>
+
+        <Example title="Responsive Size">
+          <Para>
+            <Text variant="subtle" size={3}>
+              (Try resizing the browser window to see this in effect. If you're
+              on mobile, try switching to landscape mode)
+            </Text>
+          </Para>
+          <Example.Preview>
+            <Avatar
+              size={['small', 'medium', 'large']}
+              src="https://github.com/sameen-shi.png"
+            />
+          </Example.Preview>
+          <Example.Code>{`
+            <Avatar size={["small", "medium", "large"]} src="https://github.com/sameen-shi.png" />
+          `}</Example.Code>
+        </Example>
       </Section>
 
       <Section title="Customisation">
