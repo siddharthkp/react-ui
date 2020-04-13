@@ -63,7 +63,11 @@ const Change = ({ pr, description, author }) => (
       </Link>{' '}
       {description}
     </Text>
-    <Link to={`https://github.com/${author}`} target="_blank" variant="subtle">
+    <Link
+      href={`https://github.com/${author}`}
+      target="_blank"
+      variant="subtle"
+    >
       <Stack align="center" gap={1}>
         <Avatar size="small" src={`https://github.com/${author}.png`} />
         <Text size={3}>{author}</Text>
