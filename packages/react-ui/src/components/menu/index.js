@@ -20,6 +20,8 @@ const MenuButton = React.forwardRef((props, ref) => {
   )
 })
 
+MenuButton.displayName = 'Menu.Button'
+
 const MenuList = React.forwardRef(({ css, ...props }, ref) => {
   return (
     <Element
@@ -32,6 +34,8 @@ const MenuList = React.forwardRef(({ css, ...props }, ref) => {
   )
 })
 
+MenuList.displayName = 'Menu.List'
+
 const MenuItem = React.forwardRef(({ css, ...props }, ref) => {
   return (
     <Element
@@ -43,6 +47,8 @@ const MenuItem = React.forwardRef(({ css, ...props }, ref) => {
     />
   )
 })
+
+MenuItem.displayName = 'Menu.Item'
 
 Menu.Button = MenuButton
 Menu.List = MenuList

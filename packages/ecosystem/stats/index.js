@@ -2,7 +2,7 @@ import React from 'react'
 import { Stack, Text } from 'react-ui'
 import styles from './styles'
 
-const Stats = React.forwardRef(function Stack(props, ref) {
+const Stats = React.forwardRef(function Stats(props, ref) {
   return (
     <Stack
       ref={ref}
@@ -18,13 +18,19 @@ const Label = React.forwardRef((props, ref) => (
   <Text ref={ref} component="StatsLabel" {...props} />
 ))
 
+Label.displayName = 'Stats.Label'
+
 const Value = React.forwardRef((props, ref) => (
   <Text ref={ref} component="StatsValue" {...props} />
 ))
 
+Value.displayName = 'Stats.Value'
+
 const Description = React.forwardRef((props, ref) => (
   <Text ref={ref} component="StatsDescription" {...props} />
 ))
+
+Description.displayName = 'Stats.Description'
 
 Stats.Label = Label
 Stats.Value = Value

@@ -37,6 +37,8 @@ Form.Header = React.forwardRef(({ css, ...props }, ref) => (
   />
 ))
 
+Form.Header.displayName = 'Form.Header'
+
 Form.Header.propTypes = {
   as: PropTypes.string
 }
@@ -54,6 +56,8 @@ Form.Label = React.forwardRef(({ css, ...props }, ref) => (
     {...props}
   />
 ))
+
+Form.Label.displayName = 'Form.Label'
 
 // attach child components to Form
 Form.Field = React.forwardRef(({ label, id, isRequired, css, ...props }) => {
@@ -89,6 +93,8 @@ Form.Field = React.forwardRef(({ label, id, isRequired, css, ...props }) => {
     </Element>
   )
 })
+
+Form.Field.displayName = 'Form.Field'
 
 Form.Field.propTypes = {
   /** first */
