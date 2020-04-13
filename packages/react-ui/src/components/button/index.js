@@ -5,16 +5,17 @@ import { styles } from './button.styles'
 import { merge } from '../../utils'
 
 /** Description of a button */
-const Button = ({ size, css, ...props }) => {
+const Button = React.forwardRef(function Button({ size, css, ...props }, ref) {
   return (
     <Element
+      ref={ref}
       as="button"
       component="Button"
       css={merge(styles.Button, { height: 'Button.' + size }, css)}
       {...props}
     />
   )
-}
+})
 
 Button.propTypes = {
   /** Description of an button prop */

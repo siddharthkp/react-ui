@@ -7,9 +7,10 @@ import { Element } from '../../primitives'
 import { Stack } from '../stack'
 import { merge } from '../../utils'
 
-const Form = ({ css, ...props }) => {
+const Form = React.forwardRef(function Form({ css, ...props }, ref) {
   return (
     <Element
+      ref={ref}
       as="form"
       component="Form"
       css={merge(styles.Form, css)}
@@ -20,21 +21,23 @@ const Form = ({ css, ...props }) => {
       </Stack>
     </Element>
   )
-}
+})
 
 Form.propTypes = {}
 
-Form.Header = ({ css, ...props }) => (
+Form.defaultProps = {}
+
+Form.Header = React.forwardRef(({ css, ...props }, ref) => (
   <Element
+    ref={ref}
     as="h1"
     component="FormHeader"
     css={merge(styles.FormHeader, css)}
     {...props}
   />
-)
+))
 
 Form.Header.propTypes = {
-  /** Description of an button prop */
   as: PropTypes.string
 }
 
@@ -42,16 +45,18 @@ Form.Header.defaultProps = {
   as: 'h1'
 }
 
-Form.Label = ({ css, ...props }) => (
+Form.Label = React.forwardRef(({ css, ...props }, ref) => (
   <Element
+    ref={ref}
     as="label"
     component="FormLabel"
     css={merge(styles.FormLabel, css)}
     {...props}
   />
-)
+))
 
-const FormField = function({ label, id, isRequired, css, ...props }) {
+// attach child components to Form
+Form.Field = React.forwardRef(({ label, id, isRequired, css, ...props }) => {
   const inputId = useId(id)
 
   const children = React.Children.map(props.children, (child, index) => {
@@ -83,9 +88,9 @@ const FormField = function({ label, id, isRequired, css, ...props }) {
       {children}
     </Element>
   )
-}
+})
 
-FormField.propTypes = {
+Form.Field.propTypes = {
   /** first */
   label: PropTypes.string.isRequired,
   /** second */
@@ -93,15 +98,5 @@ FormField.propTypes = {
   /** third */
   isRequired: PropTypes.bool
 }
-
-// attach display name explicitly to make codegen work
-FormField.displayName = 'Form.Field'
-
-Form.propTypes = {}
-
-Form.defaultProps = {}
-
-// attach child components to Form
-Form.Field = FormField
 
 export { Form }
