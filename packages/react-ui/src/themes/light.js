@@ -439,7 +439,8 @@ const components = {
     borderColor: 'grays.200',
     padding: 5,
     borderRadius: 2,
-    boxShadow: 2
+    boxShadow: 2,
+    overflow: 'hidden'
   },
   Form: {
     paddingY: 4
@@ -457,6 +458,7 @@ const components = {
   MenuList: {
     backgroundColor: 'white',
     color: 'text.body',
+    border: '1px solid',
     borderColor: 'grays.200',
     fontSize: 3,
     borderRadius: 2,
