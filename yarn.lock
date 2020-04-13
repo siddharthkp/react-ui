@@ -12208,6 +12208,13 @@ react-twitter-embed@^3.0.3:
     react-proptype-conditional-require "^1.0.4"
     scriptjs "^2.5.9"
 
+react-ui-stats@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/react-ui-stats/-/react-ui-stats-0.0.1.tgz#27dba79e640cd0f4abe7333f3526c28e81eac3f9"
+  integrity sha512-GEIVYTflB68GO/RT+NEagO5bFdCwYndEfoGAxGjw/zYDAbZvyPr2/Cv76wmzQ+G/gbzqLVewGBMcAONqP9micA==
+  dependencies:
+    react-ui "1.0.0-beta.17"
+
 react-ui@1.0.0-beta.14:
   version "1.0.0-beta.14"
   resolved "https://registry.yarnpkg.com/react-ui/-/react-ui-1.0.0-beta.14.tgz#365d14ed898ed99dd2bd1f20960244ca5d7e7a23"
@@ -12217,6 +12224,21 @@ react-ui@1.0.0-beta.14:
     "@reach/auto-id" "^0.7.0"
     "@reach/menu-button" "^0.7.0"
     deepmerge "4.0.0"
+    prop-types "^15.7.2"
+
+react-ui@1.0.0-beta.17:
+  version "1.0.0-beta.17"
+  resolved "https://registry.yarnpkg.com/react-ui/-/react-ui-1.0.0-beta.17.tgz#f275f6a713969d983973e30a3142b513c46dc69a"
+  integrity sha512-ADuNBclGL32zUIJ80FQOzZUJup1nobOFPqQxD06CGvyB01NcM+SMsuL4gk7hhVcBpaBZ8yx+rN9BxnQwEnuE0Q==
+  dependencies:
+    "@emotion/core" "^10.0.28"
+    "@emotion/styled" "^10.0.27"
+    "@reach/auto-id" "^0.7.0"
+    "@reach/menu-button" "^0.7.0"
+    deepmerge "4.0.0"
+    dlv "^1.1.3"
+    emotion-theming "^10.0.27"
+    facepaint "^1.2.1"
     prop-types "^15.7.2"
 
 react@^16.8.3, react@^16.8.9:
