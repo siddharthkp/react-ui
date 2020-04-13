@@ -23,3 +23,6 @@ export * from './src/components/theme-provider'
 
 export { Element } from './src/primitives'
 export { merge, mergeFns, calc } from './src/utils'
+
+const version = '1.0.0-beta.30'
+export { version }

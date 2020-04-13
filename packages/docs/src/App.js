@@ -14,7 +14,8 @@ import {
   Text,
   Menu,
   calc,
-  merge
+  merge,
+  version
 } from 'react-ui'
 
 import * as base from 'react-ui/themes/base'
@@ -70,19 +71,24 @@ const App = () => {
         >
           <MenuIcon />
         </Button>
-        <Menu>
-          <Menu.Button variant="link" style={{ paddingRight: 1 }}>
-            <Text marginRight={1} css={{ textTransform: 'capitalize' }}>
-              Theme: {theme}
-            </Text>
-            {chevron}
-          </Menu.Button>
-          <Menu.List>
-            <Menu.Item onSelect={_ => setTheme('base')}>Base</Menu.Item>
-            <Menu.Item onSelect={_ => setTheme('light')}>Light</Menu.Item>
-            <Menu.Item onSelect={_ => setTheme('dark')}>Dark</Menu.Item>
-          </Menu.List>
-        </Menu>
+        <div>
+          <Text variant="subtle" size={3}>
+            v{version}
+          </Text>
+          <Menu>
+            <Menu.Button variant="link" style={{ paddingRight: 1 }}>
+              <Text marginRight={1} css={{ textTransform: 'capitalize' }}>
+                Theme: {theme}
+              </Text>
+              {chevron}
+            </Menu.Button>
+            <Menu.List>
+              <Menu.Item onSelect={_ => setTheme('base')}>Base</Menu.Item>
+              <Menu.Item onSelect={_ => setTheme('light')}>Light</Menu.Item>
+              <Menu.Item onSelect={_ => setTheme('dark')}>Dark</Menu.Item>
+            </Menu.List>
+          </Menu>
+        </div>
       </Stack>
       <Grid
         css={{
