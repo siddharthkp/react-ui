@@ -46,6 +46,47 @@ const Changelog = () => {
           />
         </Stack>
       </Section>
+
+      <Section>
+        <Link variant="body" href="#1.0.0-beta.24" marginBottom={4}>
+          Earlier versions
+        </Link>
+        <Stack as={List} direction="vertical" gap={1} marginBottom={4}>
+          <Text size={3} color="text.subtle">
+            Fixes:
+          </Text>
+          <Change
+            pr="5"
+            description="Fix token name in docs"
+            author="arpitbatra123"
+          />
+          <Change
+            pr="6"
+            description="Fix walk for case where obj is null in Element"
+            author="ggoodman"
+          />
+          <Change
+            pr="7"
+            description="Remove duplicate word in docs"
+            author="tatchi"
+          />
+          <Change
+            pr="8"
+            description="Align example preview with code for Grid"
+            author="tatchi"
+          />
+          <Change
+            pr="10"
+            description="Add spacing between words"
+            author="mbj36"
+          />
+          <Change
+            pr="15"
+            description="Small fixes to the docs"
+            author="rudeayelo"
+          />
+        </Stack>
+      </Section>
     </Page>
   )
 }
