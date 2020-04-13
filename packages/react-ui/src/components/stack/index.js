@@ -3,6 +3,23 @@ import PropTypes from 'prop-types'
 import { Element } from '../../primitives'
 import { merge } from '../../utils'
 
+// TODO: prefixed version can be removed after upgrading to Emotion 11
+const createGap = (direction, gap) => {
+  if (direction === 'vertical') {
+    return {
+      marginBottom: gap,
+      '-webkitMarginEnd': 0,
+      marginInlineEnd: 0
+    }
+  }
+
+  return {
+    marginBottom: 0,
+    '-webkitMarginEnd': gap,
+    marginInlineEnd: gap
+  }
+}
+
 const Stack = ({ inline, justify, align, direction, gap, css, ...props }) => {
   const styles = {
     display: inline ? 'inline-flex' : 'flex',
@@ -15,15 +32,10 @@ const Stack = ({ inline, justify, align, direction, gap, css, ...props }) => {
     styles.flexDirection = direction.map(d =>
       d === 'vertical' ? 'column' : 'row'
     )
-    styles['> *:not(:last-child)'] = direction.map(d => ({
-      [d === 'vertical' ? 'marginBottom' : 'marginRight']: gap,
-      [d === 'vertical' ? 'marginRight' : 'marginBottom']: 0
-    }))
+    styles['> *:not(:last-child)'] = direction.map(d => createGap(d, gap))
   } else {
     styles.flexDirection = direction === 'vertical' ? 'column' : 'row'
-    styles['> *:not(:last-child)'] = {
-      [direction === 'vertical' ? 'marginBottom' : 'marginRight']: gap
-    }
+    styles['> *:not(:last-child)'] = createGap(direction, gap)
   }
 
   return (
