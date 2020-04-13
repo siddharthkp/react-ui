@@ -150,6 +150,10 @@ const App = () => {
                 })}
               </Documentation>
 
+              <Documentation path="changelog">
+                <Pages.Changelog path="/" />
+              </Documentation>
+
               <Documentation path="ecosystem">
                 <Pages.EcosystemIndex path="/" />
                 {Object.keys(Pages).map(name => {
@@ -281,6 +285,10 @@ const Navigation = props => (
             title: 'GitHub',
             path: 'https://github.com/siddharthkp/react-ui',
             external: true
+          },
+          {
+            title: 'Changelog',
+            path: 'changelog'
           }
           // { title: 'Videos', path: 'videos' },
         ]}

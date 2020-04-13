@@ -5,6 +5,7 @@ export const List = ({ css, ...props }) => {
   return (
     <Element
       as="ul"
+      component="List"
       css={merge(
         {
           paddingLeft: props.as === 'ol' ? 5 : 0,

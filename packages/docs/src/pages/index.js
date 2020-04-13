@@ -33,5 +33,7 @@ export { default as CustomisingComponents } from './core-concepts/customising-co
 export { default as CustomisingTokens } from './core-concepts/customising-tokens'
 export { default as Layouts } from './core-concepts/layouts'
 
+export { default as Changelog } from './changelog/index'
+
 export { default as EcosystemIndex } from './ecosystem/index'
 export { default as Stats } from './ecosystem/stats'
