@@ -236,7 +236,8 @@ const components = {
     borderColor: 'silver',
     padding: 5,
     borderRadius: 2,
-    boxShadow: 2
+    boxShadow: 2,
+    overflow: 'hidden'
   },
   Form: {
     paddingY: 4
