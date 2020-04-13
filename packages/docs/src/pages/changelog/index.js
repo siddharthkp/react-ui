@@ -6,14 +6,15 @@ const Changelog = () => {
   return (
     <Page title="Changelog">
       <Section>
-        <Text marginBottom={4}>1.0.0-beta.24</Text>
+        <Link variant="body" href="#1.0.0-beta.24" marginBottom={4}>
+          1.0.0-beta.24
+        </Link>
         <Stack as={List} direction="vertical" gap={1} marginBottom={4}>
           <Text size={3} color="text.subtle">
             Additions:
           </Text>
           <Change pr="4" description="Add Stats component" author="rubenmoya" />
         </Stack>
-
         <Stack as={List} direction="vertical" gap={1} marginBottom={4}>
           <Text size={3} color="text.subtle">
             Improvements:
@@ -29,7 +30,6 @@ const Changelog = () => {
             author="siddharthkp"
           />
         </Stack>
-
         <Stack as={List} direction="vertical" gap={1} marginBottom={4}>
           <Text size={3} color="text.subtle">
             Fixes:
