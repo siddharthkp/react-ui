@@ -5,12 +5,16 @@ import { styles } from './button.styles'
 import { merge } from '../../utils'
 
 /** Description of a button */
-const Button = ({ size, css, ...props }) => {
+const Button = ({ fullWidth, css, ...props }) => {
+  
+  let width = 'auto'
+  if(fullWidth) width = '100%'
+
   return (
     <Element
       as="button"
       component="Button"
-      css={merge(styles.Button, { height: 'Button.' + size }, css)}
+      css={merge(styles.Button, { width }, css)}
       {...props}
     />
   )
@@ -18,6 +22,7 @@ const Button = ({ size, css, ...props }) => {
 
 Button.propTypes = {
   /** Description of an button prop */
+  fullWidth: PropTypes.bool,
   type: PropTypes.oneOf(['submit', 'button', 'reset'])
 }
 
