@@ -16,6 +16,7 @@ function ThemeProvider({
   tokens = base.tokens,
   components = base.components,
   theme = {}, // as a combined fallback, not recommended but you know
+  injectGlobalStyles = true, //weather or not to inject global styles with this provider
   ...props
 }) {
   // system-ui allows you to define scales as arrays,
@@ -40,7 +41,9 @@ function ThemeProvider({
 
   return (
     <Provider theme={combinedTheme} {...props}>
-      <Global styles={interpolate(components.Global, combinedTheme)} />
+      {injectGlobalStyles && (
+        <Global styles={interpolate(components.Global, combinedTheme)} />
+      )}
       {props.children}
     </Provider>
   )
