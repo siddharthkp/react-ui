@@ -235,7 +235,8 @@ const ComponentNav = () => {
           { title: 'Card', path: 'Card' },
           { title: 'Form', path: 'Form' },
           { title: 'Menu', path: 'Menu' },
-          { title: 'Paragraph', path: 'Paragraph' }
+          { title: 'Paragraph', path: 'Paragraph' },
+          { title: 'Dialog', path: 'Dialog' }
         ]}
       />
     </>
