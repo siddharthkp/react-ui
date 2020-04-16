@@ -49,7 +49,7 @@ const Documentation = () => {
           Simple Dialog component to show custom elements.
           <p>
             To show and hide the dialog component, you have to control it by
-            yourself with a custom state. Read{' '}
+            yourself, e.g. with a custom state. Read{' '}
             <Link
               href="https://reacttraining.com/reach-ui/dialog/#dialog"
               target="_blank"
@@ -62,7 +62,7 @@ const Documentation = () => {
         <Example>
           <Example.Preview>
             <DialogPresenter>
-              <p>Inner</p>
+              <p>The content of the Dialog</p>
             </DialogPresenter>
           </Example.Preview>
           <Example.Code lang="js">{`
@@ -112,9 +112,15 @@ const Documentation = () => {
       </Section>
       <Section title="DialogOverlay">
         <Para>
-          Overlay building block for the dialog component, giving more control
-          over the dialog component
+          Overlay building block for the dialog component, if you need more
+          control over the dialog component.{' '}
           <p>Note: You must render a DialogContent inside.</p>
+          <Link
+            href="https://reacttraining.com/reach-ui/dialog/#dialogoverlay"
+            target="_blank"
+          >
+            More information
+          </Link>
         </Para>
         <Example>
           <Example.Preview>
@@ -174,6 +180,12 @@ const Documentation = () => {
           Content building block for the dialog component, giving more control
           over the dialog component
           <p>Note: DialogContent needs to be a child of DialogOverlay</p>
+          <Link
+            href="https://reacttraining.com/reach-ui/dialog/#dialogcontent"
+            target="_blank"
+          >
+            More information
+          </Link>
         </Para>
         <Example>
           <Example.Preview>

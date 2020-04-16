@@ -27,7 +27,6 @@ const Dialog = ({ css, children, ...props }) => (
     as={ReachDialog.DialogOverlay}
     component="DialogOverlay"
     css={merge(styles.DialogOverlay, css)}
-    {...props}
   >
     <Element
       as={ReachDialog.DialogContent}
