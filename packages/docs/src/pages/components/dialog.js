@@ -15,6 +15,7 @@ const DialogPresenter = ({ children }) => {
   const [showDialog, setShowDialog] = React.useState(false)
   const open = () => setShowDialog(true)
   const close = () => setShowDialog(false)
+  console.log(showDialog)
   return (
     <>
       <Button onClick={open}>Open Dialog</Button>
@@ -46,18 +47,16 @@ const Documentation = () => {
       </Para>
       <Section title="Dialog">
         <Para>
-          Simple Dialog component to show custom elements.
-          <p>
-            To show and hide the dialog component, you have to control it by
-            yourself, e.g. with a custom state. Read{' '}
-            <Link
-              href="https://reacttraining.com/reach-ui/dialog/#dialog"
-              target="_blank"
-            >
-              here
-            </Link>{' '}
-            for further information
-          </p>
+          Simple Dialog component to show custom elements. To show and hide the
+          dialog component, you have to control it by yourself, e.g. with a
+          custom state. Read{' '}
+          <Link
+            href="https://reacttraining.com/reach-ui/dialog/#dialog"
+            target="_blank"
+          >
+            here
+          </Link>{' '}
+          for further information
         </Para>
         <Example>
           <Example.Preview>
@@ -106,124 +105,6 @@ const Documentation = () => {
               name: 'onDismiss',
               type: 'function',
               description: 'function to call when dialog should close'
-            }
-          ]}
-        />
-      </Section>
-      <Section title="DialogOverlay">
-        <Para>
-          Overlay building block for the dialog component, if you need more
-          control over the dialog component.{' '}
-          <p>Note: You must render a DialogContent inside.</p>
-          <Link
-            href="https://reacttraining.com/reach-ui/dialog/#dialogoverlay"
-            target="_blank"
-          >
-            More information
-          </Link>
-        </Para>
-        <Example>
-          <Example.Preview>
-            <DialogPresenter>
-              <p>Dialog Content</p>
-            </DialogPresenter>
-          </Example.Preview>
-          <Example.Code lang="js">{`
-          const [showDialog, setShowDialog] = React.useState(false);
-          const open = () => setShowDialog(true);
-          const close = () => setShowDialog(false);
-          
-        `}</Example.Code>
-          <Example.Code lang="jsx">
-            {`
-              <>
-                <Button onClick={open}>Open Dialog</Button>
-                <DialogOverlay isOpen={showDialog} onDismiss={close}>
-                  <DialogContent>
-                    <p>The content of the Dialog</p>
-                    <button onClick={close}>
-                      Close Dialog
-                    </button>
-                  </DialogContent>
-                </DialogOverlay>              
-              </>
-          `}
-          </Example.Code>
-        </Example>
-      </Section>
-      <Section title="Props: DialogOverlay">
-        <Props
-          props={[
-            {
-              name: 'children',
-              type: '[ React elements ]',
-              description: '',
-              required: true
-            },
-            {
-              name: 'isOpen',
-              type: 'boolean',
-              description: '',
-              required: true,
-              default: 'false'
-            },
-            {
-              name: 'onDismiss',
-              type: 'function',
-              description: 'function to call when dialog should close'
-            }
-          ]}
-        />
-      </Section>
-      <Section title="DialogContent">
-        <Para>
-          Content building block for the dialog component, giving more control
-          over the dialog component
-          <p>Note: DialogContent needs to be a child of DialogOverlay</p>
-          <Link
-            href="https://reacttraining.com/reach-ui/dialog/#dialogcontent"
-            target="_blank"
-          >
-            More information
-          </Link>
-        </Para>
-        <Example>
-          <Example.Preview>
-            <DialogPresenter>
-              <p>Dialog Content</p>
-            </DialogPresenter>
-          </Example.Preview>
-          <Example.Code lang="js">{`
-          const [showDialog, setShowDialog] = React.useState(false);
-          const open = () => setShowDialog(true);
-          const close = () => setShowDialog(false);
-          
-        `}</Example.Code>
-          <Example.Code lang="jsx">
-            {`
-              <>
-                <Button onClick={open}>Open Dialog</Button>
-                <DialogOverlay isOpen={showDialog} onDismiss={close}>
-                  <DialogContent>
-                    <p>The content of the Dialog</p>
-                    <button onClick={close}>
-                      Close Dialog
-                    </button>
-                  </DialogContent>
-                </DialogOverlay>              
-              </>
-          `}
-          </Example.Code>
-        </Example>
-      </Section>
-      <Section title="Props: DialogContent">
-        <Props
-          props={[
-            {
-              name: 'children',
-              type: '[ React elements ]',
-              description: '',
-              required: true
             }
           ]}
         />
