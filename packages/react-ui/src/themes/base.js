@@ -133,6 +133,9 @@ const components = {
       }
     }
   },
+  Checkbox: {
+    border: '1px solid'
+  },
   Heading: {},
   Image: {},
   Input: {
