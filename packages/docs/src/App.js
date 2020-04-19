@@ -341,7 +341,7 @@ const Home = props => {
       </Section>
       <Section>
         <List>
-          <Text>Jump to:</Text>
+          <Text>Start here:</Text>
           <Link href="/core-concepts/ideas">
             Read old and new ideas in React UI →
           </Link>
