@@ -36,6 +36,8 @@ const App = () => {
 
   const [theme, setTheme] = React.useState('light')
 
+  document.querySelector('#favicon').href = `favicon-${theme}.png`
+
   React.useEffect(() => {
     setMenuVisibility(false)
   }, [locationKey])
