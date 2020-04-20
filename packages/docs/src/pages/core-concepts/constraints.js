@@ -24,11 +24,7 @@ import {
 
 function Example1(props) {
   return (
-    <ThemeProvider
-      tokens={light.tokens}
-      components={light.components}
-      injectGlobalStyles={false}
-    >
+    <ThemeProvider tokens={light.tokens} components={light.components}>
       <Example {...props}>
         <Example.Preview
           justify="center"
@@ -137,11 +133,7 @@ function Example1(props) {
 }
 function Example2(props) {
   return (
-    <ThemeProvider
-      tokens={light.tokens}
-      components={light.components}
-      injectGlobalStyles={false}
-    >
+    <ThemeProvider tokens={light.tokens} components={light.components}>
       <Example {...props}>
         <Example.Preview
           justify="center"
