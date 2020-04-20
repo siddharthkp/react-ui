@@ -44,6 +44,12 @@ const Documentation = () => {
               type: 'enum',
               description: 'defined in theme',
               default: 'primary'
+            },
+            {
+              name: 'fullWidth',
+              type: 'boolean',
+              description: 'Make button take 100% width of the container',
+              default: 'false'
             }
           ]}
         />
@@ -51,6 +57,7 @@ const Documentation = () => {
 
       <Section title="Examples">
         <Example title="Variants">
+
           <Example.Preview gap={4}>
             <Button>Log in</Button>
             <Button variant="secondary" debug>
@@ -66,6 +73,7 @@ const Documentation = () => {
             <Button variant="link">Reset form</Button>
           `}</Example.Code>
         </Example>
+
         <Para>
           <Text variant="subtle" css={{ fontStyle: 'italic' }}>
             Note: The variant "link" should be used sparingly. Because it
@@ -74,6 +82,15 @@ const Documentation = () => {
             ample user feedback after the button is clicked.
           </Text>
         </Para>
+
+        <Example title="Full width">
+          <Example.Preview gap={4}>
+            <Button fullWidth>Sign up</Button>
+          </Example.Preview>
+          <Example.Code>{`
+            <Button fullWidth>Sign up</Button>
+          `}</Example.Code>
+        </Example>
       </Section>
 
       <Section title="Customisation">
