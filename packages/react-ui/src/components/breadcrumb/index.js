@@ -15,12 +15,16 @@ const Separator = props => (
   </Element>
 )
 
-export const Breadcrumb = ({ separator, css, ...props }) => {
+export const Breadcrumb = React.forwardRef(function Breadcrumb(
+  { separator, css, ...props },
+  ref
+) {
   const children = React.Children.map(props.children, function(child, index) {
     const isLast = index === props.children.length - 1
 
     return (
       <Element
+        ref={ref}
         as="li"
         component="BreadcrumbItem"
         css={styles.BreadcrumbItem}
@@ -43,7 +47,7 @@ export const Breadcrumb = ({ separator, css, ...props }) => {
       <ol>{children}</ol>
     </Element>
   )
-}
+})
 
 Breadcrumb.propTypes = {
   separator: PropTypes.node

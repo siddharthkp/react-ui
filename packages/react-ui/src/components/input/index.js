@@ -5,19 +5,18 @@ import { styles } from './input.styles'
 import { merge } from '../../utils'
 
 /** Description of an input */
-function Input({ invalid, css, ...props }) {
+const Input = React.forwardRef(function Input({ invalid, css, ...props }, ref) {
   return (
-    <>
-      <Element
-        as="input"
-        component="Input"
-        aria-invalid={invalid}
-        css={merge(styles.Input, css)}
-        {...props}
-      />
-    </>
+    <Element
+      ref={ref}
+      as="input"
+      component="Input"
+      aria-invalid={invalid}
+      css={merge(styles.Input, css)}
+      {...props}
+    />
   )
-}
+})
 
 Input.propTypes = {
   /** Description of an input prop */

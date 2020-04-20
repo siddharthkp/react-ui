@@ -4,7 +4,7 @@ import { Element } from '../../primitives'
 import { styles } from './switch.styles'
 import { merge } from '../../utils'
 
-const Switch = ({ css, ...props }) => {
+const Switch = React.forwardRef(function Switch({ css, ...props }, ref) {
   return (
     <Element
       as="label"
@@ -12,6 +12,7 @@ const Switch = ({ css, ...props }) => {
       component="SwitchContainer"
     >
       <Element
+        ref={ref}
         as="input"
         type="checkbox"
         css={styles.SwitchInput}
@@ -29,7 +30,7 @@ const Switch = ({ css, ...props }) => {
       </Element>
     </Element>
   )
-}
+})
 
 Switch.propTypes = {
   value: PropTypes.bool,

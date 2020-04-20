@@ -3,9 +3,13 @@ import PropTypes from 'prop-types'
 import { Element } from '../../primitives'
 import { merge } from '../../utils'
 
-function Text({ size, color, align, weight, block, css, maxWidth, ...props }) {
+const Text = React.forwardRef(function Text(
+  { size, color, align, weight, block, css, maxWidth, ...props },
+  ref
+) {
   return (
     <Element
+      ref={ref}
       as="span"
       component="Text"
       css={merge(
@@ -23,7 +27,7 @@ function Text({ size, color, align, weight, block, css, maxWidth, ...props }) {
       {...props}
     />
   )
-}
+})
 
 const overflowStyles = {
   overflow: 'hidden',
