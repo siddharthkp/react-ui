@@ -4,21 +4,19 @@ import { Element } from '../../primitives'
 import { styles } from './button.styles'
 import { merge } from '../../utils'
 
-/** Description of a button */
-const Button = ({ fullWidth, css, ...props }) => {
+const Button = React.forwardRef(function Button({ size, css, ...props }, ref) {
+  let width = fullWidth ? '100%' : 'auto'
   
-  let width = 'auto'
-  if(fullWidth) width = '100%'
-
   return (
     <Element
+      ref={ref}
       as="button"
       component="Button"
       css={merge(styles.Button, { width }, css)}
       {...props}
     />
   )
-}
+})
 
 Button.propTypes = {
   /** Description of an button prop */

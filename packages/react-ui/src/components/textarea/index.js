@@ -4,16 +4,17 @@ import { styles } from './textarea.styles'
 import { Input } from '../input'
 import { merge } from '../../utils'
 
-function Textarea({ css, ...props }) {
+const Textarea = React.forwardRef(function Textarea({ css, ...props }, ref) {
   return (
     <Input
+      ref={ref}
       as="textarea"
       css={merge(styles.Textarea, css)}
       component="Textarea"
       {...props}
     />
   )
-}
+})
 
 Textarea.propTypes = {
   rows: PropTypes.number

@@ -23,7 +23,7 @@ const Documentation = () => {
         <Text>
           You can use any of the{' '}
           <Link
-            href="https://github.com/siddharthkp/react-ui/tree/master/packages/react-ui/themes"
+            href="https://github.com/siddharthkp/react-ui/tree/master/packages/react-ui/src/themes"
             target="_blank"
           >
             themes that ship with React UI
@@ -53,7 +53,7 @@ const Documentation = () => {
         <Text>
           If you already have your colors, font sizes in mind, you can use the{' '}
           <Link
-            href="https://github.com/siddharthkp/react-ui/blob/master/packages/react-ui/themes/base.js"
+            href="https://github.com/siddharthkp/react-ui/blob/master/packages/react-ui/src/themes/base.js"
             target="_blank"
           >
             unopinionated base theme
