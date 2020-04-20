@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   ThemeProvider as EmotionThemeProvider,
+  Element,
   Global,
   interpolate
 } from '../../primitives'
@@ -16,7 +17,6 @@ function ThemeProvider({
   tokens = base.tokens,
   components = base.components,
   theme = {}, // as a combined fallback, not recommended but you know
-  injectGlobalStyles = true, //weather or not to inject global styles with this provider
   ...props
 }) {
   // system-ui allows you to define scales as arrays,
@@ -41,10 +41,10 @@ function ThemeProvider({
 
   return (
     <Provider theme={combinedTheme} {...props}>
-      {injectGlobalStyles && (
-        <Global styles={interpolate(components.Global, combinedTheme)} />
-      )}
-      {props.children}
+      <Global styles={{ ':root': { '--reach-menu-button': 1 } }} />
+      <Element as="div" component="Global">
+        {props.children}
+      </Element>
     </Provider>
   )
 }

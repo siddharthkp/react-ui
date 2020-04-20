@@ -171,10 +171,8 @@ tokens.fontSizes.Heading = {
 const components = {
   /** Global */
   Global: {
-    body: {
-      background: 'white',
-      color: 'text.body'
-    }
+    background: 'white',
+    color: 'text.body'
   },
 
   /** Atoms */
