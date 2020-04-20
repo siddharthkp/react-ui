@@ -205,6 +205,7 @@ const ComponentNav = () => {
       <NavSection
         items={[
           { title: 'Avatar', path: 'Avatar' },
+          { title: 'Checkbox', path: 'Checkbox' },
           { title: 'Button', path: 'Button' },
           { title: 'Heading', path: 'Heading' },
           { title: 'Image', path: 'Image' },

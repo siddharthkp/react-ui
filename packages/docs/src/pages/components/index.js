@@ -3,6 +3,7 @@ import {
   Element,
   Avatar,
   Button,
+  Checkbox,
   Heading,
   Input,
   Link,
