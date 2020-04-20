@@ -44,6 +44,12 @@ const Documentation = () => {
               type: 'enum',
               description: 'defined in theme',
               default: 'primary'
+            },
+            {
+              name: 'fullWidth',
+              type: 'boolean',
+              description: 'Make button take 100% width of the container',
+              default: 'false'
             }
           ]}
         />
