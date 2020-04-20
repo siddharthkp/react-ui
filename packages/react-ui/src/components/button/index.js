@@ -4,7 +4,7 @@ import { Element } from '../../primitives'
 import { styles } from './button.styles'
 import { merge } from '../../utils'
 
-const Button = React.forwardRef(function Button({ size, css, ...props }, ref) {
+const Button = React.forwardRef(function Button({ size, fullWidth, css, ...props }, ref) {
   let width = fullWidth ? '100%' : 'auto'
   
   return (
