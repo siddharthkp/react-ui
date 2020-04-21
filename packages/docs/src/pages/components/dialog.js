@@ -15,7 +15,7 @@ const DialogPresenter = ({ children }) => {
   const [showDialog, setShowDialog] = React.useState(false)
   const open = () => setShowDialog(true)
   const close = () => setShowDialog(false)
-  console.log(showDialog)
+
   return (
     <>
       <Button onClick={open}>Open Dialog</Button>
