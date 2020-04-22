@@ -145,7 +145,7 @@ const Documentation = () => {
         </Para>
         <Example title="Applied to typography:">
           <Example.Code lang="js">{`
-                // 16px base with a 1.125 ratio:
+                // 16px base with a 1.125 ratio (major second):
                 // optimised for web to avoid poor sub-pixel rendering
 
                 10   * 1.125 = 11.250     ~ 11px
