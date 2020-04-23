@@ -32,6 +32,7 @@ export { default as Constraints } from './core-concepts/constraints'
 export { default as CreatingNewComponents } from './core-concepts/creating-new-components'
 export { default as CustomisingComponents } from './core-concepts/customising-components'
 export { default as CustomisingTokens } from './core-concepts/customising-tokens'
+export { default as IntegratingWithReachUI } from './core-concepts/integrating-with-reach-ui'
 export { default as Layouts } from './core-concepts/layouts'
 
 export { default as Changelog } from './changelog/index'

@@ -18,6 +18,10 @@ const items = [
     title: 'Creating new components',
     path: 'creating-new-components'
   },
+  {
+    title: 'Integrating with Reach UI',
+    path: 'integrating-with-reach-ui'
+  },
   { title: 'Layouts', path: 'layouts' },
   { title: 'Responsive syntax', path: 'responsive', todo: true },
   { title: 'Utilities', path: 'utilities', todo: true }
@@ -60,6 +64,9 @@ const Documentation = () => {
         </Link>
         <Link as={RouterLink} to="creating-new-components">
           Creating new components
+        </Link>
+        <Link as={RouterLink} to="integrating-with-reach-ui">
+          Integrating with Reach UI
         </Link>
       </List>
 
