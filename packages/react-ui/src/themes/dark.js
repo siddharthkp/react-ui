@@ -282,7 +282,9 @@ const components = {
       }
     }
   },
-
+  Checkbox: {
+    border: '1px solid'
+  },
   Heading: {
     /** fontSizes for heading are defined in tokens.fontSizes.Heading */
     color: 'text.body'
@@ -450,7 +452,8 @@ const components = {
     borderColor: 'grays.800',
     padding: 5,
     borderRadius: 2,
-    boxShadow: 2
+    boxShadow: 2,
+    overflow: 'hidden'
   },
   Form: {
     paddingY: 4
@@ -468,6 +471,7 @@ const components = {
   MenuList: {
     backgroundColor: 'grays.900',
     color: 'text.body',
+    border: '1px solid',
     borderColor: 'grays.800',
     borderRadius: 2,
     fontSize: 3,

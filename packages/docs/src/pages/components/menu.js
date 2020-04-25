@@ -174,7 +174,9 @@ const Documentation = () => {
                 ...base.components,
                 MenuList: {
                   width: 150,
-                  borderRadius: 1
+                  borderRadius: 1,
+                  backgroundColor: 'white',
+                  border: '1px solid'
                 },
                 MenuItem: {
                   paddingY: 2,

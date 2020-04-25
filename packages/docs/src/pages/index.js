@@ -1,4 +1,5 @@
 export { default as Avatar } from './components/avatar'
+export { default as Checkbox } from './components/checkbox'
 export { default as Button } from './components/button'
 export { default as Element } from './components/element'
 export { default as Heading } from './components/heading'
@@ -32,6 +33,8 @@ export { default as CreatingNewComponents } from './core-concepts/creating-new-c
 export { default as CustomisingComponents } from './core-concepts/customising-components'
 export { default as CustomisingTokens } from './core-concepts/customising-tokens'
 export { default as Layouts } from './core-concepts/layouts'
+
+export { default as Changelog } from './changelog/index'
 
 export { default as EcosystemIndex } from './ecosystem/index'
 export { default as Stats } from './ecosystem/stats'

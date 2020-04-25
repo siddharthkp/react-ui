@@ -4,11 +4,17 @@ import { styles } from './link.styles'
 import { Text } from '../text'
 import { merge } from '../../utils'
 
-export const Link = ({ css, ...props }) => {
+export const Link = React.forwardRef(function Link({ css, ...props }, ref) {
   return (
-    <Text as="a" component="Link" css={merge(styles.Link, css)} {...props} />
+    <Text
+      ref={ref}
+      as="a"
+      component="Link"
+      css={merge(styles.Link, css)}
+      {...props}
+    />
   )
-}
+})
 
 Link.propTypes = {}
 

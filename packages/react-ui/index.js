@@ -1,5 +1,8 @@
+import { version } from './package.json'
+
 export * from './src/components/avatar'
 export * from './src/components/button'
+export * from './src/components/checkbox'
 export * from './src/components/heading'
 export * from './src/components/image'
 export * from './src/components/input'
@@ -23,3 +26,5 @@ export * from './src/components/theme-provider'
 
 export { Element } from './src/primitives'
 export { merge, mergeFns, calc } from './src/utils'
+
+export { version }

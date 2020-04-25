@@ -2,6 +2,7 @@ import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import resolve from 'rollup-plugin-node-resolve'
 import external from 'rollup-plugin-peer-deps-external'
+import json from 'rollup-plugin-json'
 
 import pkg from './package.json'
 
@@ -14,7 +15,8 @@ const plugins = [
     presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
     exclude: 'node_modules/**'
   }),
-  commonjs()
+  commonjs(),
+  json()
 ]
 
 export default [
@@ -29,13 +31,13 @@ export default [
       {
         dir: 'dist/themes/',
         format: 'cjs',
-        exports: 'named',
+        exports: 'named'
       },
       {
         dir: 'themes',
         format: 'cjs',
-        exports: 'named',
-      },
+        exports: 'named'
+      }
     ],
     plugins
   }

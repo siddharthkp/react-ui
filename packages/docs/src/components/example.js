@@ -125,7 +125,7 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
           color: '#f5faff',
           padding: 4,
           fontSize: 3,
-          overflow: 'scroll'
+          overflow: 'auto'
         }}
         dangerouslySetInnerHTML={{
           __html: html

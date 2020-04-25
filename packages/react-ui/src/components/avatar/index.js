@@ -4,14 +4,17 @@ import { Element } from '../../primitives'
 import { styles } from './avatar.styles'
 import { merge } from '../../utils'
 
-export const Avatar = ({ css, ...props }) => (
-  <Element
-    as="img"
-    component="Avatar"
-    css={merge(styles.Avatar, css)}
-    {...props}
-  />
-)
+export const Avatar = React.forwardRef(function Avatar({ css, ...props }, ref) {
+  return (
+    <Element
+      ref={ref}
+      as="img"
+      component="Avatar"
+      css={merge(styles.Avatar, css)}
+      {...props}
+    />
+  )
+})
 
 Avatar.propTypes = {
   /** Image url for avatar */

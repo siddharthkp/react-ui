@@ -4,7 +4,10 @@ import { Element } from '../../primitives'
 import { styles } from './grid.styles'
 import { merge } from '../../utils'
 
-function Grid({ gap, columnGap, rowGap, css, ...props }) {
+const Grid = React.forwardRef(function Grid(
+  { gap, columnGap, rowGap, css, ...props },
+  ref
+) {
   let gaps = {}
 
   if (gap === 'auto') {
@@ -19,15 +22,19 @@ function Grid({ gap, columnGap, rowGap, css, ...props }) {
 
   return (
     <Element
+      ref={ref}
       as="div"
       component="Grid"
       css={merge(styles.Grid, gaps, css)}
       {...props}
     />
   )
-}
+})
 
-function Column({ start, end, span, css, ...props }) {
+const Column = React.forwardRef(function Column(
+  { start, end, span, css, ...props },
+  ref
+) {
   let column = {}
 
   if (Array.isArray(start)) column.gridColumnStart = start.map(s => s)
@@ -46,17 +53,18 @@ function Column({ start, end, span, css, ...props }) {
 
   return (
     <Element
+      ref={ref}
       as="div"
       css={merge(column, css)}
       component="GridColumn"
       {...props}
     />
   )
-}
+})
 
-function Row(props) {
-  return <Column span={12} as={Grid} component="GridRow" {...props} />
-}
+const Row = React.forwardRef(function Row(props, ref) {
+  return <Column ref={ref} span={12} as={Grid} component="GridRow" {...props} />
+})
 
 Grid.propTypes = {
   gap: PropTypes.oneOf(['auto', 'none']),

@@ -145,7 +145,7 @@ const Documentation = () => {
         </Para>
         <Example title="Applied to typography:">
           <Example.Code lang="js">{`
-                // 16px base with a 1.125 ratio:
+                // 16px base with a 1.125 ratio (major second):
                 // optimised for web to avoid poor sub-pixel rendering
 
                 10   * 1.125 = 11.250     ~ 11px
@@ -243,11 +243,17 @@ const Documentation = () => {
         <Text>
           If you already have your colors, font sizes, etc. in mind, you can use
           the{' '}
-          <Link href="https://github.com/siddharthkp/react-ui/blob/master/packages/react-ui/themes/base.js">
+          <Link
+            href="https://github.com/siddharthkp/react-ui/blob/master/packages/react-ui/src/themes/base.js"
+            target="_blank"
+          >
             unopinionated base theme
           </Link>{' '}
           as the starting point or use any of the{' '}
-          <Link href="https://github.com/siddharthkp/react-ui/blob/master/packages/react-ui/themes/">
+          <Link
+            href="https://github.com/siddharthkp/react-ui/blob/master/packages/react-ui/src/themes/"
+            target="_blank"
+          >
             beautiful pre-made themes
           </Link>{' '}
           that ship with React UI and customise them to your liking.

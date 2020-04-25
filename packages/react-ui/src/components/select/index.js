@@ -22,11 +22,12 @@ const usePlaceholder = props => {
   return { placeholderStyles, onChange }
 }
 
-function Select({ css, ...props }) {
+const Select = React.forwardRef(function Select({ css, ...props }, ref) {
   const { placeholderStyles, onChange } = usePlaceholder(props)
 
   return (
     <Input
+      ref={ref}
       as="select"
       component="Select"
       css={merge(merge(styles.Select, placeholderStyles), css)}
@@ -34,7 +35,7 @@ function Select({ css, ...props }) {
       onChange={mergeFns(onChange, props.onChange)}
     />
   )
-}
+})
 
 Select.propTypes = {}
 

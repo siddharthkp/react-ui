@@ -15,6 +15,7 @@ import {
   Menu,
   calc,
   merge,
+  version
 } from 'react-ui'
 
 import * as base from 'react-ui/themes/base'
@@ -45,7 +46,7 @@ const App = () => {
     <ThemeProvider tokens={themes[theme].tokens} components={components}>
       <Global
         styles={{
-          body: { transition: 'background 500ms, color 500ms' },
+          body: { transition: 'background 500ms, color 500ms' }
         }}
       />
       <Stack
@@ -56,7 +57,7 @@ const App = () => {
           height: 12,
           borderBottom: '1px solid',
           borderColor: 'App.borderColor',
-          paddingRight: 2,
+          paddingRight: 2
         }}
         marginBottom={12}
       >
@@ -64,31 +65,36 @@ const App = () => {
           variant="link"
           css={{
             color: 'text.body',
-            visibility: ['visible', 'visible', 'hidden'],
+            visibility: ['visible', 'visible', 'hidden']
           }}
           onClick={() => setMenuVisibility(!menuVisible)}
         >
           <MenuIcon />
         </Button>
-        <Menu>
-          <Menu.Button variant="link" style={{ paddingRight: 1 }}>
-            <Text marginRight={1} css={{ textTransform: 'capitalize' }}>
-              Theme: {theme}
-            </Text>
-            {chevron}
-          </Menu.Button>
-          <Menu.List>
-            <Menu.Item onSelect={(_) => setTheme('base')}>Base</Menu.Item>
-            <Menu.Item onSelect={(_) => setTheme('light')}>Light</Menu.Item>
-            <Menu.Item onSelect={(_) => setTheme('dark')}>Dark</Menu.Item>
-          </Menu.List>
-        </Menu>
+        <div>
+          <Text variant="subtle" size={3}>
+            v{version}
+          </Text>
+          <Menu>
+            <Menu.Button variant="link" style={{ paddingRight: 1 }}>
+              <Text marginRight={1} css={{ textTransform: 'capitalize' }}>
+                Theme: {theme}
+              </Text>
+              {chevron}
+            </Menu.Button>
+            <Menu.List>
+              <Menu.Item onSelect={_ => setTheme('base')}>Base</Menu.Item>
+              <Menu.Item onSelect={_ => setTheme('light')}>Light</Menu.Item>
+              <Menu.Item onSelect={_ => setTheme('dark')}>Dark</Menu.Item>
+            </Menu.List>
+          </Menu>
+        </div>
       </Stack>
       <Grid
         css={{
           maxWidth: '1024px',
           marginX: 'auto',
-          color: 'text.body',
+          color: 'text.body'
         }}
       >
         <Location>
@@ -102,7 +108,7 @@ const App = () => {
                   span={[0, 0, 3]}
                   css={{
                     height: calc('100vh - 12'),
-                    paddingLeft: 8,
+                    paddingLeft: 8
                   }}
                 />
 
@@ -120,42 +126,48 @@ const App = () => {
           as="main"
           span={[12, 12, 9]}
           css={{
-            paddingX: 16,
+            paddingX: [8, 16, 16],
             paddingBottom: calc('16 * 2'),
-            height: calc('100vh - 12'),
+            height: calc('100vh - 12')
           }}
         >
           <Router>
-            <Home path="/" />
-            <Documentation path="getting-started">
-              <Pages.GettingStarted path="/" />
-            </Documentation>
+            <ScrollToTop path="/">
+              <Home path="/" />
+              <Documentation path="getting-started">
+                <Pages.GettingStarted path="/" />
+              </Documentation>
 
-            <Documentation path="core-concepts">
-              <Pages.CoreConcepts path="/" />
-              <Pages.Ideas path="/ideas" />
-              <Pages.Constraints path="/constraints-based-design" />
-              <Pages.CreatingNewComponents path="/creating-new-components" />
-              <Pages.CustomisingComponents path="/customising-components" />
-              <Pages.CustomisingTokens path="/customising-tokens" />
-              <Pages.Layouts path="/layouts" />
-            </Documentation>
+              <Documentation path="core-concepts">
+                <Pages.CoreConcepts path="/" />
+                <Pages.Ideas path="/ideas" />
+                <Pages.Constraints path="/constraints-based-design" />
+                <Pages.CreatingNewComponents path="/creating-new-components" />
+                <Pages.CustomisingComponents path="/customising-components" />
+                <Pages.CustomisingTokens path="/customising-tokens" />
+                <Pages.Layouts path="/layouts" />
+              </Documentation>
 
-            <Documentation path="components">
-              <Pages.ComponentsIndex path="/" />
-              {Object.keys(Pages).map((name) => {
-                const Page = Pages[name]
-                return <Page key={name} path={name} />
-              })}
-            </Documentation>
+              <Documentation path="components">
+                <Pages.ComponentsIndex path="/" />
+                {Object.keys(Pages).map(name => {
+                  const Page = Pages[name]
+                  return <Page key={name} path={name} />
+                })}
+              </Documentation>
 
-            <Documentation path="ecosystem">
-              <Pages.EcosystemIndex path="/" />
-              {Object.keys(Pages).map((name) => {
-                const Page = Pages[name]
-                return <Page key={name} path={name} />
-              })}
-            </Documentation>
+              <Documentation path="changelog">
+                <Pages.Changelog path="/" />
+              </Documentation>
+
+              <Documentation path="ecosystem">
+                <Pages.EcosystemIndex path="/" />
+                {Object.keys(Pages).map(name => {
+                  const Page = Pages[name]
+                  return <Page key={name} path={name} />
+                })}
+              </Documentation>
+            </ScrollToTop>
           </Router>
         </Column>
       </Grid>
@@ -164,6 +176,11 @@ const App = () => {
 }
 
 export default App
+
+const ScrollToTop = ({ children, location }) => {
+  React.useEffect(() => window.scrollTo(0, 0), [location.pathname])
+  return children
+}
 
 const CoreConcepts = () => {
   const items = Pages.CoreConcepts.items
@@ -179,7 +196,7 @@ const ComponentNav = () => {
       <NavSection
         items={[
           { title: 'Element', path: 'Element' },
-          { title: 'ThemeProvider', path: 'ThemeProvider' },
+          { title: 'ThemeProvider', path: 'ThemeProvider' }
         ]}
       />
       <Text size={3} color="text.subtle" marginBottom={3}>
@@ -188,6 +205,7 @@ const ComponentNav = () => {
       <NavSection
         items={[
           { title: 'Avatar', path: 'Avatar' },
+          { title: 'Checkbox', path: 'Checkbox' },
           { title: 'Button', path: 'Button' },
           { title: 'Heading', path: 'Heading' },
           { title: 'Image', path: 'Image' },
@@ -197,7 +215,7 @@ const ComponentNav = () => {
           { title: 'Spinner', path: 'Spinner' },
           { title: 'Switch', path: 'Switch' },
           { title: 'Text', path: 'Text' },
-          { title: 'Textarea', path: 'Textarea' },
+          { title: 'Textarea', path: 'Textarea' }
         ]}
       />
       <Text size={3} color="text.subtle" marginBottom={3}>
@@ -206,7 +224,7 @@ const ComponentNav = () => {
       <NavSection
         items={[
           { title: 'Stack', path: 'Stack' },
-          { title: 'Grid', path: 'Grid' },
+          { title: 'Grid', path: 'Grid' }
         ]}
       />
       <Text size={3} color="text.subtle" marginBottom={3}>
@@ -218,7 +236,7 @@ const ComponentNav = () => {
           { title: 'Card', path: 'Card' },
           { title: 'Form', path: 'Form' },
           { title: 'Menu', path: 'Menu' },
-          { title: 'Paragraph', path: 'Paragraph' },
+          { title: 'Paragraph', path: 'Paragraph' }
         ]}
       />
     </>
@@ -236,12 +254,12 @@ const NavSection = ({ items, ...props }) => {
         fontSize: 3,
         paddingLeft: 0,
         li: {
-          paddingY: 2,
-        },
+          paddingY: 2
+        }
       }}
       {...props}
     >
-      {items.map((item) => (
+      {items.map(item => (
         <li key={item.path}>
           {item.external ? (
             <Link href={item.path} target="_blank">
@@ -258,34 +276,40 @@ const NavSection = ({ items, ...props }) => {
   )
 }
 
-const Documentation = (props) => <Element {...props} />
+const Documentation = props => <Element {...props} />
 
-const Navigation = (props) => (
+const Navigation = props => (
   <Column as="aside" {...props}>
-    <NavSection
-      marginBottom={16}
-      items={[
-        { title: 'Getting started', path: 'getting-started' },
-        { title: 'Core concepts', path: 'core-concepts' },
-        { title: 'Components', path: 'components' },
-        // { title: 'Ecosystem', path: 'ecosystem' },
-        {
-          title: 'GitHub',
-          path: 'https://github.com/siddharthkp/react-ui',
-          external: true,
-        },
-        // { title: 'Videos', path: 'videos' },
-      ]}
-    />
+    <Element>
+      <NavSection
+        marginBottom={16}
+        items={[
+          { title: 'Getting started', path: 'getting-started' },
+          { title: 'Core concepts', path: 'core-concepts' },
+          { title: 'Components', path: 'components' },
+          // { title: 'Ecosystem', path: 'ecosystem' },
+          {
+            title: 'GitHub',
+            path: 'https://github.com/siddharthkp/react-ui',
+            external: true
+          },
+          {
+            title: 'Changelog',
+            path: 'changelog'
+          }
+          // { title: 'Videos', path: 'videos' },
+        ]}
+      />
 
-    <Router>
-      <CoreConcepts path="core-concepts/*" />
-      <ComponentNav path="components/*" />
-    </Router>
+      <Router>
+        <CoreConcepts path="core-concepts/*" />
+        <ComponentNav path="components/*" />
+      </Router>
+    </Element>
   </Column>
 )
 
-const MenuIcon = (props) => (
+const MenuIcon = props => (
   <Element
     as="svg"
     xmlns="http://www.w3.org/2000/svg"
@@ -305,7 +329,7 @@ const MenuIcon = (props) => (
   </Element>
 )
 
-const Home = (props) => {
+const Home = props => {
   return (
     <Page>
       <Section>
@@ -318,7 +342,7 @@ const Home = (props) => {
       </Section>
       <Section>
         <List>
-          <Text>Jump to:</Text>
+          <Text>Start here:</Text>
           <Link href="/core-concepts/ideas">
             Read old and new ideas in React UI →
           </Link>

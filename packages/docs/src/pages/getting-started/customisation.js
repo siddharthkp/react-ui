@@ -78,7 +78,7 @@ const Documentation = () => {
           <Text>
             If you already have your brand guidelines, you can use the{' '}
             <Link
-              href="https://github.com/siddharthkp/react-ui/blob/master/packages/react-ui/themes/light.js"
+              href="https://github.com/siddharthkp/react-ui/blob/master/packages/react-ui/src/themes/light.js"
               target="_blank"
             >
               unopinionated minimal theme
