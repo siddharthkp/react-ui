@@ -22,22 +22,26 @@ const usePlaceholder = props => {
   return { placeholderStyles, onChange }
 }
 
-const Select = React.forwardRef(function Select({ css, ...props }, ref) {
+const Select = React.forwardRef(function Select({ fullWidth, css, ...props }, ref) {
   const { placeholderStyles, onChange } = usePlaceholder(props)
+  let width = fullWidth ? '100%' : 'auto'
 
   return (
     <Input
       ref={ref}
       as="select"
       component="Select"
-      css={merge(merge(styles.Select, placeholderStyles), css)}
+      css={merge(merge(styles.Select, placeholderStyles), { width }, css)}
       {...props}
       onChange={mergeFns(onChange, props.onChange)}
     />
   )
 })
 
-Select.propTypes = {}
+Select.propTypes = {
+  /** Description of an select prop */
+  fullWidth: PropTypes.bool
+}
 
 Select.defaultProps = {}
 
