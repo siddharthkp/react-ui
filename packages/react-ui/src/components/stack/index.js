@@ -35,10 +35,10 @@ const Stack = React.forwardRef(function Stack(
     styles.flexDirection = direction.map(d =>
       d === 'vertical' ? 'column' : 'row'
     )
-    styles['> *:not(:last-child)'] = direction.map(d => createGap(d, gap))
+    styles['> * + *'] = direction.map(d => createGap(d, gap))
   } else {
     styles.flexDirection = direction === 'vertical' ? 'column' : 'row'
-    styles['> *:not(:last-child)'] = createGap(direction, gap)
+    styles['> * + *'] = createGap(direction, gap)
   }
 
   return (
