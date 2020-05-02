@@ -32,7 +32,7 @@
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
     "@ds-tools/storybook": "0.0.1",
-    "bundlesize2": "^0.0.17",
+    "bundlesize2": "^0.0.22",
     "rollup": "^1.27.8",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
