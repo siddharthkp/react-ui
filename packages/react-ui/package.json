@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "test": "yarn build && bundlesize"
+    "test": "yarn build && bundlesize --enable-github-checks"
   },
   "keywords": [],
   "author": "siddharthkp",
