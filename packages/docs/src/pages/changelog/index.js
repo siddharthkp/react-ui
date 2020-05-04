@@ -94,7 +94,7 @@ const Changelog = () => {
             >
               SaraVieira
             </Link>{' '}
-            for their feedback.
+            for their feedback
           </Text>
         </Stack>
       </Section>
