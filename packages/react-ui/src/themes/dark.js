@@ -355,6 +355,9 @@ const components = {
       }
     }
   },
+  Radio: {
+    border: '1px solid'
+  },
 
   Select: {
     // recommended: match styles of input

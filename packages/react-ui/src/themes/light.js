@@ -339,7 +339,9 @@ const components = {
       }
     }
   },
-
+  Radio: {
+    border: '1px solid'
+  },
   Select: {
     // recommended: match styles of input
     sizes: { small: 6, medium: 8, large: 10 },
