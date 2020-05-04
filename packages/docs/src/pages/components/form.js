@@ -79,7 +79,7 @@ const Documentation = () => {
               default: ''
             },
             {
-              name: 'isRequired',
+              name: 'required',
               type: 'boolean',
               description: 'Is this field required',
               default: 'false'
@@ -93,7 +93,7 @@ const Documentation = () => {
           <Example.Preview direction="vertical" gap={2}>
             <Form>
               <Form.Header as="h2">Update profile details</Form.Header>
-              <Form.Field label="Full name" isRequired>
+              <Form.Field label="Full name" required>
                 <Input placeholder="Enter your username" />
               </Form.Field>
               <Form.Field label="Email">
@@ -124,7 +124,7 @@ const Documentation = () => {
           <Example.Code>{`
             <Form>
               <Form.Header as="h2">Update profile details</Form.Header>
-              <Form.Field label="Full name" isRequired>
+              <Form.Field label="Full name" required>
                 <Input placeholder="Enter your username" />
               </Form.Field>
               <Form.Field label="Email">
