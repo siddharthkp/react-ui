@@ -223,7 +223,7 @@ const Contributors = ({ authors }) => (
     <Text size={3} color="text.subtle">
       {authors.length} contributors
     </Text>
-    <Stack gap={'-8px'}>
+    <Stack gap={-8}>
       {authors.map((author, index) => (
         <LinkedAvatar
           key={author}
