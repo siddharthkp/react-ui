@@ -223,16 +223,25 @@ const Contributors = ({ authors }) => (
     <Text size={3} color="text.subtle">
       {authors.length} contributors
     </Text>
-    <Stack gap={1}>
-      {authors.map(author => (
-        <LinkedAvatar key={author} author={author} />
+    <Stack gap={'-8px'}>
+      {authors.map((author, index) => (
+        <LinkedAvatar
+          key={author}
+          author={author}
+          css={{ zIndex: authors.length - index }}
+        />
       ))}
     </Stack>
   </Stack>
 )
 
-const LinkedAvatar = ({ author, showName }) => (
-  <Link href={`https://github.com/${author}`} target="_blank" variant="subtle">
+const LinkedAvatar = ({ author, showName, ...props }) => (
+  <Link
+    href={`https://github.com/${author}`}
+    target="_blank"
+    variant="subtle"
+    {...props}
+  >
     <Stack as="span" align="center" gap={showName ? 1 : 0}>
       <Avatar
         size="small"
