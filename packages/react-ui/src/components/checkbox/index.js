@@ -6,7 +6,7 @@ import { Stack } from '../stack'
 import { Element } from '../../primitives'
 import { merge } from '../../utils'
 
-export const Checkbox = ({ id, label, ...props }) => {
+export const Checkbox = ({ id, label, checked, disabled, ...props }) => {
   const inputId = useId(id)
   return (
     <Stack align="center" gap={2}>
@@ -14,6 +14,8 @@ export const Checkbox = ({ id, label, ...props }) => {
         as="input"
         type="checkbox"
         component="Checkbox"
+        checked={checked ? checked : null}
+        disabled={disabled ? disabled : null}
         id={inputId}
         {...props}
       />
@@ -25,7 +27,9 @@ export const Checkbox = ({ id, label, ...props }) => {
 }
 
 Checkbox.propTypes = {
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
+  checked: PropTypes.bool
 }
 
 Checkbox.defaultProps = {

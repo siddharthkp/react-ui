@@ -110,6 +110,8 @@ const Documentation = () => {
         </ComponentCard>
         <ComponentCard name="Checkbox" gap={4}>
           <Checkbox label="Normal" />
+          <Checkbox label="Disabled" disabled />
+          <Checkbox label="Default Checked" checked />
         </ComponentCard>
         <ComponentCard name="Heading" direction="vertical" gap={4}>
           <Heading size="page">Page heading</Heading>
