@@ -476,7 +476,17 @@ const components = {
       color: 'grays.100'
     }
   },
-  Paragraph: {}
+  Paragraph: {},
+  Tooltip: {
+    backgroundColor: 'grays.900',
+    color: 'grays.100',
+    borderRadius: 1,
+    boxShadow: 2,
+    paddingX: 1,
+    paddingY: 1,
+    fontSize: 2,
+    lineHeight: 1
+  }
 }
 
 const theme = { tokens, components }

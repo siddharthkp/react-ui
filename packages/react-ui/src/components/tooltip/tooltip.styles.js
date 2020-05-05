@@ -3,12 +3,23 @@ export const styles = {
     zIndex: 1,
     pointerEvents: 'none',
     position: 'absolute',
-    padding: '0.25em 0.5em',
-    boxShadow: '2px 2px 10px hsla(0, 0%, 0%, 0.1)',
-    whiteSpace: 'nowrap',
-    fontSize: '85%',
-    background: '#f0f0f0',
-    color: '#444',
-    border: 'solid 1px #ccc'
+
+    // multiline
+    maxWidth: 160,
+    whiteSpace: 'normal',
+    textAlign: 'center',
+
+    ':before': {
+      position: 'absolute',
+      content: "' '",
+      borderWidth: '6px',
+      borderStyle: 'solid',
+      borderColor: 'transparent',
+      top: '-12px',
+      left: 'calc(50% - 6px)',
+      // triangle color should match tooltip color
+      borderBottomColor: theme =>
+        theme.components.Tooltip && theme.components.Tooltip.backgroundColor
+    }
   }
 }

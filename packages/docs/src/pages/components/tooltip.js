@@ -27,7 +27,7 @@ const Documentation = () => {
       </Para>
       <Example>
         <Example.Preview>
-          <Tooltip label="lol">
+          <Tooltip label="@sameen-shi">
             <Avatar size="small" src="https://github.com/sameen-shi.png" />
           </Tooltip>
         </Example.Preview>
@@ -40,62 +40,21 @@ const Documentation = () => {
         </Example.Code>
       </Example>
 
-      <Section title="Props: Menu">
+      <Section title="Props">
         <Props
           props={[
             {
-              name: 'children',
-              type: 'Menu.Button and Menu.List',
-              description: '',
+              name: 'label',
+              type: 'string',
+              description: 'text to show in tooltip',
               default: '',
-              required: true
-            }
-          ]}
-        />
-      </Section>
-
-      <Section title="Props: Menu.Button">
-        <Para>
-          Extends <Link href="/component/Button">Button</Link>
-        </Para>
-        <Props
-          props={[
-            {
-              name: '+',
-              type: 'props of Button',
-              description: '',
-              default: 'variant: "secondary"'
-            }
-          ]}
-        />
-      </Section>
-
-      <Section title="Props: Menu.List">
-        <Props
-          props={[
-            {
-              name: 'children',
-              type: '[ Menu.Item ]',
-              description: '',
-              required: true
-            }
-          ]}
-        />
-      </Section>
-
-      <Section title="Props: Menu.Item">
-        <Props
-          props={[
-            {
-              name: 'onSelect',
-              type: 'function',
-              description: '',
               required: true
             },
             {
               name: 'children',
-              type: '[ React elements ]',
+              type: 'React element',
               description: '',
+              default: '',
               required: true
             }
           ]}
@@ -113,75 +72,61 @@ const Documentation = () => {
           </Text>
         </Para>
 
-        <Para>Menu has the following customisable elements:</Para>
+        <Para>Tooltip uses the following theme properties:</Para>
 
         <Table>
-          <Table.Header>Name</Table.Header>
-          <Table.Row>Button</Table.Row>
-          <Table.Row>MenuList</Table.Row>
-          <Table.Row>MenuItem</Table.Row>
+          <Table.Header>
+            <Table.Column span={4}>Property</Table.Column>
+            <Table.Column span={8}>Theme key</Table.Column>
+          </Table.Header>
+          <Table.Row>
+            <Table.Column span={4}>component name</Table.Column>
+            <Table.Column span={8}>Tooltip</Table.Column>
+          </Table.Row>
         </Table>
 
         <Example>
           <Example.Code lang="js">{`
           import { tokens, components } from 'react-ui/themes/base'
           
-          components.MenuList = {
-            width: 150,
-            borderRadius: 1
-          }
-          
-          components.MenuItem = {
-            paddingY: 2,
-            paddingX: 3,
-            '&[data-selected]': {
-              backgroundColor: 'green',
-              color: 'white'
-            }
+          components.Tooltip = {
+            backgroundColor: 'black',
+            color: 'white',
+            borderRadius: 1,
+            boxShadow: 2,
+            paddingX: 1,
+            paddingY: 1,
+            fontSize: 2,
+            lineHeight: 1
           }
         `}</Example.Code>
           <Example.Code lang="jsx">{`
-          <ThemeProvider components={components}>
-            <Menu>
-              <Menu.Button variant="primary">Home</Menu.Button>
-              <Menu.List>
-                <Menu.Item onSelect={onSelect}>Home</Menu.Item>
-                <Menu.Item onSelect={onSelect}>Search</Menu.Item>
-                <Menu.Item onSelect={onSelect}>Trending</Menu.Item>
-                <Menu.Item onSelect={onSelect}>Lists</Menu.Item>
-              </Menu.List>
-            </Menu>
+          <ThemeProvider tokens={tokens} components={components}>
+            <Tooltip label="@sameen-shi">
+              <Avatar size="small" src="https://github.com/sameen-shi.png" />
+            </Tooltip>
           </ThemeProvider>
         `}</Example.Code>
           <Example.Preview>
             <ThemeProvider
+              tokens={base.tokens}
               components={{
                 ...base.components,
-                MenuList: {
-                  width: 150,
+                Tooltip: {
+                  backgroundColor: 'black',
+                  color: 'white',
                   borderRadius: 1,
-                  backgroundColor: 'white',
-                  border: '1px solid'
-                },
-                MenuItem: {
-                  paddingY: 2,
-                  paddingX: 3,
-                  '&[data-selected]': {
-                    backgroundColor: 'green',
-                    color: 'white'
-                  }
+                  boxShadow: 2,
+                  paddingX: 1,
+                  paddingY: 1,
+                  fontSize: 2,
+                  lineHeight: 1
                 }
               }}
             >
-              <Menu>
-                <Menu.Button variant="primary">Home</Menu.Button>
-                <Menu.List>
-                  <Menu.Item onSelect={_ => {}}>Home</Menu.Item>
-                  <Menu.Item onSelect={_ => {}}>Search</Menu.Item>
-                  <Menu.Item onSelect={_ => {}}>Trending</Menu.Item>
-                  <Menu.Item onSelect={_ => {}}>Lists</Menu.Item>
-                </Menu.List>
-              </Menu>
+              <Tooltip label="@sameen-shi">
+                <Avatar size="small" src="https://github.com/sameen-shi.png" />
+              </Tooltip>
             </ThemeProvider>
           </Example.Preview>
         </Example>
