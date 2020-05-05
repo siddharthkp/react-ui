@@ -1,6 +1,6 @@
 import React from 'react'
 import * as base from 'react-ui/themes/base'
-import { ThemeProvider, Link, Text, Menu, Avatar, Tooltip } from 'react-ui'
+import { ThemeProvider, Link, Text, Avatar, Tooltip } from 'react-ui'
 import {
   Table,
   Page,
