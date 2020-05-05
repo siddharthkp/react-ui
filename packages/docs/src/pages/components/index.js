@@ -108,6 +108,9 @@ const Documentation = () => {
             Reset
           </Button>
         </ComponentCard>
+        <ComponentCard name="Checkbox" gap={4}>
+          <Checkbox label="Normal" />
+        </ComponentCard>
         <ComponentCard name="Heading" direction="vertical" gap={4}>
           <Heading size="page">Page heading</Heading>
           <Heading size="section" css={{ display: ['none', 'flex', 'flex'] }}>
