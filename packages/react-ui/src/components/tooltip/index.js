@@ -6,7 +6,9 @@ import { merge } from '../../utils'
 import { styles } from './tooltip.styles.js'
 
 const Tooltip = React.forwardRef(({ label, css, ...props }, ref) => {
-  const [trigger, tooltip] = useTooltip()
+  const [trigger, tooltip] = useTooltip({
+    DEBUG_STYLE: props.INTERNAL_DEBUG_MODE // this is an internal prop for docs, do not use!
+  })
 
   return (
     <>
