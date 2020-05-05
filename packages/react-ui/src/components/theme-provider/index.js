@@ -29,7 +29,7 @@ function ThemeProvider({
   tokens.colors = merge(tokens.colors, getColorsFromComponents(components))
 
   components.Global = merge(
-    { ':root': { '--reach-menu-button': 1 } },
+    { ':root': { '--reach-menu-button': 1, '--reach-tooltip': 1 } },
     components.Global
   )
 

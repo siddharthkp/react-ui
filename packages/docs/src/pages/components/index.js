@@ -390,6 +390,7 @@ const Documentation = () => {
             </Text>
           </Paragraph>
         </ComponentCard>
+        <ComponentCard name="Tooltip">tooltip goes here</ComponentCard>
       </Section>
     </Page>
   )

@@ -17,10 +17,11 @@ export * from './src/components/grid'
 export * from './src/components/stack'
 
 export * from './src/components/breadcrumb'
+export * from './src/components/card'
 export * from './src/components/form'
 export * from './src/components/menu'
 export * from './src/components/paragraph'
-export * from './src/components/card'
+export * from './src/components/tooltip'
 
 export * from './src/components/theme-provider'
 
