@@ -22,6 +22,7 @@ export { default as Form } from './components/form'
 export { default as Card } from './components/card'
 export { default as Menu } from './components/menu'
 export { default as Paragraph } from './components/paragraph'
+export { default as Dialog } from './components/dialog'
 
 export { default as ComponentsIndex } from './components/index'
 export { default as GettingStarted } from './getting-started/index'
