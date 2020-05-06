@@ -132,12 +132,13 @@ const Documentation = () => {
           <Example.Code lang="js">{`
           const components = {
             DialogContent: {
-              backgroundColor: 'grey',
-              borderRadius: '10px',
-              padding: 2
+              backgroundColor: 'black',
+              color: 'white',
+              borderRadius: 2,
+              padding: 4
             },
             DialogOverlay: {
-              backgroundColor: 'rgba(200,234,234,0.7)'
+              backgroundColor: '#ffffffaa'
             }
           }
         `}</Example.Code>
@@ -163,12 +164,13 @@ const Documentation = () => {
               components={{
                 ...base.components,
                 DialogContent: {
-                  backgroundColor: 'grey',
-                  borderRadius: '10px',
-                  padding: 2
+                  backgroundColor: 'black',
+                  color: 'white',
+                  borderRadius: 2,
+                  padding: 4
                 },
                 DialogOverlay: {
-                  backgroundColor: 'rgba(200,234,234,0.7)'
+                  backgroundColor: '#ffffffaa'
                 }
               }}
             >

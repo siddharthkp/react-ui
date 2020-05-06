@@ -244,7 +244,7 @@ const components = {
   },
   DialogContent: {
     backgroundColor: 'white',
-    padding: 2
+    padding: 6
   },
   DialogOverlay: {
     backgroundColor: 'rgba(0,0,0,0.6)'
