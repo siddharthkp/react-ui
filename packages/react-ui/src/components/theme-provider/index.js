@@ -32,7 +32,8 @@ function ThemeProvider({
     {
       ':root': {
         '--reach-menu-button': 1,
-        '--reach-dialog': 1
+        '--reach-dialog': 1,
+        '--reach-tooltip': 1
       }
     },
     components.Global

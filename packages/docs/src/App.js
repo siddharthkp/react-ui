@@ -237,10 +237,11 @@ const ComponentNav = () => {
         items={[
           { title: 'Breadcrumb', path: 'Breadcrumb' },
           { title: 'Card', path: 'Card' },
+          { title: 'Dialog', path: 'Dialog' },
           { title: 'Form', path: 'Form' },
           { title: 'Menu', path: 'Menu' },
           { title: 'Paragraph', path: 'Paragraph' },
-          { title: 'Dialog', path: 'Dialog' }
+          { title: 'Tooltip', path: 'Tooltip' }
         ]}
       />
     </>

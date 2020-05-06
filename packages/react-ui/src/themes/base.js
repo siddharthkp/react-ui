@@ -278,7 +278,15 @@ const components = {
       color: 'white'
     }
   },
-  Paragraph: {}
+  Paragraph: {},
+  Tooltip: {
+    backgroundColor: 'black',
+    color: 'white',
+    paddingX: 1,
+    paddingY: 1,
+    fontSize: 2,
+    lineHeight: 1
+  }
 }
 
 const theme = { tokens, components }

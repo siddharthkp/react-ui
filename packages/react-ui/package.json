@@ -22,6 +22,7 @@
     "@emotion/styled": "^10.0.27",
     "@reach/auto-id": "^0.7.0",
     "@reach/dialog": "^0.10.0",
+    "@reach/tooltip": "^0.10.1",
     "@reach/menu-button": "^0.10.1",
     "deepmerge": "4.0.0",
     "dlv": "^1.1.3",
