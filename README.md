@@ -3,7 +3,7 @@
   <br><br>
   <b>Customisable components and primitives based on design tokens</b>
   <br><br>
-  <img src="https://img.shields.io/badge/version-1.0.0--beta.24-F4CA64?style=flat-square"/>
+  <img src="https://img.shields.io/badge/version-1.0.0--beta.25-F4CA64?style=flat-square"/>
   <br><br>
   <br><br>
   <b>Docs:</b>
