@@ -147,6 +147,7 @@ const App = () => {
                 <Pages.CreatingNewComponents path="/creating-new-components" />
                 <Pages.CustomisingComponents path="/customising-components" />
                 <Pages.CustomisingTokens path="/customising-tokens" />
+                <Pages.IntegratingWithReachUI path="/integrating-with-reach-ui" />
                 <Pages.Layouts path="/layouts" />
               </Documentation>
 
