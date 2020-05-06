@@ -1391,7 +1391,7 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@reach/accordion@^0.10.1":
+"@reach/accordion@^0.10.0":
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/@reach/accordion/-/accordion-0.10.1.tgz#bf99eae9b343a33ac5df020b9c56da7e907021b2"
   integrity sha512-hhiLp08dhce4OsEtoLhXsqtIqZi6W4us2wHsuvQUgf6w7h1UIGtAMXl2/k4lzynwBtYSIY4fuqktzGgFGVwa4w==
@@ -1543,12 +1543,12 @@
   resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.7.4.tgz#cdd0cff8c57445ce9c2b11204e6a62868f1093a1"
   integrity sha512-RFhWmeaEfcu+xATfGPH4yjTlgD01ek0D8bVhtP4CgCqV2gnyS0KLAlWshzlAlSrBvr7zmpkA5QZJ1g43vFBSww==
 
-"@reach/visually-hidden@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@reach/visually-hidden/-/visually-hidden-0.8.2.tgz#2b58a2c69ab1c41838b8fef8a1d7370106a6d69c"
-  integrity sha512-U9KdaC1/YzskqAARqSc/ikOdZRbRkAUixwKIFbTsooUCXK+yAE08ikEoKSmCwDuGXxn7vgCit1ur4i994Ohzdw==
+"@reach/visually-hidden@^0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@reach/visually-hidden/-/visually-hidden-0.10.1.tgz#f57f059c9662ec9e66d30f5e4d88a4dcd06480a1"
+  integrity sha512-X62KLq58f5oG6k6WZMiUj/Dwjm7pEyuApzsYF9sjaZy4fRh8ji+pzzlV8AaDFw/IQMDg6tBwr2tX0SyyMSJs9g==
   dependencies:
-    tslib "^1.10.0"
+    tslib "^1.11.1"
 
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
