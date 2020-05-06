@@ -20,7 +20,10 @@ const createGap = (direction, gap) => {
   }
 }
 
-const Stack = ({ inline, justify, align, direction, gap, css, ...props }) => {
+const Stack = React.forwardRef(function Stack(
+  { inline, justify, align, direction, gap, css, ...props },
+  ref
+) {
   const styles = {
     display: inline ? 'inline-flex' : 'flex',
     // width: '100%', // causes weirdness in nested avatar. todo: debug
@@ -39,21 +42,25 @@ const Stack = ({ inline, justify, align, direction, gap, css, ...props }) => {
   }
 
   return (
-    <Element as="div" component="Stack" css={merge(styles, css)} {...props}>
-      {props.children}
-    </Element>
+    <Element
+      ref={ref}
+      as="div"
+      component="Stack"
+      css={merge(styles, css)}
+      {...props}
+    />
   )
-}
-
-const responsive = value => {
-  return { key: value }
-}
+})
 
 Stack.propTypes = {
   /** Description of the gap prop */
   gap: PropTypes.oneOfType([
+    // from scale
     PropTypes.number,
-    PropTypes.arrayOf(PropTypes.number)
+    PropTypes.arrayOf(PropTypes.number),
+    // or a value with unit
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
   ]),
   // direction: PropTypes.oneOf(['horizontal', 'vertical']),
   justify: PropTypes.oneOfType([

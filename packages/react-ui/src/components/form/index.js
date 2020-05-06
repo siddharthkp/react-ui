@@ -7,9 +7,10 @@ import { Element } from '../../primitives'
 import { Stack } from '../stack'
 import { merge } from '../../utils'
 
-const Form = ({ css, ...props }) => {
+const Form = React.forwardRef(function Form({ css, ...props }, ref) {
   return (
     <Element
+      ref={ref}
       as="form"
       component="Form"
       css={merge(styles.Form, css)}
@@ -20,21 +21,25 @@ const Form = ({ css, ...props }) => {
       </Stack>
     </Element>
   )
-}
+})
 
 Form.propTypes = {}
 
-Form.Header = ({ css, ...props }) => (
+Form.defaultProps = {}
+
+Form.Header = React.forwardRef(({ css, ...props }, ref) => (
   <Element
+    ref={ref}
     as="h1"
     component="FormHeader"
     css={merge(styles.FormHeader, css)}
     {...props}
   />
-)
+))
+
+Form.Header.displayName = 'Form.Header'
 
 Form.Header.propTypes = {
-  /** Description of an button prop */
   as: PropTypes.string
 }
 
@@ -42,16 +47,20 @@ Form.Header.defaultProps = {
   as: 'h1'
 }
 
-Form.Label = ({ css, ...props }) => (
+Form.Label = React.forwardRef(({ css, ...props }, ref) => (
   <Element
+    ref={ref}
     as="label"
     component="FormLabel"
     css={merge(styles.FormLabel, css)}
     {...props}
   />
-)
+))
 
-const FormField = function({ label, id, isRequired, css, ...props }) {
+Form.Label.displayName = 'Form.Label'
+
+// attach child components to Form
+Form.Field = React.forwardRef(({ label, id, required, css, ...props }, ref) => {
   const inputId = useId(id)
 
   const children = React.Children.map(props.children, (child, index) => {
@@ -65,9 +74,11 @@ const FormField = function({ label, id, isRequired, css, ...props }) {
     // this one is tricky. We don't really know the intention here if the user
     // wanted to make both fields required or just one of them
     // we assume it's both
-    additionalProps.required = isRequired
 
-    return React.cloneElement(child, { ...additionalProps })
+    // At the same time we should not override any props the child element has
+    additionalProps.required = required || child.props.required
+
+    return React.cloneElement(child, { ...additionalProps, ref })
   })
 
   return (
@@ -78,30 +89,21 @@ const FormField = function({ label, id, isRequired, css, ...props }) {
       {...props}
     >
       <Form.Label htmlFor={inputId}>
-        {label} {isRequired ? <span>*</span> : null}
+        {label} {required ? <span>*</span> : null}
       </Form.Label>
       {children}
     </Element>
   )
-}
+})
 
-FormField.propTypes = {
-  /** first */
-  label: PropTypes.string.isRequired,
-  /** second */
+Form.Field.displayName = 'Form.Field'
+
+Form.Field.propTypes = {
+  label: PropTypes.string.required,
+
   id: PropTypes.string,
-  /** third */
-  isRequired: PropTypes.bool
+
+  required: PropTypes.bool
 }
-
-// attach display name explicitly to make codegen work
-FormField.displayName = 'Form.Field'
-
-Form.propTypes = {}
-
-Form.defaultProps = {}
-
-// attach child components to Form
-Form.Field = FormField
 
 export { Form }

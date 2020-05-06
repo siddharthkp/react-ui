@@ -75,6 +75,27 @@ const Documentation = () => {
           `}</Example.Code>
         </Example>
 
+        <Example title="Sizes">
+          <Example.Preview direction="vertical" gap={1}>
+            <Text size={1}>The big brown fox</Text>
+            <Text size={2}>The big brown fox</Text>
+            <Text size={3}>The big brown fox</Text>
+            <Text size={4}>The big brown fox</Text>
+            <Text size={5}>The big brown fox</Text>
+            <Text size={6}>The big brown fox</Text>
+            <Text size={7}>The big brown fox</Text>
+          </Example.Preview>
+          <Example.Code>{`
+            <Text size={1}>The big brown fox</Text>
+            <Text size={2}>The big brown fox</Text>
+            <Text size={3}>The big brown fox</Text>
+            <Text size={4}>The big brown fox</Text>
+            <Text size={5}>The big brown fox</Text>
+            <Text size={6}>The big brown fox</Text>
+            <Text size={7}>The big brown fox</Text>
+          `}</Example.Code>
+        </Example>
+
         <Example title="Alignment">
           <Example.Preview direction="vertical">
             <Text>left</Text>

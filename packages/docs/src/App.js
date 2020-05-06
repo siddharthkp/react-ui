@@ -36,6 +36,8 @@ const App = () => {
 
   const [theme, setTheme] = React.useState('light')
 
+  document.querySelector('#favicon').href = `favicon-${theme}.png`
+
   React.useEffect(() => {
     setMenuVisibility(false)
   }, [locationKey])
@@ -205,6 +207,7 @@ const ComponentNav = () => {
       <NavSection
         items={[
           { title: 'Avatar', path: 'Avatar' },
+          { title: 'Checkbox', path: 'Checkbox' },
           { title: 'Button', path: 'Button' },
           { title: 'Heading', path: 'Heading' },
           { title: 'Image', path: 'Image' },
@@ -342,7 +345,7 @@ const Home = props => {
       </Section>
       <Section>
         <List>
-          <Text>Jump to:</Text>
+          <Text>Start here:</Text>
           <Link href="/core-concepts/ideas">
             Read old and new ideas in React UI →
           </Link>

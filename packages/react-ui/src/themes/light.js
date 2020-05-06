@@ -265,6 +265,9 @@ const components = {
       }
     }
   },
+  Checkbox: {
+    border: '1px solid'
+  },
   Heading: {
     /** fontSizes for heading are defined in tokens.fontSizes.Heading */
     color: 'text.body'

@@ -5,41 +5,50 @@ import { styles } from './menu.styles'
 import { Button } from '../button'
 import { merge } from '../../utils'
 
-const Menu = ({ ...props }) => {
+const Menu = React.forwardRef(function Menu(props, ref) {
+  return <Element ref={ref} as={ReachMenu.Menu} {...props} />
+})
+
+const MenuButton = React.forwardRef((props, ref) => {
   return (
-    <Element as={ReachMenu.Menu} {...props}>
-      {props.children}
-    </Element>
+    <Button
+      ref={ref}
+      variant="secondary"
+      as={ReachMenu.MenuButton}
+      {...props}
+    />
   )
-}
+})
 
-const MenuButton = props => {
-  return <Button variant="secondary" as={ReachMenu.MenuButton} {...props} />
-}
+MenuButton.displayName = 'Menu.Button'
 
-const MenuList = ({ css, ...props }) => {
+const MenuList = React.forwardRef(({ css, ...props }, ref) => {
   return (
     <Element
+      ref={ref}
       as={ReachMenu.MenuList}
       component="MenuList"
       css={merge(styles.MenuList, css)}
       {...props}
-    >
-      {props.children}
-    </Element>
+    />
   )
-}
+})
 
-const MenuItem = ({ css, ...props }) => {
+MenuList.displayName = 'Menu.List'
+
+const MenuItem = React.forwardRef(({ css, ...props }, ref) => {
   return (
     <Element
+      ref={ref}
       as={ReachMenu.MenuItem}
       component="MenuItem"
       css={merge(styles.MenuItem, css)}
       {...props}
     />
   )
-}
+})
+
+MenuItem.displayName = 'Menu.Item'
 
 Menu.Button = MenuButton
 Menu.List = MenuList

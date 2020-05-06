@@ -6,9 +6,13 @@ import { styles } from './heading.styles'
 import { merge } from '../../utils'
 
 /** Description of an input */
-function Heading({ size, css, ...props }) {
+const Heading = React.forwardRef(function Heading(
+  { size, css, ...props },
+  ref
+) {
   return (
     <Element
+      ref={ref}
       as="h1"
       component="Heading"
       css={merge(
@@ -19,7 +23,7 @@ function Heading({ size, css, ...props }) {
       {...props}
     />
   )
-}
+})
 
 const getWithFallback = (value, fallback) => theme => {
   const valueIfDefined = delve(theme, value)
