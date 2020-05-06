@@ -36,6 +36,8 @@ const App = () => {
 
   const [theme, setTheme] = React.useState('light')
 
+  document.querySelector('#favicon').href = `favicon-${theme}.png`
+
   React.useEffect(() => {
     setMenuVisibility(false)
   }, [locationKey])
@@ -237,7 +239,8 @@ const ComponentNav = () => {
           { title: 'Card', path: 'Card' },
           { title: 'Form', path: 'Form' },
           { title: 'Menu', path: 'Menu' },
-          { title: 'Paragraph', path: 'Paragraph' }
+          { title: 'Paragraph', path: 'Paragraph' },
+          { title: 'Dialog', path: 'Dialog' }
         ]}
       />
     </>

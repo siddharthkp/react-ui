@@ -455,6 +455,17 @@ const components = {
     boxShadow: 2,
     overflow: 'hidden'
   },
+  DialogContent: {
+    backgroundColor: 'grays.900',
+    border: '1px solid',
+    borderColor: 'grays.800',
+    padding: 6,
+    borderRadius: 2,
+    boxShadow: 4
+  },
+  DialogOverlay: {
+    backgroundColor: 'rgba(0,0,0,0.6)'
+  },
   Form: {
     paddingY: 4
   },
