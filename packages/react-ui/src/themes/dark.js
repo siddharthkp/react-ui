@@ -457,7 +457,11 @@ const components = {
   },
   DialogContent: {
     backgroundColor: 'grays.900',
-    padding: 4
+    border: '1px solid',
+    borderColor: 'grays.800',
+    padding: 6,
+    borderRadius: 2,
+    boxShadow: 4
   },
   DialogOverlay: {
     backgroundColor: 'rgba(0,0,0,0.6)'
