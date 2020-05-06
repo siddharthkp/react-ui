@@ -445,6 +445,16 @@ const components = {
     boxShadow: 2,
     overflow: 'hidden'
   },
+  DialogContent: {
+    backgroundColor: 'white',
+    padding: 6,
+    borderRadius: 2,
+    boxShadow: 2
+  },
+  DialogOverlay: {
+    // use blues.900 with 90% opacity = e6 in hex
+    backgroundColor: theme => theme.colors.blues[900] + 'e6'
+  },
   Form: {
     paddingY: 4
   },
