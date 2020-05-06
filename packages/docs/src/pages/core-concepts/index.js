@@ -18,13 +18,14 @@ const items = [
     title: 'Creating new components',
     path: 'creating-new-components'
   },
+
+  { title: 'Layouts', path: 'layouts' },
+  { title: 'Responsive syntax', path: 'responsive', todo: true },
+  { title: 'Utilities', path: 'utilities', todo: true },
   {
     title: 'Integrating with Reach UI',
     path: 'integrating-with-reach-ui'
-  },
-  { title: 'Layouts', path: 'layouts' },
-  { title: 'Responsive syntax', path: 'responsive', todo: true },
-  { title: 'Utilities', path: 'utilities', todo: true }
+  }
 ]
 
 const Documentation = () => {
