@@ -27,6 +27,7 @@
     "deepmerge": "4.0.0",
     "dlv": "^1.1.3",
     "emotion-theming": "^10.0.27",
+    "prop-types": "^15.7.2",
     "facepaint": "^1.2.1"
   },
   "devDependencies": {
@@ -34,7 +35,6 @@
     "@babel/preset-react": "^7.7.4",
     "@ds-tools/storybook": "0.0.1",
     "bundlesize2": "^0.0.24",
-    "prop-types": "^15.7.2",
     "rollup": "^1.27.8",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
