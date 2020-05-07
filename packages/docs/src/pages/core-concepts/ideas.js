@@ -529,10 +529,6 @@ const Documentation = () => {
             new concept of course, they date as far back as 2006 with{' '}
             <Link href="http://sass-lang.com/">Sass</Link>.
           </Text>
-          <Text>
-            Because Emotion preprocesses the styles before inserting them on the
-            page, it is able to support nested styles.
-          </Text>
         </Para>
         <Example>
           <Example.Code lang="js">{`
