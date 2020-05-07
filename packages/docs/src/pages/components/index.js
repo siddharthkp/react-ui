@@ -78,7 +78,7 @@ const Documentation = () => {
               borderColor: 'grays.200'
             }}
           >
-            <Avatar size="small" src="https://react-ui.dev/favicon.png" />
+            <Avatar size="small" src="https://github.com/sameen-shi.png" />
             <Element
               as="div"
               css={{
@@ -393,7 +393,7 @@ const Documentation = () => {
         </ComponentCard>
         <ComponentCard name="Tooltip">
           <Tooltip label="Hey, this is the favicon!" INTERNAL_DEBUG_MODE>
-            <Avatar size="small" src="https://react-ui.dev/favicon.png" />
+            <Avatar size="small" src="https://github.com/sameen-shi.png" />
           </Tooltip>
         </ComponentCard>
       </Section>
