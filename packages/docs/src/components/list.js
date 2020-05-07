@@ -16,7 +16,7 @@ export const List = ({ css, ...props }) => {
       )}
       {...props}
     >
-      {props.children.map((child, index) => (
+      {React.Children.map(props.children, (child, index) => (
         <li key={index}>{child}</li>
       ))}
     </Element>

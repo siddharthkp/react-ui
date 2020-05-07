@@ -458,6 +458,17 @@ const components = {
     boxShadow: 2,
     overflow: 'hidden'
   },
+  DialogContent: {
+    backgroundColor: 'grays.900',
+    border: '1px solid',
+    borderColor: 'grays.800',
+    padding: 6,
+    borderRadius: 2,
+    boxShadow: 4
+  },
+  DialogOverlay: {
+    backgroundColor: 'rgba(0,0,0,0.6)'
+  },
   Form: {
     paddingY: 4
   },
@@ -489,7 +500,17 @@ const components = {
       color: 'grays.100'
     }
   },
-  Paragraph: {}
+  Paragraph: {},
+  Tooltip: {
+    backgroundColor: 'grays.100',
+    color: 'grays.900',
+    borderRadius: 1,
+    boxShadow: 2,
+    paddingX: 1,
+    paddingY: 1,
+    fontSize: 2,
+    lineHeight: 1
+  }
 }
 
 const theme = { tokens, components }

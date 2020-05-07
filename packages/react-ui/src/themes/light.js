@@ -447,6 +447,16 @@ const components = {
     boxShadow: 2,
     overflow: 'hidden'
   },
+  DialogContent: {
+    backgroundColor: 'white',
+    padding: 6,
+    borderRadius: 2,
+    boxShadow: 2
+  },
+  DialogOverlay: {
+    // use blues.900 with 90% opacity = e6 in hex
+    backgroundColor: theme => theme.colors.blues[900] + 'e6'
+  },
   Form: {
     paddingY: 4
   },
@@ -478,7 +488,17 @@ const components = {
       color: 'grays.100'
     }
   },
-  Paragraph: {}
+  Paragraph: {},
+  Tooltip: {
+    backgroundColor: 'grays.900',
+    color: 'grays.100',
+    borderRadius: 1,
+    boxShadow: 2,
+    paddingX: 1,
+    paddingY: 1,
+    fontSize: 2,
+    lineHeight: 1
+  }
 }
 
 const theme = { tokens, components }

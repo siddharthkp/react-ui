@@ -60,51 +60,50 @@ Form.Label = React.forwardRef(({ css, ...props }, ref) => (
 Form.Label.displayName = 'Form.Label'
 
 // attach child components to Form
-Form.Field = React.forwardRef(
-  ({ label, id, isRequired, css, ...props }, ref) => {
-    const inputId = useId(id)
+Form.Field = React.forwardRef(({ label, id, required, css, ...props }, ref) => {
+  const inputId = useId(id)
 
-    const children = React.Children.map(props.children, (child, index) => {
-      const additionalProps = {}
+  const children = React.Children.map(props.children, (child, index) => {
+    const additionalProps = {}
 
-      // We only attach id to the first child.
-      // This is irrelevant when there is only one form element.
-      // When there are multiple elements in the same field, the first one gets focused.
-      if (index === 0) additionalProps.id = inputId
+    // We only attach id to the first child.
+    // This is irrelevant when there is only one form element.
+    // When there are multiple elements in the same field, the first one gets focused.
+    if (index === 0) additionalProps.id = inputId
 
-      // this one is tricky. We don't really know the intention here if the user
-      // wanted to make both fields required or just one of them
-      // we assume it's both
-      additionalProps.required = isRequired
+    // this one is tricky. We don't really know the intention here if the user
+    // wanted to make both fields required or just one of them
+    // we assume it's both
 
-      return React.cloneElement(child, { ...additionalProps, ref })
-    })
+    // At the same time we should not override any props the child element has
+    additionalProps.required = required || child.props.required
 
-    return (
-      <Element
-        as="fieldset"
-        component="FormField"
-        css={merge(styles.FormField, css)}
-        {...props}
-      >
-        <Form.Label htmlFor={inputId}>
-          {label} {isRequired ? <span>*</span> : null}
-        </Form.Label>
-        {children}
-      </Element>
-    )
-  }
-)
+    return React.cloneElement(child, { ...additionalProps, ref })
+  })
+
+  return (
+    <Element
+      as="fieldset"
+      component="FormField"
+      css={merge(styles.FormField, css)}
+      {...props}
+    >
+      <Form.Label htmlFor={inputId}>
+        {label} {required ? <span>*</span> : null}
+      </Form.Label>
+      {children}
+    </Element>
+  )
+})
 
 Form.Field.displayName = 'Form.Field'
 
 Form.Field.propTypes = {
-  /** first */
-  label: PropTypes.string.isRequired,
-  /** second */
+  label: PropTypes.string.required,
+
   id: PropTypes.string,
-  /** third */
-  isRequired: PropTypes.bool
+
+  required: PropTypes.bool
 }
 
 export { Form }

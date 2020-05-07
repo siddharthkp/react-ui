@@ -55,8 +55,12 @@ const Stack = React.forwardRef(function Stack(
 Stack.propTypes = {
   /** Description of the gap prop */
   gap: PropTypes.oneOfType([
+    // from scale
     PropTypes.number,
-    PropTypes.arrayOf(PropTypes.number)
+    PropTypes.arrayOf(PropTypes.number),
+    // or a value with unit
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
   ]),
   // direction: PropTypes.oneOf(['horizontal', 'vertical']),
   justify: PropTypes.oneOfType([

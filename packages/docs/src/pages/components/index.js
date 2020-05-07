@@ -20,7 +20,8 @@ import {
   Breadcrumb,
   Card,
   Form,
-  Paragraph
+  Paragraph,
+  Tooltip
 } from 'react-ui'
 import { Page, Example, Section, Paragraph as Para } from '../../components'
 import { Link as RouterLink } from '@reach/router'
@@ -78,7 +79,7 @@ const Documentation = () => {
               borderColor: 'grays.200'
             }}
           >
-            <Avatar size="small" src="https://react-ui.dev/favicon.png" />
+            <Avatar size="small" src="https://github.com/sameen-shi.png" />
             <Element
               as="div"
               css={{
@@ -400,6 +401,11 @@ const Documentation = () => {
               make the decisions and their implementation fast.
             </Text>
           </Paragraph>
+        </ComponentCard>
+        <ComponentCard name="Tooltip">
+          <Tooltip label="Hey, this is the favicon!" INTERNAL_DEBUG_MODE>
+            <Avatar size="small" src="https://github.com/sameen-shi.png" />
+          </Tooltip>
         </ComponentCard>
       </Section>
     </Page>
