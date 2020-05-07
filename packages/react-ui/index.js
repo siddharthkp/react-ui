@@ -16,6 +16,7 @@ export * from './src/components/textarea'
 export * from './src/components/grid'
 export * from './src/components/stack'
 
+export * from './src/components/alert'
 export * from './src/components/breadcrumb'
 export * from './src/components/card'
 export * from './src/components/form'

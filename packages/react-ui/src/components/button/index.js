@@ -4,9 +4,12 @@ import { Element } from '../../primitives'
 import { styles } from './button.styles'
 import { merge } from '../../utils'
 
-const Button = React.forwardRef(function Button({ size, fullWidth, css, ...props }, ref) {
+const Button = React.forwardRef(function Button(
+  { size, fullWidth, css, ...props },
+  ref
+) {
   let width = fullWidth ? '100%' : 'auto'
-  
+
   return (
     <Element
       ref={ref}
@@ -21,7 +24,8 @@ const Button = React.forwardRef(function Button({ size, fullWidth, css, ...props
 Button.propTypes = {
   /** Description of an button prop */
   fullWidth: PropTypes.bool,
-  type: PropTypes.oneOf(['submit', 'button', 'reset'])
+  type: PropTypes.oneOf(['submit', 'button', 'reset']),
+  variant: PropTypes.string
 }
 
 Button.defaultProps = {

@@ -421,6 +421,39 @@ const components = {
 
   /** Molecules */
 
+  Alert: {
+    fontSize: 3,
+    borderRadius: 1,
+    padding: 4,
+    border: '1px solid',
+    variants: {
+      default: {
+        backgroundColor: 'grays.100',
+        color: 'grays.900',
+        borderColor: 'grays.200'
+      },
+      warning: {
+        backgroundColor: 'yellows.100',
+        color: 'yellows.900',
+        borderColor: 'yellows.300'
+      },
+      success: {
+        backgroundColor: 'greens.100',
+        color: 'greens.900',
+        borderColor: 'greens.200'
+      },
+      destructive: {
+        backgroundColor: 'reds.100',
+        color: 'reds.900',
+        borderColor: 'reds.200'
+      },
+      info: {
+        backgroundColor: 'blues.100',
+        color: 'blues.900',
+        borderColor: 'blues.200'
+      }
+    }
+  },
   Breadcrumb: {
     fontSize: 3
   },
