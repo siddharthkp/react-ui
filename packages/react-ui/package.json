@@ -17,6 +17,7 @@
   "keywords": [],
   "author": "siddharthkp",
   "license": "MIT",
+  "sideEffects": false,
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
