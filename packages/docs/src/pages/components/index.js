@@ -61,7 +61,7 @@ const Documentation = () => {
               backgroundColor: 'grays.200'
             }}
           >
-            <Text variant="subtle" size={3}>
+            <Text variant="subtle" size={3} style={{ color: 'text.textColor' }}>
               Base Element
             </Text>
           </Element>
@@ -343,7 +343,7 @@ const Documentation = () => {
             <Element
               as="ul"
               css={{
-                backgroundColor: 'white',
+                backgroundColor: 'text.themeColor',
                 color: 'text.body',
                 border: '1px solid',
                 borderColor: 'grays.200',
@@ -422,7 +422,7 @@ const ComponentCard = ({ name, css = {}, ...props }) => {
           width: 'auto',
           height: '240px',
           ':hover': {
-            backgroundColor: 'grays.100'
+            backgroundColor: 'text.themeColor'
           },
           ...css
         }}
