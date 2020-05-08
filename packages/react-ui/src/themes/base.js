@@ -218,6 +218,23 @@ const components = {
 
   /** Molecules */
 
+  Alert: {
+    fontSize: 3,
+    padding: 4,
+    border: '1px solid',
+    variants: {
+      default: {
+        backgroundColor: 'white',
+        color: 'black',
+        borderColor: 'black'
+      },
+      warning: {
+        backgroundColor: 'yellow',
+        color: 'black',
+        borderColor: 'black'
+      }
+    }
+  },
   Breadcrumb: {
     fontSize: 3
   },

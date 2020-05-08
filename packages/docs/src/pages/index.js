@@ -17,6 +17,7 @@ export { default as ThemeProvider } from './components/theme-provider'
 export { default as Stack } from './components/stack'
 export { default as Grid } from './components/grid'
 
+export { default as Alert } from './components/alert'
 export { default as Breadcrumb } from './components/breadcrumb'
 export { default as Dialog } from './components/dialog'
 export { default as Card } from './components/card'

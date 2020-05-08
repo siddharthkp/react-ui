@@ -1401,6 +1401,16 @@
     "@reach/utils" "^0.10.1"
     tslib "^1.11.1"
 
+"@reach/alert@^0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@reach/alert/-/alert-0.10.1.tgz#56feca2a04f8aa5b7b5fbce43c378aadd576eb67"
+  integrity sha512-XJNM24tPowcaW/zEEppWSSk9MJtmeaqNL6IvwqqFJxddUTHwmMOx9FS9szJIp6Y/GhfldoO6Hg0KNPG2Zsn4MQ==
+  dependencies:
+    "@reach/utils" "^0.10.1"
+    "@reach/visually-hidden" "^0.10.1"
+    prop-types "^15.7.2"
+    tslib "^1.11.1"
+
 "@reach/auto-id@^0.10.1":
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.10.1.tgz#5c8f7573d6271e0e55df04e459a1d1d1cf11a216"

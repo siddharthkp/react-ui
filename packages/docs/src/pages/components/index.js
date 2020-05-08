@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   Element,
+  Alert,
   Avatar,
   Button,
   Checkbox,
@@ -254,6 +255,11 @@ const Documentation = () => {
       </Section>
 
       <Section title="Molecules">
+        <ComponentCard name="Alert" direction="vertical" gap={4}>
+          <Alert variant="warning">Oh oh, you should pay attention</Alert>
+          <Alert variant="success">Kudos! You did the thing!</Alert>
+          <Alert variant="destructive">We have bad news</Alert>
+        </ComponentCard>
         <ComponentCard name="Breadcrumb">
           <Breadcrumb>
             <Link href="/components/Breadcrumb">Home</Link>

@@ -235,6 +235,7 @@ const ComponentNav = () => {
       </Text>
       <NavSection
         items={[
+          { title: 'Alert', path: 'Alert' },
           { title: 'Breadcrumb', path: 'Breadcrumb' },
           { title: 'Card', path: 'Card' },
           { title: 'Dialog', path: 'Dialog' },
