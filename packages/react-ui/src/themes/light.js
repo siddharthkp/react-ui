@@ -139,6 +139,8 @@ tokens.sizes = { ...tokens.space }
 */
 
 tokens.colors.text = {
+  textColor: 'grays.800',
+  themeColor: 'grays.100',
   subtle: 'grays.700',
   body: 'grays.800',
   link: 'blues.500',
