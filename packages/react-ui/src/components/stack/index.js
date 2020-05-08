@@ -8,14 +8,12 @@ const createGap = (direction, gap) => {
   if (direction === 'vertical') {
     return {
       marginBottom: gap,
-      '-webkitMarginEnd': 0,
       marginInlineEnd: 0
     }
   }
 
   return {
     marginBottom: 0,
-    '-webkitMarginEnd': gap,
     marginInlineEnd: gap
   }
 }
