@@ -2,13 +2,22 @@ import React from 'react'
 
 import { ThemeProvider, Alert, Link, Text } from 'react-ui'
 
-import { Page, Props, Example, Section, Table, Para } from '../../components'
+import {
+  Page,
+  Props,
+  Example,
+  Section,
+  Table,
+  Para,
+  Badge
+} from '../../components'
 
 const Documentation = () => {
   return (
     <Page
       title="Alert"
       tagline="Show a message intended to draw the user's attention"
+      badges={[<Badge key={0}>accessible</Badge>]}
     >
       <Example>
         <Example.Preview>
