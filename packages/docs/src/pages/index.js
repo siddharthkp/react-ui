@@ -24,6 +24,7 @@ export { default as Card } from './components/card'
 export { default as Form } from './components/form'
 export { default as Menu } from './components/menu'
 export { default as Paragraph } from './components/paragraph'
+export { default as Tabs } from './components/tabs'
 export { default as Tooltip } from './components/tooltip'
 
 export { default as ComponentsIndex } from './components/index'

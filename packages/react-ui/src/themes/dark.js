@@ -531,6 +531,26 @@ const components = {
     }
   },
   Paragraph: {},
+  TabList: {
+    borderColor: 'grays.800'
+  },
+  Tab: {
+    outline: 'none',
+    fontSize: 3,
+    height: 8,
+    color: 'text.body',
+    ':hover': {
+      color: 'text.link'
+    },
+    '&[data-selected]': {
+      color: 'text.link'
+    }
+  },
+  TabPanel: {
+    fontSize: 3,
+    paddingY: 4,
+    outline: 'none'
+  },
   Tooltip: {
     backgroundColor: 'grays.100',
     color: 'grays.900',

@@ -520,6 +520,26 @@ const components = {
     }
   },
   Paragraph: {},
+  TabList: {
+    borderColor: 'grays.200'
+  },
+  Tab: {
+    outline: 'none',
+    fontSize: 3,
+    height: 8,
+    color: 'text.body',
+    ':hover': {
+      color: 'text.link'
+    },
+    '&[data-selected]': {
+      color: 'text.link'
+    }
+  },
+  TabPanel: {
+    fontSize: 3,
+    paddingY: 4,
+    outline: 'none'
+  },
   Tooltip: {
     backgroundColor: 'grays.900',
     color: 'grays.100',

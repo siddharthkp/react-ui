@@ -23,6 +23,7 @@ export * from './src/components/form'
 export * from './src/components/menu'
 export * from './src/components/dialog'
 export * from './src/components/paragraph'
+export * from './src/components/tabs'
 export * from './src/components/tooltip'
 
 export * from './src/components/theme-provider'

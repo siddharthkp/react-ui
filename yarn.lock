@@ -1539,6 +1539,17 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
+"@reach/tabs@^0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@reach/tabs/-/tabs-0.10.1.tgz#35752444083427d19628344af02d051d1b7e0ea0"
+  integrity sha512-a3lpLU7KEZrvJJdzyqWB90Q50rPhBWAWBWcHAyewkm6uWTamSB/GNTHxylKo3B8fSkFMUL7r1e/odKsE+GB29w==
+  dependencies:
+    "@reach/auto-id" "^0.10.1"
+    "@reach/descendants" "^0.10.1"
+    "@reach/utils" "^0.10.1"
+    prop-types "^15.7.2"
+    tslib "^1.11.1"
+
 "@reach/tooltip@^0.10.1":
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/@reach/tooltip/-/tooltip-0.10.1.tgz#ff593ca760577a1beb0924d0a9b6b91803ace5ab"

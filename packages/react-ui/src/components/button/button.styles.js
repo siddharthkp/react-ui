@@ -11,7 +11,8 @@ export const styles = {
     transitionProperty: 'background-color, color, border-color',
     transitionDuration: 3,
     ':disabled': {
-      opacity: 0.5
+      opacity: 0.5,
+      cursor: 'default'
     }
   }
 }
