@@ -50,21 +50,16 @@ const Documentation = () => {
 
       <Section title="Primitives">
         <ComponentCard name="Element">
-          <Element
-            as={Stack}
-            justify="center"
-            align="center"
+          <Button
+            as={Element}
+            variant="secondary"
             css={{
               height: 12,
-              width: '144px',
-              borderRadius: 1,
-              backgroundColor: 'grays.200'
+              width: '144px'
             }}
           >
-            <Text variant="subtle" size={3}>
-              Base Element
-            </Text>
-          </Element>
+            Base Element
+          </Button>
         </ComponentCard>
         <ComponentCard name="ThemeProvider">
           <Stack
@@ -75,7 +70,7 @@ const Documentation = () => {
               height: '80%',
               width: '80%',
               border: '2px dashed',
-              borderColor: 'grays.200'
+              borderColor: 'App.borderColor'
             }}
           >
             <Avatar size="small" src="https://github.com/sameen-shi.png" />
@@ -85,7 +80,7 @@ const Documentation = () => {
                 height: 6,
                 width: '96px',
                 borderRadius: 1,
-                backgroundColor: 'grays.200'
+                backgroundColor: 'App.borderColor'
               }}
             />
           </Stack>
@@ -224,7 +219,7 @@ const Documentation = () => {
                       css={{
                         width: '100%',
                         borderBottom: '0.25px solid',
-                        borderColor: 'grays.500'
+                        borderColor: 'App.borderColor'
                       }}
                     />
                     <AirplaneIcon />
@@ -298,7 +293,7 @@ const Documentation = () => {
                       css={{
                         width: '100%',
                         borderBottom: '0.25px solid',
-                        borderColor: 'grays.500'
+                        borderColor: 'App.borderColor'
                       }}
                     />
                     <AirplaneIcon />
@@ -342,17 +337,8 @@ const Documentation = () => {
             </Button>
             <Element
               as="ul"
+              component="MenuList"
               css={{
-                backgroundColor: 'white',
-                color: 'text.body',
-                border: '1px solid',
-                borderColor: 'grays.200',
-                fontSize: 3,
-                borderRadius: 2,
-                boxShadow: 3,
-                paddingY: 0,
-                minWidth: '120px',
-                overflow: 'auto',
                 listStyle: 'none',
                 paddingLeft: 0
               }}
@@ -362,9 +348,8 @@ const Documentation = () => {
               </Element>
               <Element
                 as="li"
+                component="MenuItem"
                 css={{
-                  paddingY: 2,
-                  paddingX: 3,
                   backgroundColor: 'blues.600',
                   color: 'grays.100'
                 }}
@@ -421,8 +406,12 @@ const ComponentCard = ({ name, css = {}, ...props }) => {
         css={{
           width: 'auto',
           height: '240px',
+          transitionProperty: 'transform',
+          transitionDuration: 3,
+          boxShadow: 1,
           ':hover': {
-            backgroundColor: 'grays.100'
+            boxShadow: 2,
+            transform: 'scale(1.01)'
           },
           ...css
         }}
