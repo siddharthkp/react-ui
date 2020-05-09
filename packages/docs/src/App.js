@@ -215,6 +215,7 @@ const ComponentNav = () => {
           { title: 'Input', path: 'Input' },
           { title: 'Link', path: 'Link' },
           { title: 'Select', path: 'Select' },
+          { title: 'Skeleton', path: 'Skeleton' },
           { title: 'Spinner', path: 'Spinner' },
           { title: 'Switch', path: 'Switch' },
           { title: 'Text', path: 'Text' },

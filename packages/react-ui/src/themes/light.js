@@ -59,7 +59,17 @@ const tokens = {
     2: '992px'
   },
 
-  durations: [0, '75ms', '100ms', '150ms', '200ms', '300ms', '500ms', '1000ms'],
+  durations: {
+    0: 0,
+    1: '75ms',
+    2: '100ms',
+    3: '150ms',
+    4: '200ms',
+    5: '300ms',
+    6: '500ms',
+    7: '1000ms',
+    8: '2500ms'
+  },
 
   // based on elevation levels
   shadows: {
@@ -365,6 +375,14 @@ const components = {
       backgroundColor: 'reds.100',
       borderColor: 'reds.300'
     }
+  },
+
+  Skeleton: {
+    backgroundColor: 'grays.300',
+    highlightColor: 'grays.100',
+    height: 4,
+    borderRadius: 2,
+    animationDuration: 8
   },
 
   Spinner: {

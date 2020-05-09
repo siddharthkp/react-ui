@@ -62,7 +62,8 @@ const tokens = {
     4: '200ms',
     5: '300ms',
     6: '500ms',
-    7: '1000ms'
+    7: '1000ms',
+    8: '2500ms'
   },
 
   // based on elevation levels
@@ -378,6 +379,14 @@ const components = {
     '&[aria-invalid]': {
       borderColor: 'reds.300'
     }
+  },
+
+  Skeleton: {
+    backgroundColor: 'grays.800',
+    highlightColor: 'grays.900',
+    height: 4,
+    borderRadius: 2,
+    animationDuration: 8
   },
 
   Spinner: {
