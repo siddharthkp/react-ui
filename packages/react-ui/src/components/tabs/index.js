@@ -1,7 +1,6 @@
 import React from 'react'
 import * as Reach from '@reach/tabs'
 import { Element } from '../../primitives'
-import { Button } from '../../../index'
 import { merge } from '../../utils'
 import { styles } from './tabs.styles'
 
@@ -19,11 +18,14 @@ const Tabs = React.forwardRef(({ css, ...props }, ref) => {
       component="Tabs"
       {...props}
       css={merge(styles.Tabs, css)}
+      ref={ref}
     >
       <Element as={Reach.TabList} component="TabList" css={styles.TabList}>
         {tabs.map(({ label, disabled }, index) => (
           <Element
+            debug
             as={Reach.Tab}
+            component="Tab"
             key={index}
             variant="link"
             component="Tab"
@@ -42,7 +44,9 @@ const Tabs = React.forwardRef(({ css, ...props }, ref) => {
 })
 
 const Tab = React.forwardRef(({ label, ...props }, ref) => {
-  return <Element as={Reach.TabPanel} component="TabPanel" {...props} />
+  return (
+    <Element as={Reach.TabPanel} component="TabPanel" ref={ref} {...props} />
+  )
 })
 
 Tabs.Tab = Tab

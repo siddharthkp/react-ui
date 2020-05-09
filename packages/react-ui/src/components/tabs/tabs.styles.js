@@ -11,8 +11,6 @@ export const styles = {
     border: 'none',
     background: 'none',
     paddingX: 0,
-    margin: 0,
-    marginRight: 6,
     marginBottom: '-1px',
     borderBottom: '1px solid transparent',
     ':hover': {

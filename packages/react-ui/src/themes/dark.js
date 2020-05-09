@@ -538,6 +538,7 @@ const components = {
     outline: 'none',
     fontSize: 3,
     height: 8,
+    marginRight: 6,
     color: 'text.body',
     ':hover': {
       color: 'text.link'

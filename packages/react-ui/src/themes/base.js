@@ -303,6 +303,7 @@ const components = {
     outline: 'none',
     fontSize: 3,
     height: 8,
+    marginRight: 6,
     ':hover': {
       color: 'text.link'
     },
