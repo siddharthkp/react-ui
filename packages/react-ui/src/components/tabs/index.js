@@ -23,7 +23,6 @@ const Tabs = React.forwardRef(({ css, ...props }, ref) => {
       <Element as={Reach.TabList} component="TabList" css={styles.TabList}>
         {tabs.map(({ label, disabled }, index) => (
           <Element
-            debug
             as={Reach.Tab}
             component="Tab"
             key={index}
