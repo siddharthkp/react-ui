@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ThemeProvider, Alert, Link, Text, Tabs, Stack } from 'react-ui'
+import { ThemeProvider, Link, Text, Tabs, Stack } from 'react-ui'
 
 import {
   Page,
