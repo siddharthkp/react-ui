@@ -9,10 +9,8 @@ const getLinearBackground = theme => {
   /** Read special keys from theme but make sure
    * it doesn't break if the keys aren't present
    * */
-  const backgroundColor =
-    delve(theme.components, 'Skeleton.backgroundColor', '')
-  const highlightColor =
-    delve(theme.components, 'Skeleton.highlightColor') || ''
+  const backgroundColor = delve(theme.components, 'Skeleton.backgroundColor', '')
+  const highlightColor = delve(theme.components, 'Skeleton.highlightColor', '')
 
   const background = delve(theme.colors, backgroundColor) || backgroundColor
   const highlight = delve(theme.colors, highlightColor) || highlightColor
