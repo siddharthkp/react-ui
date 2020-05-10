@@ -44,12 +44,7 @@ function ThemeProvider({
 
   // Extract the styles that need that to be scoped to the
   // local ThemeProvider
-  const {
-    '*': universalStyles,
-    body,
-    ':root': rootStyles,
-    ...scopedStyles
-  } = components.Global
+  const { body, ':root': rootStyles, ...scopedStyles } = components.Global
 
   const combinedTheme = merge(tokens, { components })
 
@@ -70,7 +65,7 @@ function ThemeProvider({
           {props.children}
         </>
       ) : (
-        <Element as="div" css={{ scopedStyles }}>
+        <Element as="div" css={scopedStyles}>
           {props.children}
         </Element>
       )}
