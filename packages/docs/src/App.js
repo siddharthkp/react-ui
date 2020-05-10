@@ -242,6 +242,7 @@ const ComponentNav = () => {
           { title: 'Form', path: 'Form' },
           { title: 'Menu', path: 'Menu' },
           { title: 'Paragraph', path: 'Paragraph' },
+          { title: 'Tabs', path: 'Tabs' },
           { title: 'Tooltip', path: 'Tooltip' }
         ]}
       />

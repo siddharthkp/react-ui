@@ -21,6 +21,7 @@ import {
   Card,
   Form,
   Paragraph,
+  Tabs,
   Tooltip
 } from 'react-ui'
 import { Page, Example, Section, Paragraph as Para } from '../../components'
@@ -381,6 +382,15 @@ const Documentation = () => {
               make the decisions and their implementation fast.
             </Text>
           </Paragraph>
+        </ComponentCard>
+        <ComponentCard name="Tabs">
+          <Tabs>
+            <Tabs.Tab label="Primary">This is tab 1</Tabs.Tab>
+            <Tabs.Tab label="Updates">
+              You can render anything you want here
+            </Tabs.Tab>
+            <Tabs.Tab label="Forums">Third tabs the charm!</Tabs.Tab>
+          </Tabs>
         </ComponentCard>
         <ComponentCard name="Tooltip">
           <Tooltip label="Hey, this is the favicon!" INTERNAL_DEBUG_MODE>
