@@ -9,6 +9,7 @@ import {
   Input,
   Link,
   Select,
+  Skeleton,
   Spinner,
   Switch,
   Text,
@@ -163,6 +164,12 @@ const Documentation = () => {
               <option value="1">Option 1</option>
               <option value="2">Option 2</option>
             </Select>
+          </Stack>
+        </ComponentCard>
+        <ComponentCard name="Skeleton">
+          <Stack direction="vertical" gap={4}>
+            <Skeleton />
+            <Skeleton width={120} />
           </Stack>
         </ComponentCard>
         <ComponentCard name="Spinner" gap={4}>

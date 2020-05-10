@@ -59,7 +59,17 @@ const tokens = {
     2: '992px'
   },
 
-  durations: [0, '75ms', '100ms', '150ms', '200ms', '300ms', '500ms', '1000ms'],
+  durations: {
+    0: 0,
+    1: '75ms',
+    2: '100ms',
+    3: '150ms',
+    4: '200ms',
+    5: '300ms',
+    6: '500ms',
+    7: '1000ms',
+    8: '2500ms'
+  },
 
   // based on elevation levels
   shadows: {
@@ -179,6 +189,13 @@ const components = {
     '&[aria-invalid]': {
       borderColor: 'red'
     }
+  },
+  Skeleton: {
+    backgroundColor: 'lightgrey',
+    highlightColor: 'white',
+    height: 4,
+    borderRadius: 2,
+    animationDuration: 8
   },
   Spinner: {
     sizes: { small: 2, medium: 4, large: 6 },
