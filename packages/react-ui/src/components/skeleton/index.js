@@ -12,8 +12,8 @@ const getLinearBackground = theme => {
   const backgroundColor = delve(theme.components, 'Skeleton.backgroundColor', '')
   const highlightColor = delve(theme.components, 'Skeleton.highlightColor', '')
 
-  const background = delve(theme.colors, backgroundColor) || backgroundColor
-  const highlight = delve(theme.colors, highlightColor) || highlightColor
+  const background = delve(theme.colors, backgroundColor, backgroundColor)
+  const highlight = delve(theme.colors, highlightColor, highlightColor)
 
   return `linear-gradient(90deg,
     ${background} 0%,
