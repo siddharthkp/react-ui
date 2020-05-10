@@ -59,7 +59,7 @@ const Documentation = () => {
         </Para>
 
         <Para>
-          <Text>Avatar uses the following properties from theme:</Text>
+          <Text>Skeleton uses the following properties from theme:</Text>
         </Para>
 
         <Table>
