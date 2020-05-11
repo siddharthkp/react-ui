@@ -96,9 +96,9 @@ function Element(
   const margins = { margin: 0 }
   // because of the above reset, we have to manually handle overrides
   marginProps.map(m => {
-    if (props[m]) margins[m] = props[m]
-    if (themeStyles[m]) margins[m] = themeStyles[m]
-    if (css[m]) margins[m] = css[m]
+    if (typeof themeStyles[m] !== 'undefined') margins[m] = themeStyles[m]
+    if (typeof css[m] !== 'undefined') margins[m] = css[m]
+    if (typeof props[m] !== 'undefined') margins[m] = props[m]
     delete props[m]
     delete themeStyles[m]
     delete css[m]
