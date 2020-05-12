@@ -8,7 +8,9 @@
     "generate": "node ./generate-examples.js",
     "storybook": "start-storybook",
     "build-storybook": "build-storybook",
-    "chromatic": "chromatic --project-token=frldd3w8qk6"
+    "chromatic": "if-env TRAVIS_BRANCH=master && yarn chromatic:master || yarn chromatic:branch",
+    "chromatic:master": "npx chromatic --build-script-name=build:storybook --exit-zero-on-changes --auto-accept-changes --project-token=frldd3w8qk6",
+    "chromatic:branch": "npx chromatic --build-script-name=build:storybook --exit-zero-on-changes --project-token=frldd3w8qk6"
   },
   "license": "MIT",
   "dependencies": {
