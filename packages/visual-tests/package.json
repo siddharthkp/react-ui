@@ -5,17 +5,20 @@
   "description": "Automated visual tests",
   "scripts": {
     "generate": "node ./generate-examples.js",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "build-storybook": "build-storybook",
+    "chromatic": "chromatic --project-token=frldd3w8qk6"
   },
   "license": "MIT",
   "dependencies": {
     "react-ui": "1.0.0-beta.25"
   },
   "devDependencies": {
-    "glob": "^7.1.6",
     "@babel/core": "^7.9.6",
     "@storybook/react": "^5.3.18",
     "babel-loader": "^8.1.0",
+    "chromatic": "^4.0.2",
+    "glob": "^7.1.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
