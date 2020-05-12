@@ -93,7 +93,7 @@ function Element(
   }
 
   // reset: by default components should have no margin
-  const margins = { margin: 0 }
+  const margins = {}
   // because of the above reset, we have to manually handle overrides
   marginProps.map(m => {
     if (typeof themeStyles[m] !== 'undefined') margins[m] = themeStyles[m]
