@@ -4,6 +4,7 @@ import { useId } from '@reach/auto-id'
 import { Text } from '../text'
 import { Stack } from '../stack'
 import { Element } from '../../primitives'
+import { styles } from './checkbox.styles'
 import { merge } from '../../utils'
 
 export const Checkbox = ({ id, label, css, ...props }) => {
