@@ -9,8 +9,8 @@
     "storybook": "start-storybook",
     "build-storybook": "build-storybook",
     "chromatic": "if-env TRAVIS_BRANCH=master && yarn chromatic:master || yarn chromatic:branch",
-    "chromatic:master": "npx chromatic --build-script-name=build:storybook --exit-zero-on-changes --auto-accept-changes --project-token=frldd3w8qk6",
-    "chromatic:branch": "npx chromatic --build-script-name=build:storybook --exit-zero-on-changes --project-token=frldd3w8qk6"
+    "chromatic:master": "npx chromatic --exit-zero-on-changes --auto-accept-changes --project-token=frldd3w8qk6",
+    "chromatic:branch": "npx chromatic --exit-zero-on-changes --project-token=frldd3w8qk6"
   },
   "license": "MIT",
   "dependencies": {
@@ -23,6 +23,7 @@
     "chromatic": "^4.0.2",
     "fs-extra": "^9.0.0",
     "glob": "^7.1.6",
+    "if-env": "^1.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
