@@ -8,6 +8,8 @@
     "packages/ecosystem/*"
   ],
   "scripts": {
-    "test": "cd packages/react-ui && yarn test"
+    "test": "yarn test:lib && yarn test:visual-tests",
+    "test:lib": "cd packages/react-ui && yarn test",
+    "test:visual-tests": "cd packages/visual-tests && yarn test"
   }
 }

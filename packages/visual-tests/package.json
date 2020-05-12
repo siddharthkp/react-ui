@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Automated visual tests",
   "scripts": {
+    "test": "yarn generate && yarn chromatic",
     "generate": "node ./generate-examples.js",
     "storybook": "start-storybook",
     "build-storybook": "build-storybook",
