@@ -19,6 +19,7 @@
     "@storybook/react": "^5.3.18",
     "babel-loader": "^8.1.0",
     "chromatic": "^4.0.2",
+    "fs-extra": "^9.0.0",
     "glob": "^7.1.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

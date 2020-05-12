@@ -1,11 +1,14 @@
-const fs = require('fs')
 const glob = require('glob')
+const fs = require('fs-extra')
 const reactuiExports = require('react-ui')
 
 const pathToPages = '../docs/src/pages/components/'
 const componentPages = glob.sync(pathToPages + '*.js')
 
 const brokenPages = ['avatar', 'dialog', 'element']
+
+fs.ensureDirSync('./generated-stories')
+fs.emptyDirSync('./generated-stories')
 
 componentPages.forEach(page => {
   const name = page.replace(pathToPages, '').replace('.js', '')
