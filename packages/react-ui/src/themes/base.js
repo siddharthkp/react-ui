@@ -293,8 +293,7 @@ const components = {
   FormHeader: {
     color: 'text.body',
     fontSize: 5,
-    fontWeight: 'normal',
-    marginBottom: 4
+    fontWeight: 'normal'
   },
   MenuList: {
     backgroundColor: 'white',
