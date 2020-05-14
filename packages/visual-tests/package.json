@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "react-ui": "1.0.0-beta.25"
+    "react-ui": "1.0.0-beta.26"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
