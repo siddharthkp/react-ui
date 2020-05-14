@@ -7,14 +7,14 @@ import { merge } from '../../utils'
 const createGap = (direction, gap) => {
   if (direction === 'vertical') {
     return {
-      marginBottom: gap,
-      marginInlineEnd: 0
+      marginTop: gap,
+      marginInlineStart: 0
     }
   }
 
   return {
-    marginBottom: 0,
-    marginInlineEnd: gap
+    marginTop: 0,
+    marginInlineStart: gap
   }
 }
 
@@ -33,10 +33,10 @@ const Stack = React.forwardRef(function Stack(
     styles.flexDirection = direction.map(d =>
       d === 'vertical' ? 'column' : 'row'
     )
-    styles['> *:not(:last-child)'] = direction.map(d => createGap(d, gap))
+    styles['> * + *'] = direction.map(d => createGap(d, gap))
   } else {
     styles.flexDirection = direction === 'vertical' ? 'column' : 'row'
-    styles['> *:not(:last-child)'] = createGap(direction, gap)
+    styles['> * + *'] = createGap(direction, gap)
   }
 
   return (
