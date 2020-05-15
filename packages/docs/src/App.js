@@ -36,6 +36,8 @@ const App = () => {
 
   const [theme, setTheme] = React.useState('light')
 
+  document.querySelector('#favicon').href = `favicon-${theme}.png`
+
   React.useEffect(() => {
     setMenuVisibility(false)
   }, [locationKey])
@@ -145,6 +147,7 @@ const App = () => {
                 <Pages.CreatingNewComponents path="/creating-new-components" />
                 <Pages.CustomisingComponents path="/customising-components" />
                 <Pages.CustomisingTokens path="/customising-tokens" />
+                <Pages.IntegratingWithReachUI path="/integrating-with-reach-ui" />
                 <Pages.Layouts path="/layouts" />
               </Documentation>
 
@@ -212,6 +215,7 @@ const ComponentNav = () => {
           { title: 'Input', path: 'Input' },
           { title: 'Link', path: 'Link' },
           { title: 'Select', path: 'Select' },
+          { title: 'Skeleton', path: 'Skeleton' },
           { title: 'Spinner', path: 'Spinner' },
           { title: 'Switch', path: 'Switch' },
           { title: 'Text', path: 'Text' },
@@ -232,11 +236,15 @@ const ComponentNav = () => {
       </Text>
       <NavSection
         items={[
+          { title: 'Alert', path: 'Alert' },
           { title: 'Breadcrumb', path: 'Breadcrumb' },
           { title: 'Card', path: 'Card' },
+          { title: 'Dialog', path: 'Dialog' },
           { title: 'Form', path: 'Form' },
           { title: 'Menu', path: 'Menu' },
-          { title: 'Paragraph', path: 'Paragraph' }
+          { title: 'Paragraph', path: 'Paragraph' },
+          { title: 'Tabs', path: 'Tabs' },
+          { title: 'Tooltip', path: 'Tooltip' }
         ]}
       />
     </>

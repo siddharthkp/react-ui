@@ -1,5 +1,5 @@
 export const styles = {
-  Checkbox: {
-    margin: 0
+  Alert: {
+    width: '100%'
   }
 }

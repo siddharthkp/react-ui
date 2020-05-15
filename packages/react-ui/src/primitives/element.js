@@ -42,13 +42,6 @@ function Element(
     console.warn(warning)
   }
 
-  const margins = {
-    margin: 0 // reset: by default components should have no margin
-  }
-  Object.keys(props).forEach(prop => {
-    if (marginProps.includes(prop)) margins[prop] = props[prop]
-  })
-
   let css
   if (typeof cssProp === 'function') css = cssProp(props)
   else css = clone(cssProp)
@@ -98,6 +91,18 @@ function Element(
     // give up
     label = 'Element'
   }
+
+  // reset: by default components should have no margin
+  const margins = {}
+  // because of the above reset, we have to manually handle overrides
+  marginProps.map(m => {
+    if (typeof themeStyles[m] !== 'undefined') margins[m] = themeStyles[m]
+    if (typeof css[m] !== 'undefined') margins[m] = css[m]
+    if (typeof props[m] !== 'undefined') margins[m] = props[m]
+    delete props[m]
+    delete themeStyles[m]
+    delete css[m]
+  })
 
   // deep merge with overriding
   let merged = mergeAll(themeStyles, css, margins)

@@ -59,7 +59,17 @@ const tokens = {
     2: '992px'
   },
 
-  durations: [0, '75ms', '100ms', '150ms', '200ms', '300ms', '500ms', '1000ms'],
+  durations: {
+    0: 0,
+    1: '75ms',
+    2: '100ms',
+    3: '150ms',
+    4: '200ms',
+    5: '300ms',
+    6: '500ms',
+    7: '1000ms',
+    8: '2500ms'
+  },
 
   // based on elevation levels
   shadows: {
@@ -180,6 +190,13 @@ const components = {
       borderColor: 'red'
     }
   },
+  Skeleton: {
+    backgroundColor: 'lightgrey',
+    highlightColor: 'white',
+    height: 4,
+    borderRadius: 2,
+    animationDuration: 8
+  },
   Spinner: {
     sizes: { small: 2, medium: 4, large: 6 },
     borderColor: 'white',
@@ -218,6 +235,23 @@ const components = {
 
   /** Molecules */
 
+  Alert: {
+    fontSize: 3,
+    padding: 4,
+    border: '1px solid',
+    variants: {
+      default: {
+        backgroundColor: 'white',
+        color: 'black',
+        borderColor: 'black'
+      },
+      warning: {
+        backgroundColor: 'yellow',
+        color: 'black',
+        borderColor: 'black'
+      }
+    }
+  },
   Breadcrumb: {
     fontSize: 3
   },
@@ -242,6 +276,13 @@ const components = {
     boxShadow: 2,
     overflow: 'hidden'
   },
+  DialogContent: {
+    backgroundColor: 'white',
+    padding: 6
+  },
+  DialogOverlay: {
+    backgroundColor: 'rgba(0,0,0,0.6)'
+  },
   Form: {
     paddingY: 4
   },
@@ -252,8 +293,7 @@ const components = {
   FormHeader: {
     color: 'text.body',
     fontSize: 5,
-    fontWeight: 'normal',
-    marginBottom: 4
+    fontWeight: 'normal'
   },
   MenuList: {
     backgroundColor: 'white',
@@ -271,7 +311,35 @@ const components = {
       color: 'white'
     }
   },
-  Paragraph: {}
+  Paragraph: {},
+  TabList: {
+    borderColor: 'grey'
+  },
+  Tab: {
+    outline: 'none',
+    fontSize: 3,
+    height: 8,
+    marginRight: 6,
+    ':hover': {
+      color: 'text.link'
+    },
+    '&[data-selected]': {
+      color: 'text.link'
+    }
+  },
+  TabPanel: {
+    fontSize: 3,
+    paddingY: 4,
+    outline: 'none'
+  },
+  Tooltip: {
+    backgroundColor: 'black',
+    color: 'white',
+    paddingX: 1,
+    paddingY: 1,
+    fontSize: 2,
+    lineHeight: 1
+  }
 }
 
 const theme = { tokens, components }
