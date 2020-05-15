@@ -4,7 +4,7 @@
   "description": "Customisable components and primitives based on design tokens",
   "homepage": "https://react-ui.dev",
   "source": "index.js",
-  "main": "dist/index.js",
+  "main": "main.js",
   "files": [
     "dist",
     "themes"
@@ -37,13 +37,15 @@
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
     "@ds-tools/storybook": "0.0.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bundlesize2": "^0.0.24",
     "rollup": "^1.27.8",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.0"
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-terser": "^5.3.0"
   },
   "peerDependencies": {
     "react": "^16.8.6",
