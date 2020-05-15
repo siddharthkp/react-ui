@@ -1,7 +1,7 @@
 {
   "files": [
     {
-      "path": "dist/index.js",
+      "path": "dist/react-ui.min.js",
       "maxSize": "25KB"
     }
   ]
