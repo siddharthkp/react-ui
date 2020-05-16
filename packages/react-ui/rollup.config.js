@@ -4,7 +4,7 @@ import resolve from 'rollup-plugin-node-resolve'
 import external from 'rollup-plugin-peer-deps-external'
 import json from 'rollup-plugin-json'
 import { terser } from 'rollup-plugin-terser'
-import reactRemovePropType from 'babel-plugin-transform-react-remove-prop-types'
+import reactRemovePropTypes from 'babel-plugin-transform-react-remove-prop-types'
 
 import pkg from './package.json'
 
@@ -14,13 +14,13 @@ const getPlugins = (isProd) => {
     resolve(),
     babel({
       presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
-      plugins: [isProd && [reactRemovePropType, { mode: 'wrap' }]].filter(Boolean), // using wrap to include propTypes only when process.env.NODE_ENV !== "production" 
+      plugins: [isProd && [reactRemovePropTypes, { mode: 'wrap' }]].filter(Boolean), // using wrap to include propTypes only when process.env.NODE_ENV !== "production" 
       exclude: 'node_modules/**'
     }),
     commonjs(),
     json(),
     isProd && terser()
-  ]
+  ].filter(Boolean) // filtering boolean values
 }
 
 const cjs = [{
