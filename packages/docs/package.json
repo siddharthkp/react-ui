@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@ds-tools/theme.css": "0.0.1",
-    "@reach/accordion": "^0.10.0",
+    "@reach/accordion": "^0.10.1",
     "@reach/router": "^1.3.1",
     "@reach/visually-hidden": "^0.10.1",
     "@styled-system/theme-get": "^5.1.1",
@@ -22,7 +22,7 @@
     "react-dom": "^16.8.9",
     "react-scripts": "^3.4.0",
     "react-twitter-embed": "^3.0.3",
-    "react-ui": "1.0.0-beta.25",
+    "react-ui": "1.0.0-beta.26",
     "react-ui-stats": "0.0.1"
   },
   "author": "siddharthkp",

@@ -59,7 +59,17 @@ const tokens = {
     2: '992px'
   },
 
-  durations: [0, '75ms', '100ms', '150ms', '200ms', '300ms', '500ms', '1000ms'],
+  durations: {
+    0: 0,
+    1: '75ms',
+    2: '100ms',
+    3: '150ms',
+    4: '200ms',
+    5: '300ms',
+    6: '500ms',
+    7: '1000ms',
+    8: '2500ms'
+  },
 
   // based on elevation levels
   shadows: {
@@ -369,6 +379,14 @@ const components = {
     }
   },
 
+  Skeleton: {
+    backgroundColor: 'grays.300',
+    highlightColor: 'grays.100',
+    height: 4,
+    borderRadius: 2,
+    animationDuration: 8
+  },
+
   Spinner: {
     sizes: { small: 4, medium: 6, large: 8 },
     borderColor: 'grays.200',
@@ -423,6 +441,39 @@ const components = {
 
   /** Molecules */
 
+  Alert: {
+    fontSize: 3,
+    borderRadius: 1,
+    padding: 4,
+    border: '1px solid',
+    variants: {
+      default: {
+        backgroundColor: 'grays.100',
+        color: 'grays.900',
+        borderColor: 'grays.200'
+      },
+      warning: {
+        backgroundColor: 'yellows.100',
+        color: 'yellows.900',
+        borderColor: 'yellows.300'
+      },
+      success: {
+        backgroundColor: 'greens.100',
+        color: 'greens.900',
+        borderColor: 'greens.200'
+      },
+      destructive: {
+        backgroundColor: 'reds.100',
+        color: 'reds.900',
+        borderColor: 'reds.200'
+      },
+      info: {
+        backgroundColor: 'blues.100',
+        color: 'blues.900',
+        borderColor: 'blues.200'
+      }
+    }
+  },
   Breadcrumb: {
     fontSize: 3
   },
@@ -467,8 +518,7 @@ const components = {
   FormHeader: {
     color: 'text.body',
     fontSize: 5,
-    fontWeight: 'normal',
-    marginBottom: 4
+    fontWeight: 'normal'
   },
   MenuList: {
     backgroundColor: 'white',
@@ -489,6 +539,27 @@ const components = {
     }
   },
   Paragraph: {},
+  TabList: {
+    borderColor: 'grays.200'
+  },
+  Tab: {
+    outline: 'none',
+    fontSize: 3,
+    height: 8,
+    marginRight: 6,
+    color: 'text.body',
+    ':hover': {
+      color: 'text.link'
+    },
+    '&[data-selected]': {
+      color: 'text.link'
+    }
+  },
+  TabPanel: {
+    fontSize: 3,
+    paddingY: 4,
+    outline: 'none'
+  },
   Tooltip: {
     backgroundColor: 'grays.900',
     color: 'grays.100',

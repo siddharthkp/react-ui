@@ -62,7 +62,8 @@ const tokens = {
     4: '200ms',
     5: '300ms',
     6: '500ms',
-    7: '1000ms'
+    7: '1000ms',
+    8: '2500ms'
   },
 
   // based on elevation levels
@@ -383,6 +384,14 @@ const components = {
     }
   },
 
+  Skeleton: {
+    backgroundColor: 'grays.800',
+    highlightColor: 'grays.900',
+    height: 4,
+    borderRadius: 2,
+    animationDuration: 8
+  },
+
   Spinner: {
     sizes: { small: 4, medium: 6, large: 8 },
     borderColor: 'grays.700',
@@ -434,6 +443,39 @@ const components = {
 
   /** Molecules */
 
+  Alert: {
+    fontSize: 3,
+    borderRadius: 1,
+    padding: 4,
+    border: '1px solid',
+    variants: {
+      default: {
+        backgroundColor: 'grays.800',
+        color: 'text.body',
+        borderColor: 'grays.700'
+      },
+      warning: {
+        backgroundColor: 'yellows.100',
+        color: 'yellows.900',
+        borderColor: 'yellows.500'
+      },
+      success: {
+        backgroundColor: 'greens.100',
+        color: 'greens.900',
+        borderColor: 'greens.200'
+      },
+      destructive: {
+        backgroundColor: 'reds.100',
+        color: 'reds.900',
+        borderColor: 'reds.200'
+      },
+      info: {
+        backgroundColor: 'blues.200',
+        color: 'blues.900',
+        borderColor: 'blues.300'
+      }
+    }
+  },
   Breadcrumb: {
     fontSize: 3
   },
@@ -479,8 +521,7 @@ const components = {
   FormHeader: {
     color: 'text.body',
     fontSize: 5,
-    fontWeight: 'normal',
-    marginBottom: 4
+    fontWeight: 'normal'
   },
   MenuList: {
     backgroundColor: 'grays.900',
@@ -501,6 +542,27 @@ const components = {
     }
   },
   Paragraph: {},
+  TabList: {
+    borderColor: 'grays.800'
+  },
+  Tab: {
+    outline: 'none',
+    fontSize: 3,
+    height: 8,
+    marginRight: 6,
+    color: 'text.body',
+    ':hover': {
+      color: 'text.link'
+    },
+    '&[data-selected]': {
+      color: 'text.link'
+    }
+  },
+  TabPanel: {
+    fontSize: 3,
+    paddingY: 4,
+    outline: 'none'
+  },
   Tooltip: {
     backgroundColor: 'grays.100',
     color: 'grays.900',

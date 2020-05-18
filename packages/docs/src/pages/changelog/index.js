@@ -8,6 +8,170 @@ const Changelog = () => {
     <Page title="Changelog">
       <Section>
         <Stack align="center" justify="space-between" marginBottom={4}>
+          <Link variant="body" href="#1.0.0-beta.26">
+            1.0.0-beta.26{' '}
+          </Link>
+          <Contributors
+            authors={[
+              'loweisz',
+              'NateRadebaugh',
+              'nurul3101',
+              'sreetamdas',
+              'iamdarshshah',
+              'hazem3500',
+              'sumdook',
+              'shubh0107',
+              'Sagarpreet',
+              'JalDEV',
+              'siddharthkp'
+            ]}
+          />
+        </Stack>
+        <Stack as={List} direction="vertical" gap={1} marginBottom={4}>
+          <Text size={3} color="text.subtle">
+            Additions:
+          </Text>
+          <Change
+            pr="39"
+            description="Adding Dialog component"
+            author="loweisz"
+          />
+          <Change
+            pr="48"
+            description="Add docs for integrating 3rd party libraries like reach-ui"
+            author="NateRadebaugh"
+          />
+          <Change
+            pr="60"
+            description="New component: Tooltip"
+            author="siddharthkp"
+          />
+          <Change
+            pr="71"
+            description="New component: Alert"
+            author="siddharthkp"
+          />
+          <Change
+            pr="76"
+            description="New component: Tabs"
+            author="siddharthkp"
+          />
+          <Change
+            pr="78"
+            description="New component: Skeleton"
+            author="siddharthkp"
+          />
+        </Stack>
+        <Stack as={List} direction="vertical" gap={1} marginBottom={4}>
+          <Text size={3} color="text.subtle">
+            Improvements:
+          </Text>
+          <Change
+            pr="47"
+            description="Docs: Change favicon based on theme"
+            author="siddharthkp"
+          />
+          <Change
+            pr="61"
+            description="Upgraded @reach/menu-button"
+            author="nurul3101"
+          />
+          <Change
+            pr="63"
+            description="Update version badge in README"
+            author="sreetamdas"
+          />
+          <Change
+            pr="80"
+            description="Add visual tests with chromatic"
+            author="siddharthkp"
+          />
+        </Stack>
+        <Stack as={List} direction="vertical" gap={1} marginBottom={4}>
+          <Text size={3} color="text.subtle">
+            Fixes:
+          </Text>
+          <Change
+            pr="67"
+            description="Fix tooltip image on components page."
+            author="iamdarshshah"
+          />
+          <Change
+            pr="68"
+            description="Remove duplicate paragraph in ideas docs page"
+            author="hazem3500"
+          />
+          <Change
+            pr="79"
+            description="Handle 0 for margin values"
+            author="siddharthkp"
+          />
+          <Change
+            pr="84"
+            description="Fix specificity issues"
+            author="siddharthkp"
+          />
+        </Stack>
+
+        <Stack as="span" align="center" gap={1} marginBottom={4}>
+          <LinkedAvatar author="sumdook" />
+          <LinkedAvatar author="shubh0107" />
+          <LinkedAvatar author="Sagarpreet" />
+          <LinkedAvatar author="JalDEV" />
+          <Text size={3} color="text.subtle">
+            Thanks to{' '}
+            <Link
+              href={`https://github.com/sumdook`}
+              target="_blank"
+              variant="subtle"
+            >
+              sumdook
+            </Link>
+            ,{' '}
+            <Link
+              href={`https://github.com/shubh0107`}
+              target="_blank"
+              variant="subtle"
+            >
+              shubh0107
+            </Link>
+            ,{' '}
+            <Link
+              href={`https://github.com/Sagarpreet`}
+              target="_blank"
+              variant="subtle"
+            >
+              Sagarpreet
+            </Link>{' '}
+            and{' '}
+            <Link
+              href={`https://github.com/JalDEV`}
+              target="_blank"
+              variant="subtle"
+            >
+              JalDEV
+            </Link>{' '}
+            for their feedback
+          </Text>
+        </Stack>
+        <Stack as="span" align="center" gap={1} marginBottom={4}>
+          <LinkedAvatar author="rubenmoya" />
+          <Text size={3} color="text.subtle">
+            Massive shout out to{' '}
+            <Link
+              href={`https://github.com/rubenmoya`}
+              target="_blank"
+              variant="subtle"
+            >
+              rubenmoya
+            </Link>{' '}
+            for reviewing so many pull requests!
+          </Text>
+        </Stack>
+      </Section>
+
+      <Section>
+        <Stack align="center" justify="space-between" marginBottom={4}>
           <Link variant="body" href="#1.0.0-beta.25">
             1.0.0-beta.25{' '}
           </Link>

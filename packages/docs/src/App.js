@@ -216,6 +216,7 @@ const ComponentNav = () => {
           { title: 'Link', path: 'Link' },
           { title: 'Radio', path: 'Radio' },
           { title: 'Select', path: 'Select' },
+          { title: 'Skeleton', path: 'Skeleton' },
           { title: 'Spinner', path: 'Spinner' },
           { title: 'Switch', path: 'Switch' },
           { title: 'Text', path: 'Text' },
@@ -236,12 +237,14 @@ const ComponentNav = () => {
       </Text>
       <NavSection
         items={[
+          { title: 'Alert', path: 'Alert' },
           { title: 'Breadcrumb', path: 'Breadcrumb' },
           { title: 'Card', path: 'Card' },
           { title: 'Dialog', path: 'Dialog' },
           { title: 'Form', path: 'Form' },
           { title: 'Menu', path: 'Menu' },
           { title: 'Paragraph', path: 'Paragraph' },
+          { title: 'Tabs', path: 'Tabs' },
           { title: 'Tooltip', path: 'Tooltip' }
         ]}
       />

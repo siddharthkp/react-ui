@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   Element,
+  Alert,
   Avatar,
   Button,
   Checkbox,
@@ -9,6 +10,7 @@ import {
   Link,
   Radio,
   Select,
+  Skeleton,
   Spinner,
   Switch,
   Text,
@@ -21,6 +23,7 @@ import {
   Card,
   Form,
   Paragraph,
+  Tabs,
   Tooltip
 } from 'react-ui'
 import { Page, Example, Section, Paragraph as Para } from '../../components'
@@ -51,21 +54,16 @@ const Documentation = () => {
 
       <Section title="Primitives">
         <ComponentCard name="Element">
-          <Element
-            as={Stack}
-            justify="center"
-            align="center"
+          <Button
+            as={Element}
+            variant="secondary"
             css={{
               height: 12,
-              width: '144px',
-              borderRadius: 1,
-              backgroundColor: 'grays.200'
+              width: '144px'
             }}
           >
-            <Text variant="subtle" size={3}>
-              Base Element
-            </Text>
-          </Element>
+            Base Element
+          </Button>
         </ComponentCard>
         <ComponentCard name="ThemeProvider">
           <Stack
@@ -76,7 +74,7 @@ const Documentation = () => {
               height: '80%',
               width: '80%',
               border: '2px dashed',
-              borderColor: 'grays.200'
+              borderColor: 'App.borderColor'
             }}
           >
             <Avatar size="small" src="https://github.com/sameen-shi.png" />
@@ -86,7 +84,7 @@ const Documentation = () => {
                 height: 6,
                 width: '96px',
                 borderRadius: 1,
-                backgroundColor: 'grays.200'
+                backgroundColor: 'App.borderColor'
               }}
             />
           </Stack>
@@ -179,6 +177,12 @@ const Documentation = () => {
             </Select>
           </Stack>
         </ComponentCard>
+        <ComponentCard name="Skeleton">
+          <Stack direction="vertical" gap={4}>
+            <Skeleton />
+            <Skeleton width={120} />
+          </Stack>
+        </ComponentCard>
         <ComponentCard name="Spinner" gap={4}>
           <Spinner size="small" />
           <Spinner size="medium" />
@@ -235,7 +239,7 @@ const Documentation = () => {
                       css={{
                         width: '100%',
                         borderBottom: '0.25px solid',
-                        borderColor: 'grays.500'
+                        borderColor: 'App.borderColor'
                       }}
                     />
                     <AirplaneIcon />
@@ -270,6 +274,11 @@ const Documentation = () => {
       </Section>
 
       <Section title="Molecules">
+        <ComponentCard name="Alert" direction="vertical" gap={4}>
+          <Alert variant="warning">Oh oh, you should pay attention</Alert>
+          <Alert variant="success">Kudos! You did the thing!</Alert>
+          <Alert variant="destructive">We have bad news</Alert>
+        </ComponentCard>
         <ComponentCard name="Breadcrumb">
           <Breadcrumb>
             <Link href="/components/Breadcrumb">Home</Link>
@@ -309,7 +318,7 @@ const Documentation = () => {
                       css={{
                         width: '100%',
                         borderBottom: '0.25px solid',
-                        borderColor: 'grays.500'
+                        borderColor: 'App.borderColor'
                       }}
                     />
                     <AirplaneIcon />
@@ -353,17 +362,8 @@ const Documentation = () => {
             </Button>
             <Element
               as="ul"
+              component="MenuList"
               css={{
-                backgroundColor: 'white',
-                color: 'text.body',
-                border: '1px solid',
-                borderColor: 'grays.200',
-                fontSize: 3,
-                borderRadius: 2,
-                boxShadow: 3,
-                paddingY: 0,
-                minWidth: '120px',
-                overflow: 'auto',
                 listStyle: 'none',
                 paddingLeft: 0
               }}
@@ -373,9 +373,8 @@ const Documentation = () => {
               </Element>
               <Element
                 as="li"
+                component="MenuItem"
                 css={{
-                  paddingY: 2,
-                  paddingX: 3,
                   backgroundColor: 'blues.600',
                   color: 'grays.100'
                 }}
@@ -401,6 +400,15 @@ const Documentation = () => {
               make the decisions and their implementation fast.
             </Text>
           </Paragraph>
+        </ComponentCard>
+        <ComponentCard name="Tabs">
+          <Tabs>
+            <Tabs.Tab label="Primary">This is tab 1</Tabs.Tab>
+            <Tabs.Tab label="Updates">
+              You can render anything you want here
+            </Tabs.Tab>
+            <Tabs.Tab label="Forums">Third tabs the charm!</Tabs.Tab>
+          </Tabs>
         </ComponentCard>
         <ComponentCard name="Tooltip">
           <Tooltip label="Hey, this is the favicon!" INTERNAL_DEBUG_MODE>
@@ -432,8 +440,12 @@ const ComponentCard = ({ name, css = {}, ...props }) => {
         css={{
           width: 'auto',
           height: '240px',
+          transitionProperty: 'transform',
+          transitionDuration: 3,
+          boxShadow: 1,
           ':hover': {
-            backgroundColor: 'grays.100'
+            boxShadow: 2,
+            transform: 'scale(1.01)'
           },
           ...css
         }}

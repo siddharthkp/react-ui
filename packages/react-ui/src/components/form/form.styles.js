@@ -6,7 +6,7 @@ export const styles = {
     width: '100%',
     border: 'none',
     padding: 0,
-    margin: 0
+    marginX: 0
   },
   FormLabel: {
     display: 'block',
