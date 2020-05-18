@@ -47,6 +47,14 @@ function ThemeProvider({
   const { body, ':root': rootStyles, ...scopedStyles } = components.Global
 
   const combinedTheme = merge(tokens, { components })
+  if (scoped) {
+    let warning =
+      "This ThemeProvider uses scoped styles. 'body' and ':root' styles from your Global component tokens won't be passed to this."
+    warning += `\n\n`
+    warning +=
+      'To attach scoped styles to this ThemeProvider, use the root of the Global components token'
+    console.warn(warning)
+  }
 
   // pass a hint to element
   combinedTheme.defined = true
