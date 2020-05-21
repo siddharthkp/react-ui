@@ -42,7 +42,7 @@ const Stack = React.forwardRef(function Stack(
   let children = props.children
   if (gap) {
     children = React.Children.map(props.children, (child, index) => (
-      <Element as={inline ? 'span' : 'div'} key={index}>
+      <Element key={index} as={inline ? 'span' : 'div'} component="StackItem">
         {child}
       </Element>
     ))

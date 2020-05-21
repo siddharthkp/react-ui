@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider, Button, Link, Text } from 'react-ui'
+import { ThemeProvider, Stack, Button, Link, Text } from 'react-ui'
 import {
   Page,
   Section,
@@ -57,7 +57,6 @@ const Documentation = () => {
 
       <Section title="Examples">
         <Example title="Variants">
-
           <Example.Preview gap={4}>
             <Button>Log in</Button>
             <Button variant="secondary" debug>
@@ -84,7 +83,7 @@ const Documentation = () => {
         </Para>
 
         <Example title="Full width">
-          <Example.Preview gap={4}>
+          <Example.Preview>
             <Button fullWidth>Sign up</Button>
           </Example.Preview>
           <Example.Code>{`
@@ -168,7 +167,7 @@ const Documentation = () => {
             <Button variant="danger" size="small">Delete</Button>
           </ThemeProvider>
         `}</Example.Code>
-          <Example.Preview gap={4} align="center">
+          <Example.Preview>
             <ThemeProvider
               components={{
                 Button: {
@@ -194,10 +193,12 @@ const Documentation = () => {
                 }
               }}
             >
-              <Button variant="primary">Cancel</Button>
-              <Button variant="danger" size="small">
-                Delete
-              </Button>
+              <Stack gap={4} align="center">
+                <Button variant="primary">Cancel</Button>
+                <Button variant="danger" size="small">
+                  Delete
+                </Button>
+              </Stack>
             </ThemeProvider>
           </Example.Preview>
         </Example>

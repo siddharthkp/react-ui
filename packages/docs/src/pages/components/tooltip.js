@@ -19,11 +19,15 @@ const Documentation = () => {
       badges={[<Badge key={0}>accessible</Badge>]}
     >
       <Para>
-        Extends{' '}
-        <Link href="https://reacttraining.com/reach-ui/tooltip" target="_blank">
-          reach-ui/tooltip
-        </Link>
-        .
+        <Text>
+          Extends{' '}
+          <Link
+            href="https://reacttraining.com/reach-ui/tooltip"
+            target="_blank"
+          >
+            reach-ui/tooltip
+          </Link>
+        </Text>
       </Para>
       <Example>
         <Example.Preview>

@@ -9,7 +9,7 @@ const Documentation = () => {
       tagline="Use a skeleton to hint that some content is on it's way"
     >
       <Example>
-        <Example.Preview direction="vertical" gap={2}>
+        <Example.Preview>
           <Skeleton />
         </Example.Preview>
         <Example.Code>
@@ -34,8 +34,8 @@ const Documentation = () => {
 
       <Section title="Examples">
         <Example title="Width">
-          <Example.Preview>
-            <Stack direction="vertical" gap={2}>
+          <Example.Preview direction="vertical">
+            <Stack direction="vertical" gap={2} css={{ width: 200 }}>
               <Skeleton />
               <Skeleton width={120} />
             </Stack>
@@ -110,8 +110,10 @@ const Documentation = () => {
                 }
               }}
             >
-              <Skeleton />
-              <Skeleton width={120} />
+              <Stack direction="vertical" gap={2}>
+                <Skeleton />
+                <Skeleton width={120} />
+              </Stack>
             </ThemeProvider>
           </Example.Preview>
         </Example>
