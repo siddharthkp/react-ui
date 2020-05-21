@@ -96,16 +96,17 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
   const html = highlight(dedent(children), languages[lang])
 
   return (
-    <>
+    <Element css={{ position: 'relative' }}>
       <Button
         variant="link"
         css={{
           position: 'absolute',
           right: 0,
-          top: '10px',
+          top: 0,
           svg: { color: copied ? '#38C172' : '#929FB1' },
           ':hover, :focus': { svg: { color: copied ? '#38C172' : '#c6cbd1' } }
         }}
+        style={{ backgroundColor: '#0008' }}
         onClick={copyCode}
       >
         {icon}
@@ -132,7 +133,7 @@ const Code = ({ children, lang = 'jsx', ...props }) => {
         }}
         {...props}
       />
-    </>
+    </Element>
   )
 }
 

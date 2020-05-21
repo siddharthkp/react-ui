@@ -39,6 +39,15 @@ const Stack = React.forwardRef(function Stack(
     styles['> * + *'] = createGap(direction, gap)
   }
 
+  let children = props.children
+  if (gap) {
+    children = React.Children.map(props.children, (child, index) => (
+      <Element as={inline ? 'span' : 'div'} key={index}>
+        {child}
+      </Element>
+    ))
+  }
+
   return (
     <Element
       ref={ref}
@@ -46,7 +55,9 @@ const Stack = React.forwardRef(function Stack(
       component="Stack"
       css={merge(styles, css)}
       {...props}
-    />
+    >
+      {children}
+    </Element>
   )
 })
 
