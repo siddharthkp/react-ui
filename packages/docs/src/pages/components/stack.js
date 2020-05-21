@@ -199,16 +199,16 @@ const Documentation = () => {
           `}</Example.Code>
         </Example>
 
+        <Para>
+          <Text>
+            Based on the{' '}
+            <Link href="https://www.w3.org/TR/css-align-3/#gap-shorthand">
+              working draft for flex gap
+            </Link>
+            , margin on the child element is added to the gap.
+          </Text>
+        </Para>
         <Example title="Additive margins">
-          <Para>
-            <Text>
-              Based on the{' '}
-              <Link href="https://www.w3.org/TR/css-align-3/#gap-shorthand">
-                working draft for flex gap
-              </Link>
-              , margin on the child element is added to the gap.
-            </Text>
-          </Para>
           <Example.Preview direction="vertical" gap={10}>
             <Stack gap={2}>
               <Avatar
