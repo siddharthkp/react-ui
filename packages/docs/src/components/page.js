@@ -5,7 +5,6 @@ import { Heading, Tagline } from './typography'
 import { Head } from './head'
 
 export const Page = ({ title, tagline, badges, ...props }) => {
-  debugger
   return (
     <>
       <Head title={title} description={tagline} />
