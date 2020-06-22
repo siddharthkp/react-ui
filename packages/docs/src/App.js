@@ -143,6 +143,7 @@ const App = () => {
               <Documentation path="core-concepts">
                 <Pages.CoreConcepts path="/" />
                 <Pages.Ideas path="/ideas" />
+                <Pages.Motivation path="/motivation" />
                 <Pages.Constraints path="/constraints-based-design" />
                 <Pages.CreatingNewComponents path="/creating-new-components" />
                 <Pages.CustomisingComponents path="/customising-components" />
