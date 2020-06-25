@@ -1,16 +1,21 @@
 import React from 'react'
 import { Stack, Text, Link, Image } from 'react-ui'
-import { Page, Example, Section, Para, Code } from '../../components'
+import { Page, Example, Section, Para, Heading, Code } from '../../components'
 
 const Documentation = () => {
   return (
     <Page title="Motivation">
       <Section>
         <Para>
+          <Text>I'm not a designer. </Text>
+        </Para>
+        <Para>
           <Text>
-            I'm not good at design. I'd like to be. Design has eluded me for a
-            long time. I considered it a creative art form and not science.
+            I'd like to be good at design but it has eluded me for a long time.
+            I considered it a creative art form and not science.
           </Text>
+        </Para>
+        <Para>
           <Text>
             In my attempt to make design more approachable for myself, I
             discovered a few concepts that "just clicked". I have tried to bake
@@ -21,16 +26,22 @@ const Documentation = () => {
       </Section>
       <Section title="Design concepts">
         <Para>
-          <Text>1. Scales</Text>
+          There are a few concepts that let you approach design from a systems
+          point of view than a pure art point of view.
+        </Para>
+        <Para>
           <Text>
-            At the core of every high quality interface, is a set of constraints
-            that help in creating this level of consistency and quality.
+            At the core of every well crafted interface is a set of constraints
+            that help in creating a certain level of consistency and quality.
           </Text>
           <Text>
             Constraints help build consistent features at a faster pace by
-            moving the decisions into reusable patterns.
+            moving decisions into reusable patterns.
           </Text>
-          <Text css={{ fontStyle: 'italic' }}>
+          <Text
+            as="blockquote"
+            css={{ display: 'inline-block', fontStyle: 'italic' }}
+          >
             By using culturally relevant, historically pleasing ratios to create
             modular scales and basing the measurements in our compositions on
             values from those scales, we can achieve a visual harmony not found
@@ -60,10 +71,7 @@ const Documentation = () => {
           </Text>
         </Para>
         <Para>
-          <Text>
-            1. Consistency in space - This is one of the qualities of a well
-            designed interface.
-          </Text>
+          <Text>1. Consistency in space</Text>
           <Text>
             The input and buttons are of the same size, the space between form
             elements is always the same, the space between a label and its
@@ -71,18 +79,15 @@ const Documentation = () => {
           </Text>
         </Para>
         <Para>
+          <Text>2. The space values are on a scale</Text>
           <Text>
-            2. The space values are on a scale - If you look closely, all of the
-            space units are multiples of 8.
-          </Text>
-          <Text>
-            This design only uses 5 space values:{' '}
-            <Code>[8, 16, 24, 32, 48]</Code>. In other words, these values are{' '}
-            <i>on a scale</i>.
+            - If you look closely, this design only uses 5 space values:{' '}
+            <Code>[8, 16, 24, 32, 48]</Code>. All of the space units are
+            multiples of 8, in other words, these values are <i>on a scale</i>.
           </Text>
           <Text>
             The smallest space is between a label and input field, 1 unit = 8px.
-            To create the diffrentiation between multiple fields, we need more
+            To create diffrentiation between multiple fields, we need more
             space, bumping to the next unit of 2 = 16px does the job.
           </Text>
         </Para>
@@ -99,31 +104,28 @@ const Documentation = () => {
             <FontScale />
           </Example.Preview>
         </Example>
-
-        <Example title="Applied to typography:">
-          <Example.Code lang="js">{`
-            // 16px base with a 1.125 ratio (major second):
-            // optimised for web to avoid poor sub-pixel rendering
-
-            10   * 1.125 = 11.250     ~ 11px
-            11   * 1.125 = 12.375     ~ 12.5px
-            12.5 * 1.125 = 14.062     ~ 14px
-            14   * 1.125 = 15.978     ~ 16px
-            16   * 1.125 = 18         ~ 18px
-            18   * 1.125 = 20.25      ~ 20px
-          `}</Example.Code>
-        </Example>
-        <Para>
-          <Image css={{ width: 'auto' }} src="/fontsize-tip.png" />
-        </Para>
-
-        <Para>
-          <Text>2. Consistency</Text>
-        </Para>
       </Section>
       <Section title="Authoring design in Code">
         <Para>
+          <Text>
+            To be able to represent these concept in code, we need the right the
+            right abstractions.
+          </Text>
+        </Para>
+        <Para>
+          <Text>1. Tokens / spec</Text>
+          <Text>...</Text>
+        </Para>
+        <Para>
+          <Text>2. Components connected to scale </Text>
+        </Para>
+
+        <Para>
           <Text>1. Components that connect to scales</Text>
+
+          <Para>
+            <Image css={{ width: 'auto' }} src="/fontsize-tip.png" />
+          </Para>
         </Para>
         <Para>
           <Text>2. Consistency via composition</Text>

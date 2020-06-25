@@ -94,7 +94,7 @@ const App = () => {
       </Stack>
       <Grid
         css={{
-          maxWidth: '1024px',
+          maxWidth: '1280px',
           marginX: 'auto',
           color: 'text.body'
         }}
