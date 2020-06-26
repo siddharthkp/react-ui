@@ -94,7 +94,7 @@ const App = () => {
       </Stack>
       <Grid
         css={{
-          maxWidth: '1280px',
+          maxWidth: '1024px',
           marginX: 'auto',
           color: 'text.body'
         }}
@@ -170,6 +170,10 @@ const App = () => {
                   const Page = Pages[name]
                   return <Page key={name} path={name} />
                 })}
+              </Documentation>
+
+              <Documentation path="todo">
+                <Pages.Todo path="/" />
               </Documentation>
             </ScrollToTop>
           </Router>

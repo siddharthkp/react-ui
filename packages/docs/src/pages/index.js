@@ -40,6 +40,7 @@ export { default as CustomisingComponents } from './core-concepts/customising-co
 export { default as CustomisingTokens } from './core-concepts/customising-tokens'
 export { default as IntegratingWithReachUI } from './core-concepts/integrating-with-reach-ui'
 export { default as Layouts } from './core-concepts/layouts'
+export { default as Todo } from './core-concepts/todo'
 
 export { default as Changelog } from './changelog/index'
 
