@@ -186,10 +186,9 @@ const Documentation = () => {
               <i>on a scale</i>.
             </Text>
             <Text css={{ paddingLeft: 5 }}>
-              The smallest space is between a label and input field, 1
-              unit = 8px. To create the diffrentiation between multiple fields,
-              we need more space, bumping to the next unit of 2 = 16px does the
-              job.
+              The smallest space is between a label and input field, 1 unit =
+              8px. To create the differentiation between multiple fields, we need
+              more space, bumping to the next unit of 2 = 16px does the job.
             </Text>
           </Para>
           <Example
@@ -406,21 +405,21 @@ const Documentation = () => {
               If you'd like to know more about Design Tokens, consider going
               through these resources:
             </Text>
-            <List as="ol">
-              <Text>
-                <Link href="https://www.youtube.com/watch?v=wDBEc3dJJV8">
-                  Using Design Tokens with the Lightning Design System
-                </Link>
-                , talk by Jina Anne
-              </Text>
-              <Text>
-                <Link href="https://medium.com/eightshapes-llc/tokens-in-design-systems-25dd82d58421">
-                  Design Tokens in Design Systems
-                </Link>
-                , article by Nathan Curtis
-              </Text>
-            </List>
           </Para>
+          <List as="ol">
+            <Text>
+              <Link href="https://www.youtube.com/watch?v=wDBEc3dJJV8">
+                Using Design Tokens with the Lightning Design System
+              </Link>
+              , talk by Jina Anne
+            </Text>
+            <Text>
+              <Link href="https://medium.com/eightshapes-llc/tokens-in-design-systems-25dd82d58421">
+                Design Tokens in Design Systems
+              </Link>
+              , article by Nathan Curtis
+            </Text>
+          </List>
         </Section>
         <Section>
           <Link
