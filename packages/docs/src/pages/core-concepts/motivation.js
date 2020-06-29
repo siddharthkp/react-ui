@@ -34,8 +34,8 @@ const Documentation = () => {
         </Para>
         <Para>
           <Text>
-            At the core of every well crafted interface is a set of constraints
-            that help in creating consistency and quality.
+            At the core of every well-crafted interface is a set of constraints
+            that help create consistency and quality.
           </Text>
           <Text>
             Constraints help build consistent features at a faster pace by
@@ -300,7 +300,7 @@ const Documentation = () => {
         <Para>
           <Text>
             Just a few building blocks like <Code>Text</Code> and{' '}
-            <Code>Stack</Code> can set you up withthe right fundamentals to
+            <Code>Stack</Code> can set you up with the right fundamentals to
             create well designed interfaces.
           </Text>
           <Text>
@@ -358,7 +358,7 @@ const Documentation = () => {
               justify="space-between"
               align="center"
               css={{
-                height: 16,               // theme.sizes.12
+                height: 16,               // theme.sizes.16
                 padding: 4,               // theme.space.4
                 background: 'grays.200',  // theme.colors.grays.200
                 border: '1px solid',      
