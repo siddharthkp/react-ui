@@ -14,14 +14,14 @@ export const Head = ({title, description}) =>{
             <meta name="twitter:site" content="@React-ui" />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
-            <meta name="twitter:image" content="https://user-images.githubusercontent.com/1863771/76433547-c0e94e80-63b4-11ea-9cca-c859226e5021.png" />
+            <meta name="twitter:image" content="https://i.ibb.co/GtvCbGs/76433547-c0e94e80-63b4-11ea-9cca-c859226e5021-min.png" />
             <meta name="twitter:image:alt" content="React-ui" />
 
             {/* facebook */}
             <meta property="og:type" content="website" />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
-            <meta property="og:image" content="https://user-images.githubusercontent.com/1863771/76433547-c0e94e80-63b4-11ea-9cca-c859226e5021.png" />
+            <meta property="og:image" content="https://i.ibb.co/GtvCbGs/76433547-c0e94e80-63b4-11ea-9cca-c859226e5021-min.png" />
             <meta property="og:ttl" content="604800" />
         </Helmet>
     )
