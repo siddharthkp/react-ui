@@ -11,7 +11,7 @@ export const Head = ({title, description}) =>{
 
             {/* twitter */}
             <meta name="twitter:card" content="summary" />
-            <meta name="twitter:site" content="React-ui" />
+            <meta name="twitter:site" content="@React-ui" />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content="https://user-images.githubusercontent.com/1863771/76433547-c0e94e80-63b4-11ea-9cca-c859226e5021.png" />
