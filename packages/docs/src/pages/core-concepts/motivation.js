@@ -123,7 +123,7 @@ const Documentation = () => {
             </Text>
             <Text>
               The smallest space is between a label and input field, 1 unit =
-              8px. To create diffrentiation between multiple fields, we need
+              8px. To create differentiation between multiple fields, we need
               more space, bumping to the next unit of 2 = 16px does the job.
             </Text>
           </Para>
