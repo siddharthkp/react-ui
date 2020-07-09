@@ -2,6 +2,7 @@ import { version } from './package.json'
 
 export * from './src/components/avatar'
 export * from './src/components/button'
+export * from './src/components/badge'
 export * from './src/components/checkbox'
 export * from './src/components/heading'
 export * from './src/components/image'
