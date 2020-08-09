@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link, Text } from 'react-ui'
-import { Page, Para, Example, List, Section } from '../../components'
+import { Link, Text, ThemeProvider } from 'react-ui'
+import dark from 'react-ui/themes/dark'
+import { Page, Para, Example, List, Section, Code } from '../../components'
 
 const Documentation = () => {
   return (
@@ -118,6 +119,44 @@ const Documentation = () => {
           )
         `}</Example.Code>
       </Example>
+
+      <Para>
+        <Text>
+          To start adopting React UI in parts of your application, it's
+          recommended to use the <Code>scoped</Code> prop on{' '}
+          <Code>ThemeProvider</Code>.
+        </Text>
+
+        <Example>
+          <Example.Code>{`
+            <Text>
+              Outside theme provider
+            </Text>
+
+            <ThemeProvider scoped tokens={dark.tokens} components={dark.components}>
+              <Text>
+                Inside theme provider
+              </Text>
+            </ThemeProvider>
+          `}</Example.Code>
+          <Example.Preview direction="vertical">
+            <Text block margin={4}>
+              Outside theme provider
+            </Text>
+
+            <ThemeProvider
+              scoped
+              tokens={dark.tokens}
+              components={dark.components}
+            >
+              <Text block margin={4}>
+                Inside theme provider
+              </Text>
+            </ThemeProvider>
+          </Example.Preview>
+        </Example>
+      </Para>
+
       <Section>
         Learn more about
         <List as="ol">

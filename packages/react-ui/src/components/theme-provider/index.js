@@ -44,15 +44,30 @@ function ThemeProvider({
 
   // Extract the styles that need that to be scoped to the
   // local ThemeProvider
-  const { body, ':root': rootStyles, ...scopedStyles } = components.Global
+  let { html, body, ':root': rootStyles, ...scopedStyles } = components.Global
+  scopedStyles = { ...scopedStyles, ...rootStyles }
 
   const combinedTheme = merge(tokens, { components })
-  if (scoped) {
+
+  if (scoped && (html || body)) {
     let warning =
-      "This ThemeProvider uses scoped styles. 'body' and ':root' styles from your Global component tokens won't be passed to this."
+      'ThemeProvider has the `scoped` prop, `html` and `body` from your Global component tokens will not be applied.'
     warning += `\n\n`
     warning +=
-      'To attach scoped styles to this ThemeProvider, use the root of the Global components token'
+      'To apply "scoped global" styles to root of the ThemeProvider, use the `:root` inside `components.Global`. Example:'
+    warning += `\n\n`
+    warning += `
+  const components = {
+    Global: {
+-    body: {
++    ':root': {
+        background: 'grays.900',
+        color: 'text.body'
+      }
+    }
+  }
+    `
+
     console.warn(warning)
   }
 

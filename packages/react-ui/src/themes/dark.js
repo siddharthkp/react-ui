@@ -188,7 +188,7 @@ tokens.fontSizes.Heading = {
 const components = {
   /** Global */
   Global: {
-    body: {
+    ':root': {
       background: 'grays.900',
       color: 'text.body'
     }

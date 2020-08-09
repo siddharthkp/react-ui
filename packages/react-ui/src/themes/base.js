@@ -115,7 +115,7 @@ tokens.colors.text = {
 const components = {
   /** Global */
   Global: {
-    body: {}
+    ':root': {}
   },
 
   /** Atoms */
