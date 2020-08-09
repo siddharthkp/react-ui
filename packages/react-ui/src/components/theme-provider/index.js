@@ -73,7 +73,7 @@ function ThemeProvider({
           {props.children}
         </>
       ) : (
-        <Element as="div" css={scopedStyles}>
+        <Element as="section" css={scopedStyles}>
           {props.children}
         </Element>
       )}
