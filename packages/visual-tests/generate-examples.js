@@ -34,6 +34,7 @@ componentPages.forEach(page => {
     import { ${Object.keys(reactuiExports)} } from 'react-ui'
     import { tokens, components } from 'react-ui/themes/light'
     import * as base from 'react-ui/themes/base'
+    import * as dark from 'react-ui/themes/dark'
     import '../fonts.css'
 
     export default { title: '${name}' };
