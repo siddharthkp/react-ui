@@ -417,6 +417,20 @@ const Documentation = () => {
             If you'd like to know more about Design Tokens, consider going
             through these resources:
           </Text>
+          <List as="ol">
+            <Text>
+              <Link href="https://www.youtube.com/watch?v=wDBEc3dJJV8">
+                Using Design Tokens with the Lightning Design System
+              </Link>
+              , talk by Jina Anne
+            </Text>
+            <Text>
+              <Link href="https://medium.com/eightshapes-llc/tokens-in-design-systems-25dd82d58421">
+                Design Tokens in Design Systems
+              </Link>
+              , article by Nathan Curtis
+            </Text>
+          </List>
         </Para>
         <List as="ol">
           <Text>
