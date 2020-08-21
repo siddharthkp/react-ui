@@ -87,7 +87,7 @@ It's helpful to read the post about [old and new ideas in React UI](https://reac
 
    To build the components package, run `yarn build` in `packages/react-ui`.
 
-   The documentation site is automatically deployed from master.
+   The documentation site is automatically deployed from the base branch: `main`
 
 <br/>
 
