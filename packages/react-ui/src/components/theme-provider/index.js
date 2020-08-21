@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  Element,
   ThemeProvider as EmotionThemeProvider,
   Global,
   interpolate
@@ -16,6 +17,7 @@ function ThemeProvider({
   tokens = base.tokens,
   components = base.components,
   theme = {}, // as a combined fallback, not recommended but you know
+  scoped, // If styles should be scoped rather than global
   ...props
 }) {
   // system-ui allows you to define scales as arrays,
@@ -40,15 +42,41 @@ function ThemeProvider({
     components.Global
   )
 
+  // Extract the styles that need that to be scoped to the
+  // local ThemeProvider
+  const { body, ':root': rootStyles, ...scopedStyles } = components.Global
+
   const combinedTheme = merge(tokens, { components })
+  if (scoped) {
+    let warning =
+      "This ThemeProvider uses scoped styles. 'body' and ':root' styles from your Global component tokens won't be passed to this."
+    warning += `\n\n`
+    warning +=
+      'To attach scoped styles to this ThemeProvider, use the root of the Global components token'
+    console.warn(warning)
+  }
 
   // pass a hint to element
   combinedTheme.defined = true
 
+  /**
+   *  Apply global styles only if it's the first ThemeProvider.
+   *  Subsequnt ThemeProviders should have scoped: true and will
+   *  get rest of the styled scoped to the root
+   */
+
   return (
     <Provider theme={combinedTheme} {...props}>
-      <Global styles={interpolate(components.Global, combinedTheme)} />
-      {props.children}
+      {!scoped ? (
+        <>
+          <Global styles={interpolate(components.Global, combinedTheme)} />
+          {props.children}
+        </>
+      ) : (
+        <Element as="div" css={scopedStyles}>
+          {props.children}
+        </Element>
+      )}
     </Provider>
   )
 }

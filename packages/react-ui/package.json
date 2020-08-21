@@ -1,6 +1,6 @@
 {
   "name": "react-ui",
-  "version": "1.0.0-beta.26",
+  "version": "1.0.0-beta.28",
   "description": "Customisable components and primitives based on design tokens",
   "homepage": "https://react-ui.dev",
   "source": "index.js",

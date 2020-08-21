@@ -511,7 +511,8 @@ const components = {
   },
   FormLabel: {
     fontSize: 2,
-    marginBottom: 1
+    marginBottom: 1,
+    color: 'text.body'
   },
   FormHeader: {
     color: 'text.body',
