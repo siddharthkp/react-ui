@@ -132,7 +132,7 @@ export function get(key, value, theme, label) {
       value !== '0' &&
       !hasUnits(value) // if it has units, we assume explicit intent
     ) {
-      showPixelFallbackWarning(key, value, scaleName, scale, label)
+      // showPixelFallbackWarning(key, value, scaleName, scale, label)
     } else if (
       scaleName === 'colors' &&
       !['transparent', 'inherit', 'initial'].includes(value) &&
