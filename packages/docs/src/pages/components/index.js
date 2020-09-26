@@ -23,7 +23,8 @@ import {
   Form,
   Paragraph,
   Tabs,
-  Tooltip
+  Tooltip,
+  Slider
 } from 'react-ui'
 import { Page, Example, Section, Paragraph as Para } from '../../components'
 import { Link as RouterLink } from '@reach/router'
@@ -171,6 +172,9 @@ const Documentation = () => {
             <Skeleton />
             <Skeleton width={120} />
           </Stack>
+        </ComponentCard>
+        <ComponentCard name="Slider">
+          <Slider min="1" max="10" defaultValue="2" />
         </ComponentCard>
         <ComponentCard name="Spinner" gap={4}>
           <Spinner size="small" />

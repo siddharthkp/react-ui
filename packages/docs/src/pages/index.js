@@ -12,6 +12,7 @@ export { default as Spinner } from './components/spinner'
 export { default as Switch } from './components/switch'
 export { default as Text } from './components/text'
 export { default as Textarea } from './components/textarea'
+export { default as Slider } from './components/slider'
 
 export { default as ThemeProvider } from './components/theme-provider'
 
