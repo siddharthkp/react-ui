@@ -1,7 +1,7 @@
-import React from 'react'
-import ms from 'pretty-ms'
-import { formatDistance } from 'date-fns'
-import { tokens, components } from 'react-ui/themes/dark'
+import React from "react";
+import ms from "pretty-ms";
+import { formatDistance } from "date-fns";
+import { tokens, components } from "react-ui/themes/dark";
 import {
   ThemeProvider,
   Stack,
@@ -14,25 +14,25 @@ import {
   Grid,
   Column,
   calc
-} from 'react-ui'
+} from "react-ui";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link as RouterLink,
   useParams
-} from 'react-router-dom'
-import Draggable from 'react-draggable'
-import { Spring, config } from 'react-spring/renderprops'
+} from "react-router-dom";
+import Draggable from "react-draggable";
+import { Spring, config } from "react-spring/renderprops";
 
-import './style.css'
-import { podcastIds, getEpisodes, getEpisode } from './api'
+import "./style.css";
+import { podcastIds, getEpisodes, getEpisode } from "./api";
 
 const App = () => {
-  const [episodes, setEpisodes] = React.useState([])
+  const [episodes, setEpisodes] = React.useState([]);
 
   React.useEffect(() => {
-    const promises = podcastIds.map(id => getEpisodes(id))
+    const promises = podcastIds.map(id => getEpisodes(id));
 
     Promise.all(promises).then(_podcasts => {
       const _episodes = _podcasts
@@ -41,14 +41,14 @@ const App = () => {
             return {
               ..._episode,
               podcast
-            }
-          })
+            };
+          });
         })
         .flat()
-        .sort((e1, e2) => e2.pub_date_ms - e1.pub_date_ms)
-      setEpisodes(_episodes)
-    })
-  }, [])
+        .sort((e1, e2) => e2.pub_date_ms - e1.pub_date_ms);
+      setEpisodes(_episodes);
+    });
+  }, []);
 
   return (
     <ThemeProvider tokens={tokens} components={components}>
@@ -69,8 +69,8 @@ const App = () => {
         </Grid>
       </Router>
     </ThemeProvider>
-  )
-}
+  );
+};
 const Header = () => {
   return (
     <Stack
@@ -78,9 +78,9 @@ const Header = () => {
       align="center"
       css={{
         height: 12,
-        borderBottom: '1px solid',
-        borderColor: 'grays.800',
-        color: 'blues.600'
+        borderBottom: "1px solid",
+        borderColor: "grays.800",
+        color: "blues.600"
       }}
     >
       <svg
@@ -98,78 +98,65 @@ const Header = () => {
         <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
       </svg>
     </Stack>
-  )
-}
+  );
+};
 
-const day = 24 * 60 * 60 * 1000
+const day = 24 * 60 * 60 * 1000;
 
-const Feed = ({ episodes: allEpisodes }) => {
-  const episodes = {
-    week: allEpisodes.filter(episode => {
-      return new Date() - episode.pub_date_ms < 8 * day
-    }),
-    month: allEpisodes.filter(episode => {
-      return (
-        new Date() - episode.pub_date_ms < 30 * day &&
-        new Date() - episode.pub_date_ms > 8 * day
-      )
-    })
-  }
-
+const Feed = ({ episodes }) => {
   return (
     <Stack
       direction="vertical"
       gap={8}
       css={{
-        height: calc('100vh - 64px'),
+        height: calc("100vh - 64px"),
         paddingY: 8,
-        overflowY: 'auto',
-        maxWidth: '768px',
-        marginX: 'auto'
+        overflowY: "auto",
+        maxWidth: "768px",
+        marginX: "auto"
       }}
     >
-      <EpisodeList label="This week" episodes={episodes.week} />
-      <EpisodeList label="Earlier this month" episodes={episodes.month} />
+      <EpisodeList episodes={episodes} />
     </Stack>
-  )
-}
+  );
+};
 
 const Player = () => {
-  let { podcastId, episodeId } = useParams()
-  const episode = getEpisode(podcastId, episodeId)
+  let { podcastId, episodeId } = useParams();
+  const episode = getEpisode(podcastId, episodeId);
 
-  const [playing, setPlaying] = React.useState(true)
-  const [currentTime, setCurrentTime] = React.useState(0)
-  const audioRef = React.useRef()
+  const [playing, setPlaying] = React.useState(true);
+  const [currentTime, setCurrentTime] = React.useState(0);
+  const audioRef = React.useRef();
 
   React.useEffect(() => {
-    if (playing) audioRef.current.play()
-    else audioRef.current.pause()
-  }, [playing])
+    if (playing) audioRef.current.play();
+    else audioRef.current.pause();
+  }, [playing]);
 
   React.useEffect(() => {
     let timeout = window.setInterval(() => {
-      if (audioRef.current) setCurrentTime(audioRef.current.currentTime)
-    }, 1000)
+      if (audioRef.current) setCurrentTime(audioRef.current.currentTime);
+    }, 1000);
 
-    return () => window.clearInterval(timeout)
-  }, [audioRef])
+    return () => window.clearInterval(timeout);
+  }, [audioRef]);
 
-  const [dragging, setDragging] = React.useState(false)
+  const [dragging, setDragging] = React.useState(false);
 
   const onDrag = (event, ui) => {
-    setDragging(true)
-    setY(ui.y)
-  }
+    setDragging(true);
+    setY(ui.y);
+  };
 
-  const [y, setY] = React.useState(0)
+  const [y, setY] = React.useState(0);
 
   const onDragStop = (event, ui) => {
-    setDragging(false)
+    setDragging(false);
 
-    if (y > 300) setY(360)
-    else setY(0)
-  }
+    if (y > 300) setY(360);
+    else setY(0);
+  };
 
   return (
     <Spring
@@ -181,17 +168,17 @@ const Player = () => {
           <Element
             id="backdrop"
             css={{
-              position: 'absolute',
+              position: "absolute",
               top: 0,
               bottom: 0,
               left: 0,
               right: 0,
-              backgroundColor: 'black',
+              backgroundColor: "black",
               opacity: (1 - spring.y / 360) * 0.6,
               display: [
-                spring.y === 360 ? 'none' : 'block',
-                spring.y === 360 ? 'none' : 'block',
-                'none'
+                spring.y === 360 ? "none" : "block",
+                spring.y === 360 ? "none" : "block",
+                "none"
               ]
             }}
             onClick={() => setY(360)}
@@ -206,13 +193,13 @@ const Player = () => {
             <Element
               key={episodeId}
               css={{
-                position: ['fixed', 'fixed', 'relative'],
+                position: ["fixed", "fixed", "relative"],
                 bottom: 0,
-                width: '100%',
-                backgroundColor: 'grays.900',
-                borderTop: '1px solid',
-                borderColor: ['grays.800', 'grays.800', 'transparent'],
-                height: '420px'
+                width: "100%",
+                backgroundColor: "grays.900",
+                borderTop: "1px solid",
+                borderColor: ["grays.800", "grays.800", "transparent"],
+                height: "420px"
               }}
             >
               <audio ref={audioRef} autoPlay>
@@ -233,10 +220,10 @@ const Player = () => {
               />
               <SmallPlayer
                 css={{
-                  position: 'absolute',
+                  position: "absolute",
                   top: 0,
-                  width: '100%',
-                  cursor: 'pointer',
+                  width: "100%",
+                  cursor: "pointer",
                   opacity: (spring.y - 320) / 40
                 }}
                 onClick={() => setY(0)}
@@ -253,8 +240,8 @@ const Player = () => {
         </>
       )}
     </Spring>
-  )
-}
+  );
+};
 
 const SmallPlayer = ({
   setPlaying,
@@ -274,18 +261,18 @@ const SmallPlayer = ({
       <Button
         variant="link"
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: 0,
           size: 15,
-          backgroundColor: '#000000cc',
-          color: playing ? 'white' : 'blues.400'
+          backgroundColor: "#000000cc",
+          color: playing ? "white" : "blues.400"
         }}
         css={{
-          ':focus': {
-            outline: 'none'
+          ":focus": {
+            outline: "none"
           },
-          ':active > svg': {
-            transform: 'scale(0.95)'
+          ":active > svg": {
+            transform: "scale(0.95)"
           }
         }}
         onClick={() => setPlaying(!playing)}
@@ -299,7 +286,7 @@ const SmallPlayer = ({
       <Stack
         justify="space-between"
         align="center"
-        css={{ width: '100%' }}
+        css={{ width: "100%" }}
         marginRight={2}
       >
         <Text>{episode.title}</Text>
@@ -307,13 +294,13 @@ const SmallPlayer = ({
           {audioRef.current && audioRef.current.readyState === 4
             ? ms((audioRef.current.duration - currentTime) * 1000, {
                 colonNotation: true
-              }).split('.')[0]
+              }).split(".")[0]
             : null}
         </Text>
       </Stack>
     </Stack>
-  )
-}
+  );
+};
 
 const BigPlayer = ({
   setPlaying,
@@ -329,25 +316,25 @@ const BigPlayer = ({
       alt="Epsiode thumbnail"
       css={{
         borderRadius: 3,
-        size: '250px'
+        size: "250px"
       }}
     />
     <Button
       variant="link"
       style={{
-        position: 'absolute',
+        position: "absolute",
         top: 10,
         borderRadius: 3,
-        size: '250px',
-        backgroundColor: '#000000cc',
-        color: playing ? 'white' : 'blues.400'
+        size: "250px",
+        backgroundColor: "#000000cc",
+        color: playing ? "white" : "blues.400"
       }}
       css={{
-        ':focus': {
-          outline: 'none'
+        ":focus": {
+          outline: "none"
         },
-        ':active > svg': {
-          transform: 'scale(0.95)'
+        ":active > svg": {
+          transform: "scale(0.95)"
         }
       }}
       onClick={() => setPlaying(!playing)}
@@ -368,31 +355,28 @@ const BigPlayer = ({
         {audioRef.current && audioRef.current.readyState === 4
           ? ms((audioRef.current.duration - currentTime) * 1000, {
               colonNotation: true
-            }).split('.')[0]
-          : ':'}
+            }).split(".")[0]
+          : ":"}
       </Text>
     </Stack>
   </Stack>
-)
+);
 
-const EpisodeList = ({ label, episodes }) => (
+const EpisodeList = ({ episodes }) => (
   <Stack as="ul" direction="vertical" gap={6} css={{ paddingLeft: 0 }}>
-    <Text variant="subtle" size={3} marginLeft={6}>
-      {label}
-    </Text>
     {episodes.map(episode => (
       <Episode key={episode.id} episode={episode} />
     ))}
   </Stack>
-)
+);
 
 const Episode = ({ episode }) => (
   <Stack as="li" align="center" gap={4} css={{ paddingX: 6 }}>
     <Avatar size="large" src={episode.thumbnail} alt="podcast thumbnail" />
-    <Stack direction="vertical" gap={1} css={{ width: calc('100% - 88px') }}>
+    <Stack direction="vertical" gap={1} css={{ width: calc("100% - 88px") }}>
       <Link
         as={RouterLink}
-        to={'/podcast/' + episode.podcast.id + '/episode/' + episode.id}
+        to={"/podcast/" + episode.podcast.id + "/episode/" + episode.id}
         variant="body"
         size={4}
         maxWidth="100%"
@@ -412,13 +396,13 @@ const Episode = ({ episode }) => (
         </Text>
       </Stack>
       <Text variant="subtle" size={3} maxWidth="100%">
-        {episode.description.replace(/<\/?[^>]+(>|$)/g, '')}
+        {episode.description.replace(/<\/?[^>]+(>|$)/g, "")}
       </Text>
     </Stack>
   </Stack>
-)
+);
 
-export default App
+export default App;
 
 const PlayIcon = props => (
   <svg
@@ -436,7 +420,7 @@ const PlayIcon = props => (
     <circle cx="12" cy="12" r="10"></circle>
     <polygon points="10 8 16 12 10 16 10 8"></polygon>
   </svg>
-)
+);
 
 const PauseIcon = props => (
   <svg
@@ -455,4 +439,4 @@ const PauseIcon = props => (
     <line x1="10" y1="15" x2="10" y2="9"></line>
     <line x1="14" y1="15" x2="14" y2="9"></line>
   </svg>
-)
+);
