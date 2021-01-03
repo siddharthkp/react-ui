@@ -283,6 +283,31 @@ const components = {
       }
     }
   },
+  Badge: {
+    fontSize: 2,
+    borderRadius: 3,
+    paddingX: 4,
+    border: '1px solid',
+
+    sizes: { small: 6, medium: 8, large: 10 },
+    variants: {
+      primary: {
+        backgroundColor: 'greens.700',
+        color: 'white',
+        borderColor: 'greens.700'
+      },
+      secondary: {
+        backgroundColor: 'grays.800',
+        color: 'text.body',
+        borderColor: 'grays.800'
+      },
+      destructive: {
+        backgroundColor: 'reds.600',
+        color: 'white',
+        borderColor: 'reds.600'
+      }
+    }
+  },
   Checkbox: {
     border: '1px solid'
   },

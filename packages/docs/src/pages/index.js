@@ -1,6 +1,7 @@
 export { default as Avatar } from './components/avatar'
 export { default as Checkbox } from './components/checkbox'
 export { default as Button } from './components/button'
+export { default as Badge } from './components/badge'
 export { default as Element } from './components/element'
 export { default as Heading } from './components/heading'
 export { default as Image } from './components/image'
