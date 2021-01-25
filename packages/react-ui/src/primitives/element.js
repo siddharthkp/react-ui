@@ -35,7 +35,7 @@ function Element(
   ref
 ) {
   // warn if theme provider is not used
-  if (!theme.defined) {
+  if (!theme.defined && process.env.NODE_ENV !== 'production') {
     let warning = `Missing ThemeProvider. Please wrap your application in a ThemeProvider from react-ui`
     warning += `\n\n`
     warning += `Refer to the documentation at: /components/ThemeProvider`

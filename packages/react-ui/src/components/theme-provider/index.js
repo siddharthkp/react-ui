@@ -122,10 +122,12 @@ const complainAboutUnits = tokens => {
   })
   if (complainAbout.length) {
     const joined = complainAbout.join(', ')
-    let warning = `Scale values should have units. Found values without units in ${joined}.`
-    warning += `\n\n`
-    warning += `Example: Instead of 4, use 4px or 0.25rem`
-    console.warn(warning)
+    if (process.env.NODE_ENV !== 'production') {
+      let warning = `Scale values should have units. Found values without units in ${joined}.`
+      warning += `\n\n`
+      warning += `Example: Instead of 4, use 4px or 0.25rem`
+      console.warn(warning)
+    }
   }
 }
 

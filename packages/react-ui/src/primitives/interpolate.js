@@ -95,7 +95,7 @@ function replaceShortcuts(styles) {
 }
 
 function interpolateFactory(styles) {
-  return function(theme) {
+  return function (theme) {
     return interpolate(styles, theme)
   }
 }
@@ -173,26 +173,28 @@ const showPixelFallbackWarning = (key, value, scaleName, scale, label) => {
   const fallbacksOnScale = getFallbacksOnScale(scaleName, scale, fallback)
   const keysOnScale = getKeysOnScale(scale).join(', ')
 
-  let warning = `${value} is not a valid token for ${key} in ${label} component, applying ${fallback} as fallback.`
-  warning += ` `
-  warning += `Please use one of the keys on the '${scaleName}' scale.`
-  warning += `\n\n`
+  if (process.env.NODE_ENV !== 'production') {
+    let warning = `${value} is not a valid token for ${key} in ${label} component, applying ${fallback} as fallback.`
+    warning += ` `
+    warning += `Please use one of the keys on the '${scaleName}' scale.`
+    warning += `\n\n`
 
-  if (fallbacksOnScale.length) {
-    if (fallbacksOnScale.length === 1) {
-      const expectedValue = fallbacksOnScale[0]
-      warning += `${value}px has the index ${expectedValue} on the scale. You can set the value for ${key} to ${expectedValue} to hide this warning.`
+    if (fallbacksOnScale.length) {
+      if (fallbacksOnScale.length === 1) {
+        const expectedValue = fallbacksOnScale[0]
+        warning += `${value}px has the index ${expectedValue} on the scale. You can set the value for ${key} to ${expectedValue} to hide this warning.`
+      } else {
+        const expectedValues = fallbacksOnScale.join(', ')
+        warning += `${value}px is on your scale, you can set the value for ${key} to one of { ${expectedValues} } to hide this warning.`
+      }
+      warning += `\n\n`
     } else {
-      const expectedValues = fallbacksOnScale.join(', ')
-      warning += `${value}px is on your scale, you can set the value for ${key} to one of { ${expectedValues} } to hide this warning.`
+      warning += `If you are trying to use a custom value not on the scale, you can hide this message by specifying the unit, example: ${value}px or ${value}em`
+      warning += `\n\n`
     }
-    warning += `\n\n`
-  } else {
-    warning += `If you are trying to use a custom value not on the scale, you can hide this message by specifying the unit, example: ${value}px or ${value}em`
-    warning += `\n\n`
-  }
 
-  console.warn(warning)
+    console.warn(warning)
+  }
 }
 
 const showColorWarning = (key, value, scaleName, scale, label) => {
@@ -202,16 +204,28 @@ const showColorWarning = (key, value, scaleName, scale, label) => {
   const fallback = value
   const keysOnScale = getKeysOnScale(scale)
 
-  let warning = `${value} is not a valid token for ${key} in ${label} component, applying "${key}: ${fallback}" as fallback.`
-  warning += ` `
-  warning += `Please use one of the keys on the '${scaleName}' scale.`
-  warning += `\n\n`
-  warning += `If you are trying to use a custom value not on the scale, you can hide this message by using the hex code for the color, example: #38C172`
-  warning += `\n\n`
+  if (process.env.NODE_ENV !== 'production') {
+    let warning = `${value} is not a valid token for ${key} in ${label} component, applying ${fallback} as fallback.`
+    warning += ` `
+    warning += `Please use one of the keys on the '${scaleName}' scale.`
+    warning += `\n\n`
 
-  // find matching fallbacks in colors to suggest
+    if (fallbacksOnScale.length) {
+      if (fallbacksOnScale.length === 1) {
+        const expectedValue = fallbacksOnScale[0]
+        warning += `${value}px has the index ${expectedValue} on the scale. You can set the value for ${key} to ${expectedValue} to hide this warning.`
+      } else {
+        const expectedValues = fallbacksOnScale.join(', ')
+        warning += `${value}px is on your scale, you can set the value for ${key} to one of { ${expectedValues} } to hide this warning.`
+      }
+      warning += `\n\n`
+    } else {
+      warning += `If you are trying to use a custom value not on the scale, you can hide this message by specifying the unit, example: ${value}px or ${value}em`
+      warning += `\n\n`
+    }
 
-  console.warn(warning)
+    console.warn(warning)
+  }
 }
 
 export function getKeysOnScale(scale) {
