@@ -13,6 +13,7 @@ export * from './src/components/spinner'
 export * from './src/components/switch'
 export * from './src/components/text'
 export * from './src/components/textarea'
+export * from './src/components/slider'
 
 export * from './src/components/grid'
 export * from './src/components/stack'

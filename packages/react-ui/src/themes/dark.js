@@ -570,6 +570,12 @@ const components = {
     paddingY: 1,
     fontSize: 2,
     lineHeight: 1
+  },
+  Slider: {
+    colors: {
+      backgroundTrack: 'grays.800',
+      backgroundThumb: 'greens.600'
+    },
   }
 }
 
