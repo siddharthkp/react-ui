@@ -34,6 +34,12 @@ const Documentation = () => {
               name: '+',
               type: 'props of Input',
               description: ''
+            },
+            {
+              name: 'fullWidth',
+              type: 'boolean',
+              description: 'Make textarea take 100% width of the container',
+              default: 'false'
             }
           ]}
         />
@@ -57,6 +63,17 @@ const Documentation = () => {
             <Textarea disabled placeholder="Please enter your address" />
             <Textarea invalid placeholder="Please enter your address" />
           `}</Example.Code>
+        </Example>
+
+        <Example title="Full width">
+          <Example.Preview>
+            <Textarea placeholder="Please enter your address" fullWidth />
+          </Example.Preview>
+          <Example.Code>
+            {`
+            <Textarea placeholder="Please enter your address" fullWidth />
+          `}
+          </Example.Code>
         </Example>
       </Section>
 

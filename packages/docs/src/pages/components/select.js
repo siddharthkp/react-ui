@@ -36,6 +36,12 @@ const Documentation = () => {
               name: '+',
               type: 'props of Input',
               description: ''
+            },
+            {
+              name: 'fullWidth',
+              type: 'boolean',
+              description: 'Make select take 100% width of the container',
+              default: 'false'
             }
           ]}
         />
@@ -88,6 +94,27 @@ const Documentation = () => {
             </Select>
           `}</Example.Code>
         </Example>
+
+        <Example title="Full width">
+        <Example.Preview>
+          <Select fullWidth>
+            <option>Please select an option</option>
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </Select>
+        </Example.Preview>
+        <Example.Code>
+          {`
+            <Select fullWidth>
+              <option>Please select an option</option>
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </Select>
+          `}
+        </Example.Code>
+      </Example>
       </Section>
 
       <Section title="Customisation">

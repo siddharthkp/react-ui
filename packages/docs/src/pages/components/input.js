@@ -28,6 +28,12 @@ const Documentation = () => {
               description:
                 'type of avatar, example: text, password, number, etc.',
               default: 'text'
+            },
+            {
+              name: 'fullWidth',
+              type: 'boolean',
+              description: 'Make input take 100% width of the container',
+              default: 'false'
             }
           ]}
         />
@@ -53,6 +59,17 @@ const Documentation = () => {
             <Input type="text" disabled placeholder="Please enter your name" />
             <Input type="text" invalid placeholder="Please enter your name" />
           `}</Example.Code>
+        </Example>
+
+        <Example title="Full width">
+        <Example.Preview>
+            <Input type="text" placeholder="Please enter your name" fullWidth />
+          </Example.Preview>
+          <Example.Code>
+            {`
+            <Input type="text" placeholder="Please enter your name" fullWidth />
+          `}
+          </Example.Code>
         </Example>
       </Section>
 
