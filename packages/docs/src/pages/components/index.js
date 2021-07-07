@@ -8,6 +8,7 @@ import {
   Heading,
   Input,
   Link,
+  Radio,
   Select,
   Skeleton,
   Spinner,
@@ -106,6 +107,11 @@ const Documentation = () => {
             Reset
           </Button>
         </ComponentCard>
+        <ComponentCard name="Checkbox" gap={4}>
+          <Checkbox label="Normal" />
+          <Checkbox label="Disabled" disabled />
+          <Checkbox label="Default Checked" checked />
+        </ComponentCard>
         <ComponentCard name="Heading" direction="vertical" gap={4}>
           <Heading size="page">Page heading</Heading>
           <Heading size="section" css={{ display: ['none', 'flex', 'flex'] }}>
@@ -146,6 +152,11 @@ const Documentation = () => {
           >
             Open GitHub repository
           </Link>
+        </ComponentCard>
+        <ComponentCard name="Radio" gap={4}>
+          <Radio label="Normal" />
+          <Radio disabled label="Disabled" />
+          <Radio checked label="Default Select" />
         </ComponentCard>
         <ComponentCard name="Select">
           <Stack direction="vertical" gap={2} css={{ width: '280px' }}>
