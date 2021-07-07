@@ -30,11 +30,25 @@ import './style.css'
 
 const themes = { base, light, dark }
 
+const useThemeState = (defaultValue, key) => {
+  const [value, setValue] = React.useState(() => {
+    const theme = window.localStorage.getItem(key)
+
+    return theme !== null ? JSON.parse(theme) : defaultValue
+  })
+
+  React.useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(value))
+  }, [key, value])
+
+  return [value, setValue]
+}
+
 const App = () => {
   const [menuVisible, setMenuVisibility] = React.useState(false)
   const [locationKey, setLocationKey] = React.useState()
 
-  const [theme, setTheme] = React.useState('light')
+  const [theme, setTheme] = useThemeState('light', 'theme')
 
   document.querySelector('#favicon').href = `favicon-${theme}.png`
 
