@@ -8,6 +8,7 @@ import {
   Heading,
   Input,
   Link,
+  Radio,
   Select,
   Skeleton,
   Spinner,
@@ -146,6 +147,11 @@ const Documentation = () => {
           >
             Open GitHub repository
           </Link>
+        </ComponentCard>
+        <ComponentCard name="Radio" gap={4}>
+          <Radio label="Normal" />
+          <Radio disabled label="Disabled" />
+          <Radio checked label="Default Select" />
         </ComponentCard>
         <ComponentCard name="Select">
           <Stack direction="vertical" gap={2} css={{ width: '280px' }}>
