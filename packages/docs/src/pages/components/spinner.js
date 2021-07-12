@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider, Spinner, Link, Text } from 'react-ui'
+import { ThemeProvider, Spinner, Link, Text, Stack } from 'react-ui'
 import { Page, Props, Example, Section, Table, Para } from '../../components'
 
 const Documentation = () => {
@@ -98,7 +98,7 @@ const Documentation = () => {
             <Spinner size="large" />
           </ThemeProvider>
         `}</Example.Code>
-          <Example.Preview align="center" gap={4}>
+          <Example.Preview>
             <ThemeProvider
               components={{
                 Spinner: {
@@ -108,8 +108,10 @@ const Documentation = () => {
                 }
               }}
             >
-              <Spinner size="medium" />
-              <Spinner size="large" />
+              <Stack align="center" gap={4}>
+                <Spinner size="medium" />
+                <Spinner size="large" />
+              </Stack>
             </ThemeProvider>
           </Example.Preview>
         </Example>

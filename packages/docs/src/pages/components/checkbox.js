@@ -1,6 +1,6 @@
 import React from 'react'
 import { Checkbox } from 'react-ui'
-import { Table, Page, Section, Props, Badge, Example } from '../../components'
+import { Page, Section, Props, Badge, Example } from '../../components'
 
 const Documentation = () => {
   return (

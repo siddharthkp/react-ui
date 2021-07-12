@@ -1,12 +1,14 @@
 import React from 'react'
-import { ThemeProvider, Link, Text } from 'react-ui'
+import { ThemeProvider, Link, Text, Stack } from 'react-ui'
 import { Page, Props, Example, Section, Table, Para } from '../../components'
 
 const Documentation = () => {
   return (
     <Page title="Link" tagline="Use Links to connect pages with each other">
       <Para>
-        Extends <Link href="/components/Text">Text</Link>.
+        <Text>
+          Extends <Link href="/components/Text">Text</Link>.
+        </Text>
       </Para>
       <Example>
         <Example.Preview>
@@ -157,7 +159,7 @@ const Documentation = () => {
             </Link>
           </ThemeProvider>
         `}</Example.Code>
-          <Example.Preview direction="vertical" gap={2}>
+          <Example.Preview direction="vertical">
             <ThemeProvider
               components={{
                 Link: {
@@ -175,15 +177,14 @@ const Documentation = () => {
                 }
               }}
             >
-              <span>
+              <Stack direction="vertical" gap={2}>
                 <Link
                   href="https://github.com/siddharthkp/react-ui"
                   target="_blank"
                 >
                   Open GitHub repository
                 </Link>
-              </span>
-              <span>
+
                 <Link
                   variant="subtle"
                   href="https://github.com/siddharthkp/react-ui"
@@ -191,7 +192,7 @@ const Documentation = () => {
                 >
                   Open GitHub repository
                 </Link>
-              </span>
+              </Stack>
             </ThemeProvider>
           </Example.Preview>
         </Example>

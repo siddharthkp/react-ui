@@ -7,6 +7,7 @@ const shine = keyframes`
 
 export const styles = {
   Skeleton: {
+    display: 'inline-block',
     backgroundSize: '200% 200%',
     animationName: `${shine}`,
     animationIterationCount: 'infinite',

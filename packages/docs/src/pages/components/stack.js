@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avatar, Link, Stack, Text, Input, Button } from 'react-ui'
-import { Page, Props, Example, Section, Badge } from '../../components'
+import { Page, Props, Para, Example, Section, Badge } from '../../components'
 
 const Documentation = () => {
   return (
@@ -195,6 +195,42 @@ const Documentation = () => {
             </Stack>
             <Stack align="flex-end" css={{ height: 12, backgroundColor: 'blues.100' }}>
               content
+            </Stack>
+          `}</Example.Code>
+        </Example>
+
+        <Para>
+          <Text>
+            Based on the{' '}
+            <Link href="https://www.w3.org/TR/css-align-3/#gap-shorthand">
+              working draft for flex gap
+            </Link>
+            , margin on the child element is added to the gap.
+          </Text>
+        </Para>
+        <Example title="Additive margins">
+          <Example.Preview direction="vertical" gap={10}>
+            <Stack gap={2}>
+              <Avatar
+                size="small"
+                src="https://react-ui.dev/favicon-light.png"
+              />
+              <Avatar
+                size="small"
+                marginLeft={2}
+                src="https://react-ui.dev/favicon-light.png"
+              />
+              <Avatar
+                size="small"
+                src="https://react-ui.dev/favicon-light.png"
+              />
+            </Stack>
+          </Example.Preview>
+          <Example.Code>{`
+            <Stack gap={2}>
+              <Avatar size="small" src="https://react-ui.dev/favicon-light.png" />
+              <Avatar marginLeft={2} size="small" src="https://react-ui.dev/favicon-light.png" />
+              <Avatar size="small" src="https://react-ui.dev/favicon-light.png" />
             </Stack>
           `}</Example.Code>
         </Example>

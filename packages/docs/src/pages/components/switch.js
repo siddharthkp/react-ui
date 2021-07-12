@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider, Switch, Link, Text } from 'react-ui'
+import { ThemeProvider, Switch, Link, Text, Stack } from 'react-ui'
 import { Page, Props, Example, Section, Table, Para } from '../../components'
 
 const Documentation = () => {
@@ -123,7 +123,7 @@ const Documentation = () => {
             <Switch defaultValue={true} />
           </ThemeProvider>
         `}</Example.Code>
-          <Example.Preview direction="vertical" gap={2}>
+          <Example.Preview>
             <ThemeProvider
               components={{
                 Switch: {
@@ -134,8 +134,10 @@ const Documentation = () => {
                 }
               }}
             >
-              <Switch />
-              <Switch defaultValue={true} />
+              <Stack direction="vertical" gap={2}>
+                <Switch />
+                <Switch defaultValue={true} />
+              </Stack>
             </ThemeProvider>
           </Example.Preview>
         </Example>
