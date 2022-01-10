@@ -20,9 +20,9 @@
     "prismjs": "^1.19.0",
     "react": "^16.8.9",
     "react-dom": "^16.8.9",
-    "react-scripts": "^3.4.0",
+    "react-scripts": "^4.0.3",
     "react-twitter-embed": "^3.0.3",
-    "react-ui": "1.0.0-beta.31",
+    "react-ui": "1.0.0-beta.32",
     "react-ui-stats": "0.0.1"
   },
   "author": "siddharthkp",

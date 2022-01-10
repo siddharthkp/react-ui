@@ -8,13 +8,13 @@
     "generate": "node ./generate-examples.js",
     "storybook": "start-storybook",
     "build-storybook": "build-storybook",
-    "chromatic": "if-env TRAVIS_BRANCH=master && yarn chromatic:master || yarn chromatic:branch",
-    "chromatic:master": "npx chromatic --exit-zero-on-changes --auto-accept-changes --project-token=frldd3w8qk6",
+    "chromatic": "if-env TRAVIS_BRANCH=master && yarn chromatic:main || yarn chromatic:branch",
+    "chromatic:main": "npx chromatic --exit-zero-on-changes --auto-accept-changes --project-token=frldd3w8qk6",
     "chromatic:branch": "npx chromatic --exit-zero-on-changes --project-token=frldd3w8qk6"
   },
   "license": "MIT",
   "dependencies": {
-    "react-ui": "1.0.0-beta.31"
+    "react-ui": "1.0.0-beta.32"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
