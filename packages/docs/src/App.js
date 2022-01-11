@@ -34,23 +34,14 @@ const App = () => {
   const [menuVisible, setMenuVisibility] = React.useState(false)
   const [locationKey, setLocationKey] = React.useState()
 
-  const [theme, setTheme] = React.useState('light')
+  const defaultTheme = window.localStorage.getItem('theme') || 'light'
+  const [theme, setTheme] = React.useState(defaultTheme)
 
   document.querySelector('#favicon').href = `favicon-${theme}.png`
 
   React.useEffect(() => {
-    const themeVal = window.localStorage.getItem("theme")
-    if(themeVal){
-      setThemeValue(themeVal)
-    }else{
-      setThemeValue('light')
-    }
-  },[])
-
-  const setThemeValue = theme => {
-    setTheme(theme)
     window.localStorage.setItem("theme", theme);
-  }
+  },[theme])
 
   React.useEffect(() => {
     setMenuVisibility(false)
@@ -99,9 +90,9 @@ const App = () => {
               {chevron}
             </Menu.Button>
             <Menu.List>
-              <Menu.Item onSelect={_ => setThemeValue('base')}>Base</Menu.Item>
-              <Menu.Item onSelect={_ => setThemeValue('light')}>Light</Menu.Item>
-              <Menu.Item onSelect={_ => setThemeValue('dark')}>Dark</Menu.Item>
+              <Menu.Item onSelect={_ => setTheme('base')}>Base</Menu.Item>
+              <Menu.Item onSelect={_ => setTheme('light')}>Light</Menu.Item>
+              <Menu.Item onSelect={_ => setTheme('dark')}>Dark</Menu.Item>
             </Menu.List>
           </Menu>
         </div>
