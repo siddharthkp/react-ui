@@ -34,9 +34,14 @@ const App = () => {
   const [menuVisible, setMenuVisibility] = React.useState(false)
   const [locationKey, setLocationKey] = React.useState()
 
-  const [theme, setTheme] = React.useState('light')
+  const defaultTheme = window.localStorage.getItem('theme') || 'light'
+  const [theme, setTheme] = React.useState(defaultTheme)
 
   document.querySelector('#favicon').href = `favicon-${theme}.png`
+
+  React.useEffect(() => {
+    window.localStorage.setItem("theme", theme);
+  },[theme])
 
   React.useEffect(() => {
     setMenuVisibility(false)
