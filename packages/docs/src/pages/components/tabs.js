@@ -102,7 +102,7 @@ const Documentation = () => {
             <Tabs>
               <Tabs.Tab
                 label={
-                  <Stack as="span" inline align="center" gap={2}>
+                  <Stack inline align="center" gap={2}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"

@@ -9,7 +9,9 @@ const Documentation = () => {
       tagline="Use Textarea to request a lot of information from user."
     >
       <Para>
-        Extends <Link href="/components/Input">Input</Link>.
+        <Text>
+          Extends <Link href="/components/Input">Input</Link>.
+        </Text>
       </Para>
       <Example>
         <Example.Preview>
@@ -41,9 +43,11 @@ const Documentation = () => {
 
       <Section title="Examples">
         <Para>
-          Texarea can be used with{' '}
-          <Link href="/components/Form">Form.Field</Link> which adds accessible
-          labels and error states.
+          <Text>
+            Texarea can be used with{' '}
+            <Link href="/components/Form">Form.Field</Link> which adds
+            accessible labels and error states.
+          </Text>
         </Para>
 
         <Example>

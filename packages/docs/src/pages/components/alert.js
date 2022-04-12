@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ThemeProvider, Alert, Link, Text } from 'react-ui'
+import { ThemeProvider, Alert, Link, Text, Stack } from 'react-ui'
 
 import {
   Page,
@@ -126,7 +126,7 @@ const Documentation = () => {
             <Alert variant="success">You did the thing!</Alert>
           </ThemeProvider>
         `}</Example.Code>
-          <Example.Preview direction="vertical" gap={4}>
+          <Example.Preview direction="vertical">
             <ThemeProvider
               components={{
                 Alert: {
@@ -149,8 +149,10 @@ const Documentation = () => {
                 }
               }}
             >
-              <Alert variant="warning">You should pay attention</Alert>
-              <Alert variant="success">You did the thing!</Alert>
+              <Stack direction="vertical" gap={4}>
+                <Alert variant="warning">You should pay attention</Alert>
+                <Alert variant="success">You did the thing!</Alert>
+              </Stack>
             </ThemeProvider>
           </Example.Preview>
         </Example>
