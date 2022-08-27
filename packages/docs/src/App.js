@@ -218,12 +218,13 @@ const ComponentNav = () => {
       <NavSection
         items={[
           { title: 'Avatar', path: 'Avatar' },
-          { title: 'Checkbox', path: 'Checkbox' },
           { title: 'Button', path: 'Button' },
+          { title: 'Checkbox', path: 'Checkbox' },
           { title: 'Heading', path: 'Heading' },
           { title: 'Image', path: 'Image' },
           { title: 'Input', path: 'Input' },
           { title: 'Link', path: 'Link' },
+          { title: 'Radio', path: 'Radio' },
           { title: 'Select', path: 'Select' },
           { title: 'Skeleton', path: 'Skeleton' },
           { title: 'Spinner', path: 'Spinner' },
