@@ -4,12 +4,14 @@ import { styles } from './textarea.styles'
 import { Input } from '../input'
 import { merge } from '../../utils'
 
-const Textarea = React.forwardRef(function Textarea({ css, ...props }, ref) {
+const Textarea = React.forwardRef(function Textarea({ fullWidth, css, ...props }, ref) {
+  let width = fullWidth ? '100%' : 'auto'
+
   return (
     <Input
       ref={ref}
       as="textarea"
-      css={merge(styles.Textarea, css)}
+      css={merge(styles.Textarea, { width }, css)}
       component="Textarea"
       {...props}
     />
@@ -17,6 +19,7 @@ const Textarea = React.forwardRef(function Textarea({ css, ...props }, ref) {
 })
 
 Textarea.propTypes = {
+  fullWidth: PropTypes.bool,
   rows: PropTypes.number
 }
 
