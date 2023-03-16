@@ -20,7 +20,10 @@ Avatar.propTypes = {
   /** Image url for avatar */
   src: PropTypes.string.isRequired,
   /** size of avatar */
-  size: PropTypes.string
+  size: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ])
 }
 
 Avatar.defaultProps = {}
